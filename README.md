@@ -116,11 +116,24 @@ RELEASE_HANDLER
 Остальные примеры смотри в **examples**!
 ```cpp
 // Пример с прямой работой библиотеки
+
+// Опциональные дефайн-настройки (показаны по умолчанию)
+//#define EB_FAST 30     // таймаут быстрого поворота, мс
+//#define EB_DEB 80      // дебаунс кнопки, мс
+//#define EB_HOLD 1000   // таймаут удержания кнопки, мс
+//#define EB_STEP 500    // период срабатывания степ, мс
+//#define EB_CLICK 400   // таймаут накликивания, мс
+
 // подключение - только PULL-UP, внешний или внутренний!
 // для изменения направления энкодера поменяй A и B при инициализации
 
 #include <EncButton.h>
-EncButton<EB_TICK, 2, 3, 4> enc;   // энкодер с кнопкой <A, B, KEY>
+//EncButton<EB_TICK, 2, 3, 4> enc;        // энкодер с кнопкой <A, B, KEY>
+//EncButton<EB_TICK, 2, 3> enc;           // просто энкодер <A, B>
+//EncButton<EB_TICK, 4> enc(INPUT_PULLUP);  // просто кнопка <KEY>
+EncButton<EB_TICK, 3> enc(INPUT_PULLUP);    // просто кнопка <KEY>
+// по умолчанию пины настроены в INPUT
+// если аппаратной подтяжки к VCC нет - можно инициализировать ...enc(INPUT_PULLUP)
 
 void setup() {
   Serial.begin(9600);
@@ -152,6 +165,10 @@ void loop() {
   if (enc.isHolded()) Serial.println("holded");
   if (enc.isStep()) Serial.println("step");
 
+  if (enc.isPress()) Serial.println("press");
+  if (enc.isClick()) Serial.println("click");
+  if (enc.isRelease()) Serial.println("release");
+
   if (enc.hasClicks(1)) Serial.println("1 click");
   if (enc.hasClicks(2)) Serial.println("2 click");
   if (enc.hasClicks(3)) Serial.println("3 click");
@@ -160,7 +177,6 @@ void loop() {
   if (enc.hasClicks()) Serial.println(enc.clicks);
   //if (enc.isHold()) Serial.println("hold");
 }
-
 ```
 
 <a id="versions"></a>
