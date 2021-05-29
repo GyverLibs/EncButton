@@ -70,6 +70,8 @@ bool isFast();          // быстрый
 int counter;            // доступ к счётчику энкодера
 
 // обработка кнопки
+bool isPress();         // нажатие
+bool isRelease();       // отпускание
 bool isClick();         // клик
 bool isHolded();        // было удержание (однократное срабатывание)
 bool isHold();          // удерживается (постоянное срабатывание)
@@ -96,6 +98,8 @@ HOLDED_HANDLER
 STEP_HANDLER
 HOLD_HANDLER
 CLICKS_HANDLER
+PRESS_HANDLER
+RELEASE_HANDLER
 // СМОТРИ ПРИМЕР
 
 // дефайны настроек (дефайнить ПЕРЕД ПОДКЛЮЧЕНИЕМ БИБЛИОТЕКИ)
