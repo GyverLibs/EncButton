@@ -11,9 +11,10 @@
 // для изменения направления энкодера поменяй A и B при инициализации
 
 #include <EncButton.h>
-EncButton<EB_TICK, 2, 3, 4> enc;   // энкодер с кнопкой <A, B, KEY>
-//EncButton<EB_TICK, 2, 3> enc;    // просто энкодер <A, B>
-//EncButton<EB_TICK, 4> enc;       // просто кнопка <KEY>
+//EncButton<EB_TICK, 2, 3, 4> enc;        // энкодер с кнопкой <A, B, KEY>
+//EncButton<EB_TICK, 2, 3> enc;           // просто энкодер <A, B>
+//EncButton<EB_TICK, 4> enc(INPUT_PULLUP);  // просто кнопка <KEY>
+EncButton<EB_TICK, 3> enc(INPUT_PULLUP);    // просто кнопка <KEY>
 // по умолчанию пины настроены в INPUT
 // если аппаратной подтяжки к VCC нет - можно инициализировать ...enc(INPUT_PULLUP)
 
@@ -46,6 +47,10 @@ void loop() {
   if (enc.isClick()) Serial.println("click");
   if (enc.isHolded()) Serial.println("holded");
   if (enc.isStep()) Serial.println("step");
+
+  if (enc.isPress()) Serial.println("press");
+  if (enc.isClick()) Serial.println("click");
+  if (enc.isRelease()) Serial.println("release");
 
   if (enc.hasClicks(1)) Serial.println("1 click");
   if (enc.hasClicks(2)) Serial.println("2 click");

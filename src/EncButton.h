@@ -19,6 +19,7 @@
     v1.1 - пуллап отдельныи методом
     v1.2 - можно передать конструктору параметр INPUT_PULLUP / INPUT(умолч)
     v1.3 - виртуальное зажатие кнопки энкодера вынесено в отдельную функцию + мелкие улучшения
+    v1.4 - обработка нажатия и отпускания кнопки
 */
 
 #ifndef EncButton_h
@@ -66,6 +67,8 @@ enum eb_callback {
     STEP_HANDLER,
     HOLD_HANDLER,
     CLICKS_HANDLER,
+    PRESS_HANDLER,
+    RELEASE_HANDLER,
 };
 
 #define EB_TICK 0
@@ -142,7 +145,7 @@ public:
                     if (debounce > EB_DEB) {                                   	// и прошел дебаунс
                         _setFlag(3);                                            // флаг кнопка была нажата
                         _debTimer = thisMls;                                    // сброс таймаутов
-                        EBState = 0;                                           	// сброс состояния
+                        EBState = 8;                                           	// кнопка нажата
                     }
                     if (debounce > EB_CLICK) {									// кнопка нажата после EB_CLICK
                         clicks = 0;												// сбросить счётчик и флаг кликов
@@ -151,7 +154,7 @@ public:
                 } else {                                                      	// кнопка уже была нажата
                     if (!_readFlag(4)) {                                        // и удержание ещё не зафиксировано
                         if (debounce < EB_HOLD) {                              	// прошло меньше удержания
-                            if (EBState != 0) _setFlag(2);                     	// но энкодер повёрнут! Запомнили
+                            if (EBState != 0 && EBState != 8) _setFlag(2);      // но энкодер повёрнут! Запомнили
                         } else {                                                // прошло больше времени удержания
                             if (!_readFlag(2)) {                                // и энкодер не повёрнут
                                 EBState = 6;                                   	// значит это удержание (сигнал)
@@ -171,8 +174,8 @@ public:
                     if (debounce > EB_DEB && !_readFlag(4) && !_readFlag(2)) {	// энкодер не трогали и не удерживали - это клик
                         EBState = 5;
                         clicks++;
-                    }
-                    flags &= ~0b00011100;                                       // clear 2 3 4
+                    } else EBState = 9;                                         // кнопка отпущена
+                    flags &= ~0b00011100;                                       // clear 2 3 4                    
                     _debTimer = thisMls;                                        // сброс таймаута
                 } else if (clicks > 0 && debounce > EB_CLICK && !_readFlag(5)) flags |= 0b01100000;	 // флаг на клики
             }
@@ -186,7 +189,9 @@ public:
             case 4: if (*_callback[4]) _callback[4](); break;	// isLeftH			
             case 5: if (*_callback[5]) _callback[5](); break;	// isClick			
             case 6: if (*_callback[6]) _callback[6](); break;	// isHolded			
-            case 7: if (*_callback[7]) _callback[7](); break;	// isStep					
+            case 7: if (*_callback[7]) _callback[7](); break;	// isStep
+            case 8: if (*_callback[11]) _callback[11](); break;	// isPress			
+            case 9: if (*_callback[12]) _callback[12](); break;	// isRelease
             }
             EBState = 0;
             if (*_callback[8] && _readFlag(4)) _callback[8](); 	// isHold
@@ -240,6 +245,8 @@ public:
     }
     
     // обработка кнопки
+    bool isPress() { return checkState(8); }
+    bool isRelease() { return checkState(9); }
     bool isClick() { return checkState(5); }
     bool isHolded() { return checkState(6); }
     bool isHold() { return _readFlag(4); }
@@ -279,7 +286,7 @@ private:
     
 
     uint8_t _dir = 0;
-    void (*_callback[MODE ? 11 : 0])() = {};
+    void (*_callback[MODE ? 13 : 0])() = {};
     uint8_t _amount = 0;
 
 
@@ -291,7 +298,7 @@ private:
     // 4 - hold
     // 5 - clicks flag
     // 6 - clicks get
-    // 7 - enc button hold
+    // 7 - enc button hold    
 
     // EBState
     // 0 - idle
@@ -302,6 +309,8 @@ private:
     // 5 - click
     // 6 - holded
     // 7 - step
+    // 8 - press
+    // 9 - release
 };
 
 #endif
