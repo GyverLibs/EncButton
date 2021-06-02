@@ -20,6 +20,7 @@
     v1.2 - можно передать конструктору параметр INPUT_PULLUP / INPUT(умолч)
     v1.3 - виртуальное зажатие кнопки энкодера вынесено в отдельную функцию + мелкие улучшения
     v1.4 - обработка нажатия и отпускания кнопки
+    v1.5 - добавлен виртуальный режим
 */
 
 #ifndef EncButton_h
@@ -74,8 +75,14 @@ enum eb_callback {
 #define EB_TICK 0
 #define EB_CALLBACK 1
 
+#define EB_NO_PIN 255
+
+#define VIRT_ENC 254
+#define VIRT_ENCBTN 253
+#define VIRT_BTN 252
+
 // класс
-template < bool MODE, uint8_t S1 = 255, uint8_t S2 = 255, uint8_t KEY = 255 >
+template < uint8_t _EB_MODE, uint8_t _S1 = EB_NO_PIN, uint8_t _S2 = EB_NO_PIN, uint8_t _KEY = EB_NO_PIN >
 class EncButton {
 public:
     EncButton(byte mode = INPUT) {
@@ -84,16 +91,18 @@ public:
     
     // подтянуть пины внутренней подтяжкой
     void pullUp() {
-        if (S2 == 255) {         // обычная кнопка
-            pinMode(S1, INPUT_PULLUP);
-        } else if (KEY == 255) { // энк без кнопки
-            pinMode(S1, INPUT_PULLUP);
-            pinMode(S2, INPUT_PULLUP);
-        } else {                 // энк с кнопкой
-            pinMode(S1, INPUT_PULLUP);
-            pinMode(S2, INPUT_PULLUP);
-            pinMode(KEY, INPUT_PULLUP);
-        }	
+        if (_S1 < 252) {                    // реальное устройство
+            if (_S2 == EB_NO_PIN) {         // обычная кнопка
+                pinMode(_S1, INPUT_PULLUP);
+            } else if (_KEY == EB_NO_PIN) { // энк без кнопки
+                pinMode(_S1, INPUT_PULLUP);
+                pinMode(_S2, INPUT_PULLUP);
+            } else {                        // энк с кнопкой
+                pinMode(_S1, INPUT_PULLUP);
+                pinMode(_S2, INPUT_PULLUP);
+                pinMode(_KEY, INPUT_PULLUP);
+            }
+        }
     }
     
     // виртуально зажать кнопку энкодера
@@ -104,15 +113,19 @@ public:
     
     // тикер, вызывать как можно чаще или в прерывании
     // вернёт отличное от нуля значение, если произошло какое то событие
-    uint8_t tick() {
+    uint8_t tick(uint8_t s1 = 0, uint8_t s2 = 0, uint8_t key = 0) {
         uint32_t thisMls = millis();
         uint32_t debounce = thisMls - _debTimer;
 
         // обработка энка (компилятор вырежет блок если не используется)
-        if (S1 != 255 && S2 != 255) {
-            uint8_t state = fastRead(S1) | (fastRead(S2) << 1);                 // получаем код
+        // если объявлены два пина или выбран вирт. энкодер или энкодер с кнопкой
+        if ((_S1 < 252 && _S2 < 252) || _S1 == VIRT_ENC || _S1 == VIRT_ENCBTN) {
+            uint8_t state;
+            if (_S1 >= 252) state = s1 | (s2 << 1);                             // получаем код
+            else state = fastRead(_S1) | (fastRead(_S2) << 1);                  // получаем код
+            
             if (_encRST && state == 0b11) {                             		// ресет и энк защёлкнул позицию
-                if (S2 == 255 || KEY != 255) {                                  // энкодер с кнопкой
+                if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {                    // энкодер с кнопкой
                     if (!_readFlag(4)) {                                        // если кнопка не "удерживается"
                         if (_lastState == 0b10) EBState = (_btnState || _readFlag(7)) ? 3 : 1, counter++;
                         else if (_lastState == 0b01) EBState = (_btnState || _readFlag(7)) ? 4 : 2, counter--;
@@ -122,7 +135,7 @@ public:
                     else if (_lastState == 0b01) EBState = 2, counter--;
                 }
                 if (EBState > 0) {
-                    if (MODE) _dir = EBState;					
+                    if (_EB_MODE) _dir = EBState;					
                     if (debounce < EB_FAST) _setFlag(1);	// быстрый поворот
                     else _clrFlag(1);						// обычный поворот		
                     if (EBState < 5) _setFlag(0);			// флаг поворота для юзера
@@ -136,9 +149,12 @@ public:
         }
 
         // обработка кнопки (компилятор вырежет блок если не используется)
-        if (S2 == 255 || KEY != 255) {
-            if (S2 == 255) _btnState = !fastRead(S1);                       	// обычная кнопка
-            if (KEY != 255) _btnState = !fastRead(KEY);                     	// энк с кнопкой
+        // если S2 не указан (кнопка) или указан KEY или выбран вирт. энкодер с кнопкой или кнопка
+        if ((_S1 < 252 && _S2 == EB_NO_PIN) || _KEY != EB_NO_PIN || _S1 == VIRT_BTN || _S1 == VIRT_ENCBTN) {
+            if (_S1 < 252 && _S2 == EB_NO_PIN) _btnState = !fastRead(_S1);      // обычная кнопка
+            if (_KEY != EB_NO_PIN) _btnState = !fastRead(_KEY);                 // энк с кнопкой
+            if (_S1 == VIRT_BTN) _btnState = s1;                                // вирт кнопка
+            if (_S1 == VIRT_ENCBTN) _btnState = key;                            // вирт энк с кнопкой
 
             if (_btnState) {                                                	// кнопка нажата
                 if (!_readFlag(3)) {                                          	// и не была нажата ранее
@@ -180,7 +196,7 @@ public:
                 } else if (clicks > 0 && debounce > EB_CLICK && !_readFlag(5)) flags |= 0b01100000;	 // флаг на клики
             }
         }
-        if (MODE) {
+        if (_EB_MODE) {
             if (*_callback[0] && isTurn()) _callback[0]();
             switch (EBState) {
             case 1: if (*_callback[1]) _callback[1](); break;	// isRight			
@@ -232,10 +248,10 @@ public:
     void resetState() { EBState = 0; }
     
     // повороты энкодера
-    bool isRight() { return MODE ? (_dir == 1 ? 1 : 0) : checkState(1); }
-    bool isLeft() { return MODE ? (_dir == 2 ? 1 : 0) : checkState(2); }
-    bool isRightH() { return MODE ? (_dir == 3 ? 1 : 0) : checkState(3); }
-    bool isLeftH() { return MODE ? (_dir == 4 ? 1 : 0) : checkState(4); }	
+    bool isRight() { return _EB_MODE ? (_dir == 1 ? 1 : 0) : checkState(1); }
+    bool isLeft() { return _EB_MODE ? (_dir == 2 ? 1 : 0) : checkState(2); }
+    bool isRightH() { return _EB_MODE ? (_dir == 3 ? 1 : 0) : checkState(3); }
+    bool isLeftH() { return _EB_MODE ? (_dir == 4 ? 1 : 0) : checkState(4); }	
     bool isFast() { return _readFlag(1); }
     bool isTurn() {
         if (_readFlag(0)) {
@@ -251,7 +267,7 @@ public:
     bool isHolded() { return checkState(6); }
     bool isHold() { return _readFlag(4); }
     bool isStep() { return checkState(7); }
-    bool state() { return !fastRead(S1); }
+    bool state() { return !fastRead(_S1); }
     bool hasClicks(uint8_t numClicks) {
         if (clicks == numClicks && _readFlag(6)) {
             _clrFlag(6);
@@ -286,7 +302,7 @@ private:
     
 
     uint8_t _dir = 0;
-    void (*_callback[MODE ? 13 : 0])() = {};
+    void (*_callback[_EB_MODE ? 13 : 0])() = {};
     uint8_t _amount = 0;
 
 
