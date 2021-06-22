@@ -22,6 +22,7 @@
     v1.4 - обработка нажатия и отпускания кнопки
     v1.5 - добавлен виртуальный режим
     v1.6 - оптимизация работы в прерывании
+    v1.6.1 - PULLUP по умолчанию
 */
 
 #ifndef EncButton_h
@@ -86,7 +87,8 @@ enum eb_callback {
 template < uint8_t _EB_MODE, uint8_t _S1 = EB_NO_PIN, uint8_t _S2 = EB_NO_PIN, uint8_t _KEY = EB_NO_PIN >
 class EncButton {
 public:
-    EncButton(byte mode = INPUT) {
+    // можно указать режим работы пина
+    EncButton(const uint8_t mode = INPUT_PULLUP) {
         if (mode == INPUT_PULLUP) pullUp();
     }
     

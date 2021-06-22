@@ -14,12 +14,13 @@
 EncButton<EB_CALLBACK, 2, 3, 4> enc;   // энкодер с кнопкой <A, B, KEY>
 //EncButton<EB_CALLBACK, 2, 3> enc;    // просто энкодер <A, B>
 //EncButton<EB_CALLBACK, 4> enc;       // просто кнопка <KEY>
-// по умолчанию пины настроены в INPUT
-// если аппаратной подтяжки к VCC нет - можно инициализировать ...enc(INPUT_PULLUP)
+
+// по умолчанию пины настроены в INPUT_PULLUP
+// Если используется внешняя подтяжка - лучше перевести в INPUT
+//EncButton<EB_CALLBACK, 2, 3, 4> enc(INPUT);
 
 void setup() {
   Serial.begin(9600);
-  // enc.pullUp();	// подтянуть все пины внутренней подтяжкой также можно вот так
   enc.counter = 100;      // изменение счётчика
   enc.attach(TURN_HANDLER, myTurn);
   enc.attach(RIGHT_HANDLER, myRight);
