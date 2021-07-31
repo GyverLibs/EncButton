@@ -24,6 +24,7 @@
     v1.6 - оптимизация работы в прерывании
     v1.6.1 - PULLUP по умолчанию
     v1.7 - большая оптимизация памяти, переделан FastIO
+    v1.8 - индивидуальная настройка таймаута удержания кнопки (была общая на всех)
 */
 
 #ifndef EncButton_h
@@ -110,6 +111,11 @@ public:
         }
     }
     
+    // установить таймаут удержания кнопки для isHold(), мс (до 30 000)
+    void setHoldTimeout(int tout) {
+        _holdT = tout >> 7;
+    }
+        
     // виртуально зажать кнопку энкодера
     void holdEncButton(bool state) {
         if (state) _setFlag(7);
@@ -306,7 +312,7 @@ private:
                 }
             } else {                                                      	// кнопка уже была нажата
                 if (!_readFlag(4)) {                                        // и удержание ещё не зафиксировано
-                    if (debounce < EB_HOLD) {                              	// прошло меньше удержания
+                    if (debounce < (_holdT << 7)) {                         // прошло меньше удержания
                         if (EBState != 0 && EBState != 8) _setFlag(2);      // но энкодер повёрнут! Запомнили
                     } else {                                                // прошло больше времени удержания
                         if (!_readFlag(2)) {                                // и энкодер не повёрнут
@@ -344,6 +350,7 @@ private:
     uint8_t _lastState = 0, EBState = 0;
     bool _btnState = 0, _encRST = 0, _isrFlag = 0;
     uint8_t flags = 0;
+    uint8_t _holdT = EB_HOLD >> 7;
 
     uint8_t _dir = 0;
     void (*_callback[_EB_MODE ? 13 : 0])() = {};

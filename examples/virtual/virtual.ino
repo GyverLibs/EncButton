@@ -7,6 +7,7 @@ EncButton<EB_TICK, VIRT_BTN> enc;     // виртуальная кнопка
 void setup() {
   Serial.begin(9600);
   pinMode(4, INPUT_PULLUP);   // подтянем пин
+  //enc.setHoldTimeout(500);  // установка таймаута удержания кнопки
 }
 
 void loop() {

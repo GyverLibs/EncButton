@@ -22,6 +22,7 @@ EncButton<EB_TICK, 2, 3, 4> enc;  // энкодер с кнопкой <A, B, KEY
 void setup() {
   Serial.begin(9600);
   enc.counter = 100;      // изменение счётчика
+  //enc.setHoldTimeout(500);  // установка таймаута удержания кнопки
 }
 
 void loop() {

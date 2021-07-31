@@ -42,6 +42,7 @@ attachClicks	KEYWORD2
 detachClicks	KEYWORD2
 pullUp	KEYWORD2
 holdEncButton	KEYWORD2
+setHoldTimeout	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
