@@ -19,6 +19,7 @@ EB_CLICK	KEYWORD1
 tick	KEYWORD2
 getState	KEYWORD2
 resetState	KEYWORD2
+
 isPress	KEYWORD2
 isRelease	KEYWORD2
 isFast	KEYWORD2
@@ -32,6 +33,20 @@ isHolded	KEYWORD2
 isHeld	KEYWORD2
 isHold	KEYWORD2
 isStep	KEYWORD2
+
+press	KEYWORD2
+release	KEYWORD2
+fast	KEYWORD2
+turn	KEYWORD2
+right	KEYWORD2
+left	KEYWORD2
+rightH	KEYWORD2
+leftH	KEYWORD2
+click	KEYWORD2
+held	KEYWORD2
+hold	KEYWORD2
+step	KEYWORD2
+
 counter	KEYWORD2
 state	KEYWORD2
 hasClicks	KEYWORD2

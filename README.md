@@ -74,21 +74,22 @@ uint8_t getState();     // получить статус
 void resetState();      // сбросить статус
 
 // обработка энкодера
-bool isTurn();          // факт поворота
-bool isRight();         // вправо
-bool isLeft();          // влево
-bool isRightH();        // вправо нажатый
-bool isLeftH();	        // влево нажатый
-bool isFast();          // быстрый
+bool isTurn();          // [или turn()] факт поворота
+bool isRight();         // [или right()] вправо
+bool isLeft();          // [или left()] влево
+bool isRightH();        // [или rightH()] вправо нажатый
+bool isLeftH();	        // [или leftH()] влево нажатый
+bool isFast();          // [или fast()] быстрый
 int counter;            // доступ к счётчику энкодера
 
 // обработка кнопки
-bool isPress();         // нажатие
-bool isRelease();       // отпускание
-bool isClick();         // клик
+bool isPress();         // [или press()] нажатие
+bool isRelease();       // [или release()] отпускание
+bool isClick();         // [или click()] клик
 bool isHolded();        // было удержание (однократное срабатывание)
-bool isHold();          // удерживается (постоянное срабатывание)
-bool isStep();          // режим шага
+bool isHeld();          // [или held()] более "грамотная" копия isHolded
+bool isHold();          // [или hold()] удерживается (постоянное срабатывание)
+bool isStep();          // [или step()] режим шага
 bool state();           // текущий статус кнопки
 bool hasClicks(uint8_t numClicks);  // проверка на наличие указанного количества кликов
 uint8_t hasClicks();    // вернёт количество кликов, если они есть
@@ -122,6 +123,9 @@ RELEASE_HANDLER
 //#define EB_HOLD 1000   // таймаут удержания кнопки, мс
 //#define EB_STEP 500    // период срабатывания степ, мс
 //#define EB_CLICK 400   // таймаут накликивания, мс
+
+Примечание: EB_HOLD устанавливает значение по умолчанию для всех.
+Любому объекту можно переназначить таймаут при помощи setHoldTimeout
 ```
 
 <a id="example"></a>

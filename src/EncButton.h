@@ -202,18 +202,23 @@ public:
     
     // поворот вправо
     bool isRight() { return _EB_MODE ? (_dir == 1 ? 1 : 0) : checkState(1); }
+    bool right() { return isRight(); }
     
     // поворот влево
     bool isLeft() { return _EB_MODE ? (_dir == 2 ? 1 : 0) : checkState(2); }
+    bool left() { return isLeft(); }
     
     // поворот вправо нажатый
     bool isRightH() { return _EB_MODE ? (_dir == 3 ? 1 : 0) : checkState(3); }
+    bool rightH() { return isRightH(); }
     
     // поворот влево нажатый
-    bool isLeftH() { return _EB_MODE ? (_dir == 4 ? 1 : 0) : checkState(4); }	
+    bool isLeftH() { return _EB_MODE ? (_dir == 4 ? 1 : 0) : checkState(4); }
+    bool leftH() { return isLeftH(); }
     
     // быстрый поворот
     bool isFast() { return _readFlag(1); }
+    bool fast() { return isFast(); }
     
     // энкодер повёрнут
     bool isTurn() {
@@ -222,27 +227,34 @@ public:
             return true;
         } return false;		
     }
+    bool turn() { return isTurn(); }
     
     // кнопка нажата
     bool isPress() { return checkState(8); }
+    bool press() { return isPress(); }
     
     // кнопка отпущена
     bool isRelease() { return checkState(9); }
+    bool release() { return isRelease(); }
     
     // клик по кнопке
     bool isClick() { return checkState(5); }
+    bool click() { return isClick(); }
     
     // кнопка удержана
-    bool isHolded() { return checkState(6); }
+    bool isHolded() { return checkState(6); }    
     
     // кнопка удержана (грамотный аналог holded =)
-    bool isHeld() { return checkState(6); }
+    bool isHeld() { return isHolded(); }
+    bool held() { return isHolded(); }
     
     // кнопка удерживается
     bool isHold() { return _readFlag(4); }
+    bool hold() { return isHold(); }
     
     // режим импульсного удержания
     bool isStep() { return checkState(7); }
+    bool step() { return isStep(); }
     
     // статус кнопки
     bool state() { return !F_fastRead(_S1); }
