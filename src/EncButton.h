@@ -25,6 +25,7 @@
     v1.6.1 - PULLUP по умолчанию
     v1.7 - большая оптимизация памяти, переделан FastIO
     v1.8 - индивидуальная настройка таймаута удержания кнопки (была общая на всех)
+    v1.8.1 - убран FastIO
 */
 
 #ifndef EncButton_h
@@ -39,7 +40,7 @@
 
 // =========== НЕ ТРОГАЙ ============
 #include <Arduino.h>
-#include "FastIO_v2.h"
+
 // флаг макро
 #define _setFlag(x) (flags |= 1 << x)
 #define _clrFlag(x) (flags &= ~(1 << x))
@@ -115,7 +116,7 @@ public:
     void setHoldTimeout(int tout) {
         _holdT = tout >> 7;
     }
-        
+    
     // виртуально зажать кнопку энкодера
     void holdEncButton(bool state) {
         if (state) _setFlag(7);
@@ -133,15 +134,15 @@ public:
             if ((_S1 < 252 && _S2 < 252) || _S1 == VIRT_ENC || _S1 == VIRT_ENCBTN) {
                 uint8_t state;
                 if (_S1 >= 252) state = s1 | (s2 << 1);                 // получаем код
-                else state = F_fastRead(_S1) | (F_fastRead(_S2) << 1);  // получаем код                
+                else state = fastRead(_S1) | (fastRead(_S2) << 1);  // получаем код                
                 poolEnc(state);
             }
 
             // обработка кнопки (компилятор вырежет блок если не используется)
             // если S2 не указан (кнопка) или указан KEY или выбран вирт. энкодер с кнопкой или кнопка
             if ((_S1 < 252 && _S2 == EB_NO_PIN) || _KEY != EB_NO_PIN || _S1 == VIRT_BTN || _S1 == VIRT_ENCBTN) {
-                if (_S1 < 252 && _S2 == EB_NO_PIN) _btnState = !F_fastRead(_S1);    // обычная кнопка
-                if (_KEY != EB_NO_PIN) _btnState = !F_fastRead(_KEY);               // энк с кнопкой
+                if (_S1 < 252 && _S2 == EB_NO_PIN) _btnState = !fastRead(_S1);    // обычная кнопка
+                if (_KEY != EB_NO_PIN) _btnState = !fastRead(_KEY);               // энк с кнопкой
                 if (_S1 == VIRT_BTN) _btnState = s1;                                // вирт кнопка
                 if (_S1 == VIRT_ENCBTN) _btnState = key;                            // вирт энк с кнопкой
                 poolBtn();           
@@ -257,7 +258,7 @@ public:
     bool step() { return isStep(); }
     
     // статус кнопки
-    bool state() { return !F_fastRead(_S1); }
+    bool state() { return !fastRead(_S1); }
     
     // имеются клики
     bool hasClicks(uint8_t numClicks) {
@@ -283,6 +284,19 @@ public:
     uint8_t clicks = 0;
 
 private:
+    bool fastRead(const uint8_t pin) {
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+        if (pin < 8) return bitRead(PIND, pin);
+        else if (pin < 14) return bitRead(PINB, pin - 8);
+        else if (pin < 20) return bitRead(PINC, pin - 14);
+#elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
+        return bitRead(PINB, pin);
+#else
+        return digitalRead(pin);
+#endif
+        return 0;
+    }
+    
     void poolEnc(uint8_t state) {
         if (_encRST && state == 0b11) {                             		// ресет и энк защёлкнул позицию
             if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {                    // энкодер с кнопкой
