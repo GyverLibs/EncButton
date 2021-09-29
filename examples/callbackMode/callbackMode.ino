@@ -25,6 +25,7 @@ void setup() {
   //enc.setHoldTimeout(500);  // установка таймаута удержания кнопки
   
   enc.attach(TURN_HANDLER, myTurn);
+  enc.attach(TURN_H_HANDLER, myTurnH);
   enc.attach(RIGHT_HANDLER, myRight);
   enc.attach(CLICK_HANDLER, myClick);
   enc.attach(HOLDED_HANDLER, myHolded);
@@ -37,15 +38,16 @@ void myTurn() {
   Serial.print("turn ");
   Serial.println(enc.counter);    // вывод счётчика
 
-  // также можно опросить здесь (isRight, isLeft, isRightH, isLeftH)
+  // также можно опросить здесь (isRight, isLeft)
   if (enc.isLeft()) {
     if (enc.isFast()) Serial.println("fast left");
     else Serial.println("left");
   }
-  if (enc.isLeftH()) {
-    if (enc.isFast()) Serial.println("fast left hold");
-    else Serial.println("left");
-  }
+}
+
+void myTurnH() {
+  Serial.print("hold + turn, direction: ");
+  Serial.println(enc.getDir());
 }
 
 void myRight() {

@@ -33,6 +33,12 @@ void loop() {
     Serial.println(enc.counter);    // вывод счётчика
   }
 
+  if (enc.isTurnH()) {               // любой нажатый поворот
+    Serial.print("hold + turn, direction: ");
+    // вывод направления последнего поворота
+    Serial.println(enc.getDir());
+  }
+
   if (enc.isLeft()) {
     if (enc.isFast()) Serial.println("fast left");
     else Serial.println("left");

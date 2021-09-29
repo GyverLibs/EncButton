@@ -26,6 +26,7 @@
     v1.7 - большая оптимизация памяти, переделан FastIO
     v1.8 - индивидуальная настройка таймаута удержания кнопки (была общая на всех)
     v1.8.1 - убран FastIO
+    v1.9 - добавлена отдельная отработка нажатого поворота и запрос направления
 */
 
 #ifndef EncButton_h
@@ -75,6 +76,7 @@ enum eb_callback {
     CLICKS_HANDLER,
     PRESS_HANDLER,
     RELEASE_HANDLER,
+    TURN_H_HANDLER,
 };
 
 // константы
@@ -87,7 +89,7 @@ enum eb_callback {
 #define VIRT_ENCBTN 253
 #define VIRT_BTN 252
 
-// класс
+// ===================================== CLASS =====================================
 template < uint8_t _EB_MODE, uint8_t _S1 = EB_NO_PIN, uint8_t _S2 = EB_NO_PIN, uint8_t _KEY = EB_NO_PIN >
 class EncButton {
 public:
@@ -123,6 +125,7 @@ public:
         else _clrFlag(7);
     }
     
+    // ===================================== TICK =====================================
     // тикер, вызывать как можно чаще или в прерывании
     // вернёт отличное от нуля значение, если произошло какое то событие
     uint8_t tick(uint8_t s1 = 0, uint8_t s2 = 0, uint8_t key = 0) {
@@ -133,7 +136,7 @@ public:
             // если объявлены два пина или выбран вирт. энкодер или энкодер с кнопкой
             if ((_S1 < 252 && _S2 < 252) || _S1 == VIRT_ENC || _S1 == VIRT_ENCBTN) {
                 uint8_t state;
-                if (_S1 >= 252) state = s1 | (s2 << 1);                 // получаем код
+                if (_S1 >= 252) state = s1 | (s2 << 1);             // получаем код
                 else state = fastRead(_S1) | (fastRead(_S2) << 1);  // получаем код                
                 poolEnc(state);
             }
@@ -143,13 +146,14 @@ public:
             if ((_S1 < 252 && _S2 == EB_NO_PIN) || _KEY != EB_NO_PIN || _S1 == VIRT_BTN || _S1 == VIRT_ENCBTN) {
                 if (_S1 < 252 && _S2 == EB_NO_PIN) _btnState = !fastRead(_S1);    // обычная кнопка
                 if (_KEY != EB_NO_PIN) _btnState = !fastRead(_KEY);               // энк с кнопкой
-                if (_S1 == VIRT_BTN) _btnState = s1;                                // вирт кнопка
-                if (_S1 == VIRT_ENCBTN) _btnState = key;                            // вирт энк с кнопкой
+                if (_S1 == VIRT_BTN) _btnState = s1;                              // вирт кнопка
+                if (_S1 == VIRT_ENCBTN) _btnState = key;                          // вирт энк с кнопкой
                 poolBtn();           
             }
             
             if (_EB_MODE) {
                 if (*_callback[0] && isTurn()) _callback[0]();
+                if (*_callback[13] && isTurnH()) _callback[13]();
                 switch (EBState) {
                 case 1: if (*_callback[1]) _callback[1](); break;	// isRight			
                 case 2: if (*_callback[2]) _callback[2](); break;	// isLeft			
@@ -174,6 +178,7 @@ public:
         return EBState;
     }
     
+    // ===================================== CALLBACK =====================================
     // подключить обработчик
     void attach(eb_callback type, void (*handler)()) {
         _callback[type] = *handler;
@@ -181,7 +186,7 @@ public:
     
     // отключить обработчик
     void detach(eb_callback type) {
-        _callback[type] = NULL;
+        _callback[type] = nullptr;
     }
     
     // подключить обработчик на количество кликов (может быть только один!)
@@ -192,9 +197,10 @@ public:
     
     // отключить обработчик на количество кликов
     void detachClicks() {
-        _callback[10] = NULL;
+        _callback[10] = nullptr;
     }
     
+    // ===================================== STATUS =====================================
     // получить статус
     uint8_t getState() { return EBState; }
     
@@ -202,19 +208,19 @@ public:
     void resetState() { EBState = 0; }
     
     // поворот вправо
-    bool isRight() { return _EB_MODE ? (_dir == 1 ? 1 : 0) : checkState(1); }
+    bool isRight() { return _EB_MODE ? (_EBSbuf == 1 ? 1 : 0) : checkState(1); }
     bool right() { return isRight(); }
     
     // поворот влево
-    bool isLeft() { return _EB_MODE ? (_dir == 2 ? 1 : 0) : checkState(2); }
+    bool isLeft() { return _EB_MODE ? (_EBSbuf == 2 ? 1 : 0) : checkState(2); }
     bool left() { return isLeft(); }
     
     // поворот вправо нажатый
-    bool isRightH() { return _EB_MODE ? (_dir == 3 ? 1 : 0) : checkState(3); }
+    bool isRightH() { return _EB_MODE ? (_EBSbuf == 3 ? 1 : 0) : checkState(3); }
     bool rightH() { return isRightH(); }
     
     // поворот влево нажатый
-    bool isLeftH() { return _EB_MODE ? (_dir == 4 ? 1 : 0) : checkState(4); }
+    bool isLeftH() { return _EB_MODE ? (_EBSbuf == 4 ? 1 : 0) : checkState(4); }
     bool leftH() { return isLeftH(); }
     
     // быстрый поворот
@@ -229,6 +235,15 @@ public:
         } return false;		
     }
     bool turn() { return isTurn(); }
+    
+    // энкодер повёрнут нажато
+    bool isTurnH() {
+        if (_readFlag(8)) {
+            _clrFlag(8);
+            return true;
+        } return false;		
+    }
+    bool turnH() { return isTurnH(); }
     
     // кнопка нажата
     bool isPress() { return checkState(8); }
@@ -258,7 +273,7 @@ public:
     bool step() { return isStep(); }
     
     // статус кнопки
-    bool state() { return !fastRead(_S1); }
+    bool state() { return _btnState; }
     
     // имеются клики
     bool hasClicks(uint8_t numClicks) {
@@ -277,12 +292,18 @@ public:
         } return 0;	
     }
     
+    // направление последнего поворота, 1 или -1
+    int8_t getDir() {
+        return _dir;
+    }
+    
     // счётчик энкодера
     int counter = 0;
     
     // счётчик кликов
     uint8_t clicks = 0;
-
+    
+    // ===================================== PRIVATE =====================================
 private:
     bool fastRead(const uint8_t pin) {
 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
@@ -297,22 +318,27 @@ private:
         return 0;
     }
     
+    // ===================================== POOL ENC =====================================
     void poolEnc(uint8_t state) {
-        if (_encRST && state == 0b11) {                             		// ресет и энк защёлкнул позицию
-            if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {                    // энкодер с кнопкой
-                if (!_readFlag(4)) {                                        // если кнопка не "удерживается"
-                    if (_lastState == 0b10) EBState = (_btnState || _readFlag(7)) ? 3 : 1, counter++;
-                    else if (_lastState == 0b01) EBState = (_btnState || _readFlag(7)) ? 4 : 2, counter--;
+        if (_encRST && state == 0b11) {                             // ресет и энк защёлкнул позицию
+            if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {            // энкодер с кнопкой
+                if (!_readFlag(4)) {                                // если кнопка не "удерживается"
+                    if (_lastState == 0b10) EBState = (_btnState || _readFlag(7)) ? 3 : 1;
+                    else if (_lastState == 0b01) EBState = (_btnState || _readFlag(7)) ? 4 : 2;
                 }
-            } else {                                                        // просто энкодер
-                if (_lastState == 0b10) EBState = 1, counter++;
-                else if (_lastState == 0b01) EBState = 2, counter--;
+            } else {                                                // просто энкодер
+                if (_lastState == 0b10) EBState = 1;
+                else if (_lastState == 0b01) EBState = 2;
             }
-            if (EBState > 0) {
-                if (_EB_MODE) _dir = EBState;					
-                if (millis() - _debTimer < EB_FAST) _setFlag(1);	// быстрый поворот
-                else _clrFlag(1);						        // обычный поворот		
-                if (EBState < 5) _setFlag(0);			        // флаг поворота для юзера
+            
+            if (EBState > 0) {                                      // был поворот
+                _dir = (EBState & 1) ? 1 : -1;                      // направление
+                counter += _dir;                                    // счётчик
+                if (_EB_MODE) _EBSbuf = EBState;				    // запомнили для callback	
+                if (EBState <= 2) _setFlag(0);			            // флаг поворота для юзера
+                else if (EBState <= 4) _setFlag(8);			        // флаг нажатого поворота для юзера
+                if (millis() - _debTimer < EB_FAST) _setFlag(1);    // быстрый поворот
+                else _clrFlag(1);						            // обычный поворот
             }
 
             _encRST = 0;
@@ -322,6 +348,7 @@ private:
         _lastState = state;
     }
     
+    // ===================================== POOL BTN =====================================
     void poolBtn() {
         uint32_t thisMls = millis();
         uint32_t debounce = thisMls - _debTimer;
@@ -366,20 +393,22 @@ private:
         }
     }
     
+    // ===================================== MISC =====================================
     bool checkState(uint8_t val) {
         if (EBState == val) {
             EBState = 0;
             return 1;
         } return 0;
     }
+    
     uint32_t _debTimer = 0;
     uint8_t _lastState = 0, EBState = 0;
     bool _btnState = 0, _encRST = 0, _isrFlag = 0;
-    uint8_t flags = 0;
+    uint16_t flags = 0;
     uint8_t _holdT = EB_HOLD >> 7;
-
-    uint8_t _dir = 0;
-    void (*_callback[_EB_MODE ? 13 : 0])() = {};
+    int8_t _dir = 0;
+    uint8_t _EBSbuf = 0;
+    void (*_callback[_EB_MODE ? 14 : 0])() = {};
     uint8_t _amount = 0;
 
 
@@ -392,6 +421,7 @@ private:
     // 5 - clicks flag
     // 6 - clicks get
     // 7 - enc button hold    
+    // 8 - enc turn holded
 
     // EBState
     // 0 - idle
