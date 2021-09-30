@@ -17,8 +17,10 @@ EB_CLICK	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 tick	KEYWORD2
+tickISR	KEYWORD2
 getState	KEYWORD2
 resetState	KEYWORD2
+checkCallback	KEYWORD2
 
 isPress	KEYWORD2
 isRelease	KEYWORD2
