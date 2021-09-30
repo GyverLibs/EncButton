@@ -153,11 +153,16 @@ void setup() {
 }
 
 void loop() {
-  enc.tick();
+  enc.tick();                       // опрос происходит здесь
 
-  if (enc.isTurn()) {               // любой поворот
+  if (enc.isTurn()) {
     Serial.print("turn ");
     Serial.println(enc.counter);    // вывод счётчика
+  }
+
+  if (enc.isTurnH()) {
+    Serial.print("hold + turn, direction: ");
+    Serial.println(enc.getDir());   // вывод направления последнего поворота
   }
 
   if (enc.isLeft()) {
@@ -172,13 +177,14 @@ void loop() {
 
   if (enc.isLeftH()) Serial.println("leftH");
   if (enc.isRightH()) Serial.println("rightH");
-  if (enc.isClick()) Serial.println("click");
-  if (enc.isHolded()) Serial.println("holded");
-  if (enc.isStep()) Serial.println("step");
 
   if (enc.isPress()) Serial.println("press");
   if (enc.isClick()) Serial.println("click");
   if (enc.isRelease()) Serial.println("release");
+
+  if (enc.isHeld()) Serial.println("held");
+  //if (enc.isHold()) Serial.println("hold");
+  if (enc.isStep()) Serial.println("step");
 
   if (enc.hasClicks(1)) Serial.println("1 click");
   if (enc.hasClicks(2)) Serial.println("2 click");
@@ -186,7 +192,6 @@ void loop() {
   if (enc.hasClicks(5)) Serial.println("5 click");
 
   if (enc.hasClicks()) Serial.println(enc.clicks);
-  //if (enc.isHold()) Serial.println("hold");
 }
 ```
 
