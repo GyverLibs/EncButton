@@ -15,15 +15,13 @@ void loop() {
   // (сигнал кнопки)
   // (сигнал энкодера А, сигнал энкодера B)
   // (сигнал энкодера А, сигнал энкодера B, сигнал кнопки)
-  enc.tick(!digitalRead(4));
+  enc.tick(digitalRead(4));
 
-  if (enc.isClick()) Serial.println("click");
-  if (enc.isHolded()) Serial.println("holded");
-  if (enc.isStep()) Serial.println("step");
-
-  if (enc.isPress()) Serial.println("press");
-  if (enc.isClick()) Serial.println("click");
-  if (enc.isRelease()) Serial.println("release");
+  if (enc.press()) Serial.println("press");
+  if (enc.click()) Serial.println("click");
+  if (enc.held()) Serial.println("held");
+  if (enc.step()) Serial.println("step");
+  if (enc.release()) Serial.println("release");
 
   if (enc.hasClicks(1)) Serial.println("1 click");
   if (enc.hasClicks(2)) Serial.println("2 click");
@@ -31,5 +29,5 @@ void loop() {
   if (enc.hasClicks(5)) Serial.println("5 click");
 
   if (enc.hasClicks()) Serial.println(enc.clicks);
-  //if (enc.isHold()) Serial.println("hold");
+  //if (enc.hold()) Serial.println("hold");
 }

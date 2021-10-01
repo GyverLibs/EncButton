@@ -22,21 +22,6 @@ getState	KEYWORD2
 resetState	KEYWORD2
 checkCallback	KEYWORD2
 
-isPress	KEYWORD2
-isRelease	KEYWORD2
-isFast	KEYWORD2
-isTurn	KEYWORD2
-isTurnH	KEYWORD2
-isRight	KEYWORD2
-isLeft	KEYWORD2
-isRightH	KEYWORD2
-isLeftH	KEYWORD2
-isClick	KEYWORD2
-isHolded	KEYWORD2
-isHeld	KEYWORD2
-isHold	KEYWORD2
-isStep	KEYWORD2
-
 press	KEYWORD2
 release	KEYWORD2
 fast	KEYWORD2
@@ -63,6 +48,23 @@ detachClicks	KEYWORD2
 pullUp	KEYWORD2
 holdEncButton	KEYWORD2
 setHoldTimeout	KEYWORD2
+setButtonLevel	KEYWORD2
+
+# deprecated
+isPress	KEYWORD2
+isRelease	KEYWORD2
+isFast	KEYWORD2
+isTurn	KEYWORD2
+isTurnH	KEYWORD2
+isRight	KEYWORD2
+isLeft	KEYWORD2
+isRightH	KEYWORD2
+isLeftH	KEYWORD2
+isClick	KEYWORD2
+isHolded	KEYWORD2
+isHeld	KEYWORD2
+isHold	KEYWORD2
+isStep	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
