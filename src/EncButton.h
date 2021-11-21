@@ -14,6 +14,7 @@
     AlexGyver, alex@alexgyver.ru
     https://alexgyver.ru/
     MIT License
+    Опционально используется алгоритм из библиотеки // https://github.com/mathertel/RotaryEncoder
 
     Версии:
     v1.1 - пуллап отдельныи методом
@@ -30,6 +31,7 @@
     v1.10 - улучшил обработку released, облегчил вес в режиме callback и исправил баги
     v1.11 - ещё больше всякой оптимизации + настройка уровня кнопки
     v1.11.1 - совместимость Digispark
+    v1.12 - добавил более точный алгоритм энкодера EB_BETTER_ENC
 */
 
 #ifndef _EncButton_h
@@ -96,6 +98,15 @@ enum eb_callback {
 #define VIRT_ENC 254
 #define VIRT_ENCBTN 253
 #define VIRT_BTN 252
+
+#ifdef EB_BETTER_ENC
+static const int8_t _EB_DIR[] = {
+  0, -1,  1,  0,
+  1,  0,  0, -1,
+  -1,  0,  0,  1,
+  0,  1, -1,  0
+};
+#endif
 
 // ===================================== CLASS =====================================
 template < uint8_t _EB_MODE, uint8_t _S1 = EB_NO_PIN, uint8_t _S2 = EB_NO_PIN, uint8_t _KEY = EB_NO_PIN >
@@ -279,6 +290,26 @@ private:
     
     // ===================================== POOL ENC =====================================
     void poolEnc(uint8_t state) {
+    #ifdef EB_BETTER_ENC
+        if (_prev != state) {
+            _ecount += _EB_DIR[state | (_prev << 2)];                   // сдвиг внутреннего счётчика
+            _prev = state;
+            if (state == 0x3 && _ecount != 0) {                         // защёлкнули позицию
+                EBState = (_ecount < 0) ? 1 : 2;
+                _ecount = 0;
+                if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {            // энкодер с кнопкой
+                    if (!_EB_readFlag(4) && (_btnState || _EB_readFlag(8))) EBState += 2;   // если кнопка не "удерживается"
+                }
+                _dir = (EBState & 1) ? -1 : 1;                          // направление
+                counter += _dir;                                        // счётчик
+                if (EBState <= 2) _EB_setFlag(0);			            // флаг поворота для юзера
+                else if (EBState <= 4) _EB_setFlag(9);			        // флаг нажатого поворота для юзера
+                if (millis() - _debTimer < EB_FAST) _EB_setFlag(1);     // быстрый поворот
+                else _EB_clrFlag(1);						            // обычный поворот
+                _debTimer = millis();
+            }
+        }
+    #else
         if (_encRST && state == 0b11) {                                 // ресет и энк защёлкнул позицию
             if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {                // энкодер с кнопкой
                 if ((_prev == 1 || _prev == 2) && !_EB_readFlag(4)) {   // если кнопка не "удерживается" и энкодер в позиции 1 или 2
@@ -303,6 +334,7 @@ private:
         }
         if (state == 0b00) _encRST = 1;
         _prev = state;
+    #endif
     }
     
     // ===================================== POOL BTN =====================================
@@ -374,6 +406,10 @@ private:
     bool _encRST : 1;
     bool _isrFlag : 1;
     uint16_t flags = 0;
+    
+    #ifdef EB_BETTER_ENC
+    int8_t _ecount = 0;
+    #endif
     
     uint32_t _debTimer = 0;
     uint8_t _holdT = (EB_HOLD >> 7);

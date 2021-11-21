@@ -12,6 +12,7 @@ EB_DEB	KEYWORD1
 EB_HOLD	KEYWORD1
 EB_STEP	KEYWORD1
 EB_CLICK	KEYWORD1
+EB_BETTER_ENC	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
