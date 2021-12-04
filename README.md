@@ -67,6 +67,34 @@ EncButton<MODE, VIRT_ENC> enc;     // виртуальный энк
 // в tick нужно будет передавать виртуальное значение, см. пример
 ```
 
+<details>
+<summary>Экспериментальный EncButton2</summary>
+Хранит пины НЕ в шаблоне. Почему то получилось тяжелее, ну да ладно. Всё кроме инициализации такое же как у EncButton!
+```cpp
+// ================ TICK ===============
+EncButton2<EB_ENCBTN> enc(INPUT, A, B, KEY);    // энкодер с кнопкой
+EncButton2<EB_ENC> enc(INPUT, A, B);            // просто энкодер
+EncButton2<EB_BTN> enc(INPUT, KEY);             // просто кнопка
+// режим пинов INPUT/INPUT_PULLUP
+
+// ============== CALLBACK =============
+EncButton2<EB_ENCBTN, EB_CALLBACK> enc(INPUT, A, B, KEY);    // энкодер с кнопкой
+EncButton2<EB_ENC, EB_CALLBACK> enc(INPUT, A, B);            // просто энкодер
+EncButton2<EB_BTN, EB_CALLBACK> enc(INPUT, KEY);             // просто кнопка
+// режим пинов INPUT/INPUT_PULLUP
+
+// ============== VIRT TICK ============
+EncButton2<VIRT_ENCBTN> enc;        // энкодер с кнопкой
+EncButton2<VIRT_ENC> enc;           // просто энкодер
+EncButton2<VIRT_BTN> enc;           // просто кнопка
+
+// ============ VIRT CALLBACK ==========
+EncButton2<VIRT_ENCBTN, EB_CALLBACK> enc;   // энкодер с кнопкой
+EncButton2<VIRT_ENC, EB_CALLBACK> enc;      // просто энкодер
+EncButton2<VIRT_BTN, EB_CALLBACK> enc;      // просто кнопка
+```
+</details>
+
 <a id="usage"></a>
 ## Использование
 ```cpp
@@ -243,6 +271,7 @@ void loop() {
 - v1.11 - ещё больше всякой оптимизации + настройка уровня кнопки
 - v1.11.1 - совместимость Digispark
 - v1.12 - добавил более точный алгоритм энкодера EB_BETTER_ENC
+- v1.13 - добавлен экспериментальный EncButton2
 
 <a id="feedback"></a>
 ## Баги и обратная связь
