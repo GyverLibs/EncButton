@@ -69,6 +69,7 @@ EncButton<MODE, VIRT_ENC> enc;     // виртуальный энк
 
 <details>
 <summary>Экспериментальный EncButton2</summary>
+
 Хранит пины НЕ в шаблоне. Почему то получилось тяжелее, ну да ладно. Всё кроме инициализации такое же как у EncButton!
 ```cpp
 // ================ TICK ===============
@@ -93,6 +94,7 @@ EncButton2<VIRT_ENCBTN, EB_CALLBACK> enc;   // энкодер с кнопкой
 EncButton2<VIRT_ENC, EB_CALLBACK> enc;      // просто энкодер
 EncButton2<VIRT_BTN, EB_CALLBACK> enc;      // просто кнопка
 ```
+
 </details>
 
 <a id="usage"></a>
