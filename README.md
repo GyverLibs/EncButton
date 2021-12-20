@@ -46,6 +46,9 @@
 
 <a id="init"></a>
 ## Инициализация
+**Если нужен массив кнопок/энкодеров, используй EncButton2!**
+
+### EncButton
 ```cpp
 // ============== БАЗОВАЯ =============
 EncButton<MODE, A, B, KEY> enc;     // энкодер с кнопкой
@@ -67,8 +70,9 @@ EncButton<MODE, VIRT_ENC> enc;     // виртуальный энк
 // в tick нужно будет передавать виртуальное значение, см. пример
 ```
 
+### EncButton2
 <details>
-<summary>Экспериментальный EncButton2</summary>
+<summary>Инициализация EncButton2</summary>
 
 Хранит пины НЕ в шаблоне. Почему то получилось тяжелее, ну да ладно. Всё кроме инициализации такое же как у EncButton!
 ```cpp
@@ -93,6 +97,19 @@ EncButton2<VIRT_BTN> enc;           // просто кнопка
 EncButton2<VIRT_ENCBTN, EB_CALLBACK> enc;   // энкодер с кнопкой
 EncButton2<VIRT_ENC, EB_CALLBACK> enc;      // просто энкодер
 EncButton2<VIRT_BTN, EB_CALLBACK> enc;      // просто кнопка
+
+// =============== МАССИВ ==============
+EncButton2<EB_ENCBTN> enc[количество];
+EncButton2<EB_ENC> enc[количество];
+EncButton2<EB_BTN> enc[количество];
+
+EncButton2<EB_ENCBTN, EB_CALLBACK> enc[количество];
+EncButton2<EB_ENC, EB_CALLBACK> enc[количество];
+EncButton2<EB_BTN, EB_CALLBACK> enc[количество];
+// и так далее
+
+// ПИНЫ НАСТРАИВАЮТСЯ ПРИ ПОМОЩИ setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);
+// см. пример EucButton2_array
 ```
 
 </details>
@@ -178,6 +195,11 @@ RELEASE_HANDLER
 //#define EB_HOLD 1000   // таймаут удержания кнопки (устанавливает значение по умолчанию), мс
 //#define EB_BETTER_ENC  // улучшенный алгоритм опроса энкодера. Добавит 16 байт SRAM при подключении библиотеки
 ```
+### Дополнительно EncButton2
+```cpp
+void setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);     // установить пины
+void pullUp();          // здесь не реализована!
+```
 
 ### Особенности
 - Библиотека универсальная, но сделана с упором на оптимизацию памяти при работе во всех режимах внутри одного класса
@@ -187,7 +209,8 @@ RELEASE_HANDLER
     - Точный алгоритм активируется добавлением `#define EB_BETTER_ENC` перед подключением библиотеки
 
 <a id="example"></a>
-## Пример
+## Примеры
+### Полное демо tick
 Остальные примеры смотри в **examples**!
 ```cpp
 // Пример с прямой работой библиотеки
@@ -258,6 +281,30 @@ void loop() {
 }
 ```
 
+### Массив кнопок EncButton2
+```cpp
+// объявляем массив кнопок
+#define BTN_AMOUNT 5
+#include <EncButton2.h>
+EncButton2<EB_BTN> btn[BTN_AMOUNT];
+
+void setup() {
+  Serial.begin(9600);
+  btn[0].setPins(INPUT_PULLUP, D3);
+  btn[1].setPins(INPUT_PULLUP, D2);
+}
+
+void loop() {
+  for (int i = 0; i < BTN_AMOUNT; i++) btn[i].tick();
+  for (int i = 0; i < BTN_AMOUNT; i++) {
+    if (btn[i].click()) {
+      Serial.print("click btn: ");
+      Serial.println(i);
+    }
+  }
+}
+```
+
 <a id="versions"></a>
 ## Версии
 - v1.1 - пуллап отдельныи методом
@@ -277,6 +324,7 @@ void loop() {
 - v1.12 - добавил более точный алгоритм энкодера EB_BETTER_ENC
 - v1.13 - добавлен экспериментальный EncButton2
 - v1.14 - добавлена releaseStep(). Отпускание кнопки внесено в дебаунс
+- v1.15 - добавлен setPins() для EncButton2
 
 <a id="feedback"></a>
 ## Баги и обратная связь
