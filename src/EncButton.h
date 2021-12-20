@@ -33,6 +33,7 @@
     v1.11.1 - совместимость Digispark
     v1.12 - добавил более точный алгоритм энкодера EB_BETTER_ENC
     v1.13 - добавлен экспериментальный EncButton2
+    v1.14 - добавлена releaseStep(). Отпускание кнопки внесено в дебаунс
 */
 
 #ifndef _EncButton_h
@@ -253,6 +254,7 @@ public:
     bool hold() { return _EB_readFlag(4); }     // кнопка удерживается
     bool step() { return checkState(7); }       // режим импульсного удержания
     bool state() { return _btnState; }          // статус кнопки
+    bool releaseStep() {return checkFlag(12);}  // кнопка отпущена после импульсного удержания
     
     uint8_t clicks = 0;                         // счётчик кликов
     bool hasClicks(uint8_t num) { return (clicks == num && checkFlag(7)) ? 1 : 0; } // имеются клики
@@ -352,7 +354,7 @@ private:
                 }
                 if (debounce > EB_CLICK) {									// кнопка нажата после EB_CLICK
                     clicks = 0;												// сбросить счётчик и флаг кликов
-                    flags &= ~0b11100000;                                   // clear 5 6 7 (клики)
+                    flags &= ~0b0011000011100000;                           // clear 5 6 7 12 13 (клики)
                 }
             } else {                                                      	// кнопка уже была нажата
                 if (!_EB_readFlag(4)) {                                     // и удержание ещё не зафиксировано
@@ -368,19 +370,23 @@ private:
                 } else {                                                    // удержание зафиксировано
                     if (debounce > EB_STEP) {                              	// таймер степа
                         EBState = 7;                                       	// сигналим
+                        _EB_setFlag(13);                                    // зафиксирован режим step
                         _debTimer = thisMls;                                // сброс таймаута
                     }
                 }
             }
         } else {                                                        	// кнопка не нажата
             if (_EB_readFlag(3)) {                                          // но была нажата
-                if (debounce > EB_DEB && !_EB_readFlag(4) && !_EB_readFlag(2)) {	// энкодер не трогали и не удерживали - это клик
-                    EBState = 5;
-                    clicks++;
+                if (debounce > EB_DEB) {
+                    if (!_EB_readFlag(4) && !_EB_readFlag(2)) {	            // энкодер не трогали и не удерживали - это клик
+                        EBState = 5;
+                        clicks++;
+                    }
+                    flags &= ~0b00011100;                                       // clear 2 3 4                    
+                    _debTimer = thisMls;                                        // сброс таймаута
+                    _EB_setFlag(10);                                            // кнопка отпущена
+                    if (checkFlag(13)) _EB_setFlag(12);                         // кнопка отпущена после step
                 }
-                flags &= ~0b00011100;                                       // clear 2 3 4                    
-                _debTimer = thisMls;                                        // сброс таймаута
-                _EB_setFlag(10);                                            // кнопка отпущена
             } else if (clicks > 0 && debounce > EB_CLICK && !_EB_readFlag(5)) flags |= 0b11100000;	 // set 5 6 7 (клики)
         }
     }
@@ -432,6 +438,8 @@ private:
     // 9 - enc turn holded
     // 10 - btn released
     // 11 - btn level
+    // 12 - btn released after step
+    // 13 - step flag
 
     // EBState
     // 0 - idle

@@ -27,6 +27,7 @@ checkCallback	KEYWORD2
 
 press	KEYWORD2
 release	KEYWORD2
+releaseStep	KEYWORD2
 fast	KEYWORD2
 turn	KEYWORD2
 turnH	KEYWORD2
