@@ -263,7 +263,12 @@ private:
         if (_prev != state) {
             _ecount += _EB_DIR[state | (_prev << 2)];                   // сдвиг внутреннего счётчика
             _prev = state;
+            #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
+            // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
+            if ((state == 0x3 || state == 0x0) && _ecount != 0) {
+            #else                                                       // полношаговый
             if (state == 0x3 && _ecount != 0) {                         // защёлкнули позицию
+            #endif
                 EBState = (_ecount < 0) ? 1 : 2;
                 _ecount = 0;
                 if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) { // энкодер с кнопкой

@@ -15,6 +15,7 @@ EB_STEP	KEYWORD1
 EB_CLICK	KEYWORD1
 
 EB_BETTER_ENC	KEYWORD1
+EB_HALFSTEP_ENC	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

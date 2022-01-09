@@ -35,6 +35,7 @@
     v1.13 - добавлен экспериментальный EncButton2
     v1.14 - добавлена releaseStep(). Отпускание кнопки внесено в дебаунс
     v1.15 - добавлен setPins() для EncButton2
+    v1.16 - добавлен режим EB_HALFSTEP_ENC для полушаговых энкодеров
 */
 
 #ifndef _EncButton_h
@@ -299,7 +300,12 @@ private:
         if (_prev != state) {
             _ecount += _EB_DIR[state | (_prev << 2)];                   // сдвиг внутреннего счётчика
             _prev = state;
+            #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
+            // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
+            if ((state == 0x3 || state == 0x0) && _ecount != 0) {
+            #else                                                       // полношаговый
             if (state == 0x3 && _ecount != 0) {                         // защёлкнули позицию
+            #endif
                 EBState = (_ecount < 0) ? 1 : 2;
                 _ecount = 0;
                 if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {            // энкодер с кнопкой
