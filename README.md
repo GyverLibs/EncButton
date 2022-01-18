@@ -111,6 +111,14 @@ EncButton2<EB_ENCBTN, EB_CALLBACK> enc[количество];
 EncButton2<EB_ENC, EB_CALLBACK> enc[количество];
 EncButton2<EB_BTN, EB_CALLBACK> enc[количество];
 // и так далее
+// Задавать пины можно через setPins()
+setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);
+// mode - INPUT/INPUT_PULLUP (для всех пинов)
+// указываем только нужные для выбранного режима пины:
+// EB_ENCBTN - A, B, KEY
+// EB_ENC - A, B
+// EB_BTN - KEY
+// см. пример EucButton2_array
 ```
 </details>
 
@@ -203,9 +211,9 @@ void pullUp();          // здесь не реализована!
 void setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);     // настроить пины
 // mode - INPUT/INPUT_PULLUP (для всех пинов)
 // указываем только нужные для выбранного режима пины:
-// EB_ENCBTN - A, B, KEY
-// EB_ENC - A, B
-// EB_BTN - KEY
+// EB_ENCBTN - (A, B, KEY)
+// EB_ENC - (A, B)
+// EB_BTN - (KEY)
 // см. пример EucButton2_array
 ```
 </details>
