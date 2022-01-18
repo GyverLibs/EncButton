@@ -225,14 +225,14 @@ public:
     int16_t counter = 0;                        // счётчик энкодера
     
     // ======================================= BTN =======================================
+    bool state() { return _btnState; }          // статус кнопки
     bool press() { return checkState(8); }      // кнопка нажата
     bool release() { return checkFlag(10); }    // кнопка отпущена
     bool click() { return checkState(5); }      // клик по кнопке
     bool held() { return checkState(6); }       // кнопка удержана
     bool hold() { return _EB_readFlag(4); }     // кнопка удерживается
-    bool step() { return checkState(7); }       // режим импульсного удержания
-    bool state() { return _btnState; }          // статус кнопки
-    bool releaseStep() {return checkFlag(12);}  // кнопка отпущена после импульсного удержания
+    bool step(uint8_t clk = 0) { return (clicks == clk) ? checkState(7) : 0; }  // режим импульсного удержания с предварительным накликиванием
+    bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag(12) : 0; }  // кнопка отпущена после импульсного удержания с предварительным накликиванием
     
     uint8_t clicks = 0;                         // счётчик кликов
     bool hasClicks(uint8_t num) { return (clicks == num && checkFlag(7)) ? 1 : 0; } // имеются клики
@@ -240,6 +240,8 @@ public:
     
     // ===================================================================================
     // =================================== DEPRECATED ====================================
+    //bool step() { return checkState(7); }       // режим импульсного удержания
+    //bool releaseStep() { return checkFlag(12); } // кнопка отпущена после импульсного удержания
     bool isStep() { return step(); }
     bool isHold() { return hold(); }
     bool isHolded() { return held(); }
