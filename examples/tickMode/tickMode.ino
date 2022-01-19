@@ -11,7 +11,7 @@
 #include <EncButton.h>
 //EncButton<EB_TICK, 2, 3, 4> enc;  // энкодер с кнопкой <A, B, KEY>
 //EncButton<EB_TICK, 2, 3> enc;     // просто энкодер <A, B>
-EncButton<EB_TICK, 3> enc;        // просто кнопка <KEY>
+EncButton<EB_TICK, 4> enc;        // просто кнопка <KEY>
 // для изменения направления энкодера поменяй A и B при инициализации
 
 // по умолчанию пины настроены в INPUT_PULLUP
