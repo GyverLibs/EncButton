@@ -229,19 +229,23 @@ public:
     bool press() { return checkState(8); }      // кнопка нажата
     bool release() { return checkFlag(10); }    // кнопка отпущена
     bool click() { return checkState(5); }      // клик по кнопке
+    
     bool held() { return checkState(6); }       // кнопка удержана
     bool hold() { return _EB_readFlag(4); }     // кнопка удерживается
-    bool step(uint8_t clk = 0) { return (clicks == clk) ? checkState(7) : 0; }  // режим импульсного удержания с предварительным накликиванием
-    bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag(12) : 0; }  // кнопка отпущена после импульсного удержания с предварительным накликиванием
+    bool step() { return checkState(7); }       // режим импульсного удержания
+    bool releaseStep() { checkFlag(12); }       // кнопка отпущена после импульсного удержания
+    
+    bool held(uint8_t clk) { return (clicks == clk) ? checkState(6) : 0; }          // кнопка удержана с предварительным накликиванием
+    bool hold(uint8_t clk) { return (clicks == clk) ? _EB_readFlag(4) : 0; }        // кнопка удерживается с предварительным накликиванием
+    bool step(uint8_t clk) { return (clicks == clk) ? checkState(7) : 0; }          // режим импульсного удержания с предварительным накликиванием
+    bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag(12) : 0; }   // кнопка отпущена после импульсного удержания с предварительным накликиванием
     
     uint8_t clicks = 0;                         // счётчик кликов
-    bool hasClicks(uint8_t num) { return (clicks == num && checkFlag(7)) ? 1 : 0; } // имеются клики
-    uint8_t hasClicks() { return checkFlag(6) ? clicks : 0; }                       // имеются клики
+    bool hasClicks(uint8_t num) { return (clicks == num && checkFlag(7)) ? 1 : 0; }     // имеются клики
+    uint8_t hasClicks() { return checkFlag(6) ? clicks : 0; }                           // имеются клики
     
     // ===================================================================================
     // =================================== DEPRECATED ====================================
-    //bool step() { return checkState(7); }       // режим импульсного удержания
-    //bool releaseStep() { return checkFlag(12); } // кнопка отпущена после импульсного удержания
     bool isStep() { return step(); }
     bool isHold() { return hold(); }
     bool isHolded() { return held(); }
@@ -319,14 +323,20 @@ private:
         uint32_t debounce = thisMls - _debTimer;
         if (_btnState) {                                                	// кнопка нажата
             if (!_EB_readFlag(3)) {                                         // и не была нажата ранее
-                if (debounce > EB_DEB) {                                   	// и прошел дебаунс
-                    _EB_setFlag(3);                                         // флаг кнопка была нажата
-                    _debTimer = thisMls;                                    // сброс таймаутов
-                    EBState = 8;                                           	// кнопка нажата
-                }
-                if (debounce > EB_CLICK) {									// кнопка нажата после EB_CLICK
-                    clicks = 0;												// сбросить счётчик и флаг кликов
-                    flags &= ~0b11100000;                                   // clear 5 6 7 (клики)
+                if (_EB_readFlag(14)) {                                     // ждём дебаунс
+                    if (debounce > EB_DEB) {                                // прошел дебаунс
+                        _EB_setFlag(3);                                     // флаг кнопка была нажата
+                        EBState = 8;                                        // кнопка нажата
+                        _debTimer = thisMls;                                // сброс таймаутов
+                    }
+                } else {                                                    // первое нажатие
+                    EBState = 0;
+                    _EB_setFlag(14);                                        // запомнили что хотим нажать                    
+                    if (debounce > EB_CLICK || _EB_readFlag(5)) {           // кнопка нажата после EB_CLICK
+                        clicks = 0;											// сбросить счётчик и флаг кликов
+                        flags &= ~0b0011000011100000;                       // clear 5 6 7 12 13 (клики)
+                    }
+                    _debTimer = thisMls;
                 }
             } else {                                                      	// кнопка уже была нажата
                 if (!_EB_readFlag(4)) {                                     // и удержание ещё не зафиксировано
@@ -335,15 +345,15 @@ private:
                     } else {                                                // прошло больше времени удержания
                         if (!_EB_readFlag(2)) {                             // и энкодер не повёрнут
                             EBState = 6;                                   	// значит это удержание (сигнал)
-                            _EB_setFlag(4);                                 // запомнили что удерживается
+                            flags |= 0b00110000;                            // set 4 5 запомнили что удерживается и отключаем сигнал о кликах
                             _debTimer = thisMls;                            // сброс таймаута
                         }
                     }
                 } else {                                                    // удержание зафиксировано
                     if (debounce > EB_STEP) {                              	// таймер степа
                         EBState = 7;                                       	// сигналим
-                        _debTimer = thisMls;                                // сброс таймаута
                         _EB_setFlag(13);                                    // зафиксирован режим step
+                        _debTimer = thisMls;                                // сброс таймаута
                     }
                 }
             }
@@ -351,15 +361,16 @@ private:
             if (_EB_readFlag(3)) {                                          // но была нажата
                 if (debounce > EB_DEB) {
                     if (!_EB_readFlag(4) && !_EB_readFlag(2)) {	            // энкодер не трогали и не удерживали - это клик
-                        EBState = 5;
+                        EBState = 5;                                        // click
                         clicks++;
                     }
-                    flags &= ~0b00011100;                                       // clear 2 3 4                    
-                    _debTimer = thisMls;                                        // сброс таймаута
-                    _EB_setFlag(10);                                            // кнопка отпущена
-                    if (checkFlag(13)) _EB_setFlag(12);                         // кнопка отпущена после step
+                    flags &= ~0b00011100;                                   // clear 2 3 4                    
+                    _debTimer = thisMls;                                    // сброс таймаута
+                    _EB_setFlag(10);                                        // кнопка отпущена
+                    if (checkFlag(13)) _EB_setFlag(12);                     // кнопка отпущена после step
                 }
             } else if (clicks > 0 && debounce > EB_CLICK && !_EB_readFlag(5)) flags |= 0b11100000;	 // set 5 6 7 (клики)
+            checkFlag(14);                                                  // сброс ожидания нажатия
         }
     }
     
@@ -416,6 +427,9 @@ private:
     // 9 - enc turn holded
     // 10 - btn released
     // 11 - btn level
+    // 12 - btn released after step
+    // 13 - step flag
+    // 14 - deb flag
 
     // EBState
     // 0 - idle
