@@ -233,7 +233,7 @@ public:
     bool held() { return checkState(6); }       // кнопка удержана
     bool hold() { return _EB_readFlag(4); }     // кнопка удерживается
     bool step() { return checkState(7); }       // режим импульсного удержания
-    bool releaseStep() { checkFlag(12); }       // кнопка отпущена после импульсного удержания
+    bool releaseStep() { return checkFlag(12); }// кнопка отпущена после импульсного удержания
     
     bool held(uint8_t clk) { return (clicks == clk) ? checkState(6) : 0; }          // кнопка удержана с предварительным накликиванием
     bool hold(uint8_t clk) { return (clicks == clk) ? _EB_readFlag(4) : 0; }        // кнопка удерживается с предварительным накликиванием
