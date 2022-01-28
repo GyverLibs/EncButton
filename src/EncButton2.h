@@ -466,7 +466,7 @@ private:
     }
 
     uint8_t _prev : 2;
-    uint8_t EBState : RightH;
+    uint8_t EBState : 4;
     bool _btnState : 1;
     bool _encRST : 1;
     bool _isrFlag : 1;
