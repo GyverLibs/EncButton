@@ -395,11 +395,10 @@ private:
                     }
                     _debTimer = thisMls;
                 }
-            } else {                                        // кнопка уже была нажата
-                if (!getFlag(Hold)) {                       // и удержание ещё не зафиксировано
-                    if (debounce < uint32_t(_holdT << 7)) { // прошло меньше удержания
-                        if (EBState != Idle && EBState != Press)
-                            setFlag(EncWasTurn);               // но энкодер повёрнут! Запомнили
+            } else {                                          // кнопка уже была нажата
+                if (!getFlag(Hold)) {                         // и удержание ещё не зафиксировано
+                    if (debounce < (uint32_t)(_holdT << 7)) { // прошло меньше удержания
+                        if (EBState != Idle && EBState != Press) setFlag(EncWasTurn); // но энкодер повёрнут! Запомнили
                     } else {                                   // прошло больше времени удержания
                         if (!getFlag(EncWasTurn)) {            // и энкодер не повёрнут
                             EBState = Held;                    // значит это удержание (сигнал)
