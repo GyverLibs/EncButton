@@ -1,5 +1,7 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![author](https://img.shields.io/badge/author-AlexGyver-informational.svg)
+[![Foo](https://img.shields.io/badge/Version-1.18.2-brightgreen.svg?style=flat-square)](#versions)
+[![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
+[![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
+
 # EncButton
 Ультра лёгкая и быстрая библиотека для энкодера, энкодера с кнопкой или просто кнопки
 - Максимально быстрое чтение пинов для AVR (ATmega328/ATmega168, ATtiny85/ATtiny13)
@@ -512,6 +514,8 @@ void loop() {
 - v1.16 - добавлен режим EB_HALFSTEP_ENC для полушаговых энкодеров
 - v1.17 - добавлен step с предварительными кликами
 - v1.18 - не считаем клики после активации step. held() и hold() тоже могут принимать предварительные клики. Переделан и улучшен дебаунс
+- v1.18.1 - исправлена ошибка в releaseStep() (не возвращала результат)
+- v1.18.2 - fix compiler warnings
 - v1.19 - заменены макросы проверки флагов на мембер-функции и энумераторы вместо волшебных констант. Экономия 14-20 байт кода на проверках флагов.
 
 <a id="feedback"></a>

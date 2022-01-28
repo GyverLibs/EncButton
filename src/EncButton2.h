@@ -397,7 +397,7 @@ private:
                 }
             } else {                                // кнопка уже была нажата
                 if (!getFlag(Hold)) {               // и удержание ещё не зафиксировано
-                    if (debounce < (_holdT << 7)) { // прошло меньше удержания
+                    if (debounce < uint32_t(_holdT << 7)) { // прошло меньше удержания
                         if (EBState != Idle && EBState != Press)
                             setFlag(EncWasTurn);               // но энкодер повёрнут! Запомнили
                     } else {                                   // прошло больше времени удержания
@@ -484,33 +484,5 @@ private:
     uint8_t _amount = 0;
 
     uint8_t _pins[EB_PIN_AM];
-
-    // flags
-    // 0 - enc turn
-    // 1 - enc fast
-    // 2 - enc был поворот
-    // 3 - флаг кнопки
-    // 4 - hold
-    // 5 - clicks flag
-    // 6 - clicks get
-    // 7 - clicks get num
-    // 8 - enc button hold
-    // 9 - enc turn holded
-    // 10 - btn released
-    // 11 - btn level
-    // 12 - btn released after step
-    // 13 - step flag
-    // 14 - deb flag
-
-    // EBState
-    // 0 - idle
-    // 1 - left
-    // 2 - right
-    // 3 - leftH
-    // 4 - rightH
-    // 5 - click
-    // 6 - held
-    // 7 - step
-    // 8 - press
 };
 #endif
