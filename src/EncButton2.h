@@ -274,19 +274,19 @@ public:
     bool release() { return checkFlag<Released>(); } // кнопка отпущена
     bool click() { return checkState(Click); }       // клик по кнопке
 
-    bool held() { return checkState(Held); }                // кнопка удержана
-    bool hold() { return getFlag(Hold); }                   // кнопка удерживается
-    bool step() { return checkState(Step); }                // режим импульсного удержания
-    bool releaseStep() { checkFlag(BtnReleasedAfterStep); } // кнопка отпущена после импульсного удержания
+    bool held() { return checkState(Held); } // кнопка удержана
+    bool hold() { return getFlag(Hold); }    // кнопка удерживается
+    bool step() { return checkState(Step); } // режим импульсного удержания
+    bool releaseStep() { checkFlag<BtnReleasedAfterStep>(); } // кнопка отпущена после импульсного удержания
 
-    bool held(uint8_t clk) { return (clicks == clk) ? checkState(Held) : 0; }                           // кнопка удержана с предварительным накликиванием
-    bool hold(uint8_t clk) { return (clicks == clk) ? getFlag(Hold) : 0; }                              // кнопка удерживается с предварительным накликиванием
-    bool step(uint8_t clk) { return (clicks == clk) ? checkState(Step) : 0; }                           // режим импульсного удержания с предварительным накликиванием
-    bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag(BtnReleasedAfterStep) : 0; } // кнопка отпущена после импульсного удержания с предварительным накликиванием
+    bool held(uint8_t clk) { return (clicks == clk) ? checkState(Held) : 0; } // кнопка удержана с предварительным накликиванием
+    bool hold(uint8_t clk) { return (clicks == clk) ? getFlag(Hold) : 0; }    // кнопка удерживается с предварительным накликиванием
+    bool step(uint8_t clk) { return (clicks == clk) ? checkState(Step) : 0; } // режим импульсного удержания с предварительным накликиваниемs
+    bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag<BtnReleasedAfterStep>() : 0; } // кнопка отпущена после импульсного удержания с предварительным накликиванием
 
-    uint8_t clicks = 0;                                                             // счётчик кликов
-    bool hasClicks(uint8_t num) { return (clicks == num && checkFlag(7)) ? 1 : 0; } // имеются клики
-    uint8_t hasClicks() { return checkFlag(6) ? clicks : 0; }                       // имеются клики
+    uint8_t clicks = 0;                                                                          // счётчик кликов
+    bool hasClicks(uint8_t num) { return (clicks == num && checkFlag<ClicksGetNum>()) ? 1 : 0; } // имеются клики
+    uint8_t hasClicks() { return checkFlag<ClicksGet>() ? clicks : 0; }                          // имеются клики
 
     // ===================================================================================
     // =================================== DEPRECATED ====================================
@@ -326,7 +326,7 @@ private:
                         EBState += Right; // если кнопка не "удерживается"
                 }
                 _dir = (EBState & Left) ? -1 : 1; // направление
-                counter += _dir;               // счётчик
+                counter += _dir;                  // счётчик
                 if (EBState <= Right)
                     setFlag(EncTurn); // флаг поворота для юзера
                 else if (EBState <= RightH)
@@ -351,9 +351,9 @@ private:
                     EBState = _prev;
             }
 
-            if (EBState > Idle) {              // был поворот
+            if (EBState > Idle) {                 // был поворот
                 _dir = (EBState & Left) ? -1 : 1; // направление
-                counter += _dir;               // счётчик
+                counter += _dir;                  // счётчик
                 if (EBState <= Right)
                     setFlag(EncTurn); // флаг поворота для юзера
                 else if (EBState <= RightH)
@@ -395,9 +395,9 @@ private:
                     }
                     _debTimer = thisMls;
                 }
-            } else {                                // кнопка уже была нажата
-                if (!getFlag(Hold)) {               // и удержание ещё не зафиксировано
-                    if (debounce < (_holdT << 7)) { // прошло меньше удержания
+            } else {                                        // кнопка уже была нажата
+                if (!getFlag(Hold)) {                       // и удержание ещё не зафиксировано
+                    if (debounce < uint32_t(_holdT << 7)) { // прошло меньше удержания
                         if (EBState != Idle && EBState != Press)
                             setFlag(EncWasTurn);               // но энкодер повёрнут! Запомнили
                     } else {                                   // прошло больше времени удержания
@@ -409,7 +409,7 @@ private:
                     }
                 } else {                      // удержание зафиксировано
                     if (debounce > EB_STEP) { // таймер степа
-                        EBState = Step;          // сигналим
+                        EBState = Step;       // сигналим
                         setFlag(StepFlag);    // зафиксирован режим step
                         _debTimer = thisMls;  // сброс таймаута
                     }
@@ -419,7 +419,7 @@ private:
             if (getFlag(BtnFlag)) { // но была нажата
                 if (debounce > EB_DEB) {
                     if (!getFlag(Hold) && !getFlag(EncWasTurn)) { // энкодер не трогали и не удерживали - это клик
-                        EBState = Click;                              // click
+                        EBState = Click;                          // click
                         clicks++;
                     }
                     _flags &= ~flags(EncWasTurn, BtnFlag, Hold); // clear
@@ -484,33 +484,5 @@ private:
     uint8_t _amount = 0;
 
     uint8_t _pins[EB_PIN_AM];
-
-    // flags
-    // 0 - enc turn
-    // 1 - enc fast
-    // 2 - enc был поворот
-    // 3 - флаг кнопки
-    // 4 - hold
-    // 5 - clicks flag
-    // 6 - clicks get
-    // 7 - clicks get num
-    // 8 - enc button hold
-    // 9 - enc turn holded
-    // 10 - btn released
-    // 11 - btn level
-    // 12 - btn released after step
-    // 13 - step flag
-    // 14 - deb flag
-
-    // EBState
-    // 0 - idle
-    // 1 - left
-    // 2 - right
-    // 3 - leftH
-    // 4 - rightH
-    // 5 - click
-    // 6 - held
-    // 7 - step
-    // 8 - press
 };
 #endif
