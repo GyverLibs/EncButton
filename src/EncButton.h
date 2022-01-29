@@ -447,7 +447,7 @@ public:
                     if (debounce < (uint32_t)(_holdT << 7)) {  // прошло меньше удержания
                         if (EBState != Idle && EBState != Press) setFlag(EncWasTurn);  // но энкодер повёрнут! Запомнили
                     } else {                                  // прошло больше времени удержания
-                        if (!setFlag(EncWasTurn)) {           // и энкодер не повёрнут
+                        if (!getFlag(EncWasTurn)) {           // и энкодер не повёрнут
                             EBState = Held;                   // значит это удержание (сигнал)
                             _flags |= flags(Hold, ClicksFlag); // set запомнили что удерживается и отключаем сигнал о кликах
                             _debTimer = thisMls;              // сброс таймаута
