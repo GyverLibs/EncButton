@@ -41,6 +41,7 @@ click	KEYWORD2
 held	KEYWORD2
 hold	KEYWORD2
 step	KEYWORD2
+busy	KEYWORD2
 
 getDir	KEYWORD2
 counter	KEYWORD2
