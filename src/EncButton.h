@@ -366,7 +366,7 @@ private:
     void poolBtn() {
         uint16_t ms = millis() & 0xFFFF;
         uint16_t debounce = ms - _debTmr;
-        if (_btnState) {                                                	// кнопка нажата
+        if (_btnState) {                                                    // кнопка нажата
             _EB_setFlag(15);                                                // busy флаг
             if (!_EB_readFlag(3)) {                                         // и не была нажата ранее
                 if (_EB_readFlag(14)) {                                     // ждём дебаунс
@@ -379,31 +379,31 @@ private:
                     EBState = 0;
                     _EB_setFlag(14);                                        // запомнили что хотим нажать                    
                     if (debounce > EB_CLICK || _EB_readFlag(5)) {           // кнопка нажата после EB_CLICK
-                        clicks = 0;											// сбросить счётчик и флаг кликов
+                        clicks = 0;                                         // сбросить счётчик и флаг кликов
                         flags &= ~0b0011000011100000;                       // clear 5 6 7 12 13 (клики)
                     }
                     _debTmr = ms;
                 }
             } else {                                                      	// кнопка уже была нажата
                 if (!_EB_readFlag(4)) {                                     // и удержание ещё не зафиксировано
-                    if (debounce < (uint32_t)(_holdT << 7)) {                         // прошло меньше удержания
+                    if (debounce < (uint32_t)(_holdT << 7)) {               // прошло меньше удержания
                         if (EBState != 0 && EBState != 8) _EB_setFlag(2);   // но энкодер повёрнут! Запомнили
                     } else {                                                // прошло больше времени удержания
                         if (!_EB_readFlag(2)) {                             // и энкодер не повёрнут
-                            EBState = 6;                                   	// значит это удержание (сигнал)
+                            EBState = 6;                                    // значит это удержание (сигнал)
                             flags |= 0b00110000;                            // set 4 5 запомнили что удерживается и отключаем сигнал о кликах
                             _debTmr = ms;                                   // сброс таймаута
                         }
                     }
                 } else {                                                    // удержание зафиксировано
-                    if (debounce > EB_STEP) {                              	// таймер степа
-                        EBState = 7;                                       	// сигналим
+                    if (debounce > EB_STEP) {                               // таймер степа
+                        EBState = 7;                                        // сигналим
                         _EB_setFlag(13);                                    // зафиксирован режим step
                         _debTmr = ms;                                       // сброс таймаута
                     }
                 }
             }
-        } else {                                                        	// кнопка не нажата
+        } else {                                                            // кнопка не нажата
             if (_EB_readFlag(3)) {                                          // но была нажата
                 if (debounce > EB_DEB) {
                     if (!_EB_readFlag(4) && !_EB_readFlag(2)) {	            // энкодер не трогали и не удерживали - это клик
