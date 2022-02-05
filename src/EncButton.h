@@ -326,10 +326,10 @@ private:
                 }
                 _dir = (EBState & 1) ? -1 : 1;                          // направление
                 counter += _dir;                                        // счётчик
-                if (EBState <= 2) _EB_setFlag(0);			            // флаг поворота для юзера
-                else if (EBState <= 4) _EB_setFlag(9);			        // флаг нажатого поворота для юзера
-                if (ms - _debTmr < EB_FAST) _EB_setFlag(1);     // быстрый поворот
-                else _EB_clrFlag(1);						            // обычный поворот
+                if (EBState <= 2) _EB_setFlag(0);                       // флаг поворота для юзера
+                else if (EBState <= 4) _EB_setFlag(9);                  // флаг нажатого поворота для юзера
+                if (ms - _debTmr < EB_FAST) _EB_setFlag(1);             // быстрый поворот
+                else _EB_clrFlag(1);                                    // обычный поворот
                 _debTmr = ms;
             }
         }
@@ -348,10 +348,10 @@ private:
             if (EBState > 0) {                                          // был поворот
                 _dir = (EBState & 1) ? -1 : 1;                          // направление
                 counter += _dir;                                        // счётчик
-                if (EBState <= 2) _EB_setFlag(0);			            // флаг поворота для юзера
-                else if (EBState <= 4) _EB_setFlag(9);			        // флаг нажатого поворота для юзера
+                if (EBState <= 2) _EB_setFlag(0);                       // флаг поворота для юзера
+                else if (EBState <= 4) _EB_setFlag(9);                  // флаг нажатого поворота для юзера
                 if (ms - _debTmr < EB_FAST) _EB_setFlag(1);             // быстрый поворот
-                else _EB_clrFlag(1);						            // обычный поворот
+                else _EB_clrFlag(1);                                    // обычный поворот
             }
 
             _encRST = 0;
@@ -384,7 +384,7 @@ private:
                     }
                     _debTmr = ms;
                 }
-            } else {                                                      	// кнопка уже была нажата
+            } else {                                                        // кнопка уже была нажата
                 if (!_EB_readFlag(4)) {                                     // и удержание ещё не зафиксировано
                     if (debounce < (uint32_t)(_holdT << 7)) {               // прошло меньше удержания
                         if (EBState != 0 && EBState != 8) _EB_setFlag(2);   // но энкодер повёрнут! Запомнили
