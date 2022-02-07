@@ -16,11 +16,6 @@
 #define nullptr NULL
 #endif
 
-// флаг макро
-#define _EB_setFlag(x) (flags |= 1 << x)
-#define _EB_clrFlag(x) (flags &= ~(1 << x))
-#define _EB_readFlag(x) ((flags >> x) & 1)
-
 #ifndef EB_FAST
 #define EB_FAST _EB_FAST
 #endif
@@ -117,14 +112,14 @@ public:
     
     // виртуально зажать кнопку энкодера
     void holdEncButton(bool state) {
-        if (state) _EB_setFlag(8);
-        else _EB_clrFlag(8);
+        if (state) setF(8);
+        else clrF(8);
     }
     
     // уровень кнопки: LOW - кнопка подключает GND (умолч.), HIGH - кнопка подключает VCC
     void setButtonLevel(bool level) {
-        if (level) _EB_clrFlag(11);
-        else _EB_setFlag(11);
+        if (level) clrF(11);
+        else setF(11);
     }
     
     // ===================================== TICK =====================================
@@ -151,18 +146,18 @@ public:
             if (_EB_TYPE <= 3) {                                                // РЕАЛЬНОЕ УСТРОЙСТВО
                 if (_EB_TYPE >= 2) poolEnc(fastRead(0) | (fastRead(1) << 1));   // энк или энк с кнопкой
                 if (_EB_TYPE <= 2) {                                            // кнопка или энк с кнопкой
-                    if (_EB_TYPE == EB_BTN) _btnState = fastRead(0);            // кнопка
-                    else _btnState = fastRead(2);                               // энк с кнопкой
-                    _btnState ^= _EB_readFlag(11);                              // инверсия кнопки
+                    if (_EB_TYPE == EB_BTN) _btnState = fastRead(0);    // кнопка
+                    else _btnState = fastRead(2);                       // энк с кнопкой
+                    _btnState ^= readF(11);                             // инверсия кнопки
                     poolBtn(); 
                 }
-            } else {                                                            // ВИРТУАЛЬНОЕ УСТРОЙСТВО
-                if (_EB_TYPE >= 5) poolEnc(p0 | (p1 << 1));                     // энк или энк с кнопкой
-                if (_EB_TYPE <= 5) {                                            // кнопка или энк с кнопкой
-                    if (_EB_TYPE == VIRT_BTN) _btnState = p0;                   // кнопка
-                    else _btnState = p2;                                        // энк с кнопкой
-                    _btnState ^= _EB_readFlag(11);                              // инверсия кнопки
-                    if (_btnState || _EB_readFlag(15)) poolBtn();               // опрос если кнопка нажата или не вышли таймауты
+            } else {                                                    // ВИРТУАЛЬНОЕ УСТРОЙСТВО
+                if (_EB_TYPE >= 5) poolEnc(p0 | (p1 << 1));             // энк или энк с кнопкой
+                if (_EB_TYPE <= 5) {                                    // кнопка или энк с кнопкой
+                    if (_EB_TYPE == VIRT_BTN) _btnState = p0;           // кнопка
+                    else _btnState = p2;                                // энк с кнопкой
+                    _btnState ^= readF(11);                             // инверсия кнопки
+                    if (_btnState || readF(15)) poolBtn();              // опрос если кнопка нажата или не вышли таймауты
                 }
             }
         }
@@ -218,26 +213,26 @@ public:
     bool leftH() { return checkState(3); }      // поворот влево нажатый
     bool rightH() { return checkState(4); }     // поворот вправо нажатый
     
-    bool fast() { return _EB_readFlag(1); }     // быстрый поворот
+    bool fast() { return readF(1); }            // быстрый поворот
     bool turn() { return checkFlag(0); }        // энкодер повёрнут
     bool turnH() { return checkFlag(9); }       // энкодер повёрнут нажато
     int8_t getDir() { return _dir; }            // направление последнего поворота, 1 или -1
     int16_t counter = 0;                        // счётчик энкодера
     
     // ======================================= BTN =======================================
-    bool busy() { return _EB_readFlag(15); }    // вернёт true, если всё ещё нужно вызывать tick для опроса таймаутов
+    bool busy() { return readF(15); }           // вернёт true, если всё ещё нужно вызывать tick для опроса таймаутов
     bool state() { return _btnState; }          // статус кнопки
     bool press() { return checkState(8); }      // кнопка нажата
     bool release() { return checkFlag(10); }    // кнопка отпущена
     bool click() { return checkState(5); }      // клик по кнопке
     
     bool held() { return checkState(6); }       // кнопка удержана
-    bool hold() { return _EB_readFlag(4); }     // кнопка удерживается
+    bool hold() { return readF(4); }            // кнопка удерживается
     bool step() { return checkState(7); }       // режим импульсного удержания
     bool releaseStep() { return checkFlag(12); }// кнопка отпущена после импульсного удержания
     
     bool held(uint8_t clk) { return (clicks == clk) ? checkState(6) : 0; }          // кнопка удержана с предварительным накликиванием
-    bool hold(uint8_t clk) { return (clicks == clk) ? _EB_readFlag(4) : 0; }        // кнопка удерживается с предварительным накликиванием
+    bool hold(uint8_t clk) { return (clicks == clk) ? readF(4) : 0; }               // кнопка удерживается с предварительным накликиванием
     bool step(uint8_t clk) { return (clicks == clk) ? checkState(7) : 0; }          // режим импульсного удержания с предварительным накликиванием
     bool releaseStep(uint8_t clk = 0) { return (clicks == clk) ? checkFlag(12) : 0; }   // кнопка отпущена после импульсного удержания с предварительным накликиванием
     
@@ -273,21 +268,21 @@ private:
             #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
             // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
             if ((state == 0x3 || state == 0x0) && _ecount != 0) {
-            #else                                                       // полношаговый
-            if (state == 0x3 && _ecount != 0) {                         // защёлкнули позицию
+            #else                                                               // полношаговый
+            if (state == 0x3 && _ecount != 0) {                                 // защёлкнули позицию
             #endif
                 uint16_t ms = millis() & 0xFFFF;
                 EBState = (_ecount < 0) ? 1 : 2;
                 _ecount = 0;
-                if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) { // энкодер с кнопкой
-                    if (!_EB_readFlag(4) && (_btnState || _EB_readFlag(8))) EBState += 2;   // если кнопка не "удерживается"
+                if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {         // энкодер с кнопкой
+                    if (!readF(4) && (_btnState || readF(8))) EBState += 2;     // если кнопка не "удерживается"
                 }
-                _dir = (EBState & 1) ? -1 : 1;                          // направление
-                counter += _dir;                                        // счётчик
-                if (EBState <= 2) _EB_setFlag(0);			            // флаг поворота для юзера
-                else if (EBState <= 4) _EB_setFlag(9);			        // флаг нажатого поворота для юзера
-                if (ms - _debTmr < EB_FAST) _EB_setFlag(1);             // быстрый поворот
-                else _EB_clrFlag(1);						            // обычный поворот
+                _dir = (EBState & 1) ? -1 : 1;                  // направление
+                counter += _dir;                                // счётчик
+                if (EBState <= 2) setF(0);                      // флаг поворота для юзера
+                else if (EBState <= 4) setF(9);                 // флаг нажатого поворота для юзера
+                if (ms - _debTmr < EB_FAST) setF(1);            // быстрый поворот
+                else clrF(1);                                   // обычный поворот
                 _debTmr = ms;
             }
         }
@@ -295,21 +290,21 @@ private:
         if (_encRST && state == 0b11) {                                 // ресет и энк защёлкнул позицию
             uint16_t ms = millis() & 0xFFFF;
             if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {     // энкодер с кнопкой
-                if ((_prev == 1 || _prev == 2) && !_EB_readFlag(4)) {   // если кнопка не "удерживается" и энкодер в позиции 1 или 2
+                if ((_prev == 1 || _prev == 2) && !readF(4)) {          // если кнопка не "удерживается" и энкодер в позиции 1 или 2
                     EBState = _prev;
-                    if (_btnState || _EB_readFlag(8)) EBState += 2;
+                    if (_btnState || readF(8)) EBState += 2;
                 }
             } else {                                                    // просто энкодер
                 if (_prev == 1 || _prev == 2) EBState = _prev;
             }
             
-            if (EBState > 0) {                                          // был поворот
-                _dir = (EBState & 1) ? -1 : 1;                          // направление
-                counter += _dir;                                        // счётчик
-                if (EBState <= 2) _EB_setFlag(0);			            // флаг поворота для юзера
-                else if (EBState <= 4) _EB_setFlag(9);			        // флаг нажатого поворота для юзера
-                if (ms - _debTmr < EB_FAST) _EB_setFlag(1);             // быстрый поворот
-                else _EB_clrFlag(1);						            // обычный поворот
+            if (EBState > 0) {                              // был поворот
+                _dir = (EBState & 1) ? -1 : 1;              // направление
+                counter += _dir;                            // счётчик
+                if (EBState <= 2) setF(0);                  // флаг поворота для юзера
+                else if (EBState <= 4) setF(9);             // флаг нажатого поворота для юзера
+                if (ms - _debTmr < EB_FAST) setF(1);        // быстрый поворот
+                else clrF(1);                               // обычный поворот
             }
 
             _encRST = 0;
@@ -324,59 +319,59 @@ private:
     void poolBtn() {
         uint16_t ms = millis() & 0xFFFF;
         uint16_t debounce = ms - _debTmr;
-        if (_btnState) {                                                	// кнопка нажата
-            _EB_setFlag(15);                                                // busy флаг
-            if (!_EB_readFlag(3)) {                                         // и не была нажата ранее
-                if (_EB_readFlag(14)) {                                     // ждём дебаунс
-                    if (debounce > EB_DEB) {                                // прошел дебаунс
-                        _EB_setFlag(3);                                     // флаг кнопка была нажата
-                        EBState = 8;                                        // кнопка нажата
-                        _debTmr = ms;                                       // сброс таймаутов
+        if (_btnState) {                                            // кнопка нажата
+            setF(15);                                               // busy флаг
+            if (!readF(3)) {                                        // и не была нажата ранее
+                if (readF(14)) {                                    // ждём дебаунс
+                    if (debounce > EB_DEB) {                        // прошел дебаунс
+                        setF(3);                                    // флаг кнопка была нажата
+                        EBState = 8;                                // кнопка нажата
+                        _debTmr = ms;                               // сброс таймаутов
                     }
-                } else {                                                    // первое нажатие
+                } else {                                            // первое нажатие
                     EBState = 0;
-                    _EB_setFlag(14);                                        // запомнили что хотим нажать                    
-                    if (debounce > EB_CLICK || _EB_readFlag(5)) {           // кнопка нажата после EB_CLICK
-                        clicks = 0;											// сбросить счётчик и флаг кликов
-                        flags &= ~0b0011000011100000;                       // clear 5 6 7 12 13 (клики)
+                    setF(14);                                       // запомнили что хотим нажать                    
+                    if (debounce > EB_CLICK || readF(5)) {          // кнопка нажата после EB_CLICK
+                        clicks = 0;                                 // сбросить счётчик и флаг кликов
+                        flags &= ~0b0011000011100000;               // clear 5 6 7 12 13 (клики)
                     }
                     _debTmr = ms;
                 }
-            } else {                                                      	// кнопка уже была нажата
-                if (!_EB_readFlag(4)) {                                     // и удержание ещё не зафиксировано
-                    if (debounce < (uint32_t)(_holdT << 7)) {                         // прошло меньше удержания
-                        if (EBState != 0 && EBState != 8) _EB_setFlag(2);   // но энкодер повёрнут! Запомнили
-                    } else {                                                // прошло больше времени удержания
-                        if (!_EB_readFlag(2)) {                             // и энкодер не повёрнут
-                            EBState = 6;                                   	// значит это удержание (сигнал)
-                            flags |= 0b00110000;                            // set 4 5 запомнили что удерживается и отключаем сигнал о кликах
-                            _debTmr = ms;                                   // сброс таймаута
+            } else {                                                // кнопка уже была нажата
+                if (!readF(4)) {                                    // и удержание ещё не зафиксировано
+                    if (debounce < (uint32_t)(_holdT << 7)) {       // прошло меньше удержания
+                        if (EBState != 0 && EBState != 8) setF(2);  // но энкодер повёрнут! Запомнили
+                    } else {                                        // прошло больше времени удержания
+                        if (!readF(2)) {                            // и энкодер не повёрнут
+                            EBState = 6;                            // значит это удержание (сигнал)
+                            flags |= 0b00110000;                    // set 4 5 запомнили что удерживается и отключаем сигнал о кликах
+                            _debTmr = ms;                           // сброс таймаута
                         }
                     }
-                } else {                                                    // удержание зафиксировано
-                    if (debounce > EB_STEP) {                              	// таймер степа
-                        EBState = 7;                                       	// сигналим
-                        _EB_setFlag(13);                                    // зафиксирован режим step
-                        _debTmr = ms;                                       // сброс таймаута
+                } else {                                            // удержание зафиксировано
+                    if (debounce > EB_STEP) {                       // таймер степа
+                        EBState = 7;                                // сигналим
+                        setF(13);                                   // зафиксирован режим step
+                        _debTmr = ms;                               // сброс таймаута
                     }
                 }
             }
-        } else {                                                        	// кнопка не нажата
-            if (_EB_readFlag(3)) {                                          // но была нажата
+        } else {                                                    // кнопка не нажата
+            if (readF(3)) {                                         // но была нажата
                 if (debounce > EB_DEB) {
-                    if (!_EB_readFlag(4) && !_EB_readFlag(2)) {	            // энкодер не трогали и не удерживали - это клик
-                        EBState = 5;                                        // click
+                    if (!readF(4) && !readF(2)) {                   // энкодер не трогали и не удерживали - это клик
+                        EBState = 5;                                // click
                         clicks++;
                     }
-                    flags &= ~0b00011100;                                   // clear 2 3 4                    
-                    _debTmr = ms;                                           // сброс таймаута
-                    _EB_setFlag(10);                                        // кнопка отпущена
-                    if (checkFlag(13)) _EB_setFlag(12);                     // кнопка отпущена после step
+                    flags &= ~0b00011100;                           // clear 2 3 4                    
+                    _debTmr = ms;                                   // сброс таймаута
+                    setF(10);                                       // кнопка отпущена
+                    if (checkFlag(13)) setF(12);                    // кнопка отпущена после step
                 }
-            } else if (clicks && !_EB_readFlag(5)) {                        // есть клики
-                if (debounce > EB_CLICK) flags |= 0b11100000;	            // set 5 6 7 (клики)
-            } else _EB_clrFlag(15);                                         // снимаем busy флаг
-            checkFlag(14);                                                  // сброс ожидания нажатия
+            } else if (clicks && !readF(5)) {                       // есть клики
+                if (debounce > EB_CLICK) flags |= 0b11100000;       // set 5 6 7 (клики)
+            } else clrF(15);                                        // снимаем busy флаг
+            checkFlag(14);                                          // сброс ожидания нажатия
         }
     }
     
@@ -384,22 +379,19 @@ private:
     bool fastRead(uint8_t pin) {
         return digitalRead(_pins[pin]);
     }
-    
     bool checkState(uint8_t val) {
-        if (EBState == val) {
-            EBState = 0;
-            return 1;
-        } return 0;
+        return (EBState == val) ? EBState = 0, 1 : 0;
     }
     bool checkFlag(uint8_t val) {
-        if (_EB_readFlag(val)) {
-            _EB_clrFlag(val);
-            return 1;
-        } return 0;
+        return readF(val) ? clrF(val), 1 : 0;
     }
     void exec(uint8_t num) {
         if (*_callback[num]) _callback[num]();
     }
+    
+    inline void setF(const uint8_t x) __attribute__((always_inline)) {flags |= 1 << x;}
+    inline void clrF(const uint8_t x) __attribute__((always_inline)) {flags &= ~(1 << x);}
+    inline bool readF(const uint8_t x) __attribute__((always_inline)) {return (flags >> x) & 1;}
     
     uint8_t _prev : 2;
     uint8_t EBState : 4;
