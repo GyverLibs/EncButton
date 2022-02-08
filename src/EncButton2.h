@@ -142,7 +142,6 @@ public:
     uint8_t tickISR(uint8_t p0 = 0, uint8_t p1 = 0, uint8_t p2 = 0) {
         if (!_isrFlag) {
             _isrFlag = 1;
-            
             if (_EB_TYPE <= 3) {                                                // РЕАЛЬНОЕ УСТРОЙСТВО
                 if (_EB_TYPE >= 2) poolEnc(fastRead(0) | (fastRead(1) << 1));   // энк или энк с кнопкой
                 if (_EB_TYPE <= 2) {                                            // кнопка или энк с кнопкой
@@ -160,8 +159,8 @@ public:
                     if (_btnState || readF(15)) poolBtn();              // опрос если кнопка нажата или не вышли таймауты
                 }
             }
+            _isrFlag = 0;
         }
-        _isrFlag = 0;
         return EBState;
     }
     
@@ -267,9 +266,9 @@ private:
             _prev = state;
             #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
             // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
-            if ((state == 0x3 || state == 0x0) && _ecount != 0) {
+            if ((state == 0x3 || state == 0x0) && _ecount) {
             #else                                                               // полношаговый
-            if (state == 0x3 && _ecount != 0) {                                 // защёлкнули позицию
+            if (state == 0x3 && _ecount) {                                 // защёлкнули позицию
             #endif
                 uint16_t ms = millis() & 0xFFFF;
                 EBState = (_ecount < 0) ? 1 : 2;
@@ -391,24 +390,25 @@ private:
     
     inline void setF(const uint8_t x) __attribute__((always_inline)) {flags |= 1 << x;}
     inline void clrF(const uint8_t x) __attribute__((always_inline)) {flags &= ~(1 << x);}
-    inline bool readF(const uint8_t x) __attribute__((always_inline)) {return (flags >> x) & 1;}
+    inline bool readF(const uint8_t x) __attribute__((always_inline)) {return flags & (1 << x);}
     
-    uint8_t _prev : 2;
+    uint8_t _amount : 6;
+    int8_t _dir : 2;
+
     uint8_t EBState : 4;
+    uint8_t _prev : 2;
     bool _btnState : 1;
     bool _encRST : 1;
-    bool _isrFlag : 1;
+    bool _isrFlag = 0;
     uint16_t flags = 0;
-    
-    #ifdef EB_BETTER_ENC
-    int8_t _ecount = 0;
-    #endif
-    
+        
     uint16_t _debTmr = 0;
     uint8_t _holdT = (EB_HOLD >> 7);
-    int8_t _dir = 0;
     void (*_callback[_EB_MODE ? 14 : 0])() = {};
-    uint8_t _amount = 0;
+    
+#ifdef EB_BETTER_ENC
+    int8_t _ecount = 0;
+#endif
     
     uint8_t _pins[EB_PIN_AM];
 

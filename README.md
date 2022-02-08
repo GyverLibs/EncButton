@@ -1,4 +1,4 @@
-[![Foo](https://img.shields.io/badge/Version-1.19.1-brightgreen.svg?style=flat-square)](#versions)
+[![Foo](https://img.shields.io/badge/Version-1.19.2-brightgreen.svg?style=flat-square)](#versions)
 [![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
 [![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
 
@@ -50,9 +50,9 @@
 Время холостого выполнения функции tick() при реальном устройстве (кнопка/энкодер подключены к пинам МК) на ATmega328, библиотека EncButton:
 | Режим | Время, мкс |
 | ----- | ---------- |
-| Энкодер + кнопка | 4.3 |
-| Энкодер | 2.5 |
-| Кнопка | 2.5 |
+| Энкодер + кнопка | 3.8 |
+| Энкодер | 2.4 |
+| Кнопка | 1.9 |
 
 *Для сравнения, стандартный digitalRead() на AVR выполняется 3.5 us*
 
@@ -522,6 +522,7 @@ void loop() {
 - v1.18.2 - fix compiler warnings
 - v1.19 - оптимизация скорости, уменьшен вес в sram
 - v1.19.1 - ещё чутка увеличена производительность
+- v1.19.2 - ещё немного увеличена производительность, спасибо XRay3D
 
 <a id="feedback"></a>
 ## Баги и обратная связь
