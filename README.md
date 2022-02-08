@@ -57,8 +57,8 @@
 *Для сравнения, стандартный digitalRead() на AVR выполняется 3.5 us*  
 
 ## Сравнение с аналогами
-- EncButton в режиме кнопки на ~450 байт Flash и 12 байт SRAM легче моей старой библиотеки [GyverButton](https://github.com/GyverLibs/GyverButton), имея при этом больше возможностей
-- EncButton в режиме энкодера с кнопкой на ~400 байт Flash и 18 байт SRAM легче моей старой библиотеки [GyverEncoder](https://github.com/GyverLibs/GyverEncoder), имея при этом больше возможностей
+- EncButton в режиме кнопки на 6 мкс быстрее, на ~450 байт Flash и 12 байт SRAM легче моей старой библиотеки [GyverButton](https://github.com/GyverLibs/GyverButton), имея при этом больше возможностей
+- EncButton в режиме энкодера с кнопкой на 6 мкс быстрее, на ~400 байт Flash и 18 байт SRAM легче моей старой библиотеки [GyverEncoder](https://github.com/GyverLibs/GyverEncoder), имея при этом больше возможностей
 
 <a id="init"></a>
 ## Инициализация
