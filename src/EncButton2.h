@@ -77,7 +77,7 @@ class EncButton2 {
 public:
     // pinMode, pin1, pin2, pin3
     EncButton2(uint8_t mode = INPUT, uint8_t P1 = 255, uint8_t P2 = 255, uint8_t P3 = 255) {
-        setButtonLevel(LOW);
+        setButtonLevel(_S1 < 252 ? LOW : HIGH);     // высокий уровень в виртуальном режиме
         setPins(mode, P1, P2, P3);
     }
     

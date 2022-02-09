@@ -15,7 +15,7 @@ void loop() {
   // (сигнал кнопки)
   // (сигнал энкодера А, сигнал энкодера B)
   // (сигнал энкодера А, сигнал энкодера B, сигнал кнопки)
-  enc.tick(digitalRead(4));
+  enc.tick(!digitalRead(4));
 
   if (enc.press()) Serial.println("press");
   if (enc.click()) Serial.println("click");
