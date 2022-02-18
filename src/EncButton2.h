@@ -69,14 +69,14 @@ static const int8_t _EB_DIR[] = {
 #define VIRT_ENCBTN 5
 #define VIRT_ENC 6
 
-#define EB_PIN_AM (_EB_TYPE <= 3 ? _EB_TYPE : 0)
+#define EB_PIN_AM ((_EB_TYPE == EB_BTN) ? 1 : (_EB_TYPE == EB_ENCBTN ? 3 : 2))
 
 // ===================================== CLASS =====================================
 template < uint8_t _EB_TYPE, uint8_t _EB_MODE = EB_TICK >
 class EncButton2 {
 public:
     // pinMode, pin1, pin2, pin3
-    EncButton2(uint8_t mode = INPUT, uint8_t P1 = 255, uint8_t P2 = 255, uint8_t P3 = 255) {
+    EncButton2(uint8_t mode = INPUT_PULLUP, uint8_t P1 = 255, uint8_t P2 = 255, uint8_t P3 = 255) {
         setButtonLevel(_EB_TYPE <= 3 ? LOW : HIGH);     // высокий уровень в виртуальном режиме
         setPins(mode, P1, P2, P3);
     }
