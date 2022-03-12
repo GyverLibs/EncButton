@@ -131,13 +131,6 @@ public:
         return EBState;
     }
     
-#define EB_BTN 1
-#define EB_ENCBTN 2
-#define EB_ENC 3
-#define VIRT_BTN 4
-#define VIRT_ENCBTN 5
-#define VIRT_ENC 6
-    
     // тикер специально для прерывания, не проверяет коллбэки
     uint8_t tickISR(uint8_t p0 = 0, uint8_t p1 = 0, uint8_t p2 = 0) {
         if (!_isrFlag) {
@@ -286,7 +279,12 @@ private:
             }
         }
     #else
-        if (_encRST && state == 0b11) {                                 // ресет и энк защёлкнул позицию
+        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
+        if (_encRST && (state == 0b00 || state == 0b11)) {      // ресет и энк защёлкнул позицию
+            if (!state && (_prev == 1 || _prev == 2)) _prev = 3 - _prev;    // меняем 2 на 1 и 1 на 2
+        #else
+        if (_encRST && state == 0b11) {                         // ресет и энк защёлкнул позицию
+        #endif
             uint16_t ms = millis() & 0xFFFF;
             if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {     // энкодер с кнопкой
                 if ((_prev == 1 || _prev == 2) && !readF(4)) {          // если кнопка не "удерживается" и энкодер в позиции 1 или 2
@@ -309,7 +307,11 @@ private:
             _encRST = 0;
             _debTmr = ms;
         }
+        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
+        if (state == 0b11 || state == 0b00) _encRST = 1;
+        #else
         if (state == 0b00) _encRST = 1;
+        #endif
         _prev = state;
     #endif
     }

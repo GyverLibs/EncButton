@@ -46,6 +46,7 @@
     v1.19.3 - сделал высокий уровень кнопки по умолчанию в виртуальном режиме
     v1.19.4 - фикс EncButton2
     v1.20 - исправлена критическая ошибка в EncButton2
+    v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
 */
 
 #ifndef _EncButton_h
@@ -334,7 +335,12 @@ private:
             }
         }
     #else
+        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
+        if (_encRST && (state == 0b00 || state == 0b11)) {      // ресет и энк защёлкнул позицию
+            if (!state && (_prev == 1 || _prev == 2)) _prev = 3 - _prev;   // меняем 2 на 1 и 1 на 2
+        #else
         if (_encRST && state == 0b11) {                         // ресет и энк защёлкнул позицию
+        #endif
             uint16_t ms = millis() & 0xFFFF;
             if (_S2 == EB_NO_PIN || _KEY != EB_NO_PIN) {        // энкодер с кнопкой
                 if ((_prev == 1 || _prev == 2) && !readF(4)) {  // если кнопка не "удерживается" и энкодер в позиции 1 или 2
@@ -357,7 +363,12 @@ private:
             _encRST = 0;
             _debTmr = ms;
         }
+        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
+        if (state == 0b11 || state == 0b00) _encRST = 1;
+        #else
         if (state == 0b00) _encRST = 1;
+        #endif
+        
         _prev = state;
     #endif
     }

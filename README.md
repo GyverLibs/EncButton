@@ -1,4 +1,4 @@
-[![Foo](https://img.shields.io/badge/Version-1.20-brightgreen.svg?style=flat-square)](#versions)
+[![Foo](https://img.shields.io/badge/Version-1.21-brightgreen.svg?style=flat-square)](#versions)
 [![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
 [![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
 
@@ -251,7 +251,7 @@ void setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);     // наст�
 // энкодер
 #define EB_FAST 30      // таймаут быстрого поворота, мс
 #define EB_BETTER_ENC   // улучшенный алгоритм опроса энкодера. Добавит 16 байт SRAM при подключении библиотеки
-#define EB_HALFSTEP_ENC // режим опроса полушагового энкодера (включи, если твой энкодер делает два тика за один)
+#define EB_HALFSTEP_ENC // режим опроса полушагового энкодера (включи, если твой энкодер делает один "поворот" за два щелчка)
 
 // кнопка
 #define EB_DEB 50       // дебаунс кнопки, мс
@@ -532,6 +532,7 @@ void loop() {
 - v1.19.3 - сделал высокий уровень кнопки по умолчанию в виртуальном режиме
 - v1.19.4 - фикс EncButton2
 - v1.20 - исправлена критическая ошибка в EncButton2
+- v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
 
 <a id="feedback"></a>
 ## Баги и обратная связь
