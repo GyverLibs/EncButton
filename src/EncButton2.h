@@ -308,7 +308,7 @@ private:
             _debTmr = ms;
         }
         #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
-        if (state == 0b11 || state == 0b00) _encRST = 1;
+        if (state != 0b11 && state != 0b00) _encRST = 1;
         #else
         if (state == 0b00) _encRST = 1;
         #endif

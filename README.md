@@ -1,4 +1,4 @@
-[![Foo](https://img.shields.io/badge/Version-1.21-brightgreen.svg?style=flat-square)](#versions)
+[![Foo](https://img.shields.io/badge/Version-1.22-brightgreen.svg?style=flat-square)](#versions)
 [![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
 [![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
 
@@ -533,6 +533,7 @@ void loop() {
 - v1.19.4 - фикс EncButton2
 - v1.20 - исправлена критическая ошибка в EncButton2
 - v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
+- v1.22 - улучшен EB_HALFSTEP_ENC для обычного режима
 
 <a id="feedback"></a>
 ## Баги и обратная связь

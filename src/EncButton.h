@@ -47,6 +47,7 @@
     v1.19.4 - фикс EncButton2
     v1.20 - исправлена критическая ошибка в EncButton2
     v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
+    v1.22 - улучшен EB_HALFSTEP_ENC для обычного режима
 */
 
 #ifndef _EncButton_h
@@ -364,7 +365,7 @@ private:
             _debTmr = ms;
         }
         #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
-        if (state == 0b11 || state == 0b00) _encRST = 1;
+        if (state != 0b11 && state != 0b00) _encRST = 1;
         #else
         if (state == 0b00) _encRST = 1;
         #endif
