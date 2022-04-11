@@ -35,7 +35,7 @@ void myTurn() {
   // тут можно:
   Serial.println(enc.counter);  // вывести счётчик
   //Serial.println(enc.fast());   // проверить быстрый поворот
-  //Serial.println(enc.getDir()); // направление поворота
+  //Serial.println(enc.dir()); // направление поворота
 }
 
 void myTurnH() {
@@ -44,7 +44,7 @@ void myTurnH() {
   // тут можно:
   //Serial.println(enc.counter);  // вывести счётчик
   //Serial.println(enc.fast());   // проверить быстрый поворот
-  Serial.println(enc.getDir()); // направление поворота
+  Serial.println(enc.dir()); // направление поворота
 }
 
 void myRight() {

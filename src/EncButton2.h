@@ -208,7 +208,7 @@ public:
     bool fast() { return readF(1); }            // быстрый поворот
     bool turn() { return checkFlag(0); }        // энкодер повёрнут
     bool turnH() { return checkFlag(9); }       // энкодер повёрнут нажато
-    int8_t getDir() { return _dir; }            // направление последнего поворота, 1 или -1
+    int8_t dir() { return _dir; }               // направление последнего поворота, 1 или -1
     int16_t counter = 0;                        // счётчик энкодера
     
     // ======================================= BTN =======================================
@@ -248,6 +248,7 @@ public:
     bool isRightH() { return rightH(); }
     bool isLeft() { return left(); }
     bool isRight() { return right(); }
+    int8_t getDir() { return _dir; }
     
     // ===================================== PRIVATE =====================================
 private:  
@@ -260,7 +261,7 @@ private:
             #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
             // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
             if ((state == 0x3 || state == 0x0) && _ecount) {
-            #else                                                               // полношаговый
+            #else                                                          // полношаговый
             if (state == 0x3 && _ecount) {                                 // защёлкнули позицию
             #endif
                 uint16_t ms = millis() & 0xFFFF;

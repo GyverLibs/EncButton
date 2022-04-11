@@ -48,6 +48,7 @@
     v1.20 - исправлена критическая ошибка в EncButton2
     v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
     v1.22 - улучшен EB_HALFSTEP_ENC для обычного режима
+    v1.23 - getDir() заменил на dir()
 */
 
 #ifndef _EncButton_h
@@ -252,7 +253,7 @@ public:
     bool turn() { return checkFlag(0); }            // энкодер повёрнут
     bool turnH() { return checkFlag(9); }           // энкодер повёрнут нажато
     
-    int8_t getDir() { return _dir; }                // направление последнего поворота, 1 или -1
+    int8_t dir() { return _dir; }                   // направление последнего поворота, 1 или -1
     int16_t counter = 0;                            // счётчик энкодера
     
     // ======================================= BTN =======================================
@@ -292,6 +293,7 @@ public:
     bool isRightH() { return rightH(); }
     bool isLeft() { return left(); }
     bool isRight() { return right(); }
+    int8_t getDir() { return _dir; }
     
     // ===================================== PRIVATE =====================================
 private:

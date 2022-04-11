@@ -36,7 +36,7 @@ void loop() {
     // можно опросить ещё:
     //Serial.println(enc.counter);  // вывести счётчик
     //Serial.println(enc.fast());   // проверить быстрый поворот
-    Serial.println(enc.getDir()); // направление поворота
+    Serial.println(enc.dir()); // направление поворота
   }
 
   // "нажатый поворот"
@@ -46,7 +46,7 @@ void loop() {
     // можно опросить ещё:
     //Serial.println(enc.counter);  // вывести счётчик
     //Serial.println(enc.fast());   // проверить быстрый поворот
-    Serial.println(enc.getDir()); // направление поворота
+    Serial.println(enc.dir()); // направление поворота
   }
 
   if (enc.left()) Serial.println("left");     // поворот налево
