@@ -1,4 +1,4 @@
-[![Foo](https://img.shields.io/badge/Version-1.22-brightgreen.svg?style=flat-square)](#versions)
+[![Foo](https://img.shields.io/badge/Version-1.24-brightgreen.svg?style=flat-square)](#versions)
 [![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
 [![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
 
@@ -248,6 +248,7 @@ void setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);     // наст�
 ### Дефайны настроек
 ```cpp
 // дефайнить ПЕРЕД ПОДКЛЮЧЕНИЕМ БИБЛИОТЕКИ, показаны значения по умолчанию (если они есть)
+#define EB_ANALOG 655	// порог срабатывания аналоговых пинов
 // энкодер
 #define EB_FAST 30      // таймаут быстрого поворота, мс
 #define EB_BETTER_ENC   // улучшенный алгоритм опроса энкодера. Добавит 16 байт SRAM при подключении библиотеки
@@ -535,6 +536,7 @@ void loop() {
 - v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
 - v1.22 - улучшен EB_HALFSTEP_ENC для обычного режима
 - v1.23 - getDir() заменил на dir()
+- v1.24 - добавлена поддержка чтения только аналоговых пинов (ADC6, ADC7) для AVR (ATmega328/ATmega168)
 
 <a id="feedback"></a>
 ## Баги и обратная связь

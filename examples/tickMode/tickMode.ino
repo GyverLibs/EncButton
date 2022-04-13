@@ -7,6 +7,7 @@
 //#define EB_HOLD 1000   // таймаут удержания кнопки, мс
 //#define EB_STEP 500    // период срабатывания степ, мс
 //#define EB_CLICK 400   // таймаут накликивания, мс
+//#define EB_ANALOG 655  // порог срабатывания аналоговых пинов
 
 #include <EncButton.h>
 EncButton<EB_TICK, 2, 3, 4> enc;  // энкодер с кнопкой <A, B, KEY>

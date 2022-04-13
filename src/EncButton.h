@@ -49,6 +49,7 @@
     v1.21 - EB_HALFSTEP_ENC теперь работает для обычного режима
     v1.22 - улучшен EB_HALFSTEP_ENC для обычного режима
     v1.23 - getDir() заменил на dir()
+    v1.24 - добавлена поддержка чтения только аналоговых пинов (ADC6, ADC7) для AVR (ATmega328/ATmega168)
 */
 
 #ifndef _EncButton_h
@@ -60,6 +61,7 @@
 #define _EB_HOLD 1000       // таймаут удержания кнопки
 #define _EB_STEP 500        // период срабатывания степ
 #define _EB_CLICK 400	    // таймаут накликивания
+#define _EB_ANALOG 655	    // порог срабатывания аналоговых пинов (ADC6, ADC7)
 //#define EB_BETTER_ENC     // точный алгоритм отработки энкодера (можно задефайнить в скетче)
 
 // =========== НЕ ТРОГАЙ ============
@@ -83,6 +85,9 @@
 #endif
 #ifndef EB_CLICK
 #define EB_CLICK _EB_CLICK
+#endif
+#ifndef EB_ANALOG
+#define EB_ANALOG _EB_ANALOG
 #endif
 
 enum eb_callback {
@@ -302,6 +307,7 @@ private:
         if (pin < 8) return bitRead(PIND, pin);
         else if (pin < 14) return bitRead(PINB, pin - 8);
         else if (pin < 20) return bitRead(PINC, pin - 14);
+        else if (pin < 22) return analogRead(pin)>EB_ANALOG;
 #elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
         return bitRead(PINB, pin);
 #else
