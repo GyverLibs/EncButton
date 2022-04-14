@@ -4,10 +4,7 @@
 // ========= НАСТРОЙКИ (можно передефайнить из скетча) ==========
 #define _EB_FAST 30         // таймаут быстрого поворота
 #define _EB_DEB 50          // дебаунс кнопки
-#define _EB_HOLD 1000       // таймаут удержания кнопки
-#define _EB_STEP 500        // период срабатывания степ
 #define _EB_CLICK 400	    // таймаут накликивания
-//#define EB_BETTER_ENC     // точный алгоритм отработки энкодера (можно задефайнить в скетче)
 
 // =========== НЕ ТРОГАЙ ============
 #include <Arduino.h>
@@ -23,10 +20,10 @@
 #define EB_DEB _EB_DEB
 #endif
 #ifndef EB_HOLD
-#define EB_HOLD _EB_HOLD
+#define EB_HOLD 1000    // совместимость
 #endif
 #ifndef EB_STEP
-#define EB_STEP _EB_STEP
+#define EB_STEP 500    // совместимость
 #endif
 #ifndef EB_CLICK
 #define EB_CLICK _EB_CLICK
@@ -49,15 +46,6 @@ enum eb_callback {
     // clicks amount 13
 };
 
-#ifdef EB_BETTER_ENC
-static const int8_t _EB_DIR[] = {
-  0, -1,  1,  0,
-  1,  0,  0, -1,
-  -1,  0,  0,  1,
-  0,  1, -1,  0
-};
-#endif
-
 // константы
 #define EB_TICK 0
 #define EB_CALLBACK 1
@@ -69,6 +57,9 @@ static const int8_t _EB_DIR[] = {
 #define VIRT_ENCBTN 5
 #define VIRT_ENC 6
 
+#define EB_FULLSTEP 0
+#define EB_HALFSTEP 1
+
 #define EB_PIN_AM ((_EB_TYPE == EB_BTN) ? 1 : (_EB_TYPE == EB_ENCBTN ? 3 : 2))
 
 // ===================================== CLASS =====================================
@@ -79,6 +70,13 @@ public:
     EncButton2(uint8_t mode = INPUT_PULLUP, uint8_t P1 = 255, uint8_t P2 = 255, uint8_t P3 = 255) {
         setButtonLevel(_EB_TYPE <= 3 ? LOW : HIGH);     // высокий уровень в виртуальном режиме
         setPins(mode, P1, P2, P3);
+        #ifdef EB_HALFSTEP_ENC  // совместимость
+        _etype = 1;
+        #else
+        _etype = 0;
+        #endif
+        _stepT = EB_STEP >> 5;
+        _holdT = EB_HOLD >> 6;
     }
     
     // установить пины
@@ -105,9 +103,14 @@ public:
     void pullUp() {
     }
     
-    // установить таймаут удержания кнопки для isHold(), мс (до 30 000)
+    // установить таймаут удержания кнопки для hold(), мс (до 8 000)
     void setHoldTimeout(int tout) {
-        _holdT = tout >> 7;
+        _holdT = tout >> 6;
+    }
+    
+    // установить период импульсов step(), мс (до 4 000)
+    void setStepTimeout(int tout) {
+        _stepT = tout >> 5;
     }
     
     // виртуально зажать кнопку энкодера
@@ -120,6 +123,16 @@ public:
     void setButtonLevel(bool level) {
         if (level) clrF(11);
         else setF(11);
+    }
+    
+    // true - инвертировать направление энкодера (умолч. false)
+    void setEncReverse(bool rev) {
+        _erev = rev;
+    }
+    
+    // тип энкодера: EB_FULLSTEP (0) по умолч., EB_HALFSTEP (1) если энкодер делает один поворот за два щелчка
+    void setEncType(bool type) {
+        _etype = type;
     }
     
     // ===================================== TICK =====================================
@@ -208,7 +221,7 @@ public:
     bool fast() { return readF(1); }            // быстрый поворот
     bool turn() { return checkFlag(0); }        // энкодер повёрнут
     bool turnH() { return checkFlag(9); }       // энкодер повёрнут нажато
-    int8_t dir() { return _dir; }               // направление последнего поворота, 1 или -1
+    int8_t dir() { return _dir ? -1 : 1; }      // направление последнего поворота, 1 или -1
     int16_t counter = 0;                        // счётчик энкодера
     
     // ======================================= BTN =======================================
@@ -248,30 +261,26 @@ public:
     bool isRightH() { return rightH(); }
     bool isLeft() { return left(); }
     bool isRight() { return right(); }
-    int8_t getDir() { return _dir; }
+    int8_t getDir() { return dir(); }
     
     // ===================================== PRIVATE =====================================
 private:  
     // ===================================== POOL ENC =====================================
     void poolEnc(uint8_t state) {
-    #ifdef EB_BETTER_ENC
         if (_prev != state) {
-            _ecount += _EB_DIR[state | (_prev << 2)];                   // сдвиг внутреннего счётчика
+            uint8_t p = (state | (_prev << 2)) << 1;
             _prev = state;
-            #ifdef EB_HALFSTEP_ENC                                      // полушаговый энкодер
-            // спасибо https://github.com/GyverLibs/EncButton/issues/10#issue-1092009489
-            if ((state == 0x3 || state == 0x0) && _ecount) {
-            #else                                                          // полношаговый
-            if (state == 0x3 && _ecount) {                                 // защёлкнули позицию
-            #endif
+            _ecount += ((0x49941661 >> p) & 0b11) - 1;
+            if ((state == 0b11 || (_etype && !state)) && _ecount) {
                 uint16_t ms = millis() & 0xFFFF;
                 EBState = (_ecount < 0) ? 1 : 2;
+                if (_erev) EBState = 3 - EBState;
                 _ecount = 0;
-                if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {         // энкодер с кнопкой
-                    if (!readF(4) && (_btnState || readF(8))) EBState += 2;     // если кнопка не "удерживается"
+                if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {     // энкодер с кнопкой
+                    if (!readF(4) && (_btnState || readF(8))) EBState += 2; // если кнопка не "удерживается"
                 }
-                _dir = (EBState & 1) ? -1 : 1;                  // направление
-                counter += _dir;                                // счётчик
+                _dir = EBState & 1;                             // направление
+                counter += _dir ? -1 : 1;                       // счётчик
                 if (EBState <= 2) setF(0);                      // флаг поворота для юзера
                 else if (EBState <= 4) setF(9);                 // флаг нажатого поворота для юзера
                 if (ms - _debTmr < EB_FAST) setF(1);            // быстрый поворот
@@ -279,42 +288,6 @@ private:
                 _debTmr = ms;
             }
         }
-    #else
-        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
-        if (_encRST && (state == 0b00 || state == 0b11)) {      // ресет и энк защёлкнул позицию
-            if (!state && (_prev == 1 || _prev == 2)) _prev = 3 - _prev;    // меняем 2 на 1 и 1 на 2
-        #else
-        if (_encRST && state == 0b11) {                         // ресет и энк защёлкнул позицию
-        #endif
-            uint16_t ms = millis() & 0xFFFF;
-            if (_EB_TYPE == EB_ENCBTN || _EB_TYPE == VIRT_ENCBTN) {     // энкодер с кнопкой
-                if ((_prev == 1 || _prev == 2) && !readF(4)) {          // если кнопка не "удерживается" и энкодер в позиции 1 или 2
-                    EBState = _prev;
-                    if (_btnState || readF(8)) EBState += 2;
-                }
-            } else {                                                    // просто энкодер
-                if (_prev == 1 || _prev == 2) EBState = _prev;
-            }
-            
-            if (EBState > 0) {                              // был поворот
-                _dir = (EBState & 1) ? -1 : 1;              // направление
-                counter += _dir;                            // счётчик
-                if (EBState <= 2) setF(0);                  // флаг поворота для юзера
-                else if (EBState <= 4) setF(9);             // флаг нажатого поворота для юзера
-                if (ms - _debTmr < EB_FAST) setF(1);        // быстрый поворот
-                else clrF(1);                               // обычный поворот
-            }
-
-            _encRST = 0;
-            _debTmr = ms;
-        }
-        #ifdef EB_HALFSTEP_ENC                                  // полушаговый энкодер
-        if (state != 0b11 && state != 0b00) _encRST = 1;
-        #else
-        if (state == 0b00) _encRST = 1;
-        #endif
-        _prev = state;
-    #endif
     }
     
     // ===================================== POOL BTN =====================================
@@ -341,7 +314,7 @@ private:
                 }
             } else {                                                // кнопка уже была нажата
                 if (!readF(4)) {                                    // и удержание ещё не зафиксировано
-                    if (debounce < (uint32_t)(_holdT << 7)) {       // прошло меньше удержания
+                    if (debounce < (uint16_t)(_holdT << 6)) {       // прошло меньше удержания
                         if (EBState != 0 && EBState != 8) setF(2);  // но энкодер повёрнут! Запомнили
                     } else {                                        // прошло больше времени удержания
                         if (!readF(2)) {                            // и энкодер не повёрнут
@@ -351,7 +324,7 @@ private:
                         }
                     }
                 } else {                                            // удержание зафиксировано
-                    if (debounce > EB_STEP) {                       // таймер степа
+                    if (debounce > (uint16_t)(_stepT << 5)) {       // таймер степа
                         EBState = 7;                                // сигналим
                         setF(13);                                   // зафиксирован режим step
                         _debTmr = ms;                               // сброс таймаута
@@ -391,28 +364,28 @@ private:
         if (*_callback[num]) _callback[num]();
     }
     
+    uint16_t flags = 0;   
     inline void setF(const uint8_t x) __attribute__((always_inline)) {flags |= 1 << x;}
     inline void clrF(const uint8_t x) __attribute__((always_inline)) {flags &= ~(1 << x);}
     inline bool readF(const uint8_t x) __attribute__((always_inline)) {return flags & (1 << x);}
     
-    uint8_t _amount : 6;
-    int8_t _dir : 2;
-
     uint8_t EBState : 4;
+    int8_t _ecount : 4;
+    
+    uint8_t _amount : 4;
     uint8_t _prev : 2;
+    bool _erev : 1;
+    bool _etype : 1;
+    
+    uint8_t _holdT : 7;
     bool _btnState : 1;
-    bool _encRST : 1;
+    
+    uint8_t _stepT : 7;
+    bool _dir : 1;
+    
     bool _isrFlag = 0;
-    uint16_t flags = 0;
-        
     uint16_t _debTmr = 0;
-    uint8_t _holdT = (EB_HOLD >> 7);
     void (*_callback[_EB_MODE ? 14 : 0])() = {};
-    
-#ifdef EB_BETTER_ENC
-    int8_t _ecount = 0;
-#endif
-    
     uint8_t _pins[EB_PIN_AM];
 
     // flags

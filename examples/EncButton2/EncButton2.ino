@@ -3,8 +3,6 @@
 // Опциональные дефайн-настройки (показаны по умолчанию)
 //#define EB_FAST 30     // таймаут быстрого поворота, мс
 //#define EB_DEB 50      // дебаунс кнопки, мс
-//#define EB_HOLD 1000   // таймаут удержания кнопки, мс
-//#define EB_STEP 500    // период срабатывания степ, мс
 //#define EB_CLICK 400   // таймаут накликивания, мс
 
 #include <EncButton2.h>
@@ -19,10 +17,6 @@ EncButton2<EB_ENCBTN> enc(INPUT, 2, 3, 4);  // энкодер с кнопкой
 
 void setup() {
   Serial.begin(9600);
-  // ещё настройки
-  //enc.counter = 100;        // изменение счётчика энкодера
-  //enc.setHoldTimeout(500);  // установка таймаута удержания кнопки
-  //enc.setButtonLevel(HIGH); // LOW - кнопка подключает GND (умолч.), HIGH - кнопка подключает VCC
 }
 
 void loop() {

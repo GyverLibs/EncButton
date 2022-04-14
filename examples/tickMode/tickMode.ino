@@ -4,8 +4,6 @@
 // Опциональные дефайн-настройки (показаны по умолчанию)
 //#define EB_FAST 30     // таймаут быстрого поворота, мс
 //#define EB_DEB 50      // дебаунс кнопки, мс
-//#define EB_HOLD 1000   // таймаут удержания кнопки, мс
-//#define EB_STEP 500    // период срабатывания степ, мс
 //#define EB_CLICK 400   // таймаут накликивания, мс
 
 #include <EncButton.h>
@@ -20,10 +18,14 @@ EncButton<EB_TICK, 2, 3, 4> enc;  // энкодер с кнопкой <A, B, KEY
 
 void setup() {
   Serial.begin(9600);
-  // ещё настройки
-  //enc.counter = 100;        // изменение счётчика энкодера
-  //enc.setHoldTimeout(500);  // установка таймаута удержания кнопки
-  //enc.setButtonLevel(HIGH); // LOW - кнопка подключает GND (умолч.), HIGH - кнопка подключает VCC
+  // настройки
+  //enc.setButtonLevel(HIGH);     // уровень кнопки: LOW - кнопка подключает GND (по умолч.), HIGH - кнопка подключает VCC
+  //enc.setHoldTimeout(1000);     // установить время удержания кнопки, мс (до 8 000)
+  //enc.setStepTimeout(500);      // установить период импульсов step, мс (до 4 000)
+
+  //enc.holdEncButton(true);      // виртуально зажать кнопку энкодера (для срабатывания нажатых поворотов)
+  //enc.setEncReverse(true);      // true - инвертировать направление энкодера (умолч. false)
+  //enc.setEncType(EB_HALFSTEP);  // тип энкодера: EB_FULLSTEP (0) по умолч., EB_HALFSTEP (1) если энкодер делает один поворот за два щелчка
 }
 
 void loop() {

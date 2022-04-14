@@ -10,12 +10,7 @@ EncButton2	KEYWORD1
 
 EB_FAST	KEYWORD1
 EB_DEB	KEYWORD1
-EB_HOLD	KEYWORD1
-EB_STEP	KEYWORD1
 EB_CLICK	KEYWORD1
-
-EB_BETTER_ENC	KEYWORD1
-EB_HALFSTEP_ENC	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -57,6 +52,9 @@ pullUp	KEYWORD2
 holdEncButton	KEYWORD2
 setHoldTimeout	KEYWORD2
 setButtonLevel	KEYWORD2
+setEncReverse	KEYWORD2
+setEncType	KEYWORD2
+setStepTimeout	KEYWORD2
 
 # deprecated
 isPress	KEYWORD2
@@ -77,6 +75,9 @@ isStep	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
+EB_HALFSTEP	LITERAL1
+EB_FULLSTEP	LITERAL1
+
 EB_TICK	LITERAL1
 EB_CALLBACK	LITERAL1
 
