@@ -100,7 +100,7 @@ EncButton<MODE, A, B, KEY> enc; // encoder with button
 EncButton<MODE, A, B> enc; // just an encoder
 EncButton<MODE, KEY> btn; // just a button
 // A, B, KEY: pin numbers
-// MODE: EB_TICK or EB_CALLBACK - work modeCranberries from handmade or with processors
+// MODE: EB_TICK or EB_CALLBACK - manual operation mode or with handlers
 
 // ========= VIRTUAL MODE =========
 EncButton<MODE, VIRT_BTN> enc; // virtual button
@@ -203,7 +203,7 @@ uint8_t getState(); // get button/encoder status
 // 2-right
 // 3 - leftH
 // 4-rightH
-// 5-clickCranberry
+// 5-click
 // 6 - held
 // 7-step
 // 8-press
@@ -351,7 +351,7 @@ Where `type` is the event type:
 - `HOLDED_HANDLER` - hold (single operation)
 - `HOLD_HANDLER` - hold (permanent operation)
 - `STEP_HANDLER` - impulse hold
-- `CLICKS_HANDLER` - several clicksCranberries
+- `CLICKS_HANDLER` - several clicks
 
 Example:
 ```cpp
@@ -571,7 +571,7 @@ void loop() {
 - v1.13 - added experimental EncButton2
 - v1.14 - releaseStep() added. Button release added to debounce
 - v1.15 - added setPins() for EncButton2
-- v1.16 - added EB_HALFSTEP_ENC mode fori half-step encoders
+- v1.16 - added EB_HALFSTEP_ENC mode for half step encoders
 - v1.17 - added step with pre-clicks
 - v1.18 - do not count clicks after step activation. held() and hold() can also accept pre-clicks. Redesigned and improved debounce
 - v1.18.1 - fixed bug in releaseStep() (didn't return result)
