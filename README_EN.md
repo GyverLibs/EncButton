@@ -86,7 +86,7 @@ More details below in the chapter "Usage"
 <summary>Initialize EncButton</summary>
 
 ```cpp
-// ============ PULL- UP ============
+// ============ PULL-UP ============
 // During initialization, you can specify the mode of operation of ALL pins
 // Default INPUT_PULLUP. If an external pull-up is used, it is better to transfer to INPUT
 EncButton<...> enc(pinmode);
@@ -397,7 +397,7 @@ so that `tick()` stops "beeping" the action. See the *optimization* example for 
 
 ### Interrupts
 To improve the quality of encoder / button processing in the loaded program (so as not to miss a turn or click), it is recommended
-duplicate the poll in the interrupt by *CHANGE*. For encoder - Cranberries on both pins. Inside the interrupt handler, we call the special ticker `tickISR()`,
+duplicate the poll in the interrupt by *CHANGE*. For encoder -Cranberries on both pins. Inside the interrupt handler, we call the special ticker `tickISR()`,
 and in the main program loop we leave the usual `tick()` - it is needed in order to correctly calculate all timeouts.
 In `EB_CALLBACK` mode, all connected functions are called from `tick()`, that is, not from the interrupt handler, but from the main program loop!
 
