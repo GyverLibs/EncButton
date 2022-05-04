@@ -1,3 +1,5 @@
+This is an automatic translation, may be incorrect in some places. See sources and examples!
+
 # EncButton
 Lightweight and functional library for encoder, encoder with button or just buttons with Arduino
 - Fastest pin reading for AVR (ATmega328/ATmega168, ATtiny85/ATtiny13)
