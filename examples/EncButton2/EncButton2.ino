@@ -9,11 +9,6 @@
 EncButton2<EB_ENCBTN> enc(INPUT, 2, 3, 4);  // энкодер с кнопкой
 //EncButton2<EB_ENC> enc(INPUT, 2, 3);        // просто энкодер
 //EncButton2<EB_BTN> enc(INPUT, 4);           // просто кнопка
-// для изменения направления энкодера поменяй A и B при инициализации
-
-// по умолчанию пины настроены в INPUT_PULLUP
-// Если используется внешняя подтяжка - лучше перевести в INPUT
-//EncButton<EB_TICK, 2, 3, 4> enc(INPUT);
 
 void setup() {
   Serial.begin(9600);
