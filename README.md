@@ -173,8 +173,8 @@ setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);
 ```cpp
 // =============== SETTINGS ==============
 void setButtonLevel(bool level);    // уровень кнопки: LOW - кнопка подключает GND (по умолч.), HIGH - кнопка подключает VCC
-void setHoldTimeout(int tout);      // установить время удержания кнопки, мс (до 8 000)
-void setStepTimeout(int tout);      // установить период импульсов step, мс (до 4 000)
+void setHoldTimeout(int tout);      // установить время удержания кнопки, мс (64.. 8 000, шаг 64 мс)
+void setStepTimeout(int tout);      // установить период импульсов step, мс (32.. 4 000, шаг 32 мс)
 
 void holdEncButton(bool state);     // виртуально зажать кнопку энкодера (для срабатывания нажатых поворотов)
 void setEncReverse(bool rev);       // true - инвертировать направление энкодера (умолч. false)
