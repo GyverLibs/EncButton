@@ -103,14 +103,14 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 
     int8_t _encFlags(int8_t state) {
         if (state) {
-            if (!read_bf(EB_HLD)) {                    // кнопка не была удержана
-                if (clicks) clicks = 0;                // сбросить клики
-                if (read_bf(EB_PRS)) set_bf(EB_EHLD);  // зажать энкодер
-                uint16_t ms = EB_UPTIME();
-                write_ef(EB_FAST, ms - tmr < EB_FAST_T);
-                if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);
-                tmr = ms;
-            }
+            // if (!read_bf(EB_HLD)) {             // кнопка не была удержана
+            if (clicks) clicks = 0;                // сбросить клики
+            if (read_bf(EB_PRS)) set_bf(EB_EHLD);  // зажать энкодер
+            uint16_t ms = EB_UPTIME();
+            write_ef(EB_FAST, ms - tmr < EB_FAST_T);
+            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);
+            tmr = ms;
+            // }
         }
         return state;
     }
