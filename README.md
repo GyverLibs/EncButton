@@ -7,7 +7,7 @@
 
 # EncButton
 
-|⚠️⚠️⚠️<br>**Новая версия v3 несовместима с предыдущими, смотри документацию и примеры!**<br>⚠️⚠️⚠️|
+|⚠️⚠️⚠️<br>**Новая версия v3 несовместима с предыдущими, смотри [документацию](#docs), [примеры](#example) и краткий [гайд по миграции](#migrate) с v2 на v3!**<br>⚠️⚠️⚠️|
 | --- |
 
 Лёгкая и очень функциональная библиотека для энкодера с кнопкой, энкодера или кнопки с Arduino
@@ -398,7 +398,7 @@ void init(uint8_t encA, uint8_t encB, uint8_t mode);
 int8_t tickISR();
 
 // функция обработки для вызова в loop
-bool tick();
+int8_t tick();
 ```
 </details>
 <details>
@@ -417,7 +417,7 @@ void init(uint8_t mode);
 int8_t tickISR();
 
 // функция обработки для вызова в loop
-bool tick();
+int8_t tick();
 ```
 </details>
 <details>
@@ -701,8 +701,52 @@ void loop() {
 ### Портирование на другие платформы
 В файлах utils.h/utils.cpp можно заменить Arduino-зависимые функции на другие
 
-<a id="example"></a>
+<a id="migrate"></a>
 
+## Гайд по миграции с v2 на v3
+### Инициализация
+```cpp
+// ВИРТУЛАЬНЫЕ
+VirtEncButton eb; // энк с кнопкой
+VirtButton b;     // кнопка
+VirtEncoder e;    // энк с кнопкой
+
+// РЕАЛЬНЫЕ
+// энкодер с кнопкой
+EncButton eb(enc0, enc1, btn);              // пины энкодера и кнопки
+EncButton eb(enc0, enc1, btn, pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+EncButton eb(enc0, enc1, btn, pinmodeEnc, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+// шаблонный
+EncButton<enc0, enc1, btn> eb;              // пины энкодера и кнопки
+EncButton<enc0, enc1, btn> eb(pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+EncButton<enc0, enc1, btn> eb(pinmodeEnc, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+
+// кнопка
+Button b(pin);
+Button b(pin, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+// шаблонный
+ButtonT<pin> b;
+ButtonT<pin> b(pinmodeBtn); // + режим пина кнопки (умолч. INPUT_PULLUP)
+
+// энкодер
+Encoder e(enc0, enc1);              // пины энкодера
+Encoder e(enc0, enc1, pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+// шаблонный
+EncoderT<enc0, enc1> e;              // пины энкодера
+EncoderT<enc0, enc1> e(pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+```
+
+### Функции
+| v2        | v3           |
+|-----------|--------------|
+| `held()`  | `hold()`     |
+| `hold()`  | `holding()`  |
+| `state()` | `pressing()` |
+
+### Коллбэк
+В v3 не предусмотрено подключение коллбэка, но его можно имитировать, см. выше
+
+<a id="example"></a>
 ## Примеры
 Остальные примеры смотри в **examples**!
 <details>
