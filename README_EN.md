@@ -1,598 +1,953 @@
 This is an automatic translation, may be incorrect in some places. See sources and examples!
 
-# EncButton
-Lightweight and functional library for encoder, encoder with button or just buttons with Arduino
-- Fastest pin reading for AVR (ATmega328/ATmega168, ATtiny85/ATtiny13)
-- Fast optimized algorithms for polling actions from a button / encoder
-- Light weight in Flash and SRAM memory
-- Encoder: normal turn, pressed turn, fast turn, counter access
-    - Support for two types of incremental encoders (full step and half step)
-    - High-precision position determination algorithm, works even with low-quality encoders
-- Button: anti-bounce, press, release, click, multi-click, click counter, hold, pulse hold
-- Manual action polling or handler function mode
-- Virtual mode (button, encoder, encoder with button)
-- Optimized for interrupt operation
+# ENCBUTTON
 
-### Compatibility
-Compatible with all Arduino platforms (using Arduino functions)
+| ⚠️⚠️⚠️ <BR> ** The new version of V3 is incompatible with the previous ones!Read the documentation below! ** <br> ⚠️⚠️⚠️ |
+|--- |
+
+A light and very functional library for an encoder with a button, encoder or buttons with Arduino
+- Button
+    - Processing of events: pressing, releasing, click, click counter, retention, impulse retention + preliminary clicks for all of the listed modes
+    - Program suppression of rubbish
+    - support for processing two simultaneously pressed buttons as a third button
+- Encoder
+    - Processing of events: a normal turn, pressed turn, fast turn
+    - Support of four types of incidental encoders
+    - high -precision algorithm for determining the position
+    - buffer in interruption
+- simplicity and versatility of the API for different use scenarios
+- virtual regime (for example, for working with a pain expander)
+- optimized for work in interruption (encoder)
+- The fastest reading of pins for AVR (Atmega328/Atmega168, Attiny85/Attiny13)
+- Fast asynchronous algorithms of survey of actions from the button and encoder
+- rigid optimization and low weight in Flash and SRAM memory: 5 bytes SRAM (on an instance) and ~ 350 bytes Flash to process the button
+
+Examples of use scenarios:
+- Several clicks - inclusion of the regime (according to the number of clicks)
+- Several clicks + short retention - another option for turning on the mode (according to the number of clicks)
+- several clicks + holding - a gradual change in the value of the selected variable (on the number of clicks)
+- Several clicks choose a variable, encoder changes it
+- changing the step of changes in the variable during the rotation of the encoder - for example, a decrease with a closed button and an increase with rapid rotation
+- navigation by menu during the rotation of the encoder, a change in the variable during the rotation of a clamped encoder
+- full -fledged navigation by the menu when using two buttons (simultaneous retention to go to the next level, simultaneous pressing for return to the previous one)
+- And so on
+
+## compatibility
+Compatible with all arduino platforms (used arduino functions)
 
 ## Content
-- [Install](#install)
-- [Introduction](#base)
-- [Initialization](#init)
-- [Usage](#usage)
-- [Example](#example)
-- [Versions](#versions)
-- [Bugs and feedback](#feedback)
+- [installation] (# Install)
+- [Information] (# Info)
+- [documentation] (#docs)
+- [Examples] (# Example)
+- [versions] (#varsions)
+- [bugs and feedback] (#fedback)
 
-<a id="install"></a>
+<a id="install"> </a>
 ## Installation
-- The library can be found by the name **EncButton** and installed through the library manager in:
-    - Arduino IDE
-    - Arduino IDE v2
-    - PlatformIO
-- [Download Library](https://github.com/GyverLibs/EncButton/archive/refs/heads/main.zip) .zip archive for manual installation:
-    - Unzip and put in *C:\Program Files (x86)\Arduino\libraries* (Windows x64)
-    - Unzip and put in *C:\Program Files\Arduino\libraries* (Windows x32)
-    - Unpack and put in *Documents/Arduino/libraries/*
-    - (Arduino IDE) automatic installation from .zip: *Sketch/Include library/Add .ZIP library…* and specify the downloaded archive
-- Read more detailed instructions for installing libraries [here] (https://alexgyver.ru/arduino-first/#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE% D0%B2%D0%BA%D0%B0_%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA)
+- The library can be found by the name ** encbutton ** and installed through the library manager in:
+    - Arduino ide
+    - Arduino ide v2
+    - Platformio
+- [download the library] (https://github.com/gyverlibs/encbuton/archive/refs/heads/main.zip) .Zip archive for manual installation:
+    - unpack and put in * C: \ Program Files (X86) \ Arduino \ Libraries * (Windows X64)
+    - unpack and put in * C: \ Program Files \ Arduino \ Libraries * (Windows X32)
+    - unpack and put in *documents/arduino/libraries/ *
+    - (Arduino id) Automatic installation from. Zip: * sketch/connect the library/add .Zip library ... * and specify downloaded archive
+- Read more detailed instructions for installing libraries [here] (https://alexgyver.ru/arduino-first/#%D0%A3%D1%81%D1%82%D0%B0%BD%D0%BE%BE%BE%BED0%B2%D0%BA%D0%B0_%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA)
+### Update
+- I recommend always updating the library: errors and bugs are corrected in the new versions, and soCranberries are optimized and new features are added
+- through the IDE library manager: find the library how to install and click "update"
+- Manually: ** remove the folder with the old version **, and then put a new one in its place.“Replacement” cannot be done: sometimes in new versions, files that remain when replacing are deleted and can lead to errors!
 
-<a id="base"></a>
-## Introduction
-### Optimization
-The library is universal:
-- Can work with "physical" button, encoder or encoder with button
-- Can work with "virtual" button, encoder or encoder with button
-- Can work in two modes: manual polling of actions or mode with handler functions
+<a id="info"> </a>
 
-The library is heavily optimized: the main settings are set as `<template parameters>`, so, depending on the chosen hardware and operating mode, all unnecessary code is hard cut by the compiler and the program takes up a minimum amount of memory.
+## Information
+## encoder
+#### type of encoder
+The library supports all 4 types of * incidental * encoders, the type can be configured using `setenctype (type)`:
+- `eb_step4_Low` - active low signal (tightening to VCC).Full period (4 phases) per click.*Set by default*
+- `eb_step4_high` - an active high signal (tightening to GND).Full period (4 phases) for one click
+- `eb_step2` - half of the period (2 phases) per click
+- `eb_step1` - a quarter of the period (1 phase) per click, as well as encoders without fixation
 
-### Library version
-- **EncButton** - stores pin numbers as template parameters, provides maximum speed and light weight. It can be difficult to dynamically create an object, and you can't create an array of objects.
-- **EncButton2** - stores pin numbers as class members. You can create dynamically, make arrays, and set pins later in the program. Differs from **EncButton** only in initialization!
+! [Diagram] (/doc/enc_type.png)
 
-### Iron
-To work according to the "encoder with a button" scenario, I recommend these ([link] (https://ali.ski/CYir4), [link] (https://ali.ski/49q5hy)) round Chinese modules with soldered anti-bounce circuits :
-![scheme](/doc/encAli.png)
+#### Recommendations
+To work according to the Encoder with the button, I recommend these ([link] (https://ali.ski/cmpi2), [link] (https://ali.ski/szbtk)) Round Chinese modules with broken anti -ship chains(have the type `eb_step4_low` according to the classification above):
+! [Scheme] (/doc/encali.png)
 
-You can independently tie the encoder according to the following scheme (RC filters on the encoder channels + tightening all pins to VCC):
-![scheme](/doc/enc.png)
+You can tie an encoder yourself according to the following scheme (RC filters to the encoder channels + tightening of all pens to VCC):
+! [Scheme] (/doc/enc_scheme.png)
 
-### Encoder type
-There are two types of incrementalncoders, I called them full step and half step. Full step gives 4 signals per click, half step - 2.
-If the library produces one "turn" on two encoder clicks, change the type to `EB_HALFSTEP`.
+### Button
+### The level of the button
+The button can be connected to the microcontroller in two ways and give a high or low signal when pressed.The library provides for setting up `setbuttonlevel (level)`, where the level is an active button signal:
+- `High` - the button connects the VCC.Installed by default in `virt`-bibliotexes
+- `Low` - the button connects GND.Set by default in the main libraries
+! [Scheme] (/doc/btn_scheme.png)
 
-### Performance
-Idle execution time of the tick() function with a real device (button / encoder connected to MK pins) on ATmega328, EncButton library:
-| Mode | Time, ms |
-| ----- | ---------- |
-| Encoder + button | 3.8 |
-| Encoder | 2.4 |
-| Button | 1.9 |
+#### Pin
+In diagrams with microcontrollers, the connection of the GND button with a PIN suspension to VCC is most often used.The tightening can be external (Pin mode must be put `Input`) or internal (PIN mode` Input_pullup`).In "real" projects, an external lifelong is recommended, becauseIt is less susceptible to interference - the internal has too high resistance.
 
-*For comparison, a standard digitalRead() on an AVR takes 3.5 us*
+### Library structure
+Encbutton starting with version 3.0 is several libraries (classes) for various use scenarios:
+- Basic classes:
+  - `virtbutton` - the base class of the virtual button, provides all the possibilities of the buttons
+  - `virtencoder` - the base class of the virtual encoder, determines the fact and direction of the rotation of the enkoder
+  - `virtencbutton` - the base class of a virtual encoder with a button, provides an encoder poll taking into account the button, *inherits Virtbututton and Virtencoder *
+- Main classes:
+  - `Button` - button class, *inherits virtbutton *
+  - `Encoder` - Encoder class, *inherits virtencoder *
+  - `encbutton` - an encoder class with a button, *inherits virtencbutton *
+  - versions of `buttont`,` encodert`, `encbuttont` store Pino numbers in the template to maximize memory and speed optimization
 
-### Comparison with analogues
-- EncButton in button mode is 6µs faster, ~450 bytes Flash and 12 bytes SRAM lighter than my old [GyverButton](https://github.com/GyverLibs/GyverButton) library, while having more features
-- EncButton in button encoder mode is 6µs faster, ~400 bytes Flash and 18 bytes SRAM lighter than my old library [GyverEncoder](https://github.com/GyverLibs/GyverEncoder) while having more features
+> * Virtual * - without specifying a PIN of the microcontroller, works directly with the transmitted value, for example, for a survey of the enemies buttons through pain extensors and shift registers.
 
-<a id="init"></a>
-## Initialization
-The library can work in two modes (specified during initialization):
-- `EB_TICK` - polling button/encoder actions manually in the main program loop. The best option
-- `EB_CALLBACK` - connecting your own handler functions to the desired actions. Adds 28B SRAM per object
-More details below in the chapter "Usage"
-
-<details>
-<summary>Initialize EncButton</summary>
-
-```cpp
-// ============ PULL-UP ============
-// During initialization, you can specify the mode of operation of ALL pins
-// Default INPUT_PULLUP. If an external pull-up is used, it is better to transfer to INPUT
-EncButton<...> enc(pinmode);
-// pinmode: INPUT or INPUT_PULLUP
-
-// ========= PHYSICAL HARDWARE ========
-// The type of piece of iron is set by the number of specified pins:
-EncButton<MODE, A, B, KEY> enc; // encoder with button
-EncButton<MODE, A, B> enc; // just an encoder
-EncButton<MODE, KEY> btn; // just a button
-// A, B, KEY: pin numbers
-// MODE: EB_TICK or EB_CALLBACK - manual operation mode or with handlers
-
-// ========= VIRTUAL MODE =========
-EncButton<MODE, VIRT_BTN> enc; // virtual button
-EncButton<MODE, VIRT_ENCBTN> enc; // virtual enc with button
-EncButton<MODE, VIRT_ENC> enc; // virtual enc
-// MODE: EB_TICK or EB_CALLBACK - manual operation mode or with handlers
-```
-</details>
-<details>
-<summary>Initializing EncButton2</summary>
-
-```cpp
-// ================ TICK ===============
-EncButton2<EB_ENCBTN> enc(pinmode, A, B, KEY); // encoder with button
-EncButton2<EB_ENC> enc(pinmode, A, B); // just an encoder
-EncButton2<EB_BTN> enc(pinmode, KEY); // just a button
-// pinmode - INPUT/INPUT_PULLUP pin mode
-// A, B, KEY: pin numbers
-
-// ============== CALLBACK ==============
-EncButton2<EB_ENCBTN, EB_CALLBACK> enc(pinmode, A, B, KEY); // encoder with button
-EncButton2<EB_ENC, EB_CALLBACK> enc(pinmode, A, B); // just an encoder
-EncButton2<EB_BTN, EB_CALLBACK> enc(pinmode, KEY); // just a button
-// pinmode - INPUT/INPUT_PULLUP pin mode
-// A, B, KEY: pin numbers
-
-// ============== VIRT TICK ============
-EncButton2<VIRT_ENCBTN> enc; // encoder with button
-EncButton2<VIRT_ENC> enc; // just an encoder
-EncButton2<VIRT_BTN> enc; // just a button
-
-// ============ VIRT CALLBACK ==========
-EncButton2<VIRT_ENCBTN, EB_CALLBACK> enc; // encoder with button
-EncButton2<VIRT_ENC, EB_CALLBACK> enc; // just an encoder
-EncButton2<VIRT_BTN, EB_CALLBACK> enc; // just a button
-```
-</details>
-<details>
-<summary>Array of EncButton2 instances</summary>
-
-```cpp
-EncButton2<EB_ENCBTN> enc[number];
-EncButton2<EB_ENC> enc[number];
-EncButton2<EB_BTN> enc[number];
-
-EncButton2<EB_ENCBTN, EB_CALLBACK> enc[number];
-EncButton2<EB_ENC, EB_CALLBACK> enc[number];
-EncButton2<EB_BTN, EB_CALLBACK> enc[number];
-// etc
-
-// You can set pins via setPins()
-setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);
-// mode - INPUT/INPUT_PULLUP (for all pins)
-// specify only the pins needed for the selected mode:
-// EB_ENCBTN - A, B, KEY
-// EB_ENC - A, B
-// EB_BTN - KEY
-// see example EucButton2_array
-```
-</details>
+<a id="docs"> </a>
 
 ## Documentation
+### Defaine settings
+Be up to the library
+
+`` `CPP
+// Disable the encoder counter [Virtencoder, Encoder, Encbutton] (saves 4 bytes of RAM)
+#define eb_no_counter
+
+// Disconnect the buffer of the encoder (saves 1 byte of RAM)
+#define eb_no_buffer
+
+/*
+  Setting up timeouts for all classes
+  - replaces the timauts with constants, changing them from the program (setxxxtimeout ()) will not be
+  - Setting affects all buttons announced in the program/Encoders
+  - saves 1 bytes of RAM for an object for each timeout
+  - shows the default values in MS
+  - values are not limited to 4000MS, as when installing from the program (SetXXXTimeout ())
+*/
+#define eb_deb_time 50 // Timesout to extinguish the trim button (button)
+#define eb_click_time 500 // Click Stage ClickOV (button)
+#define eb_hold_time 500 // Maintenance Times (button)
+#define eb_step_time 200 // Impulse retention Timesout (button)
+#define EB_FAST_TIME 30 // TIMAUT RAM (ENCODER)
+`` `
+
+### classes
+> Note: `# Include <encbutton.h>` connects all the library tools!
+
 <details>
-<summary>FULL CLASS DESCRIPTION</summary>
+<summary> virtbutton </summary>
 
-```cpp
-// =============== SETTINGS ==============
-void setButtonLevel(bool level); // button level: LOW - button connects GND (default), HIGH - button connects VCC
-void setHoldTimeout(int tout); // set the button hold time, ms (up to 8000)
-void setStepTimeout(int tout); // set pulse period step, ms (up to 4000)
+`` `CPP
+// ==ward
+// Set the deduction timeout, silence.500 (max. 4000 ms)
+VOID SetHoldtimeout (Uint16_T Tout);
 
-void holdEncButton(bool state); // virtually hold the encoder button (to trigger pressed turns)
-void setEncReverse(bool rev); // true - invert encoder direction (default false)
-void setEncType(bool type); // encoder type: EB_FULLSTEP (0) by default, EB_HALFSTEP (1) if the encoder makes one turn in two clicks
+// Install the timout of impulse retention, silence.200 (max. 4000 ms)
+VOID Setsteptimeout (Uint16_T Tout);
 
-// ================= TICK ================
-// ticker, call in the main loop of the program loop(). This is where the pins are polled and all calculations are made.
-uint8_t tick();
+// Install the expectations of clicks, silence.500 (max. 4000 ms)
+VOID setClicktimeout (Uint16_T Tout);
 
-// virtual ticker can receive virtual signal in VIRT_xxx mode:
-uint8_t tick(uint8_t s1 = 0, uint8_t s2 = 0, uint8_t key = 0);
-// (button signal)
-// (encoder A signal, encoder B signal)
-// (encoder A signal, encoder B signal, button signal)
+// Install the Timout of the Anti -Direct, silence.50 (Max. 255 ms)
+VOID Setdebtimeout (Uint8_t Tout);
 
-// Ticker to call in interrupt. Requires regular tick() in loop() (see tickISR and callbackISR examples)
-uint8_t tickISR();
+// set the level of the button (HIGH - button closes VCC, Low - closes GND)
+// silent.High, that is, True - the button is pressed
+VOID Setbuttonlevel (Bool Level);
 
-// all tickers return a non-zero value if an event has occurred (see list of statuses below)
+// ==============ward
+// throw off system flags (forcibly finish processing)
+VOID Reset ();
 
-// checks and calls connected functions for callback mode
-// Built into tick(), but taken out as a separate function for non-standard work scenarios
-void checkCallback();
+// forcibly drop the flags of events
+Void Clear ();
 
-// =============== STATE ================
-void resetState(); // reset status
-uint8_t getState(); // get button/encoder status
-// 0 - idle
-// 1-left
-// 2-right
-// 3 - leftH
-// 4-rightH
-// 5-click
-// 6 - held
-// 7-step
-// 8-press
+// ====ward
+// button processing with value
+Bool Tick (Bool S);
 
-// =============== ENCODER ===============
-bool turn(); // rotate one click to either side
-bool turnH(); // turn one click in any direction while holding the button
-boolfast(); // quick turn by one click in any direction
-boolright(); // rotate one click to the right
-bool left(); // rotate one click to the left
-bool rightH(); // rotate one click to the right while holding the button
-bool leftH(); // rotate one click to the left while holding the button
-int8_t dir(); // last turn direction, 1 or -1
-int16_t counter; // access to encoder counter
+// Processing of the virtual button as simultaneous pressing two other buttons
+Bool Tick (Virtbutton & B0, Virtbutton & B1);
 
-// ================ BUTTON ================
-bool busy(); // will return true if we still need to call tick to poll for timeouts
-bool state(); // current button state (true pressed, false not pressed)
-boolpress(); // the button was pressed
-bool release(); // the button has been released
-boolclick(); // click (pressed and released)
-bool held(); // the button has been held down
-bool hold(); // button is held down
-boolstep(); // pulse hold mode
-bool step(uint8_t clicks); // impulse hold mode with pre-call
-bool releaseStep(); // released after step mode
-bool releaseStep(uint8_t clicks); // released after step mode with pre-click
-uint8_t hasClicks(); // will return the number of clicks, if any
-bool hasClicks(uint8_t num); // check for the specified number of clicks
-uint8_t clicks; // access to the click counter
+// ================== Poll ================================ward
+// Pressure button [event]
+Bool Press ();
 
-// =============== CALLBACK ===============
-void attach(TYPE, void (*handler)()); // connect handler
-void detach(TYPE); // disable handler
-void attachClicks(uint8_t amount, handler); // connect a handler for the number of clicks (there can be only onein), up to 16 clicks!
-void detachClicks(); // disable the handler for the number of clicks
+// button released (in any case) [event]
+Bool Release ();
 
-// TYPE can be:
-TURN_HANDLER
-TURN_H_HANDLER
-RIGHT_HANDLER
-LEFT_HANDLER
-RIGHT_H_HANDLER
-LEFT_H_HANDLER
-CLICK_HANDLER
-HOLDED_HANDLER
-STEP_HANDLER
-HOLD_HANDLER
-CLICKS_HANDLER
-PRESS_HANDLER
-RELEASE_HANDLER
+// click on the button (released without holding) [event]
+Bool click ();
 
-// =========== Optional EncButton2 ===========
-// set up pins
-void setPins(uint8_t mode, uint8_t P1, uint8_t P2, uint8_t P3);
-// mode - INPUT/INPUT_PULLUP (for all pins)
-// pins - specify only those needed for the selected mode:
-// EB_ENCBTN - (A, B, KEY)
-// EB_ENC - (A, B)
-// EB_BTN - (KEY)
+// Squeezed button (between Press () and Release ()) [condition]
+Bool Pressing ();
 
+// The button was withheld (more timeout) [event]
+Bool Hold ();
 
-// =============== DEFINE SETTINGS ===============
-// define BEFORE INCLUDING THE LIBRARY, default values ​​are shown
-#define EB_FAST 30 // encoder fast turn timeout, ms
-#define EB_DEB 50 // button debounce, ms
-#define EB_CLICK 400 // button click timeout, ms
-```
+// The button was kept (more timeout) with preliminary clicks [Event]
+Bool Hold (uint8_t num);
+
+// The button is held (more timeout) [condition]
+Bool Holding ();
+
+// The button is held (more timeout) with preliminary clicks [condition]
+Bool Holding (Uint8_T Num);
+
+// Impulse retention [event]
+Bool Step ();
+
+// Impulse deduction with preliminary clicks [Event]
+Bool Step (Uint8_t Num);
+
+// Several clicks were recorded [event]
+Bool HasClicks ();
+
+// recorded the specified number of clicks [event]
+Bool HasClicks (Uint8_T Num);
+
+// get the number of clicks
+uint8_t getclicks ();
+
+// button released after holding [Event]
+Bool ReleaseHold ();
+
+// Button is released after holding with preliminary clicks [Event]
+Bool Releasehold (Uint8_T Num);
+
+// Button is released after impulse retention [Event]
+Bool ReleaseStep ();
+
+// button is released after impulse deduction with preliminary clicks [Event]
+Bool ReleaseStep (Uint8_T Num);
+
+// After interacting with the button (or enkoder Encbutton), the specified time has passed, ms [event]
+Bool Timeout (Uint16_T Tout);
+
+// button awaits repeated clicks (between Click () and HasClicks ()) [condition]
+Bool Waiting ();
+
+// processing (between the first press and after waiting for clicks) [condition]
+Bool Busy ();
+
+// there was an action with a button (or encbutton encoder), will return the event code [event]
+Uint16_T Action ();
+
+`` `
+</details>
+<details>
+<summary> virtencoder </summary>
+
+`` `CPP
+// ===============================================
+// Invert the direction of the encoder (silence 0)
+VOID Setencreverse (Bool Rev);
+
+// Install the type of encoder (eb_step4_low, eb_step4_high, eb_step2, eb_step1)
+VOID Setenctype (Uint8_T Type);
+
+// Initialization of the encoder
+VOID Initenc (Bool E0, Bool E1);
+
+// Encoder initialization with a combined value
+VOID Initenc (int8_t v);
+
+// ===================== Support ==========================
+// there was a turn [event]
+Bool Turn ();
+
+// Direction of the encoder (1 or -1) [condition]
+int8_t die ();
+
+// counter
+Int32_T Counter;
+
+// ====ward
+// Interrogate the encoder in interruption.Will return 1 or -1 during rotation, 0 when stopping
+Int8_t Tickisr (Bool E0, Bool E1);
+Int8_T Tickisr (int8_t state);
+
+// Introduce the Encoder.Will return 1 or -1 during rotation, 0 in OSTAnovka
+Int8_T Tick (Bool E0, Bool E1);
+int8_t tick (int8_t state);
+
+// Introduce the encoder without installing flags on a turn (faster).Will return 1 or -1 during rotation, 0 when stopping
+Int8_T TickRaW (Bool E0, Bool E1);
+Int8_T TickRaW (int8_t state);
+`` `
+</details>
+<details>
+<summary> virtencbutton </summary>
+
+- Available functions from `virtbutton`
+- Available functions from `virtencoder`
+
+`` `CPP
+// ============ward
+// Install a timeout of fast turning, ms
+VOID setfasttimeout (Uint8_t Tout);
+
+// virtually squeeze the encoder button
+Void Holdencbutton (Bool State);
+
+// virtually switch the encoder button
+VOID TOGLEENCBUTTON ();
+
+// =================== Poll =================================
+// + all the functions of the survey from Virtbutton and Virtencoder
+
+// Turn to the right [event]
+Bool Right ();
+
+// Turn to the left [event]
+Bool Left ();
+
+// pressed turn to the right [event]
+Bool Righth ();
+
+// pressed turn to the left [event]
+Bool Lefth ();
+
+// Pressing the Encoder button [condition]
+Bool Encholding ();
+
+// Fast turning of the encoder [condition]
+Bool Fast ();
+
+// ====ward
+// processing in interruption (only encoder).Will return 0 at rest, 1 or -1 when turning
+Int8_t Tickisr (Bool E0, Bool E1);
+
+// processing in interruption (only encoder).Will return 0 at rest, 1 or -1 when turning
+Int8_T Tickisr (int8_t e01);
+
+// processing of encoder and buttons
+Bool Tick (Bool E0, Bool E1, Bool BTN);
+
+// processing of encoder and buttons
+Bool Tick (Int8_t E01, Bool BTN);
+`` `
+</details>
+<details>
+<summary> Button </summary>
+
+- Available functions from `virtbutton`
+- default buttons mode - `Low`
+
+`` `CPP
+Button;
+Button (uint8_t pin);// indicating Pin
+Button (uint8_t npin, uint8_t mode);// + mode of operation (silence input_pullup)
+
+// indicate the pin and its operating mode
+VOID Init (uint8_t npin, uint8_t mode);
+
+// + all the functions of the survey from Virtbutton
+// Read the current button value (without debate)
+Bool Read ();
+
+// processing function, call in loop
+Bool Tick ();
+`` `
+</details>
+<details>
+<summary> buttont </summary>
+
+- Available functions from `virtbutton`
+- default buttons mode - `Low`
+
+`` `CPP
+Buttont <uint8_t pin>;// indicating Pin
+Buttont <uint8_t pin> (uint8_t mode);// + mode of operation (silence input_pullup)
+
+// specify the operating mode
+VOID Init (Uint8_t Mode);
+
+// + all the functions of the survey from Virtbutton
+
+// Read the current button value (without debate)
+Bool Read ();
+
+// processing function, call in loop
+Bool Tick ();
+`` `
+</details>
+<details>
+<summary> encoder </summary>
+
+- Available functions from `virtencoder`
+
+`` `CPP
+Encoder;
+Encoder (Uint8_t Enca, Uint8_T ENCB);// indicating Pinov
+Encoder (Uint8_t Enca, Uint8_t Encb, Uint8_t Mode);// + mode of operation (silence. Input)
+
+// Indicate pins and their operating mode
+VOID Init (Uint8_t Enca, Uint8_t Encb, Uint8_t Mode);
+
+// Function of processing for calling in an interruption of encoder
+int8_t tickisr ();
+
+// Function of processing for calling in LOOP
+Bool Tick ();
+`` `
+</details>
+<details>
+<summary> encodert </summary>
+
+- Available functions from `virtencoder`
+
+`` `CPP
+Encodert <uint8_t enca, uint8_t encb>;// indicating Pinov
+Encodert <uint8_t enca, uint8_t encb> (Uint8_t Mode);// + mode of operation (silence. Input)
+
+// specify the mode of operation of Pinov
+VOID Init (Uint8_t Mode);
+
+// Function of processing for calling in an interruption of encoder
+int8_t tickisr ();
+
+// Function of processing for calling in LOOP
+Bool Tick ();
+`` `
+</details>
+<details>
+<summary> encbutton </summary>
+
+- Available functions from `virtbutton`
+- Available functions from `virtencoder`
+- Available functions from `virtencbutton`
+
+`` `CPP
+ENCBUTTON;
+
+// Set the Pins (ENK, ENK, button)
+ENCBUTTON (UINT8_T ENCA, UINT8_T ENCB, UINT8_T BTN);
+
+// Reference Pines (ENK, ENK, button, Pinmode ENK, Pinmode button)
+ENCBUTTON (UINT8_T ENCA, UINT8_T ENCB, UINT8_T BTN, UINT8_T MODEENC = Input, Uint8_t Modebtn = Input_Pullup);
+
+// Reference Pines (ENK, ENK, button, Pinmode ENK, Pinmode button)
+VOID Init (Uint8_t Enca, Uint8_t Encb, Uint8_t BTN, UINT8_T MODEENC = Input, Uint8_t Modebtn = Input_Pullup);
+
+// +all the functions of the survey from Virtbutton, Virtencbutton and Virtencoder
+
+// Function of processing for calling in an interruption of encoder
+int8_t tickisr ();
+
+// processing function, call in loop
+Bool Tick ();
+
+// Read the button value
+Bool Readbtn ();
+
+// Read the value of the encoder
+Int8_T Readenc ();
+`` `
+</details>
+<details>
+<summary> encbuttont </summary>
+
+- Available functions from `virtbutton`
+- Available functions from `virtencoder`
+- Available functions from `virtencbutton`
+
+`` `CPP
+ENCBUTTONT <uint8_T ENCA, UINT8_T ENCB, UINT8_T BTN>;// indicating Pinov
+Encbuttont <uint8_t enca, uint8_t encb, uint8_t btn> (Uint8_t Modeenc = Input, Uint8_t Modebtn = Input_Pullup);// + Pino operation mode
+
+// Configure Pino operation mode
+VOID Init (Uint8_t Modeenc = Input, Uint8_t Modebtn = Input_Pullup);
+
+// + all the functions of the survey from Virtbutton, Virtencbutton and Virtencoder
+
+// Function of processing for calling in an interruption of encoder
+int8_t tickisr ();
+
+// processing function, call in loop
+Bool Tick ();
+
+// Read the button value
+Bool Readbtn ();
+
+// Read the value of the encoder
+Int8_T Readenc ();
+`` `
 </details>
 
-<a id="usage"></a>
-## Features and use cases
-### Poll pins
-Polling encoder/button pins, calculating timeouts and calling callbacks takes place inside the `tick()` function. This function must be called **once** in the main `loop()` program loop.
-```cpp
-void loop() {
-  btn.tick();
+### Processing and Poll
+All libraries have a general ** function of processing ** (ticker `tick`), which receives the current signal from the button and encoder
+- this function must be called in the main cycle of the program (for virtual - with the transmission of the meaning)
+- the function returns `true` when the event occurs (for encoder -` 1` or `-1` when turning,` 0` in its absence. Thus, the turn in any direction is regarded as `true`)
+- There are separate functions for calling in interruption, they have a suffix `isr`, see documentation below
+
+The library processes the signal inside this function, the result can be obtained from ** functions of the survey ** events.They are of two types:
+- `[event]` - the function will return `true` once upon the event of an event.It will be reset after the next call call (for example, click, turning enncoder)
+- `[condition]` - the function returns `true`, while this condition is actively (for example, the button is held)
+
+For simplicity of perception, the processing function must be placed at the beginning of the cycle, and polls do below:
+`` `CPP
+VOID loop () {
+  btn.tick ();// survey
+
+  if (btn.click ()) serial.println ("click");// will display once when clicking
+  if (btn.click ()) serial.println ("click");// The same click!
 }
-```
+`` `
+> Unlike previous versions of the library, the survey functions are not reset inside themselves, but *inside the processing function *.Thus, in the example above, when clicking on the button in the port, the message `click` is twice.This allows you to use the survey functions several times for the current iteration of the cycle to create a complex logic of the program.
 
-### EB_TICK mode
-In this mode, you need to manually poll for actions from the encoder / button using `if ()`:
-- According to the logic of work, all polls should be placed after the call to `tick()`
-- Almost all polling functions have a "shot once" mechanism, that is, they return `true` and automatically reset to `false` until the next event occurs.
+### button processing
+The library processes the button as follows:
+- Pressing with software suppression of rubbish (holding longer than the Deb time), the result is the event `Press`, the state of` Pressing` and `Busy`
+- retention longer than the Hold Hold time - the event `hold`, the state` holding`
+- retention longer than the Hold + Timesat Thai Timeshot - a pulse event `step`, triggers with a STEP period
+- release of the button, the result - the event `Release`, the removal of the states` Pressing` and `Holding`
+  - release to the deduction time - event `click`
+  - release after holding - event `Releasehold`
+  - release after impulse deduction - event `ReleaseStep`
+- Waiting for a new click during the Click timeout, the state `Waiting`
+- If there is no new click - the removal of the state of `Busy`, the processing is completed
 
-Example:
-```cpp
-void loop() {
-  btn.tick();
-  if (btn.click()) Serial.println("Click");
+> It is better to see once than read a hundred times.Launch the example of Demo and put on the button
+
+### click
+! [click] (/doc/click.gif)
+
+### hold
+! [Hold] (/doc/hold.gif)
+
+#### STEP
+! [STEP] (/DOC/STEP.GIF)
+
+### encoder processing
+- "Fast" turn is considered a turn committed less than tuned timaut from the previous turn
+- the turns processed in interruption become active after calling the processing function
+- Buerization of Encoder turns in an interruption does not remember the direction of turning, but only his fact
+
+### encoder processing with a button
+- PainThe cranberries of the encoder mouth with a closed button removes and blocks all subsequent events and clicks, with the exception of the event `Release`.The states of the pressed button do not change
+- The turning of the encoder also affects the system timout (the `timeout ()` function) will work after the indicated time after turning the enkoder
+
+### Preliminary clicks
+The library considers the number of clicks by the button and some survey functions can separately be processed with *preliminary clicks *.For example, 3 clicks, then retention.This greatly expands the capabilities of one button.There are two options for working with such events:
+`` `CPP
+  // 1
+  if (btn.hold ()) {
+    if (btn.getclics () == 2) serial.println ("Hold 2 Clicks");
+  }
+
+  // 2
+  if (btn.hold (2)) serial.println ("Hold 2 Clicks");
+`` `
+
+In the first version, you can get the number of clicks for further processing manually, and in the second - the library will do this itself if the number of clicks for action is known in advance.
+
+### Obtaining an event
+Available in all classes ** with the ** button:
+- `virtbutton`
+- `Button`
+- `virtencbutton`
+- `encbutton`
+
+The function `Action ()` when the event occurs, the event is returned (different from scratch, which in itself is an indication of the existence of an event):
+`Eb_press` - click on the button
+`Eb_hold` - the button is kept
+`Eb_step` - impulse retention
+`Eb_release` - the button is released
+`Eb_click` - Single click
+`Eb_clicks` - a few click signal
+`EB_TURN` - turn of encoder
+`Eb_rel_hold` - the button is released after holding
+`EB_REL_HOLD_C` - the button is released after holding off the premises.clicks
+`Eb_rel_step` - the button is released after the step
+`EB_REL_STEP_C` - the button is released after a step with a premium.clicks
+
+> The result of the `Action () function is reset after calling the processing function, that is, it is available on the entire cycle iteration.
+
+## event programming
+The library does not implement the connection of the event-processor of events, but lovers of collels can organize a program, for example, as follows for any of the classes, becauseThe processing function once returns `true` when an event occurs, and` Action` returns the event code:
+
+`` `CPP
+ENCBUTTON EB (2, 3, 4);
+
+Void Callback (Encbutton & Eb) {
+  switch (eb.action ()) {
+    Case eb_press:
+      // ...
+      Break;
+    Case eb_hold:
+      // ...
+      Break;
+    // ...
+  }
 }
-```
 
-#### Button
-- `press()` - the button was pressed. *[will return true once]*
-- `release()` - the button has been released. *[will return true once]*
-- `click()` - the button was clicked, i.e. pressed and released before the hold timeout. *[will return true once]*
-- `held()` - the button was held longer than the hold timeout. *[will return true once]*
-- `held(clicks)` is the same, but the function takes the number of clicks made before the hold. Note: held() without an argument will intercept the call! See example *preClicks*. *[will return true once]*
-- `hold()` - the button was held longer than the hold timeout. *[returns true while held]*
-- `hold(clicks)` - the same, but the function takes the number of clicks made before the hold. Note: hold() without an argument will intercept the call! See example *preClicks*. *[returns true while held]*
-- `step()` - "impulse hold" mode: after holding the button longer than the timeout, this function *[returns true with EB_STEP period]*. It is convenient to use for step-by-step change of variables: `if (btn.step()) val++;`.
-- `step(clicks)` - the same, but the function takes the number of clicks made before the hold. Note: step() without an argument will intercept the call! See *StepMode* and *preClicks* example.
-- `releaseStep()` - the button was released after a pulse hold. Can be used to change the sign of a variable's increment. See example *StepMode*. *[will return true once]*
-- `releaseStep(clicks)` - the same, but the function takes the number of clicks made before the hold. Note: releaseStep() without an argument will intercept the call! See *StepMode* and *preClicks* example. *[will return true once]*
-- `hasClicks(clicks)` - the specified number of clicks were made with a period less than *EB_CLICK*. *[will return true once]*
-- `state()` - returns the current state of the button (signal from the pin, without anti-bounce): `true` - pressed, `false` - not pressed.
-- `busy()` - will return `true` if you still need to call tick to poll for timeouts
-- `hasClicks()` - returns the number of clicks made with a period less than *EB_CLICK*. Otherwise, it will return 0.
-- `uint8_t clicks` - public variable, stores the number of clicks made with a period less than *EB_CLICK*. Resets to 0 after a new click.
-![diagram](/doc/diagram.png)
-
-#### Encoder
-- `turn()` - turn by one click in any directionCranberries *[will return true once]*
-- `turnH()` - turn by one click in any direction while holding the button. *[will return true once]*
-- `fast()` - a fast turn (with a period of less than *EB_FAST* ms) was made by one click in any direction. *[returns true while the encoder is spinning fast]*
-- `right()` - turn one click to the right. *[will return true once]*
-- `left()` - turn one click to the left. *[will return true once]*
-- `rightH()` - rotate one click to the right while holding the button. *[will return true once]*
-- `leftH()` - turn one click to the left while holding the button. *[will return true once]*
-- `dir()` - direction of the last turn, 1 or -1.
-- `int16_t counter` - public variable, stores encoder counter.
-
-### Callback mode
-In this mode, you can connect your own handler function to any button / encoder action. Functions will be automatically called when an event occurs.
-To work, you also need to call `tick()` in the main program loop, where reading and processing of signals takes place. The connected handler functions are also called from here. See example *callbackMode*
-
-```cpp
-void attach(type, func); // connect handler
-void detach(type); // disable handler
-void attachClicks(uint8_t amount, func); // connect a handler for the number of clicks (there can be only one), up to 16 clicks!
-void detachClicks(); // disable the handler for the number of clicks
-```
-
-Where `type` is the event type:
-- `TURN_HANDLER` - turn
-- `TURN_H_HANDLER` - pressed turn
-- `RIGHT_HANDLER` - turn right
-- `LEFT_HANDLER` - turn left
-- `RIGHT_H_HANDLER` - pressed right turn
-- `LEFT_H_HANDLER` - pressed left turn
-- `PRESS_HANDLER` - pressing
-- `RELEASE_HANDLER` - release
-- `CLICK_HANDLER` - click
-- `HOLDED_HANDLER` - hold (single operation)
-- `HOLD_HANDLER` - hold (permanent operation)
-- `STEP_HANDLER` - impulse hold
-- `CLICKS_HANDLER` - several clicks
-
-Example:
-```cpp
-void setup() {
-  btn.attach(CLICK_HANDLER, myClick);
+VOID loop () {
+  if (eb.tick ()) callback (EB);
 }
+`` `
 
-void myClick() {
-  Serial.println("Click");
+### Simultaneous pressing
+The library supports work with two simultaneously pressed buttons as with the third button.For this you need:
+1. To make a virtual button `virtbutton`
+2. Call the processing of real buttons
+3. Pass these buttons to the virtual button to process (these can be objects of classes `virtbutton`,` button`, `encbutton` + their` t`- version)
+4. Next to interrogate events
+
+`` `CPP
+Button b0 (4);
+Button b1 (5);
+Virtbutton B2;// 1
+
+VOID loop () {
+  b0.tick ();// 2
+  b1.tick ();// 2
+  B2.Tick (B0, B1);// 3
+
+  // 4
+  if (b0.click ()) serial.println ("b0 click");
+  if (b1.click ()) serial.println ("b1 click");
+  if (b2.click ()) serial.println ("b0+b1 click");
 }
+`` `
 
-void loop() {
-  btn.tick();
+The library itself will “drop” unnecessary events from real buttons if they were pressed together, with the exception of the event `Press`.Thus, a full -fledged third button of two others with a convenient survey is obtained.
+
+## interrupt
+To process the encoder in the loaded program, both of it should be connected to its PIN on hardware interruptions by `Change` and call a special ticker for interruption in the processor.The main ticker also needs to be called in `loop` for corrething (events are generated in the main ticker):
+`` `CPP
+// Example for Atmega328 and Encbutton
+ENCBUTTON EB (2, 3, 4);
+
+VOID isr () {
+  eb.tickisr ();
 }
-```
+VOID setup () {
+  Attachinterrupt (0, Isr, Change);
+  Attachinterrupt (1, ISR, Change);
+}
+VOID loop () {
+  eb.tick ();
+}
+`` `
 
-### Virtual mode
-The virtual mode allows you to get all the features of the EncButton library in situations where the button is not connected directly to the microcontroller, or another library is used to poll it:
-- Analog keyboard (for example, via the [AnalogKey] library (https://github.com/GyverLibs/AnalogKey)). See example *virtual_AnalogKey*
-- Matrix keyboard (for example, via the [SimpleKeypad] library (https://github.com/maximebohrer/SimpleKeypad)). See example *virtual_SimpleKeypad* and *virtual_SimpleKeypad_array*
-- Buttons or encoders connected via pin expanders or shift registers
+Note: The use of work in the interruption allows you to correctly process the encoder position and not miss a new turn.The event with a turn obtained from an interruption will become available * after * call `tick` in the main cycle of the program:
+- If the buffer is disabled: event`Turn` is activated only once, regardless of the number of clicks of encoder made between two challenges` Tick` (clicks processed in interruption)
+- If the buffering is included: the `turn` event will be caused as many times as there were really clicks of the encoder, this allows you to not miss the turns and not load the system in the interruption.Buferization * does not remember the direction * rotation for the sake of the ease of the library, the direction inside the turning poll will always be the last direction of click!
 
-Thus, you can get multiple clicks from the matrix keyboard, holding the buttons of the matrix keyboard, impulse hold and other EncButton chips.
+> Note: the encoder counter is always relevant and can be ahead of buffering turns in the program with large delays in the main cycle!
 
-To work, you need to pass the current states of the "pins" of the button / encoder to `tick()`: `tick(s1, s2, s3)` in the following order
-- Button - (button signal)
-- Encoder - (encoder A signal, encoder B signal)
-- Push button encoder - (encoder A signal, encoder B signal, button signal)
+> Note: on different interrupt platforms, they can work in different ways (for example, on ESPXX - you need to add the functions of the attribute `IRAM_ATTR`, see documentation on your platform!)
 
-### Optimization
-`tick()` returns the current encoder/button status:
-- 0 - no action was taken
-- 1 - left + turn
-- 2 - right + turn
-- 3 - leftH + turnH
--4-rightH + turnH
--5-click
-- 6 - held
--7 step
--8-press
+### Porting to other platforms
+In Utils.h/Utils.cpp files, you can replace arduino-dependent functions with others
 
-This allows you to slightly optimize the program: to further poll the actions of the button / encoder only upon the fact of their completion:
-you can put the entire poll in an `if (enc.tick()) {}` block. At the end it is recommended to call `resetState()` to collect unsolicited flags,
-so that `tick()` stops "beeping" the action. See the *optimization* example for details.
+<a id="EXAMPLE"> </a>
 
-### Interrupts
-To improve the quality of encoder / button processing in the loaded program (so as not to miss a turn or click), it is recommended
-duplicate the poll in the interrupt by *CHANGE*. For encoder -Cranberries on both pins. Inside the interrupt handler, we call the special ticker `tickISR()`,
-and in the main program loop we leave the usual `tick()` - it is needed in order to correctly calculate all timeouts.
-In `EB_CALLBACK` mode, all connected functions are called from `tick()`, that is, not from the interrupt handler, but from the main program loop!
-
-There is also a `busy()` function - it returns `true` until pressing timeout processing is complete, i.e. it is still necessary to call `tick()` in `loop()`.
-
-<a id="example"></a>
 ## Examples
-See **examples** for other examples!
+The rest of the examples look at ** Examples **!
+<details>
+<summary> Full demo encbutton </summary>
 
-### Full demo EB_TICK
-```cpp
-// Optional define settings (shown by default)
-//#define EB_FAST 30 // fast turn timeout, ms
-//#define EB_DEB 50 // button debounce, ms
-//#define EB_CLICK 400 // click timeout, ms
+`` `CPP
+// #define eb_no_counter // Disable the enkoder counter (saves 4 bytes of RAM)
+// #define EB_NO_BUFFER // Disable the buffer of the encoder (saves 1 byte of RAM)
 
-#include <EncButton.h>
-EncButton<EB_TICK, 2, 3, 4> enc; // encoder with button <A, B, KEY>
-//EncButton<EB_TICK, 2, 3> enc; // just encoder <A, B>
-//EncButton<EB_TICK, 4> enc; // just a button <KEY>
+// #define eb_deb_time 50 // Timesout to darebells button (button)
+// #define eb_click_time 500 // Clicks standstatics (button)
+// #define eb_hold_time 500 // Maintenance Times (button)
+// #define eb_step_time 200 // pulse retention rate (button)
+// #define EB_FAST_TIME 30 // Quick turn Timesout (Encoder)
 
-void setup() {
-  Serial.begin(9600);
-  //enc.setButtonLevel(HIGH); // button level: LOW - button connects GND (default), HIGH - button connects VCC
-  //enc.setHoldTimeout(1000); // set the button hold time, ms (up to 8000)
-  //enc.setStepTimeout(500); // set pulse period step, ms (up to 4000)
+#include <encbutton.h>
+ENCBUTTON EB (2, 3, 4);
 
-  //enc.holdEncButton(true); // virtually hold the encoder button (to trigger pressed turns)
-  //enc.setEncReverse(true); // true - invert encoder direction (default false)
-  //enc.setEncType(EB_HALFSTEP); // encoder type: EB_FULLSTEP (0) by default, EB_HALFSTEP (1) if the encoder makes one turn in two clicks
+VOID setup () {
+    Serial.Begin (115200);
+
+    // shows the default values
+    eb.setbuttonlevel (Low);
+    EB.SetClicktimeout (500);
+    eb.Setdebtimeout (50);
+    EB.SetHoldtimeout (500);
+    eb.setsteptimeout (200);
+
+    eb.setencreverse (0);
+    eb.setenctype (eb_step4_low);
+    eb.setfasttimeout (30);
 }
 
-void loop() {
-  enc.tick(); // polling happens here
+VOID loop () {
+    eb.tick ();
 
-  // =============== ENCODER ===============
-  // regular rotation
-  if (enc. turn()) {
-    Serial.println("turn");
-
-    // Can I have some more:
-    serial.println(enc.counter); // display counter
-    Serial.println(enc.fast()); // check fast turn
-    Serial.println(enc.dir()); // display direction of rotation
-  }
-
-  // "pressed rotation"
-  if (enc.turnH()) Serial.println("hold + turn");
-
-  if (enc.left()) Serial.println("left"); // left turn
-  if (enc.right()) Serial.println("right"); // right turn
-  if (enc.leftH()) Serial.println("leftH"); // pressed turn left
-  if (enc.rightH()) Serial.println("rightH"); // pressed turn right
-
-  // =============== BUTTON ===============
-  if (enc.press()) Serial.println("press");
-  if (enc.click()) Serial.println("click");
-  if (enc.release()) Serial.println("release");
-
-  if (enc.held()) Serial.println("held"); // will return true once on hold
-  //if (enc.hold()) Serial.println("hold"); // will always return true after holding
-  if (enc.step()) Serial.println("step"); // pulse hold
-  if (enc.releaseStep()) Serial.println("release step"); // released after impulse hold
-  
-  // check for the number of clicks
-  if (enc.hasClicks(1)) Serial.println("action 1 clicks");
-  if (enc.hasClicks(2)) Serial.println("action 2 clicks");
-
-  // print the number of clicks
-  if (enc.hasClicks()) {
-    Serial.print("has clicks");
-    Serial.println(enc.clicks);
-  }
-}
-```
-
-### Array of EncButton2 buttons
-```cpp
-// declare an array of buttons
-#define BTN_AMOUNT 5
-#include <EncButton2.h>
-EncButton2<EB_BTN> btn[BTN_AMOUNT];
-
-void setup() {
-  Serial.begin(9600);
-  btn[0].setPins(INPUT_PULLUP, D3);
-  btn[1].setPins(INPUT_PULLUP, D2);
-}
-
-void loop() {
-  for (int i = 0; i < BTN_AMOUNT; i++) btn[i].tick();
-  for (int i = 0; i < BTN_AMOUNT; i++) {
-    if (btn[i].click()) {
-      Serial.print("click btn: ");
-      Serial.println(i);
+    // General rotation processing
+    if.turn ()) {
+        Serial.print ("Turn: Dir");
+        Serial.print (eb.dir ());
+        Serial.print (", fast");
+        Serial.print (eb.fast ());
+        Serial.print (", Hold");
+        Serial.print (eb.encholding ());
+        Serial.print (", Counter");
+        Serial.println (eb.counter);
     }
-  }
+
+    // Turning rotation processing
+    if.left ()) serial.println ("Left");
+    if.right ()) serial.println ("right");
+    if.left ()) serial.println ("Lefth");
+    if.righth ()) serial.println ("righth");
+
+    // button
+    if.press ()) serial.println ("Press");
+    if (eb.release ()) serial.println ("Release");
+    if.click ()) serial.println ("click");
+
+    // States
+    // serial.println (eb.pressing ());
+    // serial.println (eb.holding ());
+    // serial.println (eb.busy ());
+    // serial.println (eb.waiting ());
+
+    // Timesout
+    if (eb.timeout (1000)) serial.println ("Timeout!");
+
+    // Holding
+    if.hold ()) serial.println ("Hold");
+    // if.hold ()) {
+    // serial.print ("Hold +");
+    // serial.print (eb.getClicks ());
+    // serial.println ("Clicks");
+    //}
+
+    if.hold (2)) serial.println ("Hold 2");
+    if.hold (3)) serial.println ("Hold 3");
+
+    // Impulse retention
+    if.step ()) serial.println ("step");
+    if (eb.step (2)) serial.println ("STEP 2");
+    if.step (3)) serial.println ("STEP 3");
+
+    // released after impulse deduction
+    if (eb.releastep ()) serial.println ("Release Step");
+    if (eb.releastep (2)) serial.println ("Release STEP 2");
+    if (eb.releastep (3)) serial.println ("Release Step 3");
+
+    // released after holding
+    if.releasehold ()) serial.println ("Release Hold");
+    if (eb.releasehold (2)) serial.println ("Release Hold 2");
+
+    // Check for the number of clicks
+    if.hasclicks (1)) serial.println ("Has 1 Clicks");
+    if.hasclicks (3)) Serial.println ("Has 3 Clicks");
+
+    // Bring the number of clicks
+    if.hasclicks ()){
+        Serial.print ("Has Clicks:");
+        Serial.println (eb.clicks);
+    }
 }
-```
+`` `
+</details>
+<details>
+<summary> Demo Encbutton, General Processor </ Summary>
 
-### One button controls multiple variables
-```cpp
-// use one BUTTON to conveniently change three variables
-// first - one click, then hold (press-release-press-hold)
-// second - two clicks, then hold
-// third - three cellsika then hold
-// see port monitor
+`` `CPP
+#include <encbutton.h>
+ENCBUTTON EB (2, 3, 4);
 
-#include <EncButton.h>
-EncButton<EB_TICK, 3> btn;
-
-// variables to change
-int val_a, val_b, val_c;
-
-// change steps (signed)
-int8_t step_a = 1;
-int8_t step_b = 5;
-int8_t step_c = 10;
-
-void setup() {
-  Serial.begin(9600);
+VOID setup () {
+    Serial.Begin (115200);
 }
 
-void loop() {
-  btn.tick();
-
-  // pass the number of pre-clicks
-  if (btn.step(1)) {
-    val_a += step_a;
-    Serial.print("val_a: ");
-    Serial println(val_a);
-  }
-  if (btn.step(2)) {
-    val_b += step_b;
-    Serial.print("val_b: ");
-    Serial println(val_b);
-  }
-  if (btn.step(3)) {
-    val_c += step_c;
-    Serial.print("val_c: ");
-    Serial println(val_c);
-  }
-
-  // reverse the step to change
-  // pass the number of pre-clicks
-  if (btn.releaseStep(1)) step_a = -step_a;
-  if (btn.releaseStep(2)) step_b = -step_b;
-  if (btn.releaseStep(3)) step_c = -step_c;
+VOID CB () {
+    Serial.print ("callback:");
+    switch (eb.action ()) {
+        Case eb_press:
+            Serial.println ("Press");
+            Break;
+        Case eb_hold:
+            Serial.println ("Hold");
+            Break;
+        Case eb_step:
+            Serial.println ("STEP");
+            Break;
+        Case eb_release:
+            Serial.println ("Release");
+            Break;
+        Case eb_click:
+            Serial.println ("click");
+            Break;
+        Case eb_clicks:
+            Serial.print ("Clicks");
+            Serial.println (eb.getClicks ());
+            Break;
+        Case eb_turn:
+            Serial.print ("turn");
+            Serial.print (eb.dir ());
+            Serial.print ("");
+            Serial.print (eb.fast ());
+            Serial.print ("");
+            Serial.println (eb.encholding ());
+            Break;
+        Case eb_rel_hold:
+            Serial.println ("Release Hold");
+            Break;
+        CASE EB_REL_HOLD_C:
+            Serial.print ("Release Hold Clicks");
+            Serial.println (eb.getClicks ());
+            Break;
+        CASE EB_REL_STEP:
+            Serial.println ("Release Step");
+            Break;
+        CASE EB_REL_STEP_C:
+            Serial.print ("Release Step Clicks");
+            Serial.println (eb.getClicks ());
+            Break;
+    }
 }
-```
 
-<a id="versions"></a>
-## Versions
-- v1.1 - pullup by separate method
-- v1.2 - you can pass the parameter INPUT_PULLUP / INPUT (default) to the constructor
-- v1.3 - virtual holding of the encoder button is moved to a separate function + minor improvements
-- v1.4 - handling pressing and releasing a button
+VOID loop () {
+    if (eb.tick ()) CB ();
+}
+`` `
+</details>
+<details>
+<summary> All types of buttons </summary>
+
+`` `CPP
+#include <encbutton.h>
+
+Button BTN (4);
+Buttont <5> btnt;
+Virtbutton BTNC;
+
+VOID setup () {
+    Serial.Begin (115200);
+}
+
+VOID loop () {
+    // Button
+    btn.tick ();
+    if (btn.click ()) serial.println ("btn click");
+
+    // Buttont
+    btnt.tick ();
+    if (btnt.click ()) serial.println ("BTNT CLICK");
+
+    // virtbutton
+    btnc.tick (! DigitalRead (4));// transmit logical value
+    if (btn.click ()) serial.println ("btnc click");
+}
+`` `
+</details>
+<details>
+<summary> All types of encoder </summary>
+
+`` `CPP
+#include <encbutton.h>
+
+ENCODER ENC (2, 3);
+ENCODERT <5, 6> ENCT;
+Virtencoder ENCC;
+
+VOID setup () {
+    Serial.Begin (115200);
+}
+
+VOID loop () {
+    // The survey is the same for everyone, 3 ways:
+
+    // 1
+    // Tick will return 1 or -1, then this is a step
+    if (enc.tick ()) serial.println (enc.counter);
+
+    // 2
+    // can be interviewed through turn ()
+    enct.tick ();
+    if (enct.turn ()) serial.println (enct.dir ());
+
+    // 3
+    // you can not use survey functions, but get the direction directly
+    Int8_t V = ENCC.Tick (DigitalRead (2), DigitalRead (3));
+    if (v) serial.println (v);// Derive 1 or -1
+}
+`` `
+</details>
+
+<a id="versions"> </a>
+## versions
+<details>
+<summary> Old </ Summary>
+
+- V1.1 - Pullap separately by the method
+- V1.2 - You can transfer the parameter input_pullup / input (silent) to the designer
+- V1.3 - Virtual clamping of the encoder button is made into a separate function + minor improvements
+- V1.4 - Processing of pressing and releasing the button
 - v1.5 - added virtual mode
-- v1.6 - optimization of work in interruption
-- v1.6.1 - default pullup INPUT_PULLUP
-- v1.7 - big memory optimization, redesigned FastIO
-- v1.8 - individual button hold timeout setting (was common for all)
-- v1.8.1 - removed FastIO
-- v1.9 - added separate handling of pressed turn and direction request
-- v1.10 - improved released handling, lightened weight in callback mode and fixed bugs
-- v1.11 - even more optimizations + button level adjustment
-- v1.11.1 - Digispark compatibility
-- v1.12 - added more accurate encoder algorithm EB_BETTER_ENC
-- v1.13 - added experimental EncButton2
-- v1.14 - releaseStep() added. Button release added to debounce
-- v1.15 - added setPins() for EncButton2
-- v1.16 - added EB_HALFSTEP_ENC mode for half step encoders
-- v1.17 - added step with pre-clicks
-- v1.18 - do not count clicks after step activation. held() and hold() can also accept pre-clicks. Redesigned and improved debounce
-- v1.18.1 - fixed bug in releaseStep() (didn't return result)
-- v1.18.2 - fix compiler warnings
-- v1.19 - speed optimization, reduced weight in sram
-- v1.19.1 - slightly increased performance
-- v1.19.2 - performance increased a bit more, thanks to XRay3D
-- v1.19.3 - made the button high by default in virtual mode
-- v1.19.4 - fix EncButton2
-- v1.20 - fixed critical bug in EncButton2
-- v1.21 - EB_HALFSTEP_ENC now works for normal mode
-- v1.22 - improved EB_HALFSTEP_ENC for normal mode
-- v1.23 - getDir() replaced with dir()
-- v2.0
-    - Algorithm EB_BETTER_ENC is optimized and installed by default, EB_BETTER_ENC definate is abolished
-    - Added setEncType() to set the encoder type from the program, the EB_HALFSTEP_ENC defin was removed
-    - Added setEncReverse() to change the direction of the encoder from the program
-    - Added setStepTimeout() to set pulse hold period, definate EB_STEP removed
-    - Minor improvements and optimization
+- V1.6 - Optimization of work in interruption
+- V1.6.1 - Saching by default Input_pullup
+- V1.7 - a large memory optimization, remade Fastio
+- V1.8 - Individual tuning of the TIMUUT Maintenance of the button (was common at all)
+- v1.8.1 - removed Fastio
+- v1.9 - added a separate development of a pressed turn and a request for direction
+- V1.10 - improved ReleASDE processing, eased the weight in callback and corrected the bugs
+- V1.11 - even more than any optimization + setting button level
+- V1.11.1 - Digispark compatibility
+- V1.12 - added a more accurate algorithm of enkoder Eb_better_enc
+- V1.13 - Added experimental ENCBUTTON2
+- V1.14 - added ReleaseStep ().The release of the button is included in the debate
+- v1.15 - added Setpins () for Encbutton2
+- V1.16 - added EB_HALFSTEP_Enc mode for hemisphere encoders
+- v1.17 - added from preliminaryclicks
+- V1.18 - We do not consider clicks after the activation of STEP.Hold () and Held () can also take preliminary clicks.Redistributed and improved debate
+- V1.18.1 - Fixed error in ReleaseStep () (did not return the result)
+- V1.18.2 - Fix Compiler Warnings
+- V1.19 - speed optimization, reduced weight in SRAM
+- v1.19.1 - still a bit increased performance
+- V1.19.2 - Productivity increased a little more, thanks XRY3D
+- v1.19.3 - made a high level of the default button in virtual mode
+- V1.19.4 - Fix Encbutton2
+- V1.20 - Critical error is fixed in Encbutton2
+- V1.21 - EB_HALFSTEP_ENC now works for a normal mode
+- V1.22 - Improved EB_HALFSTEP_Enc for a normal mode
+- V1.23 - Getdir () replaced with DIR ()
+- V2.0
+    - The eb_better_enc algorithm is optimized and set by default, the define eb_better_enc is abolished
+    - added setenctype () to configure the type of encoder from the program, the define EB_HALFSTEP_ENC is abolished
+    - added Setencreverse () to change the direction of the encoder from the program
+    - added setteptimeout () to set the period of impulse deduction, the define EB_STEP is abolished
+    - Small improvements and optimization
+</details>
+
+- V3.0
+  - The library is rewritten from scratch, with previous versions is incompatible!
+    - completely different initialization of the object
+    -renamed: Hold ()-> Holding (), HELD ()-> HOLD ()
+  - Optimization of Flash memory: the library weighs less, in some scenarios - by several kilobytes
+  - optimization of the speed of code execution, including in interruption
+  - several bytes less than RAM, several optimization levels to choose from
+  - a simpler, understandable and convenient use
+  - more readable source code
+  - Breaking into classes for use in different scenarios
+  - new functions, capabilities and handlers for the button and encoder
+  - Encoder's buffer in interruption
+  - native processing of two simultaneously pressed buttons as a third button
+  - support of 4 types of encoder
+  - The documentation is rewritten
+  - Encbutton is now replacing Gyverlibs/Virtualbutton (archived)
     
-<a id="feedback"></a>
-## Bugs and feedback
-When you find bugs, create an **Issue**, or better, immediately write to the mail [alex@alexgyver.ru](mailto:alex@alexgyver.ru)
-The library is open for revision and your **Pull Request**'s!
+<a id="feedback"> </a>
+## bugs and feedback
+Create ** Issue ** when you find the bugs, and better immediately write to the mail [alex@alexgyver.ru] (mailto: alex@alexgyver.ru)
+The library is open for refinement and your ** pull Request ** 'ow!
+
+When reporting about bugs or incorrect work of the library, it is necessary to indicate:
+- The version of the library
+- What is MK used
+- SDK version (for ESP)
+- version of Arduino ide
+- whether the built -in examples work correctly, in which the functions and designs are used, leading to a bug in your code
+- what code has been loaded, what work was expected from it and how it works in reality
+- Ideally, attach the minimum code in which the bug is observed.Not a canvas of a thousand lines, but a minimum code
