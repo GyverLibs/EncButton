@@ -311,9 +311,9 @@ class VirtButton {
                 clr_bf(EB_REL | EB_EHLD);
             } else if (clicks) {  // есть клики
 #ifdef EB_CLICK_TIME
-                if (read_bf(EB_STP) || deb > (uint16_t)EB_CLICK_T) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
+                if (read_bf(EB_HLD | EB_STP) || deb > (uint16_t)EB_CLICK_T) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
 #else
-                if (read_bf(EB_STP) || deb > (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
+                if (read_bf(EB_HLD | EB_STP) || deb > (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
 #endif
             } else if (read_bf(EB_BUS)) {
                 clr_bf(EB_HLD | EB_STP | EB_BUS);
