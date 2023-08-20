@@ -2,8 +2,8 @@
 // https://github.com/GyverLibs/AnalogKey
 
 #include <EncButton.h>
-EncButton<EB_TICK, VIRT_BTN> btn0;
-EncButton<EB_TICK, VIRT_BTN> btn1;
+VirtButton btn0;
+VirtButton btn1;
 
 #include <AnalogKey.h>
 // создаём массив значений сигналов с кнопок
@@ -17,7 +17,6 @@ int16_t sigs[16] = {
 // указываем пин, количество кнопок и массив значений
 AnalogKey<A0, 16, sigs> keys;
 
-
 void setup() {
   Serial.begin(9600);
 }
@@ -28,7 +27,7 @@ void loop() {
 
   // забираем действия с кнопок
   if (btn0.click()) Serial.println("click 0");
-  if (btn0.held()) Serial.println("held 0");
+  if (btn0.hold()) Serial.println("hold 0");
 
   if (btn1.press()) Serial.println("press 1");
   if (btn1.step()) Serial.println("step 1");

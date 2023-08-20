@@ -3,7 +3,7 @@
 // передаём EncButton сразу всю клавиатуру через массивы и циклы
 
 #include <EncButton.h>
-EncButton<EB_TICK, VIRT_BTN> btn[16];
+VirtButton btn[16];
 
 // пины подключения (по порядку штекера)
 byte colPins[] = {7, 6, 5, 4};
@@ -37,7 +37,7 @@ void loop() {
 
   // забираем действия с кнопок
   if (btn[0].click()) Serial.println("click 0");
-  if (btn[0].held()) Serial.println("held 0");
+  if (btn[0].hold()) Serial.println("hold 0");
 
   if (btn[1].press()) Serial.println("press 1");
   if (btn[1].step()) Serial.println("step 1");

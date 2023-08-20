@@ -2,8 +2,8 @@
 // https://github.com/maximebohrer/SimpleKeypad
 
 #include <EncButton.h>
-EncButton<EB_TICK, VIRT_BTN> btn0;
-EncButton<EB_TICK, VIRT_BTN> btn1;
+VirtButton btn0;
+VirtButton btn1;
 
 // пины подключения (по порядку штекера)
 byte colPins[] = {7, 6, 5, 4};
@@ -37,7 +37,7 @@ void loop() {
 
   // забираем действия с кнопок
   if (btn0.click()) Serial.println("click 0");
-  if (btn0.held()) Serial.println("held 0");
+  if (btn0.hold()) Serial.println("hold 0");
 
   if (btn1.press()) Serial.println("press 1");
   if (btn1.step()) Serial.println("step 1");

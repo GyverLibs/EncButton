@@ -1,0 +1,99 @@
+// полное демо
+#include <Arduino.h>
+
+// #define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
+// #define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
+
+// #define EB_DEB_TIME 50      // таймаут гашения дребезга кнопки (кнопка)
+// #define EB_CLICK_TIME 500   // таймаут ожидания кликов (кнопка)
+// #define EB_HOLD_TIME 500    // таймаут удержания (кнопка)
+// #define EB_STEP_TIME 200    // таймаут импульсного удержания (кнопка)
+// #define EB_FAST_TIME 30     // таймаут быстрого поворота (энкодер)
+
+#include <EncButton.h>
+EncButton eb(2, 3, 4);
+
+void setup() {
+    Serial.begin(115200);
+
+    eb.setButtonLevel(LOW);
+    eb.setClickTimeout(500);
+    eb.setDebTimeout(50);
+    eb.setHoldTimeout(500);
+    eb.setStepTimeout(200);
+
+    eb.setEncReverse(0);
+    eb.setEncType(EB_STEP4_LOW);
+    eb.setFastTimeout(30);
+}
+
+void loop() {
+    eb.tick();
+
+    // обработка поворота общая
+    if (eb.turn()) {
+        Serial.print("turn: dir ");
+        Serial.print(eb.dir());
+        Serial.print(", fast ");
+        Serial.print(eb.fast());
+        Serial.print(", hold ");
+        Serial.print(eb.encHolding());
+        Serial.print(", counter ");
+        Serial.println(eb.counter);
+    }
+
+    // обработка поворота раздельная
+    if (eb.left()) Serial.println("left");
+    if (eb.right()) Serial.println("right");
+    if (eb.leftH()) Serial.println("leftH");
+    if (eb.rightH()) Serial.println("rightH");
+
+    // кнопка
+    if (eb.press()) Serial.println("press");
+    if (eb.release()) Serial.println("release");
+    if (eb.click()) Serial.println("click");
+
+    // состояния
+    // Serial.println(eb.pressing());
+    // Serial.println(eb.holding());
+    // Serial.println(eb.busy());
+    // Serial.println(eb.waiting());
+
+    // таймаут
+    if (eb.timeout(1000)) Serial.println("timeout!");
+
+    // удержание
+    if (eb.hold()) Serial.println("hold");
+    // if (eb.hold()) {
+    //     Serial.print("hold + ");
+    //     Serial.print(eb.getClicks());
+    //     Serial.println(" clicks");
+    // }
+
+    if (eb.hold(2)) Serial.println("hold 2");
+    if (eb.hold(3)) Serial.println("hold 3");
+
+    // импульсное удержание
+    if (eb.step()) Serial.println("step");
+    if (eb.step(2)) Serial.println("step 2");
+    if (eb.step(3)) Serial.println("step 3");
+
+    // отпущена после импульсного удержания
+    if (eb.releaseStep()) Serial.println("release step");
+    if (eb.releaseStep(2)) Serial.println("release step 2");
+    if (eb.releaseStep(3)) Serial.println("release step 3");
+
+    // отпущена после удержания
+    if (eb.releaseHold()) Serial.println("release hold");
+    if (eb.releaseHold(2)) Serial.println("release hold 2");
+
+    // проверка на количество кликов
+    if (eb.hasClicks(1)) Serial.println("has 1 clicks");
+    if (eb.hasClicks(3)) Serial.println("has 3 clicks");
+
+    // вывести количество кликов
+    if (eb.hasClicks()) {
+        Serial.print("has clicks: ");
+        Serial.println(eb.clicks);
+    }
+}
