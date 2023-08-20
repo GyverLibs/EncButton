@@ -3,8 +3,15 @@
 #include <EncButton.h>
 EncButton eb(2, 3, 4);
 
+/*
+// esp8266/esp32
+IRAM_ATTR void isr() {
+  eb.tickISR();
+}
+*/
+
 void isr() {
-    eb.tickISR();
+  eb.tickISR();
 }
 
 void setup() {
