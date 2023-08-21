@@ -707,9 +707,9 @@ void loop() {
 ### Инициализация
 ```cpp
 // ВИРТУЛАЬНЫЕ
-VirtEncButton eb; // энк с кнопкой
+VirtEncButton eb; // энкодер с кнопкой
 VirtButton b;     // кнопка
-VirtEncoder e;    // энк с кнопкой
+VirtEncoder e;    // энкодер
 
 // РЕАЛЬНЫЕ
 // энкодер с кнопкой
@@ -729,11 +729,11 @@ ButtonT<pin> b;
 ButtonT<pin> b(pinmodeBtn); // + режим пина кнопки (умолч. INPUT_PULLUP)
 
 // энкодер
-Encoder e(enc0, enc1);              // пины энкодера
-Encoder e(enc0, enc1, pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+Encoder e(enc0, enc1);                // пины энкодера
+Encoder e(enc0, enc1, pinmodeEnc);    // + режим пинов энкодера (умолч. INPUT)
 // шаблонный
-EncoderT<enc0, enc1> e;              // пины энкодера
-EncoderT<enc0, enc1> e(pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
+EncoderT<enc0, enc1> e;               // пины энкодера
+EncoderT<enc0, enc1> e(pinmodeEnc);   // + режим пинов энкодера (умолч. INPUT)
 ```
 
 ### Функции
