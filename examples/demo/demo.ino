@@ -12,6 +12,8 @@
 
 #include <EncButton.h>
 EncButton eb(2, 3, 4);
+//EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
+//EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
 
 void setup() {
     Serial.begin(115200);
