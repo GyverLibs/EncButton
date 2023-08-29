@@ -173,59 +173,59 @@
 
 |                 | VirtButton | VirtEncButton | Button | EncButton |
 |-----------------|:----------:|:-------------:|:------:|:---------:|
-| setHoldTimeout  |      ✔     |       ✔       |    ✔   |     ✔     |
-| setStepTimeout  |      ✔     |       ✔       |    ✔   |     ✔     |
-| setClickTimeout |      ✔     |       ✔       |    ✔   |     ✔     |
-| setDebTimeout   |      ✔     |       ✔       |    ✔   |     ✔     |
-| setBtnLevel     |      ✔     |       ✔       |    ✔   |     ✔     |
-| pressISR        |      ✔     |       ✔       |    ✔   |     ✔     |
-| reset           |      ✔     |       ✔       |    ✔   |     ✔     |
-| clear           |      ✔     |       ✔       |    ✔   |     ✔     |
-| attach          |      ✔     |       ✔       |    ✔   |     ✔     |
-| press           |      ✔     |       ✔       |    ✔   |     ✔     |
-| release         |      ✔     |       ✔       |    ✔   |     ✔     |
-| click           |      ✔     |       ✔       |    ✔   |     ✔     |
-| pressing        |      ✔     |       ✔       |    ✔   |     ✔     |
-| hold            |      ✔     |       ✔       |    ✔   |     ✔     |
-| holding         |      ✔     |       ✔       |    ✔   |     ✔     |
-| step            |      ✔     |       ✔       |    ✔   |     ✔     |
-| hasClicks       |      ✔     |       ✔       |    ✔   |     ✔     |
-| getClicks       |      ✔     |       ✔       |    ✔   |     ✔     |
-| releaseHold     |      ✔     |       ✔       |    ✔   |     ✔     |
-| releaseStep     |      ✔     |       ✔       |    ✔   |     ✔     |
-| timeout         |      ✔     |       ✔       |    ✔   |     ✔     |
-| waiting         |      ✔     |       ✔       |    ✔   |     ✔     |
-| busy            |      ✔     |       ✔       |    ✔   |     ✔     |
-| action          |      ✔     |       ✔       |    ✔   |     ✔     |
-| init            |            |               |    ✔   |     ✔     |
-| read            |            |               |    ✔   |           |
-| readBtn         |            |               |        |     ✔     |
+| read            |            |               |    ✔  |           |
+| readBtn         |            |               |        |     ✔    |
+| setHoldTimeout  |      ✔    |       ✔      |    ✔  |     ✔    |
+| setStepTimeout  |      ✔    |       ✔      |    ✔  |     ✔    |
+| setClickTimeout |      ✔    |       ✔      |    ✔  |     ✔    |
+| setDebTimeout   |      ✔    |       ✔      |    ✔  |     ✔    |
+| setBtnLevel     |      ✔    |       ✔      |    ✔  |     ✔    |
+| pressISR        |      ✔    |       ✔      |    ✔  |     ✔    |
+| reset           |      ✔    |       ✔      |    ✔  |     ✔    |
+| clear           |      ✔    |       ✔      |    ✔  |     ✔    |
+| attach          |      ✔    |       ✔      |    ✔  |     ✔    |
+| press           |      ✔    |       ✔      |    ✔  |     ✔    |
+| release         |      ✔    |       ✔      |    ✔  |     ✔    |
+| click           |      ✔    |       ✔      |    ✔  |     ✔    |
+| pressing        |      ✔    |       ✔      |    ✔  |     ✔    |
+| hold            |      ✔    |       ✔      |    ✔  |     ✔    |
+| holding         |      ✔    |       ✔      |    ✔  |     ✔    |
+| step            |      ✔    |       ✔      |    ✔  |     ✔    |
+| hasClicks       |      ✔    |       ✔      |    ✔  |     ✔    |
+| getClicks       |      ✔    |       ✔      |    ✔  |     ✔    |
+| releaseHold     |      ✔    |       ✔      |    ✔  |     ✔    |
+| releaseStep     |      ✔    |       ✔      |    ✔  |     ✔    |
+| timeout         |      ✔    |       ✔      |    ✔  |     ✔    |
+| waiting         |      ✔    |       ✔      |    ✔  |     ✔    |
+| busy            |      ✔    |       ✔      |    ✔  |     ✔    |
+| action          |      ✔    |       ✔      |    ✔  |     ✔    |
 </details>
 
 <details>
 <summary>Таблица функций энкодера</summary>
 
-|                | VirtEncoder | VirtEncButton | Encoder | EncButton |
-|----------------|:-----------:|:-------------:|:-------:|:---------:|
-| setEncReverse  |      ✔      |       ✔       |    ✔    |     ✔     |
-| setEncType     |      ✔      |       ✔       |    ✔    |     ✔     |
-| setEncISR      |      ✔      |       ✔       |    ✔    |     ✔     |
-| initEnc        |      ✔      |       ✔       |    ✔    |     ✔     |
-| turn           |      ✔      |       ✔       |    ✔    |     ✔     |
-| dir            |      ✔      |       ✔       |    ✔    |     ✔     |
-| tickRaw        |      ✔      |       ✔       |    ✔    |     ✔     |
-| counter        |      ✔      |       ✔       |    ✔    |     ✔     |
-| setFastTimeout |             |       ✔       |         |     ✔     |
-| turnH          |             |       ✔       |         |     ✔     |
-| fast           |             |       ✔       |         |     ✔     |
-| right          |             |       ✔       |         |     ✔     |
-| left           |             |       ✔       |         |     ✔     |
-| rightH         |             |       ✔       |         |     ✔     |
-| leftH          |             |       ✔       |         |     ✔     |
-| encHolding     |             |       ✔       |         |     ✔     |
-| action         |             |       ✔       |         |     ✔     |
-| init           |             |               |    ✔    |     ✔     |
-| readEnc        |             |               |         |     ✔     |
+|                | VirtEncoder | Encoder | VirtEncButton | EncButton |
+|----------------|:-----------:|:-------:|:-------------:|:---------:|
+| readEnc        |             |         |               |     ✔    |
+| initEnc        |      ✔     |    ✔   |       ✔      |     ✔    |
+| setEncReverse  |      ✔     |    ✔   |       ✔      |     ✔    |
+| setEncType     |      ✔     |    ✔   |       ✔      |     ✔    |
+| setEncISR      |      ✔     |    ✔   |       ✔      |     ✔    |
+| turn           |      ✔     |    ✔   |       ✔      |     ✔    |
+| dir            |      ✔     |    ✔   |       ✔      |     ✔    |
+| tickRaw        |      ✔     |    ✔   |       ✔      |     ✔    |
+| counter        |      ✔     |    ✔   |       ✔      |     ✔    |
+| setFastTimeout |             |         |       ✔      |     ✔    |
+| turnH          |             |         |       ✔      |     ✔    |
+| fast           |             |         |       ✔      |     ✔    |
+| right          |             |         |       ✔      |     ✔    |
+| left           |             |         |       ✔      |     ✔    |
+| rightH         |             |         |       ✔      |     ✔    |
+| leftH          |             |         |       ✔      |     ✔    |
+| encHolding     |             |         |       ✔      |     ✔    |
+| action         |             |         |       ✔      |     ✔    |
+| timeout        |             |         |       ✔      |     ✔    |
+| attach         |             |         |       ✔      |     ✔    |
 </details>
 
 <details>
