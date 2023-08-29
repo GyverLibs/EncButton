@@ -383,7 +383,8 @@ Button;
 Button(uint8_t pin);                // с указанием пина
 Button(uint8_t npin, uint8_t mode); // + режим работы (умолч. INPUT_PULLUP)
 Button(uint8_t npin, uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
-
+```
+```cpp
 // МЕТОДЫ
 // указать пин и его режим работы
 void init(uint8_t npin, uint8_t mode);
@@ -407,7 +408,8 @@ bool tick();
 ButtonT<uint8_t pin>;                 // с указанием пина
 ButtonT<uint8_t pin> (uint8_t mode);  // + режим работы (умолч. INPUT_PULLUP)
 ButtonT<uint8_t pin> (uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
-
+```
+```cpp
 // МЕТОДЫ
 // указать режим работы
 void init(uint8_t mode);
@@ -431,7 +433,8 @@ bool tick();
 Encoder;
 Encoder(uint8_t encA, uint8_t encB);                // с указанием пинов
 Encoder(uint8_t encA, uint8_t encB, uint8_t mode);  // + режим работы (умолч. INPUT)
-
+```
+```cpp
 // МЕТОДЫ
 // указать пины и их режим работы
 void init(uint8_t encA, uint8_t encB, uint8_t mode);
@@ -452,7 +455,8 @@ int8_t tick();
 // КОНСТРУКТОР
 EncoderT<uint8_t encA, uint8_t encB>;                 // с указанием пинов
 EncoderT<uint8_t encA, uint8_t encB> (uint8_t mode);  // + режим работы (умолч. INPUT)
-
+```
+```cpp
 // МЕТОДЫ
 // указать режим работы пинов
 void init(uint8_t mode);
@@ -480,7 +484,8 @@ EncButton(uint8_t encA, uint8_t encB, uint8_t btn);
 
 // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка, уровень кнопки)
 EncButton(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
-
+```
+```cpp
 // МЕТОДЫ
 // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка, уровень кнопки)
 void init(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
@@ -514,7 +519,8 @@ EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn>;
 
 // + режим работы пинов, уровень кнопки
 EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn> (uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
-
+```
+```cpp
 // МЕТОДЫ
 // настроить режим работы пинов, уровень кнопки
 void init(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
