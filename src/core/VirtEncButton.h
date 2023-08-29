@@ -5,7 +5,6 @@
 #include "VirtEncoder.h"
 #include "utils.h"
 
-// =================== TOUT BUILD ===================
 #ifdef EB_FAST_TIME
 #define EB_FAST_T (EB_FAST_TIME)
 #endif
@@ -21,45 +20,10 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 #endif
     }
 
-    // виртуально зажать кнопку энкодера
-    void holdEncButton(bool state) {
-        write_ef(EB_EHLD_M, state);
-    }
-
-    // виртуально переключить кнопку энкодера
-    void toggleEncButton() {
-        write_ef(EB_EHLD_M, !read_ef(EB_EHLD_M));
-    }
-
     // ====================== GET ======================
-    // поворот энкодера [событие]
-    bool turn() {
-        return read_bf(EB_TRN_R);
-    }
-
-    // поворот направо [событие]
-    bool right() {
-        return read_ef(EB_DIR) && eq_bf(EB_TRN_R | EB_EHLD, EB_TRN_R);
-    }
-
-    // поворот налево [событие]
-    bool left() {
-        return !read_ef(EB_DIR) && eq_bf(EB_TRN_R | EB_EHLD, EB_TRN_R);
-    }
-
-    // нажатый поворот направо [событие]
-    bool rightH() {
-        return read_ef(EB_DIR) && eq_bf(EB_TRN_R | EB_EHLD, EB_TRN_R | EB_EHLD);
-    }
-
-    // нажатый поворот налево [событие]
-    bool leftH() {
-        return !read_ef(EB_DIR) && eq_bf(EB_TRN_R | EB_EHLD, EB_TRN_R | EB_EHLD);
-    }
-
-    // нажата кнопка энкодера [состояние]
-    bool encHolding() {
-        return read_ef(EB_EHLD_M) || read_bf(EB_EHLD);
+    // нажатый поворот энкодера [событие]
+    bool turnH() {
+        return turn() && read_bf(EB_EHLD);
     }
 
     // быстрый поворот энкодера [состояние]
@@ -67,15 +31,63 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         return read_ef(EB_FAST);
     }
 
+    // поворот направо [событие]
+    bool right() {
+        return read_ef(EB_DIR) && turn() && !read_bf(EB_EHLD);
+    }
+
+    // поворот налево [событие]
+    bool left() {
+        return !read_ef(EB_DIR) && turn() && !read_bf(EB_EHLD);
+    }
+
+    // нажатый поворот направо [событие]
+    bool rightH() {
+        return read_ef(EB_DIR) && turnH();
+    }
+
+    // нажатый поворот налево [событие]
+    bool leftH() {
+        return !read_ef(EB_DIR) && turnH();
+    }
+
+    // нажата кнопка энкодера [состояние]
+    bool encHolding() {
+        return read_bf(EB_EHLD);
+    }
+
+    // было действие с кнопки или энкодера, вернёт код события [событие]
+    uint16_t action() {
+        if (turn()) return EB_TURN;
+        else return VirtButton::action();
+    }
+
     // ====================== POLL ======================
     // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
     int8_t tickISR(bool e0, bool e1) {
-        return _encFlags(VirtEncoder::tickISR(e0, e1));
+        return tickISR(e0 | (e1 << 1));
     }
 
     // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
-    int8_t tickISR(int8_t e01) {
-        return _encFlags(VirtEncoder::tickISR(e01));
+    int8_t tickISR(int8_t state) {
+        state = VirtEncoder::tickRaw(state);
+        if (state) {
+#ifdef EB_NO_BUFFER
+            set_ef(EB_ISR_F);
+            write_ef(EB_DIR, state > 0);
+            write_ef(EB_FAST, checkFast());
+#else
+            for (uint8_t i = 0; i < 15; i += 3) {
+                if (!(ebuffer & (1 << i))) {
+                    ebuffer |= (1 << i);                         // turn
+                    if (state > 0) ebuffer |= (1 << (i + 1));    // dir
+                    if (checkFast()) ebuffer |= (1 << (i + 2));  // fast
+                    break;
+                }
+            }
+#endif
+        }
+        return state;
     }
 
     // обработка энкодера и кнопки
@@ -83,16 +95,47 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         return tick(e0 | (e1 << 1), btn);
     }
 
-    // обработка энкодера и кнопки
-    bool tick(int8_t e01, bool btn) {
-        e01 = VirtEncoder::tick(e01);  // direction
-        btn = VirtButton::tick(btn);   // button action
-        _encFlags(e01);                // change flags by direction
-        if (read_ef(EB_ETRN_R)) {      // turn flag from enc
-            e01 = 1;                   // force 1 if turn (maybe isr)
-            set_bf(EB_TRN_R);          // set flag in button
+    // обработка энкодера и кнопки. state = -1 для пропуска обработки энкодера
+    bool tick(int8_t state, bool btn) {
+        bool encf = 0;
+#ifdef EB_NO_BUFFER
+        if (read_ef(EB_ISR_F)) {
+            clr_ef(EB_ISR_F);
+            encf = 1;
         }
-        return e01 | btn;
+#else
+        if (ebuffer) {
+            write_ef(EB_DIR, ebuffer & 0b10);
+            write_ef(EB_FAST, ebuffer & 0b100);
+            ebuffer >>= 3;
+            encf = 1;
+        }
+#endif
+        else if ((state >= 0) && (state = tickRaw(state))) {
+            write_ef(EB_DIR, state > 0);
+            write_ef(EB_FAST, checkFast());
+            encf = 1;
+        }
+
+        btn = VirtButton::tickNoCallback(btn);
+        
+        if (encf) {
+            if (clicks) clicks = 0;                  // сбросить клики
+            if (read_bf(EB_PRS)) set_bf(EB_EHLD);    // зажать энкодер
+            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);  // таймаут
+            set_ef(EB_ETRN_R);                       // флаг поворота
+        } else if (read_ef(EB_ETRN_R)) clr_ef(EB_ETRN_R);
+
+#ifndef EB_NO_CALLBACK
+        if (cb && (encf || btn)) cb();
+#endif
+
+        return encf | btn;
+    }
+
+    // обработка энкодера (в прерывании) и кнопки
+    bool tick(bool btn) {
+        return tick(-1, btn);
     }
 
     // ===================== PRIVATE =====================
@@ -101,17 +144,16 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     uint8_t EB_FAST_T = 30;
 #endif
 
-    int8_t _encFlags(int8_t state) {
-        if (state) {
-            // if (!read_bf(EB_HLD)) {             // кнопка не была удержана
-            if (clicks) clicks = 0;                // сбросить клики
-            if (read_bf(EB_PRS)) set_bf(EB_EHLD);  // зажать энкодер
-            uint16_t ms = EB_UPTIME();
-            write_ef(EB_FAST, ms - tmr < EB_FAST_T);
-            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);
-            tmr = ms;
-            // }
-        }
-        return state;
+#ifndef EB_NO_BUFFER
+    uint16_t ebuffer = 0;
+#endif
+
+   private:
+    bool checkFast() {
+        uint16_t ms = EB_UPTIME();
+        bool f = 0;
+        if (ms - tmr < EB_FAST_T) f = 1;
+        tmr = ms;
+        return f;
     }
 };

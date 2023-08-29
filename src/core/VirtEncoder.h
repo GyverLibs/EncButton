@@ -13,10 +13,10 @@
 #define EB_TYPE (1 << 0)
 #define EB_REV (1 << 2)
 #define EB_FAST (1 << 3)
-#define EB_EHLD_M (1 << 4)
-#define EB_DIR (1 << 5)
-#define EB_ETRN_R (1 << 6)
-#define EB_ISR_F (1 << 7)
+#define EB_DIR (1 << 4)
+#define EB_ETRN_R (1 << 5)
+#define EB_ISR_F (1 << 6)
+#define EB_EISR (1 << 7)
 
 // базовый класс энкодера
 class VirtEncoder {
@@ -33,6 +33,11 @@ class VirtEncoder {
         flags = (flags & 0b11111100) | type;
     }
 
+    // использовать обработку энкодера в прерывании
+    void setEncISR(bool use) {
+        write_ef(EB_EISR, use);
+    }
+
     // инициализация энкодера
     void initEnc(bool e0, bool e1) {
         initEnc(e0 | (e1 << 1));
@@ -44,7 +49,6 @@ class VirtEncoder {
     }
 
     // ====================== ОПРОС ======================
-
     // был поворот [событие]
     bool turn() {
         return read_ef(EB_ETRN_R);
@@ -65,11 +69,7 @@ class VirtEncoder {
     int8_t tickISR(int8_t state) {
         state = tickRaw(state);
         if (state) {
-#ifdef EB_NO_BUFFER
             set_ef(EB_ISR_F);
-#else
-            ebuffer++;
-#endif
             write_ef(EB_DIR, state > 0);
         }
         return state;
@@ -82,23 +82,23 @@ class VirtEncoder {
 
     // опросить энкодер. Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t tick(int8_t state) {
-#ifdef EB_NO_BUFFER
         if (read_ef(EB_ISR_F)) {
             clr_ef(EB_ISR_F);
-#else
-        if (ebuffer) {
-            ebuffer--;
-#endif
             set_ef(EB_ETRN_R);
-
-        } else if ((state = tickRaw(state))) {
+            return dir();
+        }
+        if ((state >= 0) && (state = tickRaw(state))) {
             set_ef(EB_ETRN_R);
             write_ef(EB_DIR, state > 0);
             return state;
-        } else if (read_ef(EB_ETRN_R)) {
-            clr_ef(EB_ETRN_R);
         }
+        if (read_ef(EB_ETRN_R)) clr_ef(EB_ETRN_R);
         return 0;
+    }
+
+    // опросить энкодер (сам опрос в прерывании)
+    int8_t tick() {
+        return tick(-1);
     }
 
     // опросить энкодер без установки флагов на поворот (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
@@ -154,9 +154,6 @@ class VirtEncoder {
     }
 
    private:
-#ifndef EB_NO_BUFFER
-    uint8_t ebuffer = 0;
-#endif
     uint8_t flags = 0;
     int8_t prev = 0;
     int8_t ecount = 0;

@@ -45,17 +45,18 @@
 #define EB_HLD_R (1 << 2)
 #define EB_STP_R (1 << 3)
 #define EB_REL_R (1 << 4)
-#define EB_TRN_R (1 << 5)
 
-#define EB_PRS (1 << 6)
-#define EB_HLD (1 << 7)
-#define EB_STP (1 << 8)
-#define EB_REL (1 << 9)
-#define EB_BUS (1 << 10)
-#define EB_DEB (1 << 11)
-#define EB_TOUT (1 << 12)
-#define EB_INV (1 << 13)
-#define EB_BOTH (1 << 14)
+#define EB_PRS (1 << 5)
+#define EB_HLD (1 << 6)
+#define EB_STP (1 << 7)
+#define EB_REL (1 << 8)
+
+#define EB_BUSY (1 << 9)
+#define EB_DEB (1 << 10)
+#define EB_TOUT (1 << 11)
+#define EB_INV (1 << 12)
+#define EB_BOTH (1 << 13)
+#define EB_BISR (1 << 14)
 
 #define EB_EHLD (1 << 15)
 
@@ -92,8 +93,14 @@ class VirtButton {
     }
 
     // установить уровень кнопки (HIGH - кнопка замыкает VCC, LOW - замыкает GND)
-    void setButtonLevel(bool level) {
+    void setBtnLevel(bool level) {
         write_bf(EB_INV, !level);
+    }
+
+    // кнопка нажата в прерывании (не учитывает btnLevel!)
+    void pressISR() {
+        set_bf(EB_DEB | EB_BUSY | EB_BISR);
+        tmr = EB_UPTIME();
     }
 
     // сбросить системные флаги (принудительно закончить обработку)
@@ -105,9 +112,16 @@ class VirtButton {
     // принудительно сбросить флаги событий
     void clear() {
         if (read_bf(EB_CLKS_R)) clicks = 0;
-        if (read_bf(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R | EB_TRN_R)) {
-            clr_bf(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R | EB_TRN_R);
+        if (read_bf(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R)) {
+            clr_bf(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R);
         }
+    }
+
+    // подключить функцию-обработчик событий (вида void f())
+    void attach(void (*handler)()) {
+#ifndef EB_NO_CALLBACK
+        cb = *handler;
+#endif
     }
 
     // ====================== GET ======================
@@ -212,23 +226,35 @@ class VirtButton {
 
     // идёт обработка [состояние]
     bool busy() {
-        return read_bf(EB_BUS);
+        return read_bf(EB_BUSY);
     }
 
-    // было действие с кнопки (или энкодером EncButton), вернёт код события [событие]
+    // было действие с кнопки, вернёт код события [событие]
     uint16_t action() {
-        if (!state()) return 0;
-        if (press()) return EB_PRESS;
-        if (hold()) return EB_HOLD;
-        if (step()) return EB_STEP;
-        if (release()) return EB_RELEASE;
-        if (click()) return EB_CLICK;
-        if (hasClicks()) return EB_CLICKS;
-        if (read_bf(EB_TRN_R)) return EB_TURN;
-        if (releaseHold()) return EB_REL_HOLD;
-        if (eq_bf(EB_CLKS_R | EB_HLD | EB_STP, EB_CLKS_R | EB_HLD)) return EB_REL_HOLD_C;
-        if (releaseStep()) return EB_REL_STEP;
-        if (eq_bf(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP)) return EB_REL_STEP_C;
+        switch (flags & 0b111111111) {
+            case (EB_PRS | EB_PRS_R):
+                return EB_PRESS;
+            case (EB_PRS | EB_HLD | EB_HLD_R):
+                return EB_HOLD;
+            case (EB_PRS | EB_HLD | EB_STP | EB_STP_R):
+                return EB_STEP;
+            case (EB_REL | EB_REL_R):
+            case (EB_REL | EB_REL_R | EB_HLD):
+            case (EB_REL | EB_REL_R | EB_HLD | EB_STP):
+                return EB_RELEASE;
+            case (EB_REL_R):
+                return EB_CLICK;
+            case (EB_CLKS_R):
+                return EB_CLICKS;
+            case (EB_REL_R | EB_HLD):
+                return EB_REL_HOLD;
+            case (EB_CLKS_R | EB_HLD):
+                return EB_REL_HOLD_C;
+            case (EB_REL_R | EB_HLD | EB_STP):
+                return EB_REL_STEP;
+            case (EB_CLKS_R | EB_HLD | EB_STP):
+                return EB_REL_STEP_C;
+        }
         return 0;
     }
 
@@ -250,11 +276,68 @@ class VirtButton {
 
     // обработка кнопки значением
     bool tick(bool s) {
+        s = tickNoCallback(s);
+#ifndef EB_NO_CALLBACK
+        if (cb && s) cb();
+#endif
+        return s;
+    }
+
+    uint8_t clicks = 0;
+
+    // deprecated
+    void setButtonLevel(bool level) {
+        write_bf(EB_INV, !level);
+    }
+
+    // ====================== PRIVATE ======================
+   protected:
+    uint16_t tmr = 0;
+
+#ifndef EB_NO_CALLBACK
+    void (*cb)() = nullptr;
+#endif
+
+#ifndef EB_DEB_TIME
+    uint8_t EB_DEB_T = 50;
+#endif
+#ifndef EB_CLICK_TIME
+    uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
+#endif
+#ifndef EB_HOLD_TIME
+    uint8_t EB_HOLD_T = (500 >> EB_SHIFT);
+#endif
+#ifndef EB_STEP_TIME
+    uint8_t EB_STEP_T = (200 >> EB_SHIFT);
+#endif
+
+    inline void set_bf(const uint16_t x) __attribute__((always_inline)) {
+        flags |= x;
+    }
+    inline void clr_bf(const uint16_t x) __attribute__((always_inline)) {
+        flags &= ~x;
+    }
+    inline bool read_bf(const uint16_t x) __attribute__((always_inline)) {
+        return flags & x;
+    }
+    inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
+        if (v) set_bf(x);
+        else clr_bf(x);
+    }
+    inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
+        return (flags & x) == y;
+    }
+
+    bool tickNoCallback(bool s) {
         clear();
 
-        s ^= read_bf(EB_INV);
-        if (!read_bf(EB_BUS)) {
-            if (s) set_bf(EB_BUS);
+        if (read_bf(EB_BISR)) {
+            clr_bf(EB_BISR);
+            s = 1;
+        } else s ^= read_bf(EB_INV);
+
+        if (!read_bf(EB_BUSY)) {
+            if (s) set_bf(EB_BUSY);
             else return 0;
         }
 
@@ -315,55 +398,16 @@ class VirtButton {
 #else
                 if (read_bf(EB_HLD | EB_STP) || deb > (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
 #endif
-            } else if (read_bf(EB_BUS)) {
-                clr_bf(EB_HLD | EB_STP | EB_BUS);
+            } else if (read_bf(EB_BUSY)) {
+                clr_bf(EB_HLD | EB_STP | EB_BUSY);
                 set_bf(EB_TOUT);
                 tmr = ms;  // test!!
             }
             if (read_bf(EB_DEB)) clr_bf(EB_DEB);  // сброс ожидания нажатия (дебаунс)
         }
-        return state();
-    }
-
-    uint8_t clicks = 0;
-
-    // ====================== PRIVATE ======================
-   protected:
-    uint16_t tmr = 0;
-
-#ifndef EB_DEB_TIME
-    uint8_t EB_DEB_T = 50;
-#endif
-#ifndef EB_CLICK_TIME
-    uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
-#endif
-#ifndef EB_HOLD_TIME
-    uint8_t EB_HOLD_T = (500 >> EB_SHIFT);
-#endif
-#ifndef EB_STEP_TIME
-    uint8_t EB_STEP_T = (200 >> EB_SHIFT);
-#endif
-
-    inline void set_bf(const uint16_t x) __attribute__((always_inline)) {
-        flags |= x;
-    }
-    inline void clr_bf(const uint16_t x) __attribute__((always_inline)) {
-        flags &= ~x;
-    }
-    inline bool read_bf(const uint16_t x) __attribute__((always_inline)) {
-        return flags & x;
-    }
-    inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
-        if (v) set_bf(x);
-        else clr_bf(x);
-    }
-    inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
-        return (flags & x) == y;
+        return read_bf(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R);
     }
 
    private:
     uint16_t flags = 0;
-    bool state() {
-        return read_bf(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R | EB_TRN_R);
-    }
 };

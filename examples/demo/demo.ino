@@ -1,6 +1,6 @@
 // полное демо
 #include <Arduino.h>
-
+// #define EB_NO_CALLBACK      // отключить обработчик событий attach (экономит 2 байта оперативки)
 // #define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
 // #define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
 
@@ -18,7 +18,8 @@ EncButton eb(2, 3, 4);
 void setup() {
     Serial.begin(115200);
 
-    eb.setButtonLevel(LOW);
+    // показаны значения по умолчанию
+    eb.setBtnLevel(LOW);
     eb.setClickTimeout(500);
     eb.setDebTimeout(50);
     eb.setHoldTimeout(500);

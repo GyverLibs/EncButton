@@ -18,6 +18,7 @@ void setup() {
     Serial.begin(115200);
     attachInterrupt(0, isr, CHANGE);
     attachInterrupt(1, isr, CHANGE);
+    eb.setEncISR(true);
 }
 
 void loop() {

@@ -7,15 +7,15 @@
 // ============= VAR PIN =============
 class Button : public VirtButton {
    public:
-    Button(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP) {
-        init(npin, mode);
-        setButtonLevel(LOW);
+    Button(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
+        init(npin, mode, btnLevel);
     }
 
     // указать пин и его режим работы
-    void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP) {
+    void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pin = npin;
         pinMode(pin, mode);
+        setBtnLevel(btnLevel);
     }
 
     // прочитать текущее значение кнопки (без дебаунса)
@@ -36,14 +36,14 @@ class Button : public VirtButton {
 template <uint8_t PIN>
 class ButtonT : public VirtButton {
    public:
-    ButtonT(uint8_t mode = INPUT_PULLUP) {
-        init(mode);
-        setButtonLevel(LOW);
+    ButtonT(uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
+        init(mode, btnLevel);
     }
 
     // указать режим работы пина
-    void init(uint8_t mode = INPUT_PULLUP) {
+    void init(uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pinMode(PIN, mode);
+        setBtnLevel(btnLevel);
     }
 
     // прочитать текущее значение кнопки (без дебаунса)

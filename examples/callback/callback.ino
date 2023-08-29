@@ -5,10 +5,6 @@
 
 EncButton eb(2, 3, 4);
 
-void setup() {
-    Serial.begin(115200);
-}
-
 void cb() {
     Serial.print("callback: ");
     switch (eb.action()) {
@@ -53,9 +49,15 @@ void cb() {
             Serial.print("release step clicks ");
             Serial.println(eb.getClicks());
             break;
+        default: Serial.println();
     }
 }
 
+void setup() {
+    Serial.begin(115200);
+    eb.attach(cb);
+}
+
 void loop() {
-    if (eb.tick()) cb();
+    eb.tick();
 }
