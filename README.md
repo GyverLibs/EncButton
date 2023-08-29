@@ -169,6 +169,66 @@
 > Примечание: `#include <EncButton.h>` подключает все инструменты библиотеки!
 
 <details>
+<summary>Таблица функций кнопки</summary>
+
+|                 | VirtButton | VirtEncButton | Button | EncButton |
+|-----------------|:----------:|:-------------:|:------:|:---------:|
+| setHoldTimeout  |      ✔     |       ✔       |    ✔   |     ✔     |
+| setStepTimeout  |      ✔     |       ✔       |    ✔   |     ✔     |
+| setClickTimeout |      ✔     |       ✔       |    ✔   |     ✔     |
+| setDebTimeout   |      ✔     |       ✔       |    ✔   |     ✔     |
+| setBtnLevel     |      ✔     |       ✔       |    ✔   |     ✔     |
+| pressISR        |      ✔     |       ✔       |    ✔   |     ✔     |
+| reset           |      ✔     |       ✔       |    ✔   |     ✔     |
+| clear           |      ✔     |       ✔       |    ✔   |     ✔     |
+| attach          |      ✔     |       ✔       |    ✔   |     ✔     |
+| press           |      ✔     |       ✔       |    ✔   |     ✔     |
+| release         |      ✔     |       ✔       |    ✔   |     ✔     |
+| click           |      ✔     |       ✔       |    ✔   |     ✔     |
+| pressing        |      ✔     |       ✔       |    ✔   |     ✔     |
+| hold            |      ✔     |       ✔       |    ✔   |     ✔     |
+| holding         |      ✔     |       ✔       |    ✔   |     ✔     |
+| step            |      ✔     |       ✔       |    ✔   |     ✔     |
+| hasClicks       |      ✔     |       ✔       |    ✔   |     ✔     |
+| getClicks       |      ✔     |       ✔       |    ✔   |     ✔     |
+| releaseHold     |      ✔     |       ✔       |    ✔   |     ✔     |
+| releaseStep     |      ✔     |       ✔       |    ✔   |     ✔     |
+| timeout         |      ✔     |       ✔       |    ✔   |     ✔     |
+| waiting         |      ✔     |       ✔       |    ✔   |     ✔     |
+| busy            |      ✔     |       ✔       |    ✔   |     ✔     |
+| action          |      ✔     |       ✔       |    ✔   |     ✔     |
+| init            |            |               |    ✔   |     ✔     |
+| read            |            |               |    ✔   |           |
+| readBtn         |            |               |        |     ✔     |
+</details>
+
+<details>
+<summary>Таблица функций энкодера</summary>
+
+|                | VirtEncoder | VirtEncButton | Encoder | EncButton |
+|----------------|:-----------:|:-------------:|:-------:|:---------:|
+| setEncReverse  |      ✔      |       ✔       |    ✔    |     ✔     |
+| setEncType     |      ✔      |       ✔       |    ✔    |     ✔     |
+| setEncISR      |      ✔      |       ✔       |    ✔    |     ✔     |
+| initEnc        |      ✔      |       ✔       |    ✔    |     ✔     |
+| turn           |      ✔      |       ✔       |    ✔    |     ✔     |
+| dir            |      ✔      |       ✔       |    ✔    |     ✔     |
+| tickRaw        |      ✔      |       ✔       |    ✔    |     ✔     |
+| counter        |      ✔      |       ✔       |    ✔    |     ✔     |
+| setFastTimeout |             |       ✔       |         |     ✔     |
+| turnH          |             |       ✔       |         |     ✔     |
+| fast           |             |       ✔       |         |     ✔     |
+| right          |             |       ✔       |         |     ✔     |
+| left           |             |       ✔       |         |     ✔     |
+| rightH         |             |       ✔       |         |     ✔     |
+| leftH          |             |       ✔       |         |     ✔     |
+| encHolding     |             |       ✔       |         |     ✔     |
+| action         |             |       ✔       |         |     ✔     |
+| init           |             |               |    ✔    |     ✔     |
+| readEnc        |             |               |         |     ✔     |
+</details>
+
+<details>
 <summary>VirtButton</summary>
 
 ```cpp
