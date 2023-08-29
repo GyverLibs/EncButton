@@ -1006,6 +1006,7 @@ EncoderT<enc0, enc1> e(pinmodeEnc);   // + режим пинов энкодер�
 <summary>Полное демо EncButton</summary>
 
 ```cpp
+// #define EB_NO_CALLBACK      // отключить обработчик событий attach (экономит 2 байта оперативки)
 // #define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
 // #define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
 
@@ -1108,7 +1109,7 @@ void loop() {
 ```
 </details>
 <details>
-<summary>Демо EncButton, общий обработчик</summary>
+<summary>Демо EncButton, обработчик</summary>
 
 ```cpp
 #include <EncButton.h>
@@ -1116,11 +1117,7 @@ EncButton eb(2, 3, 4);
 //EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
 //EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
 
-void setup() {
-    Serial.begin(115200);
-}
-
-void cb() {
+void callback() {
     Serial.print("callback: ");
     switch (eb.action()) {
         case EB_PRESS:
@@ -1167,8 +1164,13 @@ void cb() {
     }
 }
 
+void setup() {
+    Serial.begin(115200);
+    eb.attach(callback);
+}
+
 void loop() {
-    if (eb.tick()) cb();
+    eb.tick();
 }
 ```
 </details>
