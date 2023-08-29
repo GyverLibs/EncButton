@@ -378,14 +378,12 @@ bool tick(bool btn);  // энкодер в прерывании
 - Режим кнопки по умолчанию - `LOW`
 
 ```cpp
-// КОНСТРУКТОР
 Button;
 Button(uint8_t pin);                // с указанием пина
 Button(uint8_t npin, uint8_t mode); // + режим работы (умолч. INPUT_PULLUP)
 Button(uint8_t npin, uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
 ```
 ```cpp
-// МЕТОДЫ
 // указать пин и его режим работы
 void init(uint8_t npin, uint8_t mode);
 
@@ -404,13 +402,11 @@ bool tick();
 - Режим кнопки по умолчанию - `LOW`
 
 ```cpp
-// КОНСТРУКТОР
 ButtonT<uint8_t pin>;                 // с указанием пина
 ButtonT<uint8_t pin> (uint8_t mode);  // + режим работы (умолч. INPUT_PULLUP)
 ButtonT<uint8_t pin> (uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
 ```
 ```cpp
-// МЕТОДЫ
 // указать режим работы
 void init(uint8_t mode);
 
@@ -429,13 +425,11 @@ bool tick();
 - Доступны функции из `VirtEncoder`
 
 ```cpp
-// КОНСТРУКТОР
 Encoder;
 Encoder(uint8_t encA, uint8_t encB);                // с указанием пинов
 Encoder(uint8_t encA, uint8_t encB, uint8_t mode);  // + режим работы (умолч. INPUT)
 ```
 ```cpp
-// МЕТОДЫ
 // указать пины и их режим работы
 void init(uint8_t encA, uint8_t encB, uint8_t mode);
 
@@ -452,12 +446,10 @@ int8_t tick();
 - Доступны функции из `VirtEncoder`
 
 ```cpp
-// КОНСТРУКТОР
 EncoderT<uint8_t encA, uint8_t encB>;                 // с указанием пинов
 EncoderT<uint8_t encA, uint8_t encB> (uint8_t mode);  // + режим работы (умолч. INPUT)
 ```
 ```cpp
-// МЕТОДЫ
 // указать режим работы пинов
 void init(uint8_t mode);
 
@@ -476,7 +468,6 @@ int8_t tick();
 - Доступны функции из `VirtEncButton`
 
 ```cpp
-// КОНСТРУКТОР
 EncButton;
 
 // настроить пины (энк, энк, кнопка)
@@ -486,7 +477,6 @@ EncButton(uint8_t encA, uint8_t encB, uint8_t btn);
 EncButton(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 ```
 ```cpp
-// МЕТОДЫ
 // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка, уровень кнопки)
 void init(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 
@@ -513,7 +503,6 @@ int8_t readEnc();
 - Доступны функции из `VirtEncButton`
 
 ```cpp
-// КОНСТРУКТОР
 // с указанием пинов
 EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn>;
 
@@ -521,7 +510,6 @@ EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn>;
 EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn> (uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 ```
 ```cpp
-// МЕТОДЫ
 // настроить режим работы пинов, уровень кнопки
 void init(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 
