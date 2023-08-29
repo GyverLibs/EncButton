@@ -381,11 +381,13 @@ bool tick(bool btn);  // энкодер в прерывании
 - Режим кнопки по умолчанию - `LOW`
 
 ```cpp
+// КОНСТРУКТОР
 Button;
 Button(uint8_t pin);                // с указанием пина
 Button(uint8_t npin, uint8_t mode); // + режим работы (умолч. INPUT_PULLUP)
 Button(uint8_t npin, uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
 
+// МЕТОДЫ
 // указать пин и его режим работы
 void init(uint8_t npin, uint8_t mode);
 
@@ -404,10 +406,12 @@ bool tick();
 - Режим кнопки по умолчанию - `LOW`
 
 ```cpp
+// КОНСТРУКТОР
 ButtonT<uint8_t pin>;                 // с указанием пина
 ButtonT<uint8_t pin> (uint8_t mode);  // + режим работы (умолч. INPUT_PULLUP)
 ButtonT<uint8_t pin> (uint8_t mode, uint8_t btnLevel); // + уровень кнопки (умолч. LOW)
 
+// МЕТОДЫ
 // указать режим работы
 void init(uint8_t mode);
 
@@ -426,10 +430,12 @@ bool tick();
 - Доступны функции из `VirtEncoder`
 
 ```cpp
+// КОНСТРУКТОР
 Encoder;
 Encoder(uint8_t encA, uint8_t encB);                // с указанием пинов
 Encoder(uint8_t encA, uint8_t encB, uint8_t mode);  // + режим работы (умолч. INPUT)
 
+// МЕТОДЫ
 // указать пины и их режим работы
 void init(uint8_t encA, uint8_t encB, uint8_t mode);
 
@@ -446,9 +452,11 @@ int8_t tick();
 - Доступны функции из `VirtEncoder`
 
 ```cpp
+// КОНСТРУКТОР
 EncoderT<uint8_t encA, uint8_t encB>;                 // с указанием пинов
 EncoderT<uint8_t encA, uint8_t encB> (uint8_t mode);  // + режим работы (умолч. INPUT)
 
+// МЕТОДЫ
 // указать режим работы пинов
 void init(uint8_t mode);
 
@@ -467,14 +475,16 @@ int8_t tick();
 - Доступны функции из `VirtEncButton`
 
 ```cpp
+// КОНСТРУКТОР
 EncButton;
 
 // настроить пины (энк, энк, кнопка)
 EncButton(uint8_t encA, uint8_t encB, uint8_t btn);
 
-// настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка)
+// настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка, уровень кнопки)
 EncButton(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 
+// МЕТОДЫ
 // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка, уровень кнопки)
 void init(uint8_t encA, uint8_t encB, uint8_t btn, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 
@@ -501,9 +511,14 @@ int8_t readEnc();
 - Доступны функции из `VirtEncButton`
 
 ```cpp
-EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn>;    // с указанием пинов
-EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn> (uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);  // + режим работы пинов, уровень кнопки
+// КОНСТРУКТОР
+// с указанием пинов
+EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn>;
 
+// + режим работы пинов, уровень кнопки
+EncButtonT<uint8_t encA, uint8_t encB, uint8_t btn> (uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
+
+// МЕТОДЫ
 // настроить режим работы пинов, уровень кнопки
 void init(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW);
 
@@ -962,27 +977,31 @@ VirtEncoder e;    // энкодер
 
 // РЕАЛЬНЫЕ
 // энкодер с кнопкой
-EncButton eb(enc0, enc1, btn);              // пины энкодера и кнопки
-EncButton eb(enc0, enc1, btn, pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
-EncButton eb(enc0, enc1, btn, pinmodeEnc, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+EncButton eb(enc0, enc1, btn);                    // пины энкодера и кнопки
+EncButton eb(enc0, enc1, btn, modeEnc);           // + режим пинов энкодера (умолч. INPUT)
+EncButton eb(enc0, enc1, btn, modeEnc, modeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+EncButton eb(enc0, enc1, btn, modeEnc, modeBtn, btnLevel);  // + уровень кнопки (умолч. LOW)
 // шаблонный
-EncButton<enc0, enc1, btn> eb;              // пины энкодера и кнопки
-EncButton<enc0, enc1, btn> eb(pinmodeEnc);  // + режим пинов энкодера (умолч. INPUT)
-EncButton<enc0, enc1, btn> eb(pinmodeEnc, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+EncButton<enc0, enc1, btn> eb;                    // пины энкодера и кнопки
+EncButton<enc0, enc1, btn> eb(modeEnc);           // + режим пинов энкодера (умолч. INPUT)
+EncButton<enc0, enc1, btn> eb(modeEnc, modeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+EncButton<enc0, enc1, btn> eb(modeEnc, modeBtn, btnLevel);  // + уровень кнопки (умолч. LOW)
 
 // кнопка
-Button b(pin);
-Button b(pin, pinmodeBtn);  // + режим пина кнопки (умолч. INPUT_PULLUP)
+Button b(pin);                  // пин
+Button b(pin, mode);            // + режим пина кнопки (умолч. INPUT_PULLUP)
+Button b(pin, mode, btnLevel);  // + уровень кнопки (умолч. LOW)
 // шаблонный
-ButtonT<pin> b;
-ButtonT<pin> b(pinmodeBtn); // + режим пина кнопки (умолч. INPUT_PULLUP)
+ButtonT<pin> b;                 // пин
+ButtonT<pin> b(mode);           // + режим пина кнопки (умолч. INPUT_PULLUP)
+ButtonT<pin> b(mode, btnLevel); // + уровень кнопки (умолч. LOW)
 
 // энкодер
-Encoder e(enc0, enc1);                // пины энкодера
-Encoder e(enc0, enc1, pinmodeEnc);    // + режим пинов энкодера (умолч. INPUT)
+Encoder e(enc0, enc1);          // пины энкодера
+Encoder e(enc0, enc1, mode);    // + режим пинов энкодера (умолч. INPUT)
 // шаблонный
-EncoderT<enc0, enc1> e;               // пины энкодера
-EncoderT<enc0, enc1> e(pinmodeEnc);   // + режим пинов энкодера (умолч. INPUT)
+EncoderT<enc0, enc1> e;         // пины энкодера
+EncoderT<enc0, enc1> e(mode);   // + режим пинов энкодера (умолч. INPUT)
 ```
 
 ### Функции
@@ -1020,6 +1039,7 @@ EncoderT<enc0, enc1> e(pinmodeEnc);   // + режим пинов энкодер�
 EncButton eb(2, 3, 4);
 //EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
 //EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
+//EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP, LOW);  // + уровень кнопки
 
 void setup() {
     Serial.begin(115200);
@@ -1109,13 +1129,11 @@ void loop() {
 ```
 </details>
 <details>
-<summary>Демо EncButton, обработчик</summary>
+<summary>Подключение обработчика</summary>
 
 ```cpp
 #include <EncButton.h>
 EncButton eb(2, 3, 4);
-//EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
-//EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
 
 void callback() {
     Serial.print("callback: ");
@@ -1182,7 +1200,7 @@ void loop() {
 
 Button btn(4);
 ButtonT<5> btnt;
-VirtButton btnc;
+VirtButton btnv;
 
 void setup() {
     Serial.begin(115200);
@@ -1198,8 +1216,8 @@ void loop() {
     if (btnt.click()) Serial.println("btnt click");
 
     // VirtButton
-    btnc.tick(!digitalRead(4));  // передать логическое значение
-    if (btn.click()) Serial.println("btnc click");
+    btnv.tick(!digitalRead(4));  // передать логическое значение
+    if (btn.click()) Serial.println("btnv click");
 }
 ```
 </details>
@@ -1211,7 +1229,7 @@ void loop() {
 
 Encoder enc(2, 3);
 EncoderT<5, 6> enct;
-VirtEncoder encc;
+VirtEncoder encv;
 
 void setup() {
     Serial.begin(115200);
@@ -1231,7 +1249,7 @@ void loop() {
 
     // 3
     // можно не использовать опросные функции, а получить направление напрямую
-    int8_t v = encc.tick(digitalRead(2), digitalRead(3));
+    int8_t v = encv.tick(digitalRead(2), digitalRead(3));
     if (v) Serial.println(v);  // выведет 1 или -1
 }
 ```
