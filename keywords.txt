@@ -49,7 +49,6 @@ waiting	KEYWORD2
 busy	KEYWORD2
 action	KEYWORD2
 attach	KEYWORD2
-
 pressISR	KEYWORD2
 
 setEncReverse	KEYWORD2
@@ -68,6 +67,7 @@ encHolding	KEYWORD2
 dir	KEYWORD2
 fast	KEYWORD2
 
+pollEnc	KEYWORD2
 init	KEYWORD2
 tickRaw	KEYWORD2
 tickISR	KEYWORD2

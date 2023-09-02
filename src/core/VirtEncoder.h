@@ -48,6 +48,11 @@ class VirtEncoder {
         prev = v;
     }
 
+    // сбросить флаги событий
+    void clear() {
+        if (read_ef(EB_ETRN_R)) clr_ef(EB_ETRN_R);
+    }
+
     // ====================== ОПРОС ======================
     // был поворот [событие]
     bool turn() {
@@ -60,6 +65,7 @@ class VirtEncoder {
     }
 
     // ====================== POLL ======================
+    // ISR
     // опросить энкодер в прерывании. Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t tickISR(bool e0, bool e1) {
         return tickISR(e0 | (e1 << 1));
@@ -67,7 +73,7 @@ class VirtEncoder {
 
     // опросить энкодер в прерывании. Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t tickISR(int8_t state) {
-        state = tickRaw(state);
+        state = pollEnc(state);
         if (state) {
             set_ef(EB_ISR_F);
             write_ef(EB_DIR, state > 0);
@@ -75,6 +81,7 @@ class VirtEncoder {
         return state;
     }
 
+    // TICK
     // опросить энкодер. Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t tick(bool e0, bool e1) {
         return tick(e0 | (e1 << 1));
@@ -82,17 +89,9 @@ class VirtEncoder {
 
     // опросить энкодер. Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t tick(int8_t state) {
-        if (read_ef(EB_ISR_F)) {
-            clr_ef(EB_ISR_F);
-            set_ef(EB_ETRN_R);
-            return dir();
-        }
-        if ((state >= 0) && (state = tickRaw(state))) {
-            set_ef(EB_ETRN_R);
-            write_ef(EB_DIR, state > 0);
-            return state;
-        }
-        if (read_ef(EB_ETRN_R)) clr_ef(EB_ETRN_R);
+        state = tickRaw(state);
+        if (state) return state;
+        clear();
         return 0;
     }
 
@@ -101,13 +100,40 @@ class VirtEncoder {
         return tick(-1);
     }
 
-    // опросить энкодер без установки флагов на поворот (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
+    // RAW
+    // опросить энкодер без сброса события поворота
     int8_t tickRaw(bool e0, bool e1) {
         return tickRaw(e0 | (e1 << 1));
     }
 
-    // опросить энкодер без установки флагов на поворот (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
+    // опросить энкодер без сброса события поворота
     int8_t tickRaw(int8_t state) {
+        if (read_ef(EB_ISR_F)) {
+            clr_ef(EB_ISR_F);
+            set_ef(EB_ETRN_R);
+            return dir();
+        }
+        if ((state >= 0) && (state = pollEnc(state))) {
+            write_ef(EB_DIR, state > 0);
+            set_ef(EB_ETRN_R);
+            return state;
+        }
+        return 0;
+    }
+
+    // опросить энкодер без сброса события поворота (сам опрос в прерывании)
+    int8_t tickRaw() {
+        return tickRaw(-1);
+    }
+
+    // POLL
+    // опросить энкодер без установки события поворота (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
+    int8_t pollEnc(bool e0, bool e1) {
+        return pollEnc(e0 | (e1 << 1));
+    }
+
+    // опросить энкодер без установки события поворота (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
+    int8_t pollEnc(int8_t state) {
         if (prev != state) {
             ecount += ((0x49941661 >> ((state | (prev << 2)) << 1)) & 0b11) - 1;
             prev = state;

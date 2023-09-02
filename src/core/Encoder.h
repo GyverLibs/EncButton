@@ -32,6 +32,12 @@ class Encoder : public VirtEncoder {
         else return VirtEncoder::tick(readEnc());
     }
 
+    // обработка без сброса события поворота
+    int8_t tickRaw() {
+        if (read_ef(EB_EISR)) return VirtEncoder::tickRaw();
+        else return VirtEncoder::tickRaw(readEnc());
+    }
+
    private:
     uint8_t e0, e1;
 
@@ -56,7 +62,7 @@ class EncoderT : public VirtEncoder {
         pinMode(ENCB, mode);
         initEnc(readEnc());
     }
-    
+
     // функция обработки для вызова в прерывании энкодера
     int8_t tickISR() {
         return VirtEncoder::tickISR(readEnc());
@@ -66,6 +72,12 @@ class EncoderT : public VirtEncoder {
     int8_t tick() {
         if (read_ef(EB_EISR)) return VirtEncoder::tick();
         else return VirtEncoder::tick(readEnc());
+    }
+
+    // обработка без сброса события поворота
+    int8_t tickRaw() {
+        if (read_ef(EB_EISR)) return VirtEncoder::tickRaw();
+        else return VirtEncoder::tickRaw(readEnc());
     }
 
     // прочитать значение энкодера

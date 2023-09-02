@@ -31,9 +31,15 @@ class EncButton : public VirtEncButton {
     }
 
     // функция обработки, вызывать в loop
-    int8_t tick() {
+    bool tick() {
         if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(b));
         else return VirtEncButton::tick(readEnc(), EBread(b));
+    }
+
+    // функция обработки без сброса событий
+    bool tickRaw() {
+        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(b));
+        else return VirtEncButton::tickRaw(readEnc(), EBread(b));
     }
 
     // ====================== READ ======================
@@ -77,9 +83,15 @@ class EncButtonT : public VirtEncButton {
     }
 
     // функция обработки, вызывать в loop
-    int8_t tick() {
+    bool tick() {
         if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(BTN));
         else return VirtEncButton::tick(readEnc(), EBread(BTN));
+    }
+
+    // функция обработки без сброса событий
+    bool tickRaw() {
+        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(BTN));
+        else return VirtEncButton::tickRaw(readEnc(), EBread(BTN));
     }
 
     // ====================== READ ======================

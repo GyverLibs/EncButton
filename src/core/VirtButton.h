@@ -99,8 +99,8 @@ class VirtButton {
 
     // кнопка нажата в прерывании (не учитывает btnLevel!)
     void pressISR() {
-        set_bf(EB_DEB | EB_BUSY | EB_BISR);
-        tmr = EB_UPTIME();
+        if (!read_bf(EB_DEB)) tmr = EB_UPTIME();
+        set_bf(EB_DEB | EB_BISR);
     }
 
     // сбросить системные флаги (принудительно закончить обработку)
@@ -276,11 +276,17 @@ class VirtButton {
 
     // обработка кнопки значением
     bool tick(bool s) {
-        s = tickNoCallback(s);
+        clear();
+        s = pollBtn(s);
 #ifndef EB_NO_CALLBACK
         if (cb && s) cb();
 #endif
         return s;
+    }
+
+    // обработка кнопки без сброса событий и вызова коллбэка
+    bool tickRaw(bool s) {
+        return pollBtn(s);
     }
 
     uint8_t clicks = 0;
@@ -292,45 +298,7 @@ class VirtButton {
 
     // ====================== PRIVATE ======================
    protected:
-    uint16_t tmr = 0;
-
-#ifndef EB_NO_CALLBACK
-    void (*cb)() = nullptr;
-#endif
-
-#ifndef EB_DEB_TIME
-    uint8_t EB_DEB_T = 50;
-#endif
-#ifndef EB_CLICK_TIME
-    uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
-#endif
-#ifndef EB_HOLD_TIME
-    uint8_t EB_HOLD_T = (500 >> EB_SHIFT);
-#endif
-#ifndef EB_STEP_TIME
-    uint8_t EB_STEP_T = (200 >> EB_SHIFT);
-#endif
-
-    inline void set_bf(const uint16_t x) __attribute__((always_inline)) {
-        flags |= x;
-    }
-    inline void clr_bf(const uint16_t x) __attribute__((always_inline)) {
-        flags &= ~x;
-    }
-    inline bool read_bf(const uint16_t x) __attribute__((always_inline)) {
-        return flags & x;
-    }
-    inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
-        if (v) set_bf(x);
-        else clr_bf(x);
-    }
-    inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
-        return (flags & x) == y;
-    }
-
-    bool tickNoCallback(bool s) {
-        clear();
-
+    bool pollBtn(bool s) {
         if (read_bf(EB_BISR)) {
             clr_bf(EB_BISR);
             s = 1;
@@ -406,6 +374,42 @@ class VirtButton {
             if (read_bf(EB_DEB)) clr_bf(EB_DEB);  // сброс ожидания нажатия (дебаунс)
         }
         return read_bf(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R);
+    }
+
+    uint16_t tmr = 0;
+
+#ifndef EB_NO_CALLBACK
+    void (*cb)() = nullptr;
+#endif
+
+#ifndef EB_DEB_TIME
+    uint8_t EB_DEB_T = 50;
+#endif
+#ifndef EB_CLICK_TIME
+    uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
+#endif
+#ifndef EB_HOLD_TIME
+    uint8_t EB_HOLD_T = (500 >> EB_SHIFT);
+#endif
+#ifndef EB_STEP_TIME
+    uint8_t EB_STEP_T = (200 >> EB_SHIFT);
+#endif
+
+    inline void set_bf(const uint16_t x) __attribute__((always_inline)) {
+        flags |= x;
+    }
+    inline void clr_bf(const uint16_t x) __attribute__((always_inline)) {
+        flags &= ~x;
+    }
+    inline bool read_bf(const uint16_t x) __attribute__((always_inline)) {
+        return flags & x;
+    }
+    inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
+        if (v) set_bf(x);
+        else clr_bf(x);
+    }
+    inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
+        return (flags & x) == y;
     }
 
    private:

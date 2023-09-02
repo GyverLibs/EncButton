@@ -28,6 +28,11 @@ class Button : public VirtButton {
         return VirtButton::tick(EBread(pin));
     }
 
+    // обработка кнопки без сброса событий и вызова коллбэка
+    bool tickRaw() {
+        return VirtButton::tickRaw(EBread(pin));
+    }
+
    private:
     uint8_t pin;
 };
@@ -54,6 +59,11 @@ class ButtonT : public VirtButton {
     // функция обработки, вызывать в loop
     bool tick() {
         return VirtButton::tick(EBread(PIN));
+    }
+
+    // обработка кнопки без сброса событий и вызова коллбэка
+    bool tickRaw() {
+        return VirtButton::tickRaw(EBread(PIN));
     }
 
    private:
