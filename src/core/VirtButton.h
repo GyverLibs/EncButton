@@ -39,6 +39,8 @@
 #define EB_STEP_T (EB_STEP_TIME)
 #endif
 
+#define EB_FOR_SCALE 6
+
 // =================== PACK FLAGS ===================
 #define EB_CLKS_R (1 << 0)
 #define EB_PRS_R (1 << 1)
@@ -64,7 +66,7 @@
 class VirtButton {
    public:
     // ====================== SET ======================
-    // установить таймаут удержания, умолч. 500 (макс. 4000 мс)
+    // установить таймаут удержания, умолч. 600 (макс. 4000 мс)
     void setHoldTimeout(uint16_t tout) {
 #ifndef EB_HOLD_TIME
         EB_HOLD_T = tout >> EB_SHIFT;
@@ -190,6 +192,18 @@ class VirtButton {
         return clicks;
     }
 
+    // получить количество степов
+    uint16_t getSteps() {
+#ifndef EB_NO_FOR
+#ifdef EB_STEP_TIME
+        return ftmr ? ((stepFor() + EB_STEP_T - 1) / EB_STEP_T) : 0;  // (x + y - 1) / y
+#else
+        return ftmr ? ((stepFor() + (EB_STEP_T << EB_SHIFT) - 1) / (EB_STEP_T << EB_SHIFT)) : 0;
+#endif
+#endif
+        return 0;
+    }
+
     // кнопка отпущена после удержания [событие]
     bool releaseHold() {
         return eq_bf(EB_REL_R | EB_REL | EB_HLD | EB_STP, EB_REL_R | EB_HLD);
@@ -208,15 +222,6 @@ class VirtButton {
     // кнопка отпущена после импульсного удержания с предварительными кликами [событие]
     bool releaseStep(uint8_t num) {
         return clicks == num && eq_bf(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP);
-    }
-
-    // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
-    bool timeout(uint16_t tout) {
-        if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() - tmr) > tout) {
-            clr_bf(EB_TOUT);
-            return 1;
-        }
-        return 0;
     }
 
     // кнопка ожидает повторных кликов [состояние]
@@ -258,6 +263,67 @@ class VirtButton {
         return 0;
     }
 
+    // ====================== TIME ======================
+    // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
+    bool timeout(uint16_t tout) {
+        if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() - tmr) > tout) {
+            clr_bf(EB_TOUT);
+            return 1;
+        }
+        return 0;
+    }
+
+    // время, которое кнопка удерживается (с начала нажатия), мс
+    uint16_t pressFor() {
+#ifndef EB_NO_FOR
+        if (ftmr) return (uint16_t)EB_UPTIME() - ftmr;
+#endif
+        return 0;
+    }
+
+    // кнопка удерживается дольше чем (с начала нажатия), мс [состояние]
+    bool pressFor(uint16_t ms) {
+        return pressFor() > ms;
+    }
+
+    // время, которое кнопка удерживается (с начала удержания), мс
+    uint16_t holdFor() {
+#ifndef EB_NO_FOR
+        if (read_bf(EB_HLD)) {
+#ifdef EB_HOLD_TIME
+            return pressFor() - EB_HOLD_T;
+#else
+            return pressFor() - (EB_HOLD_T << EB_SHIFT);
+#endif
+        }
+#endif
+        return 0;
+    }
+
+    // кнопка удерживается дольше чем (с начала удержания), мс [состояние]
+    bool holdFor(uint16_t ms) {
+        return holdFor() > ms;
+    }
+
+    // время, которое кнопка удерживается (с начала степа), мс
+    uint16_t stepFor() {
+#ifndef EB_NO_FOR
+        if (read_bf(EB_STP)) {
+#ifdef EB_HOLD_TIME
+            return pressFor() - EB_HOLD_T * 2;
+#else
+            return pressFor() - (EB_HOLD_T << EB_SHIFT) * 2;
+#endif
+        }
+#endif
+        return 0;
+    }
+
+    // кнопка удерживается дольше чем (с начала степа), мс [состояние]
+    bool stepFor(uint16_t ms) {
+        return stepFor() > ms;
+    }
+
     // ====================== POLL ======================
     // обработка виртуальной кнопки как одновременное нажатие двух других кнопок
     bool tick(VirtButton& b0, VirtButton& b1) {
@@ -289,7 +355,7 @@ class VirtButton {
         return pollBtn(s);
     }
 
-    uint8_t clicks = 0;
+    uint8_t clicks;
 
     // deprecated
     void setButtonLevel(bool level) {
@@ -312,33 +378,36 @@ class VirtButton {
         uint16_t ms = EB_UPTIME();
         uint16_t deb = ms - tmr;
 
-        if (s) {                                        // кнопка нажата
-            if (!read_bf(EB_PRS)) {                     // кнопка не была нажата ранее
-                if (!read_bf(EB_DEB) && EB_DEB_T) {     // дебаунс ещё не сработал
-                    set_bf(EB_DEB);                     // будем ждать дебаунс
-                    tmr = ms;                           // сброс таймаута
-                } else {                                // первое нажатие
-                    if (deb > EB_DEB_T || !EB_DEB_T) {  // ждём EB_DEB_TIME
-                        set_bf(EB_PRS | EB_PRS_R);      // флаг на нажатие
-                        tmr = ms;                       // сброс таймаута
+        if (s) {                                         // кнопка нажата
+            if (!read_bf(EB_PRS)) {                      // кнопка не была нажата ранее
+                if (!read_bf(EB_DEB) && EB_DEB_T) {      // дебаунс ещё не сработал
+                    set_bf(EB_DEB);                      // будем ждать дебаунс
+                    tmr = ms;                            // сброс таймаута
+                } else {                                 // первое нажатие
+                    if (deb >= EB_DEB_T || !EB_DEB_T) {  // ждём EB_DEB_TIME
+                        set_bf(EB_PRS | EB_PRS_R);       // флаг на нажатие
+#ifndef EB_NO_FOR
+                        ftmr = ms;
+#endif
+                        tmr = ms;  // сброс таймаута
                     }
                 }
             } else {  // кнопка уже была нажата
                 if (!read_bf(EB_EHLD)) {
                     if (!read_bf(EB_HLD)) {  // удержание ещё не зафиксировано
 #ifdef EB_HOLD_TIME
-                        if (deb > (uint16_t)EB_HOLD_T) {  // ждём EB_HOLD_TIME - это удержание
+                        if (deb >= (uint16_t)EB_HOLD_T) {  // ждём EB_HOLD_TIME - это удержание
 #else
-                        if (deb > (uint16_t)(EB_HOLD_T << EB_SHIFT)) {  // ждём EB_HOLD_TIME - это удержание
+                        if (deb >= (uint16_t)(EB_HOLD_T << EB_SHIFT)) {  // ждём EB_HOLD_TIME - это удержание
 #endif
                             set_bf(EB_HLD_R | EB_HLD);  // флаг что было удержание
                             tmr = ms;                   // сброс таймаута
                         }
                     } else {  // удержание зафиксировано
 #ifdef EB_STEP_TIME
-                        if (deb > (uint16_t)(read_bf(EB_STP) ? EB_STEP_T : EB_HOLD_T)) {
+                        if (deb >= (uint16_t)(read_bf(EB_STP) ? EB_STEP_T : EB_HOLD_T)) {
 #else
-                        if (deb > (uint16_t)(read_bf(EB_STP) ? (EB_STEP_T << EB_SHIFT) : (EB_HOLD_T << EB_SHIFT))) {
+                        if (deb >= (uint16_t)(read_bf(EB_STP) ? (EB_STEP_T << EB_SHIFT) : (EB_HOLD_T << EB_SHIFT))) {
 #endif
                             set_bf(EB_STP | EB_STP_R);  // флаг степ
                             tmr = ms;                   // сброс таймаута
@@ -348,27 +417,33 @@ class VirtButton {
             }
         } else {                                       // кнопка не нажата
             if (read_bf(EB_PRS)) {                     // но была нажата
-                if (deb > EB_DEB_T) {                  // ждём EB_DEB_TIME
+                if (deb >= EB_DEB_T) {                 // ждём EB_DEB_TIME
                     if (!read_bf(EB_HLD)) clicks++;    // не удерживали - это клик
                     if (read_bf(EB_EHLD)) clicks = 0;  //
-                    set_bf(EB_REL | EB_REL_R);         // флаг на отпуск
+                    set_bf(EB_REL | EB_REL_R);         // флаг release
                     clr_bf(EB_PRS);                    // кнопка отпущена
-                    tmr = ms;                          // сброс таймаута
                 }
             } else if (read_bf(EB_REL)) {
                 if (!read_bf(EB_EHLD)) {
-                    set_bf(EB_REL_R);
+                    set_bf(EB_REL_R);  // флаг releaseHold / releaseStep
                 }
                 clr_bf(EB_REL | EB_EHLD);
-            } else if (clicks) {  // есть клики
+                tmr = ms;         // сброс таймаута
+            } else if (clicks) {  // есть клики, ждём EB_CLICK_TIME
 #ifdef EB_CLICK_TIME
-                if (read_bf(EB_HLD | EB_STP) || deb > (uint16_t)EB_CLICK_T) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
+                if (read_bf(EB_HLD | EB_STP) || deb >= (uint16_t)EB_CLICK_T) set_bf(EB_CLKS_R);  // флаг clicks
 #else
-                if (read_bf(EB_HLD | EB_STP) || deb > (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_bf(EB_CLKS_R);  // ждём EB_CLICK_TIME
+                if (read_bf(EB_HLD | EB_STP) || deb >= (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_bf(EB_CLKS_R);  // флаг clicks
+#endif
+#ifndef EB_NO_FOR
+                else if (ftmr) ftmr = 0;
 #endif
             } else if (read_bf(EB_BUSY)) {
                 clr_bf(EB_HLD | EB_STP | EB_BUSY);
                 set_bf(EB_TOUT);
+#ifndef EB_NO_FOR
+                ftmr = 0;
+#endif
                 tmr = ms;  // test!!
             }
             if (read_bf(EB_DEB)) clr_bf(EB_DEB);  // сброс ожидания нажатия (дебаунс)
@@ -377,6 +452,9 @@ class VirtButton {
     }
 
     uint16_t tmr = 0;
+#ifndef EB_NO_FOR
+    uint16_t ftmr = 0;
+#endif
 
 #ifndef EB_NO_CALLBACK
     void (*cb)() = nullptr;
@@ -389,7 +467,7 @@ class VirtButton {
     uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
 #endif
 #ifndef EB_HOLD_TIME
-    uint8_t EB_HOLD_T = (500 >> EB_SHIFT);
+    uint8_t EB_HOLD_T = (600 >> EB_SHIFT);
 #endif
 #ifndef EB_STEP_TIME
     uint8_t EB_STEP_T = (200 >> EB_SHIFT);

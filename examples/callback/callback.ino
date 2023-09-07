@@ -18,7 +18,14 @@ void cb() {
             Serial.println("step");
             break;
         case EB_RELEASE:
-            Serial.println("release");
+            Serial.print("release. steps: ");
+            Serial.print(eb.getSteps());
+            Serial.print(", press for: ");
+            Serial.print(eb.pressFor());
+            Serial.print(", hold for: ");
+            Serial.print(eb.holdFor());
+            Serial.print(", step for: ");
+            Serial.println(eb.stepFor());
             break;
         case EB_CLICK:
             Serial.println("click");
@@ -49,7 +56,8 @@ void cb() {
             Serial.print("release step clicks ");
             Serial.println(eb.getClicks());
             break;
-        default: Serial.println();
+        default:
+            Serial.println();
     }
 }
 

@@ -21,6 +21,9 @@
 // базовый класс энкодера
 class VirtEncoder {
    public:
+    VirtEncoder() {
+        prev = ecount = 0;
+    }
     // ====================== SET ======================
     // инвертировать направление энкодера
     void setEncReverse(bool rev) {
@@ -181,6 +184,6 @@ class VirtEncoder {
 
    private:
     uint8_t flags = 0;
-    int8_t prev = 0;
-    int8_t ecount = 0;
+    int8_t prev : 4;
+    int8_t ecount : 4;
 };

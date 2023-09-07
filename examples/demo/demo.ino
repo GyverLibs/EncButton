@@ -1,19 +1,20 @@
 // полное демо
 #include <Arduino.h>
+// #define EB_NO_FOR           // отключить поддержку pressFor/holdFor/stepFor и счётчик степов (экономит 2 байта оперативки)
 // #define EB_NO_CALLBACK      // отключить обработчик событий attach (экономит 2 байта оперативки)
 // #define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
 // #define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
 
 // #define EB_DEB_TIME 50      // таймаут гашения дребезга кнопки (кнопка)
 // #define EB_CLICK_TIME 500   // таймаут ожидания кликов (кнопка)
-// #define EB_HOLD_TIME 500    // таймаут удержания (кнопка)
+// #define EB_HOLD_TIME 600    // таймаут удержания (кнопка)
 // #define EB_STEP_TIME 200    // таймаут импульсного удержания (кнопка)
 // #define EB_FAST_TIME 30     // таймаут быстрого поворота (энкодер)
 
 #include <EncButton.h>
 EncButton eb(2, 3, 4);
-//EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
-//EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
+// EncButton eb(2, 3, 4, INPUT); // + режим пинов энкодера
+// EncButton eb(2, 3, 4, INPUT, INPUT_PULLUP); // + режим пинов кнопки
 
 void setup() {
     Serial.begin(115200);
@@ -22,7 +23,7 @@ void setup() {
     eb.setBtnLevel(LOW);
     eb.setClickTimeout(500);
     eb.setDebTimeout(50);
-    eb.setHoldTimeout(500);
+    eb.setHoldTimeout(600);
     eb.setStepTimeout(200);
 
     eb.setEncReverse(0);
@@ -53,7 +54,16 @@ void loop() {
 
     // кнопка
     if (eb.press()) Serial.println("press");
-    if (eb.release()) Serial.println("release");
+    if (eb.release()) {
+        Serial.print("release. steps: ");
+        Serial.print(eb.getSteps());
+        Serial.print(", press for: ");
+        Serial.print(eb.pressFor());
+        Serial.print(", hold for: ");
+        Serial.print(eb.holdFor());
+        Serial.print(", step for: ");
+        Serial.println(eb.stepFor());
+    }
     if (eb.click()) Serial.println("click");
 
     // состояния
