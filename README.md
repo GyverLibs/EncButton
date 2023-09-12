@@ -1319,6 +1319,7 @@ EncoderT<enc0, enc1> e(mode);   // + режим пинов энкодера (у�
 <summary>Полное демо EncButton</summary>
 
 ```cpp
+// #define EB_NO_FOR           // отключить поддержку pressFor/holdFor/stepFor и счётчик степов (экономит 2 байта оперативки)
 // #define EB_NO_CALLBACK      // отключить обработчик событий attach (экономит 2 байта оперативки)
 // #define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
 // #define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
@@ -1348,6 +1349,9 @@ void setup() {
     eb.setEncReverse(0);
     eb.setEncType(EB_STEP4_LOW);
     eb.setFastTimeout(30);
+
+    // сбросить счётчик энкодера
+    eb.counter = 0;
 }
 
 void loop() {
@@ -1373,8 +1377,22 @@ void loop() {
 
     // кнопка
     if (eb.press()) Serial.println("press");
-    if (eb.release()) Serial.println("release");
     if (eb.click()) Serial.println("click");
+
+    if (eb.release()) {
+      Serial.println("release");
+
+      Serial.print("clicks: ");
+      Serial.print(eb.getClicks());
+      Serial.print(", steps: ");
+      Serial.print(eb.getSteps());
+      Serial.print(", press for: ");
+      Serial.print(eb.pressFor());
+      Serial.print(", hold for: ");
+      Serial.print(eb.holdFor());
+      Serial.print(", step for: ");
+      Serial.println(eb.stepFor());
+    }
 
     // состояния
     // Serial.println(eb.pressing());
@@ -1387,23 +1405,14 @@ void loop() {
 
     // удержание
     if (eb.hold()) Serial.println("hold");
-    // if (eb.hold()) {
-    //     Serial.print("hold + ");
-    //     Serial.print(eb.getClicks());
-    //     Serial.println(" clicks");
-    // }
-
-    if (eb.hold(2)) Serial.println("hold 2");
     if (eb.hold(3)) Serial.println("hold 3");
 
     // импульсное удержание
     if (eb.step()) Serial.println("step");
-    if (eb.step(2)) Serial.println("step 2");
     if (eb.step(3)) Serial.println("step 3");
 
     // отпущена после импульсного удержания
     if (eb.releaseStep()) Serial.println("release step");
-    if (eb.releaseStep(2)) Serial.println("release step 2");
     if (eb.releaseStep(3)) Serial.println("release step 3");
 
     // отпущена после удержания
@@ -1411,7 +1420,6 @@ void loop() {
     if (eb.releaseHold(2)) Serial.println("release hold 2");
 
     // проверка на количество кликов
-    if (eb.hasClicks(1)) Serial.println("has 1 clicks");
     if (eb.hasClicks(3)) Serial.println("has 3 clicks");
 
     // вывести количество кликов
