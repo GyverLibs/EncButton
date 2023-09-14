@@ -57,7 +57,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         return !read_ef(EB_DIR) && turnH();
     }
 
-    // нажата кнопка энкодера [состояние]
+    // нажата кнопка энкодера. Аналог pressing() [состояние]
     bool encHolding() {
         return read_bf(EB_EHLD);
     }
@@ -149,8 +149,8 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
             encf = 1;
         }
         if (encf) {
-            if (clicks) clicks = 0;                  // сбросить клики
             if (read_bf(EB_PRS)) set_bf(EB_EHLD);    // зажать энкодер
+            else clicks = 0;
             if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);  // таймаут
             set_ef(EB_ETRN_R);                       // флаг поворота
         }

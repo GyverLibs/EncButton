@@ -126,6 +126,13 @@ class VirtButton {
 #endif
     }
 
+    // отключить функцию-обработчик событий
+    void detach() {
+#ifndef EB_NO_CALLBACK
+        cb = nullptr;
+#endif
+    }
+
     // ====================== GET ======================
     // кнопка нажата [событие]
     bool press() {

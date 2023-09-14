@@ -35,7 +35,7 @@ void loop() {
                 break;
             case 2:
                 // изменение с шагом 1, при зажатой кнопке шаг 5
-                var2 += (eb.encHolding() ? 5 : 1) * eb.dir();
+                var2 += (eb.pressing() ? 5 : 1) * eb.dir();
                 break;
             case 3:
                 // изменение с шагом 1, при быстром вращении шаг 5

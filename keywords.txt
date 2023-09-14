@@ -51,6 +51,7 @@ waiting	KEYWORD2
 busy	KEYWORD2
 action	KEYWORD2
 attach	KEYWORD2
+detach	KEYWORD2
 pressISR	KEYWORD2
 pressFor	KEYWORD2
 holdFor	KEYWORD2

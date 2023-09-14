@@ -44,9 +44,11 @@ void loop() {
         Serial.print(", fast ");
         Serial.print(eb.fast());
         Serial.print(", hold ");
-        Serial.print(eb.encHolding());
+        Serial.print(eb.pressing());
         Serial.print(", counter ");
-        Serial.println(eb.counter);
+        Serial.print(eb.counter);
+        Serial.print(", clicks ");
+        Serial.println(eb.getClicks());
     }
 
     // обработка поворота раздельная

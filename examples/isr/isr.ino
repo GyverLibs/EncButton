@@ -30,7 +30,7 @@ void loop() {
         Serial.print(", fast ");
         Serial.print(eb.fast());
         Serial.print(", hold ");
-        Serial.print(eb.encHolding());
+        Serial.print(eb.pressing());
         Serial.print(", counter ");
         Serial.println(eb.counter);
     }

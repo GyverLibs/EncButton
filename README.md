@@ -190,6 +190,7 @@
 | reset           |      ✔    |       ✔      |    ✔  |     ✔    |
 | clear           |      ✔    |       ✔      |    ✔  |     ✔    |
 | attach          |      ✔    |       ✔      |    ✔  |     ✔    |
+| detach          |      ✔    |       ✔      |    ✔  |     ✔    |
 | press           |      ✔    |       ✔      |    ✔  |     ✔    |
 | release         |      ✔    |       ✔      |    ✔  |     ✔    |
 | click           |      ✔    |       ✔      |    ✔  |     ✔    |
@@ -234,10 +235,10 @@
 | left           |             |         |       ✔      |     ✔    |
 | rightH         |             |         |       ✔      |     ✔    |
 | leftH          |             |         |       ✔      |     ✔    |
-| encHolding     |             |         |       ✔      |     ✔    |
 | action         |             |         |       ✔      |     ✔    |
 | timeout        |             |         |       ✔      |     ✔    |
 | attach         |             |         |       ✔      |     ✔    |
+| detach         |             |         |       ✔      |     ✔    |
 </details>
 
 <details>
@@ -263,6 +264,9 @@ void setBtnLevel(bool level);
 
 // подключить функцию-обработчик событий (вида void f())
 void attach(void (*handler)());
+
+// отключить функцию-обработчик событий
+void detach();
 
 // ================== СБРОС ==================
 // сбросить системные флаги (принудительно закончить обработку)
@@ -459,9 +463,6 @@ bool rightH();
 
 // нажатый поворот налево [событие]
 bool leftH();
-
-// нажата кнопка энкодера [состояние]
-bool encHolding();
 
 // было действие с кнопки или энкодера, вернёт код события [событие]
 uint16_t action();
@@ -822,6 +823,7 @@ eb.counter = 0;             // обнулять
 #### Обработка энкодера с кнопкой
 - Поворот энкодера при зажатой кнопке снимает и блокирует все последующие события и клики, за исключением события `release`. Состояния нажатой кнопки не изменяются
 - Поворот энкодера также влияет на системный таймаут (функция `timeout()`) - сработает через указанное время после поворота энкодера
+- Счётчик кликов доступен при нажатом повороте: несколько кликов, зажатие кнопки, поворот
 
 <a id="preclicks"></a>
 
@@ -1214,11 +1216,24 @@ if (enc.turn()) {
   var += enc.fast() ? 10 : 1;
 
   // меняем с шагом 1 при обычном повороте, 10 при нажатом
-  var += enc.encHolding() ? 10 : 1;
+  var += enc.pressing() ? 10 : 1;
 
   // меняем одну переменную при повороте, другую - при нажатом повороте
-  if (enc.encHolding()) var0++;
+  if (enc.pressing()) var0++;
   else var1++;
+
+  // если кнопка нажата - доступны предварительные клики
+  // Выбираем переменную для изменения по предв. кликам
+  if (enc.pressing()) {
+    switch (enc.getClicks()) {
+      case 1: var0 += enc.dir();
+        break;
+      case 2: var1 += enc.dir();
+        break;
+      case 3: var2 += enc.dir();
+        break;
+    }
+  }
 }
 
 // импульсное удержание на каждом шаге инкрементирует переменную
@@ -1364,9 +1379,11 @@ void loop() {
         Serial.print(", fast ");
         Serial.print(eb.fast());
         Serial.print(", hold ");
-        Serial.print(eb.encHolding());
+        Serial.print(eb.pressing());
         Serial.print(", counter ");
-        Serial.println(eb.counter);
+        Serial.print(eb.counter);
+        Serial.print(", clicks ");
+        Serial.println(eb.getClicks());
     }
 
     // обработка поворота раздельная
@@ -1465,7 +1482,7 @@ void callback() {
             Serial.print(" ");
             Serial.print(eb.fast());
             Serial.print(" ");
-            Serial.println(eb.encHolding());
+            Serial.println(eb.pressing());
             break;
         case EB_REL_HOLD:
             Serial.println("release hold");
@@ -1633,6 +1650,9 @@ void loop() {
 - v3.3
   - Добавлены функции получения времени удержания pressFor(), holdFor(), stepFor() (отключаемые)
   - Добавлен счётчик степов getSteps() (отключаемый)
+- v3.4
+  - Доступ к счётчику кликов во время нажатого поворота
+  - Добавлена функция detach()
     
 <a id="feedback"></a>
 ## Баги и обратная связь

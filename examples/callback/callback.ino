@@ -40,7 +40,7 @@ void cb() {
             Serial.print(" ");
             Serial.print(eb.fast());
             Serial.print(" ");
-            Serial.println(eb.encHolding());
+            Serial.println(eb.pressing());
             break;
         case EB_REL_HOLD:
             Serial.println("release hold");
