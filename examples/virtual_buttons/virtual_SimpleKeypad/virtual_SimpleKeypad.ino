@@ -22,6 +22,8 @@ SimpleKeypad pad((char*)keys, rowPins, colPins, 4, 4);
 
 void setup() {
   Serial.begin(9600);
+  btn0.setDebTimeout(0);
+  btn1.setDebTimeout(0);
 }
 
 void loop() {
