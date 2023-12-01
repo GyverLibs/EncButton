@@ -10,20 +10,19 @@
 #define EB_STEP1 3
 
 // ===================== FLAGS ======================
-#define EB_TYPE (1 << 0)
-#define EB_REV (1 << 2)
-#define EB_FAST (1 << 3)
-#define EB_DIR (1 << 4)
-#define EB_ETRN_R (1 << 5)
-#define EB_ISR_F (1 << 6)
-#define EB_EISR (1 << 7)
+#define EB_TYPE     (1 << 0)
+#define EB_REV      (1 << 2)
+#define EB_FAST     (1 << 3)
+#define EB_DIR      (1 << 4)
+#define EB_ETRN_R   (1 << 5)
+#define EB_ISR_F    (1 << 6)
+#define EB_EISR     (1 << 7)
 
 // базовый класс энкодера
 class VirtEncoder {
    public:
-    VirtEncoder() {
-        prev = ecount = 0;
-    }
+    VirtEncoder() : prev(0), ecount(0) {}
+    
     // ====================== SET ======================
     // инвертировать направление энкодера
     void setEncReverse(bool rev) {

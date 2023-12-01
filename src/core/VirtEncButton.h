@@ -149,15 +149,14 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
             encf = 1;
         }
         if (encf) {
-            if (read_bf(EB_PRS)) set_bf(EB_EHLD);    // зажать энкодер
+            if (read_bf(EB_PRS)) set_bf(EB_EHLD);    
             else clicks = 0;
-            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);  // таймаут
-            set_ef(EB_ETRN_R);                       // флаг поворота
+            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);  
+            set_ef(EB_ETRN_R);                      
         }
         return encf | btn;
     }
 
-    // обработка без сброса событий и вызова коллбэка (кнопка)
     bool tickRaw(bool btn) {
         return tickRaw(-1, btn);
     }

@@ -4,90 +4,98 @@
 #include "utils.h"
 
 // ===================== FLAGS ======================
-#define EB_PRESS (1 << 0)        // нажатие на кнопку
-#define EB_HOLD (1 << 1)         // кнопка удержана
-#define EB_STEP (1 << 2)         // импульсное удержание
-#define EB_RELEASE (1 << 3)      // кнопка отпущена
-#define EB_CLICK (1 << 4)        // одиночный клик
-#define EB_CLICKS (1 << 5)       // сигнал о нескольких кликах
-#define EB_TURN (1 << 6)         // поворот энкодера
-#define EB_REL_HOLD (1 << 7)     // кнопка отпущена после удержания
-#define EB_REL_HOLD_C (1 << 8)   // кнопка отпущена после удержания с предв. кликами
-#define EB_REL_STEP (1 << 9)     // кнопка отпущена после степа
-#define EB_REL_STEP_C (1 << 10)  // кнопка отпущена после степа с предв. кликами
+#define EB_FLAGS \
+    EB(EB_PRESS        , 0)\
+    EB(EB_STEP         , 2)\
+    EB(EB_HOLD         , 1)\
+    EB(EB_RELEASE      , 3)\
+    EB(EB_CLICK        , 4)\
+    EB(EB_CLICKS       , 5)\
+    EB(EB_TURN         , 6)\
+    EB(EB_REL_HOLD     , 7)\
+    EB(EB_REL_HOLD_C   , 8)\
+    EB(EB_REL_STEP     , 9)\
+    EB(EB_REL_STEP_C   , 10)\
+    
+#define EB(a, b) a = b,
+typedef enum {
+	EB_FLAGS
+} EB_FLAGS_T;
+#undef EB
 
 // =================== TOUT BUILD ===================
 #define EB_SHIFT 4
 
-// таймаут антидребезга, мс
 #ifdef EB_DEB_TIME
 #define EB_DEB_T (EB_DEB_TIME)
 #endif
 
-// таймаут между клтками, мс
 #ifdef EB_CLICK_TIME
 #define EB_CLICK_T (EB_CLICK_TIME)
 #endif
 
-// таймаут удержания, мс
 #ifdef EB_HOLD_TIME
 #define EB_HOLD_T (EB_HOLD_TIME)
 #endif
 
-// период степа, мс
 #ifdef EB_STEP_TIME
 #define EB_STEP_T (EB_STEP_TIME)
 #endif
 
 #define EB_FOR_SCALE 6
 
-// =================== PACK FLAGS ===================
-#define EB_CLKS_R (1 << 0)
-#define EB_PRS_R (1 << 1)
-#define EB_HLD_R (1 << 2)
-#define EB_STP_R (1 << 3)
-#define EB_REL_R (1 << 4)
+#define PACK_FLAGS \
+    PF(EB_CLKS_R, 0)\
+    PF(EB_PRS_R,  1)\
+    PF(EB_HLD_R,  2)\
+    PF(EB_STP_R,  3)\
+    PF(EB_REL_R,  4)\
+    PF(EB_PRS,    5)\
+    PF(EB_HLD,    6)\
+    PF(EB_STP,    7)\
+    PF(EB_REL,    8)\
+    PF(EB_BUSY,   9)\
+    PF(EB_DEB,    10)\
+    PF(EB_TOUT,   11)\
+    PF(EB_INV,    12)\
+    PF(EB_BOTH,   13)\
+    PF(EB_BISR,   14)\
+    PF(EB_EHLD,   15)
+    
+#define PF(a, b) a = b,
+typedef enum {
+	PACK_FLAGS
+} PACK_FLAG_T;
+#undef PF
 
-#define EB_PRS (1 << 5)
-#define EB_HLD (1 << 6)
-#define EB_STP (1 << 7)
-#define EB_REL (1 << 8)
-
-#define EB_BUSY (1 << 9)
-#define EB_DEB (1 << 10)
-#define EB_TOUT (1 << 11)
-#define EB_INV (1 << 12)
-#define EB_BOTH (1 << 13)
-#define EB_BISR (1 << 14)
-
-#define EB_EHLD (1 << 15)
 
 // базовый класс кнопки
 class VirtButton {
    public:
     // ====================== SET ======================
-    // установить таймаут удержания, умолч. 600 (макс. 4000 мс)
+    
+    // default = 600 ms, max = 4000 ms
     void setHoldTimeout(uint16_t tout) {
 #ifndef EB_HOLD_TIME
         EB_HOLD_T = tout >> EB_SHIFT;
 #endif
     }
 
-    // установить таймаут импульсного удержания, умолч. 200 (макс. 4000 мс)
+    // default 200 (max. 4000 мс)
     void setStepTimeout(uint16_t tout) {
 #ifndef EB_STEP_TIME
         EB_STEP_T = tout >> EB_SHIFT;
 #endif
     }
 
-    // установить таймаут ожидания кликов, умолч. 500 (макс. 4000 мс)
+    // установить таймаут ожидания кликов, умолч. 500 (max. 4000 мс)
     void setClickTimeout(uint16_t tout) {
 #ifndef EB_CLICK_TIME
         EB_CLICK_T = tout >> EB_SHIFT;
 #endif
     }
 
-    // установить таймаут антидребезга, умолч. 50 (макс. 255 мс)
+    // установить таймаут антидребезга, умолч. 50 (max. 255 мс)
     void setDebTimeout(uint8_t tout) {
 #ifndef EB_DEB_TIME
         EB_DEB_T = tout;
@@ -99,19 +107,16 @@ class VirtButton {
         write_bf(EB_INV, !level);
     }
 
-    // кнопка нажата в прерывании (не учитывает btnLevel!)
     void pressISR() {
         if (!read_bf(EB_DEB)) tmr = EB_UPTIME();
         set_bf(EB_DEB | EB_BISR);
     }
 
-    // сбросить системные флаги (принудительно закончить обработку)
     void reset() {
         clicks = 0;
         clr_bf(~EB_INV);
     }
 
-    // принудительно сбросить флаги событий
     void clear() {
         if (read_bf(EB_CLKS_R)) clicks = 0;
         if (read_bf(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R)) {
@@ -119,14 +124,13 @@ class VirtButton {
         }
     }
 
-    // подключить функцию-обработчик событий (вида void f())
-    void attach(void (*handler)()) {
+    virtual void attach(void (*func_handler)()) {
 #ifndef EB_NO_CALLBACK
-        cb = *handler;
+        if (func_handler == nullptr || cb) return;
+        cb = *func_handler;
 #endif
     }
 
-    // отключить функцию-обработчик событий
     void detach() {
 #ifndef EB_NO_CALLBACK
         cb = nullptr;
@@ -134,72 +138,58 @@ class VirtButton {
     }
 
     // ====================== GET ======================
-    // кнопка нажата [событие]
     bool press() {
         return read_bf(EB_PRS_R);
     }
 
-    // кнопка отпущена (в любом случае) [событие]
     bool release() {
         return eq_bf(EB_REL_R | EB_REL, EB_REL_R | EB_REL);
     }
 
-    // клик по кнопке (отпущена без удержания) [событие]
     bool click() {
         return eq_bf(EB_REL_R | EB_REL | EB_HLD, EB_REL_R);
     }
 
-    // кнопка зажата (между press() и release()) [состояние]
     bool pressing() {
         return read_bf(EB_PRS);
     }
 
-    // кнопка была удержана (больше таймаута) [событие]
     bool hold() {
         return read_bf(EB_HLD_R);
     }
 
-    // кнопка была удержана (больше таймаута) с предварительными кликами [событие]
     bool hold(uint8_t num) {
         return clicks == num && hold();
     }
 
-    // кнопка удерживается (больше таймаута) [состояние]
     bool holding() {
         return eq_bf(EB_PRS | EB_HLD, EB_PRS | EB_HLD);
     }
 
-    // кнопка удерживается (больше таймаута) с предварительными кликами [состояние]
     bool holding(uint8_t num) {
         return clicks == num && holding();
     }
 
-    // импульсное удержание [событие]
     bool step() {
         return read_bf(EB_STP_R);
     }
 
-    // импульсное удержание с предварительными кликами [событие]
     bool step(uint8_t num) {
         return clicks == num && step();
     }
 
-    // зафиксировано несколько кликов [событие]
     bool hasClicks() {
         return eq_bf(EB_CLKS_R | EB_HLD, EB_CLKS_R);
     }
 
-    // зафиксировано указанное количество кликов [событие]
     bool hasClicks(uint8_t num) {
         return clicks == num && hasClicks();
     }
 
-    // получить количество кликов
     uint8_t getClicks() {
         return clicks;
     }
 
-    // получить количество степов
     uint16_t getSteps() {
 #ifndef EB_NO_FOR
 #ifdef EB_STEP_TIME
@@ -211,37 +201,30 @@ class VirtButton {
         return 0;
     }
 
-    // кнопка отпущена после удержания [событие]
     bool releaseHold() {
         return eq_bf(EB_REL_R | EB_REL | EB_HLD | EB_STP, EB_REL_R | EB_HLD);
     }
 
-    // кнопка отпущена после удержания с предварительными кликами [событие]
     bool releaseHold(uint8_t num) {
         return clicks == num && eq_bf(EB_CLKS_R | EB_HLD | EB_STP, EB_CLKS_R | EB_HLD);
     }
 
-    // кнопка отпущена после импульсного удержания [событие]
     bool releaseStep() {
         return eq_bf(EB_REL_R | EB_REL | EB_STP, EB_REL_R | EB_STP);
     }
 
-    // кнопка отпущена после импульсного удержания с предварительными кликами [событие]
     bool releaseStep(uint8_t num) {
         return clicks == num && eq_bf(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP);
     }
 
-    // кнопка ожидает повторных кликов [состояние]
     bool waiting() {
         return clicks && eq_bf(EB_PRS | EB_REL, 0);
     }
 
-    // идёт обработка [состояние]
     bool busy() {
         return read_bf(EB_BUSY);
     }
 
-    // было действие с кнопки, вернёт код события [событие]
     uint16_t action() {
         switch (flags & 0b111111111) {
             case (EB_PRS | EB_PRS_R):
@@ -271,7 +254,6 @@ class VirtButton {
     }
 
     // ====================== TIME ======================
-    // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
     bool timeout(uint16_t tout) {
         if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() - tmr) > tout) {
             clr_bf(EB_TOUT);
@@ -280,7 +262,6 @@ class VirtButton {
         return 0;
     }
 
-    // время, которое кнопка удерживается (с начала нажатия), мс
     uint16_t pressFor() {
 #ifndef EB_NO_FOR
         if (ftmr) return (uint16_t)EB_UPTIME() - ftmr;
@@ -288,12 +269,10 @@ class VirtButton {
         return 0;
     }
 
-    // кнопка удерживается дольше чем (с начала нажатия), мс [состояние]
     bool pressFor(uint16_t ms) {
         return pressFor() > ms;
     }
 
-    // время, которое кнопка удерживается (с начала удержания), мс
     uint16_t holdFor() {
 #ifndef EB_NO_FOR
         if (read_bf(EB_HLD)) {
@@ -307,12 +286,10 @@ class VirtButton {
         return 0;
     }
 
-    // кнопка удерживается дольше чем (с начала удержания), мс [состояние]
     bool holdFor(uint16_t ms) {
         return holdFor() > ms;
     }
 
-    // время, которое кнопка удерживается (с начала степа), мс
     uint16_t stepFor() {
 #ifndef EB_NO_FOR
         if (read_bf(EB_STP)) {
@@ -326,13 +303,11 @@ class VirtButton {
         return 0;
     }
 
-    // кнопка удерживается дольше чем (с начала степа), мс [состояние]
     bool stepFor(uint16_t ms) {
         return stepFor() > ms;
     }
 
     // ====================== POLL ======================
-    // обработка виртуальной кнопки как одновременное нажатие двух других кнопок
     bool tick(VirtButton& b0, VirtButton& b1) {
         if (read_bf(EB_BOTH)) {
             if (!b0.pressing() && !b1.pressing()) clr_bf(EB_BOTH);
@@ -464,7 +439,8 @@ class VirtButton {
 #endif
 
 #ifndef EB_NO_CALLBACK
-    void (*cb)() = nullptr;
+    typedef void (*cb_t)();
+    cb_t cb = nullptr;
 #endif
 
 #ifndef EB_DEB_TIME
@@ -492,6 +468,8 @@ class VirtButton {
     inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
         if (v) set_bf(x);
         else clr_bf(x);
+
+        if (v)
     }
     inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
         return (flags & x) == y;

@@ -5,39 +5,55 @@
 #include "utils.h"
 
 // ============= VAR PIN =============
+
 class Button : public VirtButton {
    public:
-    Button(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
+    // Button(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
+        // init(npin, mode, btnLevel);
+    // }
+
+    Button(uint8_t npin) : mode(INPUT_PULLUP), btnLevel(LOW) {
         init(npin, mode, btnLevel);
     }
 
-    // указать пин и его режим работы
     void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pin = npin;
         pinMode(pin, mode);
         setBtnLevel(btnLevel);
     }
 
-    // прочитать текущее значение кнопки (без дебаунса)
-    bool read() {
+    /**
+     * Reads the raw pin state for this button instance.
+     * Performs an XOR against the configured active level
+     * to return the logical button state.
+     */
+    bool read()
+    {
         return EBread(pin) ^ read_bf(EB_INV);
     }
 
-    // функция обработки, вызывать в loop
-    bool tick() {
+    /**
+     * Reads the button state and updates the internal state machine.
+     * Calls the parent VirtButton::tick() method to update
+     * the debounced/held state based on the latest raw pin reading.
+     */
+    bool tick()  
+    {
         return VirtButton::tick(EBread(pin));
     }
 
-    // обработка кнопки без сброса событий и вызова коллбэка
     bool tickRaw() {
         return VirtButton::tickRaw(EBread(pin));
     }
 
    private:
     uint8_t pin;
+    uint8_t mode;
+    uint8_t btnLevel;
 };
 
 // ============= TEMPLATE PIN =============
+
 template <uint8_t PIN>
 class ButtonT : public VirtButton {
    public:
@@ -45,23 +61,19 @@ class ButtonT : public VirtButton {
         init(mode, btnLevel);
     }
 
-    // указать режим работы пина
     void init(uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pinMode(PIN, mode);
         setBtnLevel(btnLevel);
     }
 
-    // прочитать текущее значение кнопки (без дебаунса)
     bool read() {
         return EBread(PIN) ^ read_bf(EB_INV);
     }
 
-    // функция обработки, вызывать в loop
     bool tick() {
         return VirtButton::tick(EBread(PIN));
     }
 
-    // обработка кнопки без сброса событий и вызова коллбэка
     bool tickRaw() {
         return VirtButton::tickRaw(EBread(PIN));
     }
