@@ -1,0 +1,44 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{src/core/utils.h@{src/core/utils.h}}
+\mbox{\hyperlink{utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00010}00010\ \textcolor{comment}{//\ =====================\ FLAGS\ ======================}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00011}00011\ \textcolor{comment}{//EB\_NONE\ for\ error\ catching\ and\ Encoder\ with\ button\ handling}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00012}\mbox{\hyperlink{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}{00012}}\ \textcolor{preprocessor}{\#define\ EB\_FLAGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00013}00013\ \textcolor{preprocessor}{\ \ \ \ X(EB\_NONE\ \ \ \ \ \ \ \ \ ,\ 0)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00014}00014\ \textcolor{preprocessor}{\ \ \ \ X(EB\_PRESS\ \ \ \ \ \ \ \ ,\ 1)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00015}00015\ \textcolor{preprocessor}{\ \ \ \ X(EB\_STEP\ \ \ \ \ \ \ \ \ ,\ 2)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00016}00016\ \textcolor{preprocessor}{\ \ \ \ X(EB\_HOLD\ \ \ \ \ \ \ \ \ ,\ 3)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00017}00017\ \textcolor{preprocessor}{\ \ \ \ X(EB\_RELEASE\ \ \ \ \ \ ,\ 4)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00018}00018\ \textcolor{preprocessor}{\ \ \ \ X(EB\_CLICK\ \ \ \ \ \ \ \ ,\ 5)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00019}00019\ \textcolor{preprocessor}{\ \ \ \ X(EB\_CLICKS\ \ \ \ \ \ \ ,\ 6)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \ X(EB\_REL\_HOLD\ \ \ \ \ ,\ 7)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00021}00021\ \textcolor{preprocessor}{\ \ \ \ X(EB\_REL\_HOLD\_C\ \ \ ,\ 8)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00022}00022\ \textcolor{preprocessor}{\ \ \ \ X(EB\_REL\_STEP\ \ \ \ \ ,\ 9)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00023}00023\ \textcolor{preprocessor}{\ \ \ \ X(EB\_REL\_STEP\_C\ \ \ ,\ 10)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00024}00024\ \textcolor{preprocessor}{\ \ \ \ X(EB\_TURN\ \ \ \ \ \ \ \ \ ,\ 11)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00025}00025\ \textcolor{preprocessor}{\ \ \ \ X(EB\_TURN\_R\ \ \ \ \ \ \ ,\ 12)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00026}00026\ \textcolor{preprocessor}{\ \ \ \ X(EB\_TURN\_L\ \ \ \ \ \ \ ,\ 13)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00027}00027\ \textcolor{preprocessor}{\ \ \ \ X(EB\_TURN\_HOLD\_R\ \ ,\ 14)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00028}00028\ \textcolor{preprocessor}{\ \ \ \ X(EB\_TURN\_HOLD\_L\ \ ,\ 15)}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00030}00030\ \textcolor{comment}{//TURN\_H\_HANDLER\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00031}\mbox{\hyperlink{utils_8h_a8a0d2d602acb24d74237c3f310e935cd}{00031}}\ \textcolor{preprocessor}{\#define\ X(a,\ b)\ a\ =\ (1\ <<\ b),}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00032}\mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{00032}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}{EB\_FLAGS}}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00034}\mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b}{00034}}\ \}\ \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\_FLAGS\_T}};}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00035}00035\ \textcolor{preprocessor}{\#undef\ X}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00037}\mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{00037}}\ \textcolor{preprocessor}{\#define\ EB\_UPTIME()\ millis()}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00039}\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{00039}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\_t}})();}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00041}00041\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(\textcolor{keyword}{const}\ uint8\_t\ pin);}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00042}00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_af74a9306d2c033fe5f90bcd54010baf4}{EBwrite}}(\textcolor{keyword}{const}\ uint8\_t\ pin,\ \textcolor{keywordtype}{bool}\ value);}
+
+\end{DoxyCode}

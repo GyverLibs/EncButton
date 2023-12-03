@@ -1,3 +1,8 @@
+/**
+ * @file EncButton.h
+ * @brief EncButton class for handling rotary encoder with button 
+ */
+
 #pragma once
 #include <Arduino.h>
 
@@ -5,14 +10,39 @@
 #include "utils.h"
 
 // ===================== CLASS =====================
+/**
+ * @class EncButton
+ * @brief A class that represents an encoder button.
+ * 
+ * This class extends the VirtEncButton class and provides additional functionality for handling an encoder button.
+ * It allows initializing the encoder pins, button pin, and button mode. It also provides methods for reading the button state and encoder value.
+ */
 class EncButton : public VirtEncButton {
    public:
-    // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка)
+    /**
+     * @brief Constructs an EncButton object with default pin and mode values.
+     * 
+     * @param encA The pin number for encoder A.
+     * @param encB The pin number for encoder B.
+     * @param btn The pin number for the button.
+     * @param modeEnc The mode for the encoder pins.
+     * @param modeBtn The mode for the button pin.
+     * @param btnLevel The logic level for the button pin when pressed.
+     */
     EncButton(uint8_t encA = 0, uint8_t encB = 0, uint8_t btn = 0, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         init(encA, encB, btn, modeEnc, modeBtn, btnLevel);
     }
 
-    // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка)
+    /**
+     * @brief Initializes the EncButton object with the specified pin and mode values.
+     * 
+     * @param encA The pin number for encoder A.
+     * @param encB The pin number for encoder B.
+     * @param btn The pin number for the button.
+     * @param modeEnc The mode for the encoder pins.
+     * @param modeBtn The mode for the button pin.
+     * @param btnLevel The logic level for the button pin when pressed.
+     */
     void init(uint8_t encA = 0, uint8_t encB = 0, uint8_t btn = 0, uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         e0 = encA;
         e1 = encB;
@@ -25,30 +55,56 @@ class EncButton : public VirtEncButton {
     }
 
     // ====================== TICK ======================
-    // функция обработки для вызова в прерывании энкодера
+
+    /**
+     * @brief Performs a tick operation on the EncButton object.
+     * 
+     * @return The change in encoder value.
+     */
     int8_t tickISR() {
         return VirtEncButton::tickISR(readEnc());
     }
 
-    // функция обработки, вызывать в loop
+    /**
+     * @brief Performs a tick operation on the EncButton object.
+     * 
+     * @return True if the button state changed, false otherwise.
+     */
     bool tick() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(b));
-        else return VirtEncButton::tick(readEnc(), EBread(b));
+        if (read_encf(E_ISR))
+            return VirtEncButton::tick(EBread(b));
+        else
+            return VirtEncButton::tick(readEnc(), EBread(b));
     }
 
-    // функция обработки без сброса событий
+    /**
+     * @brief Performs a raw tick operation on the EncButton object.
+     * 
+     * @return True if the button state changed, false otherwise.
+     */
     bool tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(b));
-        else return VirtEncButton::tickRaw(readEnc(), EBread(b));
+        if (read_encf(E_ISR))
+            return VirtEncButton::tickRaw(EBread(b));
+        else
+            return VirtEncButton::tickRaw(readEnc(), EBread(b));
     }
 
     // ====================== READ ======================
-    // прочитать значение кнопки
+
+    /**
+     * @brief Reads the state of the button.
+     * 
+     * @return True if the button is pressed, false otherwise.
+     */
     bool readBtn() {
-        return EBread(b) ^ read_bf(EB_INV);
+        return EBread(b) ^ read_btn_flag(B_INV);
     }
 
-    // прочитать значение энкодера
+    /**
+     * @brief Reads the value of the encoder.
+     * 
+     * @return The current encoder value.
+     */
     int8_t readEnc() {
         return EBread(e0) | (EBread(e1) << 1);
     }
@@ -62,12 +118,10 @@ class EncButton : public VirtEncButton {
 template <uint8_t ENCA, uint8_t ENCB, uint8_t BTN>
 class EncButtonT : public VirtEncButton {
    public:
-    // настроить пины (энк, энк, кнопка, pinmode энк, pinmode кнопка)
     EncButtonT(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         init(modeEnc, modeBtn, btnLevel);
     }
 
-    // настроить пины (pinmode энк, pinmode кнопка)
     void init(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pinMode(ENCA, modeEnc);
         pinMode(ENCB, modeEnc);
@@ -77,30 +131,25 @@ class EncButtonT : public VirtEncButton {
     }
 
     // ====================== TICK ======================
-    // функция обработки для вызова в прерывании энкодера
     int8_t tickISR() {
         return VirtEncButton::tickISR(readEnc());
     }
 
-    // функция обработки, вызывать в loop
     bool tick() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(BTN));
+        if (read_encf(E_ISR)) return VirtEncButton::tick(EBread(BTN));
         else return VirtEncButton::tick(readEnc(), EBread(BTN));
     }
 
-    // функция обработки без сброса событий
     bool tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(BTN));
+        if (read_encf(E_ISR)) return VirtEncButton::tickRaw(EBread(BTN));
         else return VirtEncButton::tickRaw(readEnc(), EBread(BTN));
     }
 
     // ====================== READ ======================
-    // прочитать значение кнопки
     bool readBtn() {
-        return EBread(BTN) ^ read_bf(EB_INV);
+        return EBread(BTN) ^ read_btn_flag(B_INV);
     }
 
-    // прочитать значение энкодера
     int8_t readEnc() {
         return EBread(ENCA) | (EBread(ENCB) << 1);
     }

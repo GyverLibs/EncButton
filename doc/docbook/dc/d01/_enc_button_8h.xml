@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__enc_button_8h" xml:lang="en-US">
+<title>src/EncButton.h File Reference</title>
+<indexterm><primary>src/EncButton.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &quot;core/VirtButton.h&quot;<?linebreak?>#include &quot;core/VirtEncoder.h&quot;<?linebreak?>#include &quot;core/VirtEncButton.h&quot;<?linebreak?>#include &quot;core/Button.h&quot;<?linebreak?>#include &quot;core/Encoder.h&quot;<?linebreak?>#include &quot;core/EncButton.h&quot;<?linebreak?></programlisting></section>

@@ -1,0 +1,785 @@
+.TH "EncoderT< ENCA, ENCB >" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EncoderT< ENCA, ENCB >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Encoder\&.h>\fP
+.PP
+Inherits \fBVirtEncoder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEncoderT\fP (uint8_t mode=INPUT)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (uint8_t mode=INPUT)"
+.br
+.ti -1c
+.RI "int8_t \fBtickISR\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBtick\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBtickRaw\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBreadEnc\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetEncReverse\fP (bool rev=false)"
+.br
+.RI "Set the encoder's reverse flag\&. "
+.ti -1c
+.RI "void \fBsetEncType\fP (uint8_t type=\fBEB_STEP1\fP)"
+.br
+.RI "Set the encoder's type\&. "
+.ti -1c
+.RI "void \fBsetEncISR\fP (bool use=true)"
+.br
+.RI "Set the encoder's interrupt service routine\&. "
+.ti -1c
+.RI "bool \fBattach_right\fP (\fBcb_t\fP callback_func)"
+.br
+.RI "Attach a callback function to handle encoder events when turned right\&. "
+.ti -1c
+.RI "bool \fBattach_left\fP (\fBcb_t\fP callback_func)"
+.br
+.RI "Attach a callback function to handle encoder events when turned left\&. "
+.ti -1c
+.RI "void \fBdetach_call\fP ()"
+.br
+.RI "Detach the callback functions for handling encoder events\&. "
+.ti -1c
+.RI "void \fBinitEnc\fP (bool e0, bool e1)"
+.br
+.RI "Initialize the encoder with the specified values\&. "
+.ti -1c
+.RI "void \fBinitEnc\fP (int8_t v)"
+.br
+.RI "Initialize the encoder with the specified value\&. "
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "Clear the encoder flags\&. "
+.ti -1c
+.RI "bool \fBturn\fP ()"
+.br
+.RI "Check if the encoder has been turned\&. "
+.ti -1c
+.RI "int8_t \fBdir\fP ()"
+.br
+.RI "Get the direction of rotation of the encoder\&. "
+.ti -1c
+.RI "\fBEB_FLAGS_T\fP \fBaction\fP ()"
+.br
+.RI "Representing the possible flags for the encoder\&. "
+.ti -1c
+.RI "int8_t \fBtickISR\fP (bool e0, bool e1)"
+.br
+.RI "Process the encoder tick using the interrupt service routine\&. "
+.ti -1c
+.RI "int8_t \fBtickISR\fP (int8_t state)"
+.br
+.RI "Process the encoder tick using the interrupt service routine\&. "
+.ti -1c
+.RI "int8_t \fBtick\fP (bool e0, bool e1)"
+.br
+.RI "Process the encoder tick\&. "
+.ti -1c
+.RI "int8_t \fBtick\fP (int8_t state)"
+.br
+.RI "Process the encoder tick\&. "
+.ti -1c
+.RI "int8_t \fBtickRaw\fP (bool e0, bool e1)"
+.br
+.RI "Process the encoder tick without clearing the turn flag\&. "
+.in -1c
+.SS "tickRaw <br>"
+Process the encoder tick without clearing the turn flag\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBtickRaw\fP (int8_t state)"
+.br
+.ti -1c
+.RI "int8_t \fBpollEnc\fP (bool e0, bool e1)"
+.br
+.RI "Poll the encoder without setting the turn flag\&. "
+.ti -1c
+.RI "int8_t \fBpollEnc\fP (int8_t state)"
+.br
+.RI "Poll the encoder without setting the turn flag\&. "
+.ti -1c
+.RI "int32_t \fBcounter\fP = 0"
+.br
+.ti -1c
+.RI "\fBcb_t\fP \fBcb\fP [2] = {nullptr, nullptr}"
+.br
+.ti -1c
+.RI "void \fBset_encf\fP (const uint16_t x) __attribute__((always_inline))"
+.br
+.ti -1c
+.RI "void \fBclr_encf\fP (const uint16_t x) __attribute__((always_inline))"
+.br
+.ti -1c
+.RI "void \fBwrite_encf\fP (const uint16_t x, bool v) __attribute__((always_inline))"
+.br
+.ti -1c
+.RI "bool \fBread_encf\fP (const uint16_t x) __attribute__((always_inline))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<uint8_t ENCA, uint8_t ENCB>
+.br
+class EncoderT< ENCA, ENCB >"
+.PP
+Definition at line \fB97\fP of file \fBEncoder\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<uint8_t ENCA, uint8_t ENCB> \fBEncoderT\fP< ENCA, ENCB >\fB::EncoderT\fP (uint8_t mode = \fCINPUT\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB99\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+99                                    {
+100         init(mode);
+101     }
+.fi
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEB_FLAGS_T\fP VirtEncoder::action ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Representing the possible flags for the encoder\&. 
+.PP
+\fBReturns\fP
+.RS 4
+EB_FLAGS_T can have the following values:
+.IP "\(bu" 2
+EB_TURN: Represents the flag for turning action\&.
+.IP "\(bu" 2
+EB_TURN_L: Represents the flag for left turning action\&.
+.IP "\(bu" 2
+EB_TURN_R: Represents the flag for right turning action\&.
+.IP "\(bu" 2
+EB_NONE: Represents the flag for no action\&. 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB182\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+182                         {
+183         switch (flags & 0b111111111) {
+184             case(E_TRN_R | E_FAST):
+185                 return EB_TURN;
+186             case(E_TRN_R | E_DIR | E_REVERSE):
+187                 return EB_TURN_L;
+188             case(E_TRN_R | E_DIR):
+189                 return EB_TURN_R;   
+190             default:
+191                 return EB_NONE;
+192         }
+193     }
+.fi
+
+.SS "bool VirtEncoder::attach_left (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle encoder events when turned left\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB105\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+105                                         {
+106 #ifndef EB_NO_CALLBACK
+107         uint8_t l_r = (read_encf(E_REVERSE)) ? 0 : 1;
+108         if (callback_func == nullptr || cb[l_r]) return false;
+109         cb[l_r] = *callback_func;
+110         return true;
+111 #endif
+112         return false;
+113     }
+.fi
+
+.SS "bool VirtEncoder::attach_right (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle encoder events when turned right\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+callback_func can be 'cb_t' type 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB89\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+89                                          {
+90 #ifndef EB_NO_CALLBACK
+91         uint8_t l_r = (read_encf(E_REVERSE)) ? 1 : 0;
+92         if (callback_func == nullptr || cb[l_r]) return false;
+93         cb[l_r] = *callback_func;
+94         return true;
+95 #endif
+96         return false;
+97     }
+.fi
+
+.SS "void VirtEncoder::clear ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Clear the encoder flags\&. 
+.PP
+Definition at line \fB150\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+150                  {
+151         if (read_encf(E_TRN_R)) clr_encf(E_TRN_R);
+152     }
+.fi
+
+.SS "void VirtEncoder::clr_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB350\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+350                                                                           {
+351         flags &= ~x;
+352     }
+.fi
+
+.SS "void VirtEncoder::detach_call ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Detach the callback functions for handling encoder events\&. 
+.PP
+Definition at line \fB121\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+121                        {
+122 #ifndef EB_NO_CALLBACK
+123         cb[0] = nullptr;
+124         cb[1] = nullptr;
+125 #endif
+126     }
+.fi
+
+.SS "int8_t VirtEncoder::dir ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Get the direction of rotation of the encoder\&. 
+.PP
+\fBReturns\fP
+.RS 4
+-1 if rotated left, 1 if rotated right 
+.RE
+.PP
+
+.PP
+Definition at line \fB170\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+170                  {
+171         return read_encf(E_DIR) ? 1 : \-1;
+172     }
+.fi
+
+.SS "template<uint8_t ENCA, uint8_t ENCB> void \fBEncoderT\fP< ENCA, ENCB >::init (uint8_t mode = \fCINPUT\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB103\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+103                                     {
+104         pinMode(ENCA, mode);
+105         pinMode(ENCB, mode);
+106         initEnc(readEnc());
+107     }
+.fi
+
+.SS "void VirtEncoder::initEnc (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Initialize the encoder with the specified values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+
+.PP
+Definition at line \fB134\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+134                                    {
+135         initEnc(e0 | (e1 << 1));
+136     }
+.fi
+
+.SS "void VirtEncoder::initEnc (int8_t v)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Initialize the encoder with the specified value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP the initial value of the encoder 
+.RE
+.PP
+
+.PP
+Definition at line \fB143\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+143                            {
+144         prev = v;
+145     }
+.fi
+
+.SS "int8_t VirtEncoder::pollEnc (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Poll the encoder without setting the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB305\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+305                                      {
+306         return pollEnc(e0 | (e1 << 1));
+307     }
+.fi
+
+.SS "int8_t VirtEncoder::pollEnc (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Poll the encoder without setting the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB315\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+315                                  {
+316         if (prev != state) {
+317             ecount += ((0x49941661 >> ((state | (prev << 2)) << 1)) & 0b11) \- 1;
+318             prev = state;
+319             if (!ecount) return 0;
+320             switch (flags & 0b11) {
+321                 case EB_STEP4_LOW:
+322                     if (state != 0b11) return 0;  // skip 00, 01, 10
+323                     break;
+324                 case EB_STEP4_HIGH:
+325                     if (state) return 0;  // skip 01, 10, 11
+326                     break;
+327                 case EB_STEP2:
+328                     if (state == 0b10 || state == 0b01) return 0;  // skip 10 01
+329                     break;
+330             }
+331             state = ((ecount > 0) ^ read_encf(E_REVERSE)) ? 1 : \-1;
+332             ecount = 0;
+333 #ifndef EB_NO_COUNTER
+334             counter += state;
+335 #endif
+336             return state;
+337         }
+338         return 0;
+339     }
+.fi
+
+.SS "bool VirtEncoder::read_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB357\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+357                                                                            {
+358         return flags & x;
+359     }
+.fi
+
+.SS "template<uint8_t ENCA, uint8_t ENCB> int8_t \fBEncoderT\fP< ENCA, ENCB >::readEnc ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB123\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+123                      {
+124         return EBread(ENCA) | (EBread(ENCB) << 1);
+125     }
+.fi
+
+.SS "void VirtEncoder::set_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB347\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+347                                                                           {
+348         flags |= x;
+349     }
+.fi
+
+.SS "void VirtEncoder::setEncISR (bool use = \fCtrue\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's interrupt service routine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuse\fP true to use the ISR, false otherwise 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Argument 'use' by default is true because name of this function means that it is used to set/activate the ISR\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB78\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+78                                  {
+79         write_encf(E_ISR, use);
+80     }
+.fi
+
+.SS "void VirtEncoder::setEncReverse (bool rev = \fCfalse\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's reverse flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrev\fP true to reverse the encoder, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+57                                          {
+58         if (rev) set_encf(E_REVERSE);
+59         else clr_encf(E_REVERSE);
+60     }
+.fi
+
+.SS "void VirtEncoder::setEncType (uint8_t type = \fC\fBEB_STEP1\fP\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the encoder type to set 
+.RE
+.PP
+
+.PP
+Definition at line \fB67\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+67                                              {
+68         flags = (flags & 0b11111100) | type;
+69     }
+.fi
+
+.SS "template<uint8_t ENCA, uint8_t ENCB> int8_t \fBEncoderT\fP< ENCA, ENCB >::tick ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB113\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+113                   {
+114         if (read_encf(E_ISR)) return VirtEncoder::tick();
+115         else return VirtEncoder::tick(readEnc());
+116     }
+.fi
+
+.SS "int8_t VirtEncoder::tick (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB228\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+228                                   {
+229         return tick(e0 | (e1 << 1));
+230     }
+.fi
+
+.SS "int8_t VirtEncoder::tick (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB238\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+238                               {
+239         state = tickRaw(state);
+240         if (state)
+241         {
+242     #ifndef EB_NO_CALLBACK
+243             if (cb[0] && state < 0) cb[0]();
+244             if (cb[1] && state > 0) cb[1]();
+245     #endif
+246             return state;
+247         }
+248         clear();
+249         return 0;
+250     }
+.fi
+
+.SS "template<uint8_t ENCA, uint8_t ENCB> int8_t \fBEncoderT\fP< ENCA, ENCB >::tickISR ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB109\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+109                      {
+110         return VirtEncoder::tickISR(readEnc());
+111     }
+.fi
+
+.SS "int8_t VirtEncoder::tickISR (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick using the interrupt service routine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB202\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+202                                      {
+203         return tickISR(e0 | (e1 << 1));
+204     }
+.fi
+
+.SS "int8_t VirtEncoder::tickISR (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick using the interrupt service routine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB212\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+212                                  {
+213         state = pollEnc(state);
+214         if (state) {
+215             set_encf(E_ISR_F);
+216             write_encf(E_DIR, state > 0);
+217         }
+218         return state;
+219     }
+.fi
+
+.SS "template<uint8_t ENCA, uint8_t ENCB> int8_t \fBEncoderT\fP< ENCA, ENCB >::tickRaw ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB118\fP of file \fBEncoder\&.h\fP\&..PP
+.nf
+118                      {
+119         if (read_encf(E_ISR)) return VirtEncoder::tickRaw();
+120         else return VirtEncoder::tickRaw(readEnc());
+121     }
+.fi
+
+.SS "int8_t VirtEncoder::tickRaw (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick without clearing the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB268\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+268                                      {
+269         return tickRaw(e0 | (e1 << 1));
+270     }
+.fi
+
+.SS "int8_t VirtEncoder::tickRaw (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB279\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+279                                  {
+280         if (read_encf(E_ISR_F)) {
+281             clr_encf(E_ISR_F);
+282             set_encf(E_TRN_R);
+283             return dir();
+284         }
+285         if ((state >= 0) && (state = pollEnc(state))) {
+286             write_encf(E_DIR, state > 0);
+287             set_encf(E_TRN_R);
+288             return state;
+289         }
+290         return 0;
+291     }
+.fi
+
+.SS "bool VirtEncoder::turn ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Check if the encoder has been turned\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder has been turned, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB161\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+161                 {
+162         return read_encf(E_TRN_R);
+163     }
+.fi
+
+.SS "void VirtEncoder::write_encf (const uint16_t x, bool v)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB353\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+353                                                                                     {
+354         if (v) set_encf(x);
+355         else clr_encf(x);
+356     }
+.fi
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBcb_t\fP VirtEncoder::cb[2] = {nullptr, nullptr}\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB362\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+362 {nullptr, nullptr}; // callbacks for right and left turns
+.fi
+
+.SS "int32_t VirtEncoder::counter = 0\fC [inherited]\fP"
+
+.PP
+Definition at line \fB342\fP of file \fBVirtEncoder\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.

@@ -1,0 +1,1046 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_virt_encoder" xml:lang="en-US">
+<title>VirtEncoder Class Reference</title>
+<indexterm><primary>VirtEncoder</primary></indexterm>
+<para>
+
+<para>A class representing a virtual encoder. This class provides methods to set the encoder&apos;s properties, attach_call callback functions for handling encoder events, and poll the encoder for rotation and direction. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;VirtEncoder.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for VirtEncoder:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../dc/d02/class_virt_encoder.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0">VirtEncoder</link> ()</para>
+
+<para>Default constructor for <link linkend="_class_virt_encoder">VirtEncoder</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f">setEncReverse</link> (bool rev=false)</para>
+
+<para>Set the encoder&apos;s reverse flag. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9">setEncType</link> (uint8_t type=<link linkend="__virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3">EB_STEP1</link>)</para>
+
+<para>Set the encoder&apos;s type. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55">setEncISR</link> (bool use=true)</para>
+
+<para>Set the encoder&apos;s interrupt service routine. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191">attach_right</link> (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> callback_func)</para>
+
+<para>Attach a callback function to handle encoder events when turned right. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4">attach_left</link> (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> callback_func)</para>
+
+<para>Attach a callback function to handle encoder events when turned left. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0">detach_call</link> ()</para>
+
+<para>Detach the callback functions for handling encoder events. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link> (bool e0, bool e1)</para>
+
+<para>Initialize the encoder with the specified values. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077">initEnc</link> (int8_t v)</para>
+
+<para>Initialize the encoder with the specified value. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5">clear</link> ()</para>
+
+<para>Clear the encoder flags. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001">turn</link> ()</para>
+
+<para>Check if the encoder has been turned. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d">dir</link> ()</para>
+
+<para>Get the direction of rotation of the encoder. </para>
+</listitem>
+            <listitem><para><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link> <link linkend="_class_virt_encoder_1a39814605b70ce60f2a27755571362b76">action</link> ()</para>
+
+<para>Representing the possible flags for the encoder. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">tickISR</link> (bool e0, bool e1)</para>
+
+<para>Process the encoder tick using the interrupt service routine. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818">tickISR</link> (int8_t state)</para>
+
+<para>Process the encoder tick using the interrupt service routine. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e">tick</link> (bool e0, bool e1)</para>
+
+<para>Process the encoder tick. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1">tick</link> (int8_t state)</para>
+
+<para>Process the encoder tick. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link> ()</para>
+
+<para>Process the encoder tick without clearing the turn flag. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f">tickRaw</link> (bool e0, bool e1)</para>
+
+<para>Process the encoder tick without clearing the turn flag. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>tickRaw &lt;br&gt;    </title>
+
+<para>Process the encoder tick without clearing the turn flag.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>state</entry><entry>
+<para>the current state of the encoder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+        <itemizedlist>
+            <listitem><para>int32_t <link linkend="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea">counter</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> <link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link> [2] = {nullptr, nullptr}</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035">tickRaw</link> (int8_t state)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link> ()</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link> (bool e0, bool e1)</para>
+
+<para>Poll the encoder without setting the turn flag. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0">pollEnc</link> (int8_t state)</para>
+
+<para>Poll the encoder without setting the turn flag. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link> (const uint16_t x) __attribute__((always_inline))</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link> (const uint16_t x) __attribute__((always_inline))</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link> (const uint16_t x, bool v) __attribute__((always_inline))</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link> (const uint16_t x) __attribute__((always_inline))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A class representing a virtual encoder. This class provides methods to set the encoder&apos;s properties, attach_call callback functions for handling encoder events, and poll the encoder for rotation and direction. </para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00042">42</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0"/><section>
+    <title>VirtEncoder()</title>
+<indexterm><primary>VirtEncoder</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>VirtEncoder</secondary></indexterm>
+<para><computeroutput>VirtEncoder::VirtEncoder ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Default constructor for <link linkend="_class_virt_encoder">VirtEncoder</link> class. </para>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00048">48</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00048 :&#32;prev(0),&#32;ecount(0)&#32;{}
+</programlisting></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_virt_encoder_1a39814605b70ce60f2a27755571362b76"/><section>
+    <title>action()</title>
+<indexterm><primary>action</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>action</secondary></indexterm>
+<para><computeroutput><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link> VirtEncoder::action ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Representing the possible flags for the encoder. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>EB_FLAGS_T can have the following values:<itemizedlist>
+<listitem>
+<para>EB_TURN: Represents the flag for turning action.</para>
+</listitem><listitem>
+<para>EB_TURN_L: Represents the flag for left turning action.</para>
+</listitem><listitem>
+<para>EB_TURN_R: Represents the flag for right turning action.</para>
+</listitem><listitem>
+<para>EB_NONE: Represents the flag for no action. </para>
+</listitem></itemizedlist>
+</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00182">182</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0b111111111)&#32;{
+00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_FAST):
+00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN;
+00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_DIR&#32;|&#32;E_REVERSE):
+00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN_L;
+00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_DIR):
+00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN_R;&#32;&#32;&#32;
+00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_NONE;
+00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00193 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4"/><section>
+    <title>attach_left()</title>
+<indexterm><primary>attach_left</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>attach_left</secondary></indexterm>
+<para><computeroutput>bool VirtEncoder::attach_left (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> callback_func)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Attach a callback function to handle encoder events when turned left. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>callback_func</entry><entry>
+<para>pointer to the callback function </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if the callback is attached, false otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00105">105</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00106 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;l_r&#32;=&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;0&#32;:&#32;1;
+00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(callback_func&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r])&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r]&#32;=&#32;*callback_func;
+00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00111 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00113 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191"/><section>
+    <title>attach_right()</title>
+<indexterm><primary>attach_right</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>attach_right</secondary></indexterm>
+<para><computeroutput>bool VirtEncoder::attach_right (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> callback_func)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Attach a callback function to handle encoder events when turned right. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>callback_func</entry><entry>
+<para>pointer to the callback function </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>callback_func can be &quot;cb_t&quot; type </para>
+</note>
+<formalpara><title>Returns</title>
+
+<para>true if the callback is attached, false otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00089">89</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00090 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;l_r&#32;=&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;1&#32;:&#32;0;
+00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(callback_func&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r])&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r]&#32;=&#32;*callback_func;
+00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00095 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00097 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::clear ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Clear the encoder flags. </para>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00150">150</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_TRN_R))&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_TRN_R);
+00152 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab"/><section>
+    <title>clr_encf()</title>
+<indexterm><primary>clr_encf</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>clr_encf</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::clr_encf (const uint16_t x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00350">350</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;&amp;=&#32;~x;
+00352 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0"/><section>
+    <title>detach_call()</title>
+<indexterm><primary>detach_call</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>detach_call</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::detach_call ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Detach the callback functions for handling encoder events. </para>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00121">121</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00122 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+00125 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00126 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d"/><section>
+    <title>dir()</title>
+<indexterm><primary>dir</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>dir</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::dir ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Get the direction of rotation of the encoder. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>-1 if rotated left, 1 if rotated right </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00170">170</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_DIR)&#32;?&#32;1&#32;:&#32;-1;
+00172 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961"/><section>
+    <title>initEnc()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>initEnc</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>initEnc</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::initEnc (bool e0, bool e1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Initialize the encoder with the specified values. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>e0</entry><entry>
+<para>the value of the first encoder pin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>e1</entry><entry>
+<para>the value of the second encoder pin </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00134">134</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+00136 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077"/><section>
+    <title>initEnc()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>initEnc</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>initEnc</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::initEnc (int8_t v)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Initialize the encoder with the specified value. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>v</entry><entry>
+<para>the initial value of the encoder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00143">143</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;prev&#32;=&#32;v;
+00145 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e"/><section>
+    <title>pollEnc()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>pollEnc</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>pollEnc</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::pollEnc (bool e0, bool e1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Poll the encoder without setting the turn flag. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>e0</entry><entry>
+<para>the value of the first encoder pin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>e1</entry><entry>
+<para>the value of the second encoder pin </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00305">305</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+00307 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0"/><section>
+    <title>pollEnc()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>pollEnc</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>pollEnc</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::pollEnc (int8_t state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Poll the encoder without setting the turn flag. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>state</entry><entry>
+<para>the current state of the encoder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00315">315</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(prev&#32;!=&#32;state)&#32;{
+00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ecount&#32;+=&#32;((0x49941661&#32;&gt;&gt;&#32;((state&#32;|&#32;(prev&#32;&lt;&lt;&#32;2))&#32;&lt;&lt;&#32;1))&#32;&amp;&#32;0b11)&#32;-&#32;1;
+00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;prev&#32;=&#32;state;
+00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!ecount)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0b11)&#32;{
+00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414">EB_STEP4_LOW</link>:
+00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state&#32;!=&#32;0b11)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;00,&#32;01,&#32;10</emphasis>
+00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1ac884883a546362d9ecce60cba2590128">EB_STEP4_HIGH</link>:
+00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;01,&#32;10,&#32;11</emphasis>
+00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4">EB_STEP2</link>:
+00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state&#32;==&#32;0b10&#32;||&#32;state&#32;==&#32;0b01)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;10&#32;01</emphasis>
+00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;((ecount&#32;&gt;&#32;0)&#32;^&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;1&#32;:&#32;-1;
+00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ecount&#32;=&#32;0;
+00333 <emphasis role="preprocessor">#ifndef&#32;EB_NO_COUNTER&#x240D;</emphasis>
+00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea">counter</link>&#32;+=&#32;state;
+00335 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00339 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef"/><section>
+    <title>read_encf()</title>
+<indexterm><primary>read_encf</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>read_encf</secondary></indexterm>
+<para><computeroutput>bool VirtEncoder::read_encf (const uint16_t x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00357">357</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;flags&#32;&amp;&#32;x;
+00359 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977"/><section>
+    <title>set_encf()</title>
+<indexterm><primary>set_encf</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>set_encf</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::set_encf (const uint16_t x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00347">347</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;|=&#32;x;
+00349 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55"/><section>
+    <title>setEncISR()</title>
+<indexterm><primary>setEncISR</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>setEncISR</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::setEncISR (bool use = <computeroutput>true</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Set the encoder&apos;s interrupt service routine. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>use</entry><entry>
+<para>true to use the ISR, false otherwise </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>Argument &quot;use&quot; by default is true because name of this function means that it is used to set/activate the ISR. </para>
+</note>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00078">78</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_ISR,&#32;use);
+00080 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f"/><section>
+    <title>setEncReverse()</title>
+<indexterm><primary>setEncReverse</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>setEncReverse</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::setEncReverse (bool rev = <computeroutput>false</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Set the encoder&apos;s reverse flag. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>rev</entry><entry>
+<para>true to reverse the encoder, false otherwise </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00057">57</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(rev)&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_REVERSE);
+00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_REVERSE);
+00060 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9"/><section>
+    <title>setEncType()</title>
+<indexterm><primary>setEncType</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>setEncType</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::setEncType (uint8_t type = <computeroutput><link linkend="__virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3">EB_STEP1</link></computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Set the encoder&apos;s type. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>type</entry><entry>
+<para>the encoder type to set </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00067">67</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;=&#32;(flags&#32;&amp;&#32;0b11111100)&#32;|&#32;type;
+00069 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784"/><section>
+    <title>tick()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>tick</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tick</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tick ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick without clearing the turn flag. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00257">257</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link>(-1);
+00259 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e"/><section>
+    <title>tick()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>tick</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tick</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tick (bool e0, bool e1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>e0</entry><entry>
+<para>the value of the first encoder pin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>e1</entry><entry>
+<para>the value of the second encoder pin </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00228">228</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+00230 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1"/><section>
+    <title>tick()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>tick</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tick</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tick (int8_t state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>state</entry><entry>
+<para>the current state of the encoder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00238">238</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(state);
+00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)
+00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00242 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]&#32;&amp;&amp;&#32;state&#32;&lt;&#32;0)&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]();
+00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]&#32;&amp;&amp;&#32;state&#32;&gt;&#32;0)&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]();
+00245 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#x240D;</emphasis>
+00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5">clear</link>();
+00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00250 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef"/><section>
+    <title>tickISR()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>tickISR</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tickISR</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tickISR (bool e0, bool e1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick using the interrupt service routine. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>e0</entry><entry>
+<para>the value of the first encoder pin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>e1</entry><entry>
+<para>the value of the second encoder pin </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00202">202</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">tickISR</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+00204 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818"/><section>
+    <title>tickISR()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>tickISR</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tickISR</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tickISR (int8_t state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick using the interrupt service routine. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>state</entry><entry>
+<para>the current state of the encoder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00212">212</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(state);
+00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)&#32;{
+00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_ISR_F);
+00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_DIR,&#32;state&#32;&gt;&#32;0);
+00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+00219 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5"/><section>
+    <title>tickRaw()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>tickRaw</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tickRaw</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tickRaw ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00294">294</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(-1);
+00296 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f"/><section>
+    <title>tickRaw()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>tickRaw</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tickRaw</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tickRaw (bool e0, bool e1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Process the encoder tick without clearing the turn flag. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>e0</entry><entry>
+<para>the value of the first encoder pin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>e1</entry><entry>
+<para>the value of the second encoder pin </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>-1, 0, or 1 based on the direction of rotation </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00268">268</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+00270 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035"/><section>
+    <title>tickRaw()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>tickRaw</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>tickRaw</secondary></indexterm>
+<para><computeroutput>int8_t VirtEncoder::tickRaw (int8_t state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00279">279</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR_F))&#32;{
+00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_ISR_F);
+00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_TRN_R);
+00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d">dir</link>();
+00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((state&#32;&gt;=&#32;0)&#32;&amp;&amp;&#32;(state&#32;=&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(state)))&#32;{
+00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_DIR,&#32;state&#32;&gt;&#32;0);
+00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_TRN_R);
+00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00291 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001"/><section>
+    <title>turn()</title>
+<indexterm><primary>turn</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>turn</secondary></indexterm>
+<para><computeroutput>bool VirtEncoder::turn ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Check if the encoder has been turned. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>true if the encoder has been turned, false otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00161">161</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_TRN_R);
+00163 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724"/><section>
+    <title>write_encf()</title>
+<indexterm><primary>write_encf</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>write_encf</secondary></indexterm>
+<para><computeroutput>void VirtEncoder::write_encf (const uint16_t x, bool v)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00353">353</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v)&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(x);
+00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(x);
+00356 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6"/><section>
+    <title>cb</title>
+<indexterm><primary>cb</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>cb</secondary></indexterm>
+<para><computeroutput><link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> VirtEncoder::cb[2] = {nullptr, nullptr}<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00362">362</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+<programlisting linenumbering="unnumbered">00362 {<emphasis role="keyword">nullptr</emphasis>,&#32;<emphasis role="keyword">nullptr</emphasis>};&#32;<emphasis role="comment">//&#32;callbacks&#32;for&#32;right&#32;and&#32;left&#32;turns</emphasis>
+</programlisting></section>
+<anchor xml:id="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea"/><section>
+    <title>counter</title>
+<indexterm><primary>counter</primary><secondary>VirtEncoder</secondary></indexterm>
+<indexterm><primary>VirtEncoder</primary><secondary>counter</secondary></indexterm>
+<para><computeroutput>int32_t VirtEncoder::counter = 0</computeroutput></para><para>
+Definition at line <link linkend="__virt_encoder_8h_source_1l00342">342</link> of file <link linkend="__virt_encoder_8h_source">VirtEncoder.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+src/core/<link linkend="__virt_encoder_8h">VirtEncoder.h</link></section>
+</section>

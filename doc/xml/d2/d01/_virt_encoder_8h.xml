@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d2/d01/_virt_encoder_8h" kind="file" language="C++">
+    <compoundname>VirtEncoder.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="d5/d00/utils_8h" local="yes">utils.h</includes>
+    <includedby refid="dc/d01/_enc_button_8h" local="yes">src/EncButton.h</includedby>
+    <includedby refid="df/d03/_encoder_8h" local="yes">src/core/Encoder.h</includedby>
+    <includedby refid="d0/d02/_virt_enc_button_8h" local="yes">src/core/VirtEncButton.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>src/core/VirtEncoder.h</label>
+        <link refid="d2/d01/_virt_encoder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>utils.h</label>
+        <link refid="d5/d00/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/EncButton.h</label>
+        <link refid="dc/d01/_enc_button_8h"/>
+      </node>
+      <node id="5">
+        <label>src/core/EncButton.h</label>
+        <link refid="d8/d00/core_2_enc_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/core/Encoder.h</label>
+        <link refid="df/d03/_encoder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/core/VirtEncButton.h</label>
+        <link refid="d0/d02/_virt_enc_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/VirtEncoder.h</label>
+        <link refid="d2/d01/_virt_encoder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="dc/d02/class_virt_encoder" prot="public">VirtEncoder</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414" prot="public" static="no">
+        <name>EB_STEP4_LOW</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="14" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1ac884883a546362d9ecce60cba2590128" prot="public" static="no">
+        <name>EB_STEP4_HIGH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="15" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4" prot="public" static="no">
+        <name>EB_STEP2</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="16" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3" prot="public" static="no">
+        <name>EB_STEP1</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="17" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1a1ce8742512126ac149fbf10fe9470179" prot="public" static="no">
+        <name>ENC_FLAGS</name>
+        <initializer>    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_TYPE,    0)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_REVERSE, 2)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_FAST,    3)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_DIR,     4)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_TRN_R,   5)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_ISR_F,   6)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(E_ISR,     7)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="19" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="19" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d01/_virt_encoder_8h_1a8a0d2d602acb24d74237c3f310e935cd" prot="public" static="no">
+        <name>X</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>a = (1 &lt;&lt; b),</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="29" column="9" bodyfile="src/core/VirtEncoder.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="d2/d01/_virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ENC_FLAG_T</name>
+        <enumvalue id="d2/d01/_virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668a1a93281d355333e187e376ea04b25e92" prot="public">
+          <name>ENC_FLAGS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="30" column="1" bodyfile="src/core/VirtEncoder.h" bodystart="30" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Virtual encoder class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d00/utils_8h" kindref="compound">utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=====================<sp/>CONST<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="d2/d01/_virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_STEP4_LOW<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="d2/d01/_virt_encoder_8h_1ac884883a546362d9ecce60cba2590128" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_STEP4_HIGH<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="d2/d01/_virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_STEP2<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="d2/d01/_virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_STEP1<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="d2/d01/_virt_encoder_8h_1a1ce8742512126ac149fbf10fe9470179" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENC_FLAGS<sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_TYPE,<sp/><sp/><sp/><sp/>0)\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_REVERSE,<sp/>2)\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_FAST,<sp/><sp/><sp/><sp/>3)\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_DIR,<sp/><sp/><sp/><sp/><sp/>4)\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_TRN_R,<sp/><sp/><sp/>5)\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_ISR_F,<sp/><sp/><sp/>6)\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(E_ISR,<sp/><sp/><sp/><sp/><sp/>7)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29" refid="d2/d01/_virt_encoder_8h_1a8a0d2d602acb24d74237c3f310e935cd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X(a,<sp/>b)<sp/>a<sp/>=<sp/>(1<sp/>&lt;&lt;<sp/>b),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d2/d01/_virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d01/_virt_encoder_8h_1a1ce8742512126ac149fbf10fe9470179" kindref="member">ENC_FLAGS</ref></highlight></codeline>
+<codeline lineno="32" refid="d2/d01/_virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668a1a93281d355333e187e376ea04b25e92" refkind="member"><highlight class="normal">}<sp/><ref refid="d2/d01/_virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668" kindref="member">ENC_FLAG_T</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="dc/d02/class_virt_encoder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/d02/class_virt_encoder" kindref="compound">VirtEncoder</ref><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="dc/d02/class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0" kindref="member">VirtEncoder</ref>()<sp/>:<sp/>prev(0),<sp/>ecount(0)<sp/>{}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>SET<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="dc/d02/class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f" kindref="member">setEncReverse</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rev<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rev)<sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(E_REVERSE);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" kindref="member">clr_encf</ref>(E_REVERSE);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="dc/d02/class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9" kindref="member">setEncType</ref>(uint8_t<sp/>type<sp/>=<sp/><ref refid="d2/d01/_virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3" kindref="member">EB_STEP1</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags<sp/>=<sp/>(flags<sp/>&amp;<sp/>0b11111100)<sp/>|<sp/>type;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="dc/d02/class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55" kindref="member">setEncISR</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>use=</highlight><highlight class="keyword">true</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" kindref="member">write_encf</ref>(E_ISR,<sp/>use);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="dc/d02/class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191" kindref="member">attach_right</ref>(<ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref><sp/>callback_func){</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_CALLBACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>l_r<sp/>=<sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_REVERSE))<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(callback_func<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>||<sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[l_r])<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[l_r]<sp/>=<sp/>*callback_func;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="dc/d02/class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4" kindref="member">attach_left</ref>(<ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref><sp/>callback_func){</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_CALLBACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>l_r<sp/>=<sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_REVERSE))<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(callback_func<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>||<sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[l_r])<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[l_r]<sp/>=<sp/>*callback_func;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//todo<sp/>universal<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>attach_call(){}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="dc/d02/class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0" kindref="member">detach_call</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_CALLBACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[0]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[1]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" kindref="member">initEnc</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e1)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" kindref="member">initEnc</ref>(e0<sp/>|<sp/>(e1<sp/>&lt;&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="dc/d02/class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077" kindref="member">initEnc</ref>(int8_t<sp/>v)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prev<sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="dc/d02/class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5" kindref="member">clear</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_TRN_R))<sp/><ref refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" kindref="member">clr_encf</ref>(E_TRN_R);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>POLL<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="dc/d02/class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001" kindref="member">turn</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_TRN_R);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="dc/d02/class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d" kindref="member">dir</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_DIR)<sp/>?<sp/>1<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="dc/d02/class_virt_encoder_1a39814605b70ce60f2a27755571362b76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" kindref="member">EB_FLAGS_T</ref><sp/><ref refid="dc/d02/class_virt_encoder_1a39814605b70ce60f2a27755571362b76" kindref="member">action</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/>0b111111111)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(E_TRN_R<sp/>|<sp/>E_FAST):</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EB_TURN;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(E_TRN_R<sp/>|<sp/>E_DIR<sp/>|<sp/>E_REVERSE):</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EB_TURN_L;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(E_TRN_R<sp/>|<sp/>E_DIR):</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EB_TURN_R;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EB_NONE;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="dc/d02/class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef" kindref="member">tickISR</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e1)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef" kindref="member">tickISR</ref>(e0<sp/>|<sp/>(e1<sp/>&lt;&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="dc/d02/class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818" kindref="member">tickISR</ref>(int8_t<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state<sp/>=<sp/><ref refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" kindref="member">pollEnc</ref>(state);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(E_ISR_F);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" kindref="member">write_encf</ref>(E_DIR,<sp/>state<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="dc/d02/class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e" kindref="member">tick</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e1)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">tick</ref>(e0<sp/>|<sp/>(e1<sp/>&lt;&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238" refid="dc/d02/class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1" kindref="member">tick</ref>(int8_t<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state<sp/>=<sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">tickRaw</ref>(state);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state)</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>EB_NO_CALLBACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[0]<sp/>&amp;&amp;<sp/>state<sp/>&lt;<sp/>0)<sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[0]();</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[1]<sp/>&amp;&amp;<sp/>state<sp/>&gt;<sp/>0)<sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[1]();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257" refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">tick</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">tick</ref>(-1);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="dc/d02/class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f" kindref="member">tickRaw</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e1)<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">tickRaw</ref>(e0<sp/>|<sp/>(e1<sp/>&lt;&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279" refid="dc/d02/class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035" kindref="member">tickRaw</ref>(int8_t<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_ISR_F))<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" kindref="member">clr_encf</ref>(E_ISR_F);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(E_TRN_R);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d" kindref="member">dir</ref>();</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((state<sp/>&gt;=<sp/>0)<sp/>&amp;&amp;<sp/>(state<sp/>=<sp/><ref refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" kindref="member">pollEnc</ref>(state)))<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" kindref="member">write_encf</ref>(E_DIR,<sp/>state<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(E_TRN_R);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="294" refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">tickRaw</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">tickRaw</ref>(-1);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305" refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" kindref="member">pollEnc</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>e1)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" kindref="member">pollEnc</ref>(e0<sp/>|<sp/>(e1<sp/>&lt;&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="dc/d02/class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="dc/d02/class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0" kindref="member">pollEnc</ref>(int8_t<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(prev<sp/>!=<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecount<sp/>+=<sp/>((0x49941661<sp/>&gt;&gt;<sp/>((state<sp/>|<sp/>(prev<sp/>&lt;&lt;<sp/>2))<sp/>&lt;&lt;<sp/>1))<sp/>&amp;<sp/>0b11)<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prev<sp/>=<sp/>state;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ecount)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/>0b11)<sp/>{</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="d2/d01/_virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414" kindref="member">EB_STEP4_LOW</ref>:</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state<sp/>!=<sp/>0b11)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>00,<sp/>01,<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="d2/d01/_virt_encoder_8h_1ac884883a546362d9ecce60cba2590128" kindref="member">EB_STEP4_HIGH</ref>:</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>01,<sp/>10,<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="d2/d01/_virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4" kindref="member">EB_STEP2</ref>:</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state<sp/>==<sp/>0b10<sp/>||<sp/>state<sp/>==<sp/>0b01)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>10<sp/>01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state<sp/>=<sp/>((ecount<sp/>&gt;<sp/>0)<sp/>^<sp/><ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(E_REVERSE))<sp/>?<sp/>1<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_COUNTER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a966668cc0a577818e294a4084b4dabea" kindref="member">counter</ref><sp/>+=<sp/>state;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_COUNTER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342" refid="dc/d02/class_virt_encoder_1a966668cc0a577818e294a4084b4dabea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="dc/d02/class_virt_encoder_1a966668cc0a577818e294a4084b4dabea" kindref="member">counter</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=====================<sp/>PROTECTED<sp/>=====================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="347" refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>x)<sp/>__attribute__((always_inline))<sp/>{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags<sp/>|=<sp/>x;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="350" refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" kindref="member">clr_encf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>x)<sp/>__attribute__((always_inline))<sp/>{</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags<sp/>&amp;=<sp/>~x;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="353" refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" kindref="member">write_encf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>v)<sp/>__attribute__((always_inline))<sp/>{</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v)<sp/><ref refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" kindref="member">set_encf</ref>(x);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" kindref="member">clr_encf</ref>(x);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="357" refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>x)<sp/>__attribute__((always_inline))<sp/>{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>flags<sp/>&amp;<sp/>x;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EB_NO_CALLBACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="362" refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref><sp/><ref refid="dc/d02/class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6" kindref="member">cb</ref>[2]<sp/>=<sp/>{</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">};<sp/></highlight><highlight class="comment">//<sp/>callbacks<sp/>for<sp/>right<sp/>and<sp/>left<sp/>turns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=====================<sp/>PRIVATE<sp/>=====================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>flags<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/>prev<sp/>:<sp/>4;</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/>ecount<sp/>:<sp/>4;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/core/VirtEncoder.h"/>
+  </compounddef>
+</doxygen>

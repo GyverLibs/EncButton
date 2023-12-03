@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__virt_enc_button_8h" xml:lang="en-US">
+<title>src/core/VirtEncButton.h File Reference</title>
+<indexterm><primary>src/core/VirtEncButton.h</primary></indexterm>
+<para>
+
+<para>Virtual encoder button class. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &quot;VirtButton.h&quot;<?linebreak?>#include &quot;VirtEncoder.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_virt_enc_button">VirtEncButton</link></para>
+
+<para>A class representing a virtual encoder button. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Virtual encoder button class. </para>
+<para>
+Definition in file <link linkend="__virt_enc_button_8h_source">VirtEncButton.h</link>.</para>
+</section>
+</section>

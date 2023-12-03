@@ -1,0 +1,59 @@
+\doxysection{Button.\+h}
+\hypertarget{_button_8h_source}{}\label{_button_8h_source}\index{src/core/Button.h@{src/core/Button.h}}
+\mbox{\hyperlink{_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_virt_button_8h}{VirtButton.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8h}{utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00012}00012\ \textcolor{comment}{//\ =============\ VAR\ PIN\ =============}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00020}\mbox{\hyperlink{class_button}{00020}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_button}{Button}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_virt_button}{VirtButton}}\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00021}00021\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00027}\mbox{\hyperlink{class_button_a7b5a0420703bef7be28f84a55a1ae4e3}{00027}}\ \ \ \ \ \mbox{\hyperlink{class_button_a7b5a0420703bef7be28f84a55a1ae4e3}{Button}}(uint8\_t\ npin);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00036}\mbox{\hyperlink{class_button_aa42b0ec0fd9c0b4a356b4ee07d4ac44a}{00036}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_aa42b0ec0fd9c0b4a356b4ee07d4ac44a}{init}}(uint8\_t\ npin\ =\ 0,\ uint8\_t\ mode\ =\ INPUT\_PULLUP,\ uint8\_t\ btnLevel\ =\ LOW);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00046}\mbox{\hyperlink{class_button_a36db34a62ae4839b9e61bc6dfc9a46eb}{00046}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_a36db34a62ae4839b9e61bc6dfc9a46eb}{read}}();}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00056}\mbox{\hyperlink{class_button_aec0337f8f13972df0fd651c4789b5d64}{00056}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_aec0337f8f13972df0fd651c4789b5d64}{tick}}();}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00066}\mbox{\hyperlink{class_button_a5fd7808bd879525055ad7cc3b749562d}{00066}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_a5fd7808bd879525055ad7cc3b749562d}{tickRaw}}();}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00068}00068\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00069}00069\ \ \ \ \ uint8\_t\ pin;}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00070}00070\ \};}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00072}00072\ \textcolor{comment}{//\ =============\ TEMPLATE\ PIN\ =============}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00074}00074\ \textcolor{keyword}{template}\ <u\textcolor{keywordtype}{int}8\_t\ PIN>}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00075}\mbox{\hyperlink{class_button_t}{00075}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_button_t}{ButtonT}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_virt_button}{VirtButton}}\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00076}00076\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00077}\mbox{\hyperlink{class_button_t_a796688d56eaa47e0def09f98219d4748}{00077}}\ \ \ \ \ \mbox{\hyperlink{class_button_t_a796688d56eaa47e0def09f98219d4748}{ButtonT}}(uint8\_t\ mode\ =\ INPUT\_PULLUP,\ uint8\_t\ btnLevel\ =\ LOW)\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc}{init}}(mode,\ btnLevel);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00081}\mbox{\hyperlink{class_button_t_a9a1ce77f6a04a7dde1d893b398445a86}{00081}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_t_a9a1ce77f6a04a7dde1d893b398445a86}{init}}(uint8\_t\ mode\ =\ INPUT\_PULLUP,\ uint8\_t\ btnLevel\ =\ LOW)\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ pinMode(PIN,\ mode);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea}{setBtnLevel}}(btnLevel);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00086}\mbox{\hyperlink{class_button_t_a99014cdfd99e2ee569922abf8b8707fe}{00086}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_t_a99014cdfd99e2ee569922abf8b8707fe}{read}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(PIN)\ \string^\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(B\_INV);}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00090}\mbox{\hyperlink{class_button_t_a2da4f1c3621a3148e255a4cb83f76fca}{00090}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_t_a2da4f1c3621a3148e255a4cb83f76fca}{tick}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{VirtButton::tick}}(\mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(PIN));}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00094}\mbox{\hyperlink{class_button_t_ad34dfe4ce24443b244727d30d3ad1b40}{00094}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_t_ad34dfe4ce24443b244727d30d3ad1b40}{tickRaw}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a74cadea61f398fbb590514715d065fee}{VirtButton::tickRaw}}(\mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(PIN));}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00098}00098\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_button_8h_source_l00099}00099\ \};}
+
+\end{DoxyCode}

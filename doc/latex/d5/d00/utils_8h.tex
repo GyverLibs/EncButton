@@ -1,0 +1,241 @@
+\doxysection{src/core/utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{src/core/utils.h@{src/core/utils.h}}
+
+
+Utility functions for handling pins and flags.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}{EB\+\_\+\+FLAGS}}
+\item 
+\#define \mbox{\hyperlink{utils_8h_a8a0d2d602acb24d74237c3f310e935cd}{X}}(a,  b)~a = (1 $<$$<$ b),
+\item 
+\#define \mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\+\_\+\+UPTIME}}()~millis()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}}) ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}} \{ \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b}{EB\+\_\+\+FLAGS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{utils_8h_a625e5f80e7944b05a709cb27d08211bb}{EBread}} (const uint8\+\_\+t pin)
+\item 
+void \mbox{\hyperlink{utils_8h_af74a9306d2c033fe5f90bcd54010baf4}{EBwrite}} (const uint8\+\_\+t pin, bool value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility functions for handling pins and flags. 
+
+
+
+Definition in file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}\label{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98} 
+\index{utils.h@{utils.h}!EB\_FLAGS@{EB\_FLAGS}}
+\index{EB\_FLAGS@{EB\_FLAGS}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{EB\_FLAGS}{EB\_FLAGS}}
+{\footnotesize\ttfamily \#define EB\+\_\+\+FLAGS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{utils_8h_a8a0d2d602acb24d74237c3f310e935cd}{X}}(EB\_NONE\ \ \ \ \ \ \ \ \ ,\ 0)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_PRESS\ \ \ \ \ \ \ \ ,\ 1)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_STEP\ \ \ \ \ \ \ \ \ ,\ 2)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_HOLD\ \ \ \ \ \ \ \ \ ,\ 3)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_RELEASE\ \ \ \ \ \ ,\ 4)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_CLICK\ \ \ \ \ \ \ \ ,\ 5)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_CLICKS\ \ \ \ \ \ \ ,\ 6)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_REL\_HOLD\ \ \ \ \ ,\ 7)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_REL\_HOLD\_C\ \ \ ,\ 8)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_REL\_STEP\ \ \ \ \ ,\ 9)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_REL\_STEP\_C\ \ \ ,\ 10)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_TURN\ \ \ \ \ \ \ \ \ ,\ 11)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_TURN\_R\ \ \ \ \ \ \ ,\ 12)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_TURN\_L\ \ \ \ \ \ \ ,\ 13)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_TURN\_HOLD\_R\ \ ,\ 14)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(EB\_TURN\_HOLD\_L\ \ ,\ 15)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{utils_8h_source_l00012}{12}} of file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}{EB\_FLAGS}}}
+\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\_FLAGS\_T}};}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#undef\ X }}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ EB\_UPTIME()\ millis() }}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\_t}})();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(\textcolor{keyword}{const}\ uint8\_t\ pin);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_af74a9306d2c033fe5f90bcd54010baf4}{EBwrite}}(\textcolor{keyword}{const}\ uint8\_t\ pin,\ \textcolor{keywordtype}{bool}\ value);}
+
+\end{DoxyCode}
+\Hypertarget{utils_8h_aa32f6fd8b330750d6d09858020224537}\label{utils_8h_aa32f6fd8b330750d6d09858020224537} 
+\index{utils.h@{utils.h}!EB\_UPTIME@{EB\_UPTIME}}
+\index{EB\_UPTIME@{EB\_UPTIME}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{EB\_UPTIME}{EB\_UPTIME}}
+{\footnotesize\ttfamily \#define EB\+\_\+\+UPTIME(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~millis()}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8h_source_l00037}{37}} of file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+\Hypertarget{utils_8h_a8a0d2d602acb24d74237c3f310e935cd}\label{utils_8h_a8a0d2d602acb24d74237c3f310e935cd} 
+\index{utils.h@{utils.h}!X@{X}}
+\index{X@{X}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~a = (1 $<$$<$ b),}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8h_source_l00031}{31}} of file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{utils_8h_a4c528c24d8196164062904f004d96c84}\label{utils_8h_a4c528c24d8196164062904f004d96c84} 
+\index{utils.h@{utils.h}!cb\_t@{cb\_t}}
+\index{cb\_t@{cb\_t}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{cb\_t}{cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} cb\+\_\+t) ()}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8h_source_l00039}{39}} of file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}\label{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e} 
+\index{utils.h@{utils.h}!EB\_FLAGS\_T@{EB\_FLAGS\_T}}
+\index{EB\_FLAGS\_T@{EB\_FLAGS\_T}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{EB\_FLAGS\_T}{EB\_FLAGS\_T}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EB\_FLAGS@{EB\_FLAGS}!utils.h@{utils.h}}\index{utils.h@{utils.h}!EB\_FLAGS@{EB\_FLAGS}}}\Hypertarget{utils_8h_a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b}\label{utils_8h_a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b} 
+EB\+\_\+\+FLAGS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{utils_8h_source_l00032}{32}} of file \mbox{\hyperlink{utils_8h_source}{utils.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{utils_8h_a4d04a1d6fed6589d40376ca9b2a6ef98}{EB\_FLAGS}}}
+\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\_FLAGS\_T}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8h_a625e5f80e7944b05a709cb27d08211bb}\label{utils_8h_a625e5f80e7944b05a709cb27d08211bb} 
+\index{utils.h@{utils.h}!EBread@{EBread}}
+\index{EBread@{EBread}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{EBread()}{EBread()}}
+{\footnotesize\ttfamily bool EBread (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{utils_8cpp_source}{utils.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#if\ defined(\_\_AVR\_ATmega328P\_\_)\ ||\ defined(\_\_AVR\_ATmega168\_\_) }}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PIND,\ pin);}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINB,\ pin\ -\/\ 8);}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 20)}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINC,\ pin\ -\/\ 14);}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATtiny85\_\_)\ ||\ defined(\_\_AVR\_ATtiny13\_\_) }}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINB,\ pin);}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATmega2560\_\_) }}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PIND,\ pin);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINE,\ pin\ -\/\ 8);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 22)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PING,\ pin\ -\/\ 14);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 30)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINH,\ pin\ -\/\ 22);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 38)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINJ,\ pin\ -\/\ 30);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 46)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINK,\ pin\ -\/\ 38);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 54)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINL,\ pin\ -\/\ 46);}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ digitalRead(pin);}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{utils_8h_af74a9306d2c033fe5f90bcd54010baf4}\label{utils_8h_af74a9306d2c033fe5f90bcd54010baf4} 
+\index{utils.h@{utils.h}!EBwrite@{EBwrite}}
+\index{EBwrite@{EBwrite}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{EBwrite()}{EBwrite()}}
+{\footnotesize\ttfamily void EBwrite (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{utils_8cpp_source}{utils.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#if\ defined(\_\_AVR\_ATmega328P\_\_)\ ||\ defined(\_\_AVR\_ATmega168\_\_) }}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ bitWrite(PORTD,\ pin,\ value);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ bitWrite(PORTB,\ pin\ -\/\ 8,\ value);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 20)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ bitWrite(PORTC,\ pin\ -\/\ 14,\ value);}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATtiny85\_\_)\ ||\ defined(\_\_AVR\_ATtiny13\_\_) }}
+\DoxyCodeLine{00043\ \ \ \ \ bitWrite(PORTB,\ pin,\ value);}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATmega2560\_\_) }}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ bitWrite(PORTD,\ pin,\ value);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ bitWrite(PORTE,\ pin\ -\/\ 8,\ value);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 22)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ bitWrite(PORTG,\ pin\ -\/\ 14,\ value);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 30)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ bitWrite(PORTH,\ pin\ -\/\ 22,\ value);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 38)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ bitWrite(PORTJ,\ pin\ -\/\ 30,\ value);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 46)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ bitWrite(PORTK,\ pin\ -\/\ 38,\ value);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 54)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ bitWrite(PORTL,\ pin\ -\/\ 46,\ value);}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00060\ \ \ \ \ digitalWrite(pin,\ value);}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

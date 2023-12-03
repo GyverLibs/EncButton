@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_todo" xml:lang="en-US">
+<title>Todo List</title>
+<indexterm><primary>Todo List</primary></indexterm>
+
+<para><variablelist>
+<varlistentry><term>Member <link linkend="_class_virt_enc_button_1a889370afd906746fa5866298cf4cc30d">VirtEncButton::action</link>  ()</term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000001"/>todo in binary switch case block e_state + b_state and EB_HOLD + EB_TURN verification if ((state &amp; EB_HOLD) &amp;&amp; (state &amp; EB_TURN_R)) return EB_TURN_HOLD_R; </para>
+</listitem></varlistentry>
+</variablelist>
+</para>
+</section>

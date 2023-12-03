@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8cpp_source" xml:lang="en-US">
+<title>utils.cpp</title>
+<indexterm><primary>src/core/utils.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_utils_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_utils_8cpp_source_1l00003"/><link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">00003</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;pin){
+<anchor xml:id="_utils_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#if&#32;defined(__AVR_ATmega328P__)&#32;||&#32;defined(__AVR_ATmega168__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00005"/>00005 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+<anchor xml:id="_utils_8cpp_source_1l00006"/>00006 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PIND,&#32;pin);
+<anchor xml:id="_utils_8cpp_source_1l00007"/>00007 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+<anchor xml:id="_utils_8cpp_source_1l00008"/>00008 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINB,&#32;pin&#32;-&#32;8);
+<anchor xml:id="_utils_8cpp_source_1l00009"/>00009 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;20)
+<anchor xml:id="_utils_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINC,&#32;pin&#32;-&#32;14);
+<anchor xml:id="_utils_8cpp_source_1l00011"/>00011 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATtiny85__)&#32;||&#32;defined(__AVR_ATtiny13__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINB,&#32;pin);
+<anchor xml:id="_utils_8cpp_source_1l00013"/>00013 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATmega2560__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+<anchor xml:id="_utils_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PIND,&#32;pin);
+<anchor xml:id="_utils_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+<anchor xml:id="_utils_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINE,&#32;pin&#32;-&#32;8);
+<anchor xml:id="_utils_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;22)
+<anchor xml:id="_utils_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PING,&#32;pin&#32;-&#32;14);
+<anchor xml:id="_utils_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;30)
+<anchor xml:id="_utils_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINH,&#32;pin&#32;-&#32;22);
+<anchor xml:id="_utils_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;38)
+<anchor xml:id="_utils_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINJ,&#32;pin&#32;-&#32;30);
+<anchor xml:id="_utils_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;46)
+<anchor xml:id="_utils_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINK,&#32;pin&#32;-&#32;38);
+<anchor xml:id="_utils_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;54)
+<anchor xml:id="_utils_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINL,&#32;pin&#32;-&#32;46);
+<anchor xml:id="_utils_8cpp_source_1l00028"/>00028 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;digitalRead(pin);
+<anchor xml:id="_utils_8cpp_source_1l00030"/>00030 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_utils_8cpp_source_1l00032"/>00032 }
+<anchor xml:id="_utils_8cpp_source_1l00033"/>00033 
+<anchor xml:id="_utils_8cpp_source_1l00034"/><link linkend="_utils_8cpp_1af74a9306d2c033fe5f90bcd54010baf4">00034</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8cpp_1af74a9306d2c033fe5f90bcd54010baf4">EBwrite</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;pin,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;value){
+<anchor xml:id="_utils_8cpp_source_1l00035"/>00035 <emphasis role="preprocessor">#if&#32;defined(__AVR_ATmega328P__)&#32;||&#32;defined(__AVR_ATmega168__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+<anchor xml:id="_utils_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTD,&#32;pin,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+<anchor xml:id="_utils_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTB,&#32;pin&#32;-&#32;8,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;20)
+<anchor xml:id="_utils_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTC,&#32;pin&#32;-&#32;14,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00042"/>00042 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATtiny85__)&#32;||&#32;defined(__AVR_ATtiny13__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;bitWrite(PORTB,&#32;pin,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00044"/>00044 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATmega2560__)</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+<anchor xml:id="_utils_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTD,&#32;pin,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+<anchor xml:id="_utils_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTE,&#32;pin&#32;-&#32;8,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;22)
+<anchor xml:id="_utils_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTG,&#32;pin&#32;-&#32;14,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;30)
+<anchor xml:id="_utils_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTH,&#32;pin&#32;-&#32;22,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;38)
+<anchor xml:id="_utils_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTJ,&#32;pin&#32;-&#32;30,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;46)
+<anchor xml:id="_utils_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTK,&#32;pin&#32;-&#32;38,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;54)
+<anchor xml:id="_utils_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTL,&#32;pin&#32;-&#32;46,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00059"/>00059 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;digitalWrite(pin,&#32;value);
+<anchor xml:id="_utils_8cpp_source_1l00061"/>00061 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8cpp_source_1l00062"/>00062 }
+</programlisting></section>

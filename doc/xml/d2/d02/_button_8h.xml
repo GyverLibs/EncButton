@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d2/d02/_button_8h" kind="file" language="C++">
+    <compoundname>Button.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="d0/d01/_virt_button_8h" local="yes">VirtButton.h</includes>
+    <includes refid="d5/d00/utils_8h" local="yes">utils.h</includes>
+    <includedby refid="dc/d01/_enc_button_8h" local="yes">src/EncButton.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>src/core/Button.h</label>
+        <link refid="d2/d02/_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VirtButton.h</label>
+        <link refid="d0/d01/_virt_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>utils.h</label>
+        <link refid="d5/d00/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/EncButton.h</label>
+        <link refid="dc/d01/_enc_button_8h"/>
+      </node>
+      <node id="1">
+        <label>src/core/Button.h</label>
+        <link refid="d2/d02/_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d4/d03/class_button" prot="public">Button</innerclass>
+    <innerclass refid="d9/d03/class_button_t" prot="public">ButtonT</innerclass>
+    <briefdescription>
+<para><ref refid="d4/d03/class_button" kindref="compound">Button</ref> class for handling button presses and debouncing. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/d01/_virt_button_8h" kindref="compound">VirtButton.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d00/utils_8h" kindref="compound">utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=============<sp/>VAR<sp/>PIN<sp/>=============</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="d4/d03/class_button" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d03/class_button" kindref="compound">Button</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d02/class_virt_button" kindref="compound">VirtButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27" refid="d4/d03/class_button_1a7b5a0420703bef7be28f84a55a1ae4e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d03/class_button_1a7b5a0420703bef7be28f84a55a1ae4e3" kindref="member">Button</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">npin</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="d4/d03/class_button_1aa42b0ec0fd9c0b4a356b4ee07d4ac44a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_button_1aa42b0ec0fd9c0b4a356b4ee07d4ac44a" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">npin</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">mode</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d4/d03/class_button_1a36db34a62ae4839b9e61bc6dfc9a46eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_button_1a36db34a62ae4839b9e61bc6dfc9a46eb" kindref="member">read</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="d4/d03/class_button_1aec0337f8f13972df0fd651c4789b5d64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_button_1aec0337f8f13972df0fd651c4789b5d64" kindref="member">tick</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="d4/d03/class_button_1a5fd7808bd879525055ad7cc3b749562d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_button_1a5fd7808bd879525055ad7cc3b749562d" kindref="member">tickRaw</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/>pin;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=============<sp/>TEMPLATE<sp/>PIN<sp/>=============</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;u</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8_t<sp/>PIN&gt;</highlight></codeline>
+<codeline lineno="75" refid="d9/d03/class_button_t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d9/d03/class_button_t" kindref="compound">ButtonT</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d02/class_virt_button" kindref="compound">VirtButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77" refid="d9/d03/class_button_t_1a796688d56eaa47e0def09f98219d4748" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d03/class_button_t_1a796688d56eaa47e0def09f98219d4748" kindref="member">ButtonT</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">mode</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">mode</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="d9/d03/class_button_t_1a9a1ce77f6a04a7dde1d893b398445a86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d9/d03/class_button_t_1a9a1ce77f6a04a7dde1d893b398445a86" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">mode</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">PIN</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">mode</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea" kindref="member">setBtnLevel</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="d9/d03/class_button_t_1a99014cdfd99e2ee569922abf8b8707fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d9/d03/class_button_t_1a99014cdfd99e2ee569922abf8b8707fe" kindref="member">read</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">PIN</ref>)<sp/>^<sp/><ref refid="d7/d02/class_virt_button_1abbcecd7ead3d57ae533182b181b5df44" kindref="member">read_btn_flag</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">B_INV</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="d9/d03/class_button_t_1a2da4f1c3621a3148e255a4cb83f76fca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d9/d03/class_button_t_1a2da4f1c3621a3148e255a4cb83f76fca" kindref="member">tick</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d02/class_virt_button_1a905e81982b3a85ced1f91711b8f89193" kindref="member">VirtButton::tick</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">PIN</ref>));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="d9/d03/class_button_t_1ad34dfe4ce24443b244727d30d3ad1b40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d9/d03/class_button_t_1ad34dfe4ce24443b244727d30d3ad1b40" kindref="member">tickRaw</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d02/class_virt_button_1a74cadea61f398fbb590514715d065fee" kindref="member">VirtButton::tickRaw</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">PIN</ref>));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/core/Button.h"/>
+  </compounddef>
+</doxygen>

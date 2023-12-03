@@ -1,0 +1,1091 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_virt_button" xml:lang="en-US">
+<title>VirtButton Class Reference</title>
+<indexterm><primary>VirtButton</primary></indexterm>
+<para>
+<computeroutput>#include &lt;VirtButton.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for VirtButton:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d7/d02/class_virt_button.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc">init</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1abb46734e4374bcd7047e0a641bef62ac">setHoldTimeout</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=600)</para>
+
+<para>Sets the hold timeout for the virtual button. </para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e">setStepTimeout</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=200)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b">setClickTimeout</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=500)</para>
+
+<para>Sets the click timeout for the virtual button. Clicks faster than this timeout will be detected. </para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a">setDebounceTimeout</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=50)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea">setBtnLevel</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1aa556b513fa0e2c59d3f55954eeb0ff15">pressISR</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a7e0ca1c632bcc03a4134ecc849b1690d">reset</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a2b86f0d1725aa68e4b52ea74d98321b7">clear</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a97c03ff8b2bdbebdbe69a14c92f50ebe">attach_call</link> (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>)</para>
+
+<para>Attach a callback function to handle button events. The callback will be called when button events occur. </para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1aa636d6f296e23877c7e87b09b018860d">detach_call</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a0405edb8ba969d6fdb30732d33fff4ec">press</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1add4b40cf62454b7533cfaa6481325c6a">release</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a151aa26a19beca73e3af724fa56808e6">click</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a1a825e3b028a74b351070468118f4c8c">pressing</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91">hold</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a4a0bb4a5b702398f051c0de78a3e4d5a">hold</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025">holding</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1aabb3f562851185af17b19c35bbea2afd">holding</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4">step</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a499511ff69ff95ac3f88ddb0ab53c390">step</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872">hasClicks</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1ab2e93c61b9862a0b82a4957316646a1c">hasClicks</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a03a1baee78264505a8d33690e3a91d2e">getClicks</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1add38d1e6687ebee0df64c3e2f5502d7c">getSteps</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d">releaseHold</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a79873f1bd68e199bfae83437e8ff9011">releaseHold</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a11c355bb449932ef49276d2c191f436b">releaseStep</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1ac0944855154d9903defeaf137f1049df">releaseStep</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a527d4fbbceb1fd5b8ecfb9112b068e83">waiting</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a2edf056136c8cd9c830afb7e6811d1fa">busy</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link> <link linkend="_class_virt_button_1a9a6b3481ae19a239bcc9fb7b3ab3fd47">action</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link> (uint16_t tout)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a12e463e8d316cb0a93620786a4d1a04d">pressFor</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436">holdFor</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1ae2ad9099e39b6eea1b30f2ffdcbf1a9f">holdFor</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a962ce110e4bca21fde8544c88023723a">stepFor</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link> (<link linkend="_class_virt_button">VirtButton</link> &amp;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>, <link linkend="_class_virt_button">VirtButton</link> &amp;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a12414d2af49e1b02c9cedcb6619503f5">tick</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a74cadea61f398fbb590514715d065fee">tickRaw</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a5a921ae41835ec42e9e773b0bce3db7d">setButtonLevel</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>) <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>) <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>) <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> <link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>, <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">v</link>) <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> <link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link> (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>, <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">y</link>) <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> <link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> <link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link> = <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">nullptr</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link> = 50</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link> = (500 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link> = (600 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> <link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link> = (200 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00056">56</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_virt_button_1a9a6b3481ae19a239bcc9fb7b3ab3fd47"/><section>
+    <title>action()</title>
+<indexterm><primary>action</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>action</secondary></indexterm>
+<para><computeroutput><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link> VirtButton::action ( )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Get the action corresponding to the current flag combination.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The action corresponding to the current flag combination. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00246">246</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0b111111111)&#32;{
+00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>):
+00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_PRESS</link>;
+00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>):
+00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_HOLD</link>;
+00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>):
+00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_STEP</link>;
+00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>):
+00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_RELEASE</link>;
+00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>):
+00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_CLICK</link>;
+00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>):
+00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_CLICKS</link>;
+00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_HOLD</link>;
+00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_HOLD_C</link>;
+00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_STEP</link>;
+00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_STEP_C</link>;
+00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_NONE</link>;
+00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00273 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a97c03ff8b2bdbebdbe69a14c92f50ebe"/><section>
+    <title>attach_call()</title>
+<indexterm><primary>attach_call</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>attach_call</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::attach_call (<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> callback_func)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Attach a callback function to handle button events. The callback will be called when button events occur. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callback_func</entry><entry>
+<para>pointer to the callback function </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if the callback is attached, false otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00137">137</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;
+00138 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;=&#32;*<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>;
+00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00142 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00144 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a2edf056136c8cd9c830afb7e6811d1fa"/><section>
+    <title>busy()</title>
+<indexterm><primary>busy</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>busy</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::busy ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00237">237</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00239 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a2b86f0d1725aa68e4b52ea74d98321b7"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::clear ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00122">122</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;
+00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>))&#32;{
+00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00127 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a151aa26a19beca73e3af724fa56808e6"/><section>
+    <title>click()</title>
+<indexterm><primary>click</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>click</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::click ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00162">162</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00164 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8"/><section>
+    <title>clr_btn_flag()</title>
+<indexterm><primary>clr_btn_flag</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>clr_btn_flag</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::clr_btn_flag (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00503">503</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00503 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00504 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;&amp;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">~x</link>;
+00505 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1aa636d6f296e23877c7e87b09b018860d"/><section>
+    <title>detach_call()</title>
+<indexterm><primary>detach_call</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>detach_call</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::detach_call ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00147">147</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00148 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+00150 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00151 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7"/><section>
+    <title>eq_btn_flag()</title>
+<indexterm><primary>eq_btn_flag</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>eq_btn_flag</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::eq_btn_flag (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> x, <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> y)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00513">513</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00513 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(flags&#32;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>)&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">y</link>;
+00515 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a03a1baee78264505a8d33690e3a91d2e"/><section>
+    <title>getClicks()</title>
+<indexterm><primary>getClicks</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>getClicks</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::getClicks ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00202">202</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>;
+00204 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1add38d1e6687ebee0df64c3e2f5502d7c"/><section>
+    <title>getSteps()</title>
+<indexterm><primary>getSteps</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>getSteps</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::getSteps ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00206">206</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00207 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00208 <emphasis role="preprocessor">#ifdef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;?&#32;((<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;+&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;-&#32;1)&#32;/&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>)&#32;:&#32;0;&#32;&#32;
+00210 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;?&#32;((<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;+&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;-&#32;1)&#32;/&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;:&#32;0;
+00212 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00213 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00215 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872"/><section>
+    <title>hasClicks()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>hasClicks</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>hasClicks</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::hasClicks ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00194">194</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);
+00196 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1ab2e93c61b9862a0b82a4957316646a1c"/><section>
+    <title>hasClicks()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>hasClicks</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>hasClicks</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::hasClicks (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00198">198</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872">hasClicks</link>();
+00200 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91"/><section>
+    <title>hold()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>hold</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>hold</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::hold ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00170">170</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>);
+00172 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a4a0bb4a5b702398f051c0de78a3e4d5a"/><section>
+    <title>hold()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>hold</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>hold</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::hold (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00174">174</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91">hold</link>();
+00176 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436"/><section>
+    <title>holdFor()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>holdFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>holdFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::holdFor ( )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Calculates the duration for which the button has been held.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The duration in milliseconds. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00313">313</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00314 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;{
+00316 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>;
+00318 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>);
+00320 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00322 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00324 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1ae2ad9099e39b6eea1b30f2ffdcbf1a9f"/><section>
+    <title>holdFor()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>holdFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>holdFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::holdFor (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> ms)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Checks if the button has been held for a specified duration.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ms</entry><entry>
+<para>The duration in milliseconds. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>True if the button has been held for the specified duration, false otherwise. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00332">332</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436">holdFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00334 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025"/><section>
+    <title>holding()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>holding</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>holding</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::holding ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00178">178</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00180 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1aabb3f562851185af17b19c35bbea2afd"/><section>
+    <title>holding()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>holding</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>holding</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::holding (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00182">182</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025">holding</link>();
+00184 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc"/><section>
+    <title>init()</title>
+<indexterm><primary>init</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>init</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::init ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00060">60</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1abb46734e4374bcd7047e0a641bef62ac">setHoldTimeout</link>();
+00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e">setStepTimeout</link>();
+00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b">setClickTimeout</link>();
+00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a">setDebounceTimeout</link>();
+00065 
+00066 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a80522eab183bc908bd3363e2850e0981"/><section>
+    <title>pollBtn()</title>
+<indexterm><primary>pollBtn</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>pollBtn</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::pollBtn (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> s)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00391">391</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00391 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>))&#32;{
+00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>);
+00394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>&#32;=&#32;1;
+00395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>&#32;^=&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>);
+00396 
+00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>))&#32;{
+00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00401 
+00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>&#32;=&#32;<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>();
+00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>&#32;-&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>;
+00404 
+00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>))&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>)&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;&#32;
+00408 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>&#32;||&#32;!<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;
+00412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>);&#32;&#32;&#32;&#32;&#32;&#32;
+00413 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00415 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;
+00417 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00418 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00419 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;
+00420 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;{
+00421 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;{&#32;&#32;
+00422 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>)&#32;{&#32;&#32;
+00424 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00425 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;{&#32;&#32;
+00426 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00427 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);&#32;
+00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00429 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;
+00431 <emphasis role="preprocessor">#ifdef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;?&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;:&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>))&#32;{
+00433 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00434 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;?&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;:&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)))&#32;{
+00435 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>);&#32;&#32;
+00437 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00438 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00439 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00440 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00441 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00443 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>))&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00444 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00445 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>++;&#32;&#32;&#32;&#32;
+00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;&#32;&#32;
+00447 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00448 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00450 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>))&#32;{
+00451 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;{
+00452 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00453 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00454 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>);
+00455 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00456 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>)&#32;{&#32;&#32;
+00457 <emphasis role="preprocessor">#ifdef&#32;EB_CLICK_TIME&#x240D;</emphasis>
+00458 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;||&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);&#32;&#32;
+00459 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00460 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;||&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);&#32;&#32;
+00461 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00462 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>)&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;0;
+00464 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00465 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>))&#32;{
+00466 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>);
+00468 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00469 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;0;
+00470 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00471 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;<emphasis role="comment">//&#32;test!!</emphasis>
+00472 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00473 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>))&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>);&#32;&#32;
+00474 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00475 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00476 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a0405edb8ba969d6fdb30732d33fff4ec"/><section>
+    <title>press()</title>
+<indexterm><primary>press</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>press</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::press ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00154">154</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>);
+00156 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59"/><section>
+    <title>pressFor()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>pressFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>pressFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::pressFor ( )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Returns the duration in milliseconds for which the button has been pressed. If the EB_NO_PEDOMETER macro is defined, the function always returns 0. If the button is not currently pressed, the function also returns 0.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The duration in milliseconds for which the button has been pressed. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00297">297</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00298 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>()&#32;-&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>;
+00300 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00302 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a12e463e8d316cb0a93620786a4d1a04d"/><section>
+    <title>pressFor()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>pressFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>pressFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::pressFor (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> ms)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00304">304</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00306 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a1a825e3b028a74b351070468118f4c8c"/><section>
+    <title>pressing()</title>
+<indexterm><primary>pressing</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>pressing</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::pressing ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00166">166</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>);
+00168 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1aa556b513fa0e2c59d3f55954eeb0ff15"/><section>
+    <title>pressISR()</title>
+<indexterm><primary>pressISR</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>pressISR</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::pressISR ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00112">112</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>))&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>();
+00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>);
+00115 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44"/><section>
+    <title>read_btn_flag()</title>
+<indexterm><primary>read_btn_flag</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>read_btn_flag</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::read_btn_flag (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00506">506</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00506 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;flags&#32;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>;
+00508 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1add4b40cf62454b7533cfaa6481325c6a"/><section>
+    <title>release()</title>
+<indexterm><primary>release</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>release</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::release ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00158">158</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>);
+00160 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d"/><section>
+    <title>releaseHold()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>releaseHold</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>releaseHold</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::releaseHold ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00217">217</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00219 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a79873f1bd68e199bfae83437e8ff9011"/><section>
+    <title>releaseHold()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>releaseHold</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>releaseHold</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::releaseHold (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00221">221</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00223 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a11c355bb449932ef49276d2c191f436b"/><section>
+    <title>releaseStep()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>releaseStep</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>releaseStep</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::releaseStep ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00225">225</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>);
+00227 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1ac0944855154d9903defeaf137f1049df"/><section>
+    <title>releaseStep()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>releaseStep</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>releaseStep</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::releaseStep (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00229">229</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>);
+00231 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a7e0ca1c632bcc03a4134ecc849b1690d"/><section>
+    <title>reset()</title>
+<indexterm><primary>reset</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>reset</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::reset ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00117">117</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;
+00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(~<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>);
+00120 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e"/><section>
+    <title>set_btn_flag()</title>
+<indexterm><primary>set_btn_flag</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>set_btn_flag</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::set_btn_flag (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> x)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00500">500</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00500 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00501 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;|=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>;
+00502 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea"/><section>
+    <title>setBtnLevel()</title>
+<indexterm><primary>setBtnLevel</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setBtnLevel</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setBtnLevel (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> level)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00108">108</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>,&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>);
+00110 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a5a921ae41835ec42e9e773b0bce3db7d"/><section>
+    <title>setButtonLevel()</title>
+<indexterm><primary>setButtonLevel</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setButtonLevel</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setButtonLevel (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> level)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00385">385</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>,&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>);
+00387 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b"/><section>
+    <title>setClickTimeout()</title>
+<indexterm><primary>setClickTimeout</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setClickTimeout</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setClickTimeout (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> timeout = <computeroutput>500</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Sets the click timeout for the virtual button. Clicks faster than this timeout will be detected. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>timeout</entry><entry>
+<para>The click timeout value in milliseconds. Default is 500 milliseconds. Max is 4000ms. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00096">96</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00097 <emphasis role="preprocessor">#ifndef&#32;EB_CLICK_TIME&#x240D;</emphasis>
+00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00099 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00100 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a"/><section>
+    <title>setDebounceTimeout()</title>
+<indexterm><primary>setDebounceTimeout</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setDebounceTimeout</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setDebounceTimeout (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> timeout = <computeroutput>50</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00102">102</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00103 <emphasis role="preprocessor">#ifndef&#32;EB_DEB_TIME&#x240D;</emphasis>
+00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>&#32;&lt;&#32;255)&#32;?&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>&#32;:&#32;255;
+00105 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00106 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1abb46734e4374bcd7047e0a641bef62ac"/><section>
+    <title>setHoldTimeout()</title>
+<indexterm><primary>setHoldTimeout</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setHoldTimeout</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setHoldTimeout (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> timeout = <computeroutput>600</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Sets the hold timeout for the virtual button. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>timeout</entry><entry>
+<para>The hold timeout value in milliseconds. Default is 600 milliseconds. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>max timeout is 4000 ms </para>
+</note>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00074">74</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00075 <emphasis role="preprocessor">#ifndef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00077 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00078 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e"/><section>
+    <title>setStepTimeout()</title>
+<indexterm><primary>setStepTimeout</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>setStepTimeout</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::setStepTimeout (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> timeout = <computeroutput>200</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Sets the step timeout for the virtual button. 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>timeout</entry><entry>
+<para>The timeout value in milliseconds. Default is 200 milliseconds. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>max timeout is 4000 ms </para>
+</note>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00085">85</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00086 <emphasis role="preprocessor">#ifndef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00088 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00089 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4"/><section>
+    <title>step()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>step</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>step</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::step ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00186">186</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>);
+00188 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a499511ff69ff95ac3f88ddb0ab53c390"/><section>
+    <title>step()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>step</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>step</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::step (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> num)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00190">190</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4">step</link>();
+00192 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1ab4d8ead514781eb48beccb544540b125"/><section>
+    <title>stepFor()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>stepFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>stepFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::stepFor ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00336">336</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00337 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>))&#32;{
+00339 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;*&#32;2;
+00341 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;*&#32;2;
+00343 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00345 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00347 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a962ce110e4bca21fde8544c88023723a"/><section>
+    <title>stepFor()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>stepFor</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>stepFor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::stepFor (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> ms)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00349">349</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00351 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a12414d2af49e1b02c9cedcb6619503f5"/><section>
+    <title>tick()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>tick</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>tick</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::tick (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00368">368</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00368 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a2b86f0d1725aa68e4b52ea74d98321b7">clear</link>();
+00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>&#32;=&#32;<link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>);
+00371 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>();
+00373 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>;
+00375 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193"/><section>
+    <title>tick()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>tick</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>tick</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::tick (<link linkend="_class_virt_button">VirtButton</link> &amp; b0, <link linkend="_class_virt_button">VirtButton</link> &amp; b1)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00354">354</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>))&#32;{
+00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing()&#32;&amp;&amp;&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>);
+00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing())&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.reset();
+00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.reset();
+00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.clear();
+00360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.clear();
+00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(1);
+00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing()&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>);
+00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(0);
+00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00366 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a74cadea61f398fbb590514715d065fee"/><section>
+    <title>tickRaw()</title>
+<indexterm><primary>tickRaw</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>tickRaw</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::tickRaw (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> state)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00378">378</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>);
+00380 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0"/><section>
+    <title>timeout()</title>
+<indexterm><primary>timeout</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>timeout</secondary></indexterm>
+<para><computeroutput>bool VirtButton::timeout (uint16_t tout)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Checks if the timeout has occurred.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>tout</entry><entry>
+<para>The timeout value in milliseconds. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>True if the timeout has occurred, false otherwise. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00282">282</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>)&#32;&amp;&amp;&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>()&#32;-&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>)&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">tout</link>)&#32;{
+00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>);
+00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00288 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a527d4fbbceb1fd5b8ecfb9112b068e83"/><section>
+    <title>waiting()</title>
+<indexterm><primary>waiting</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>waiting</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> VirtButton::waiting ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00233">233</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>,&#32;0);
+00235 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58"/><section>
+    <title>write_btn_flag()</title>
+<indexterm><primary>write_btn_flag</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>write_btn_flag</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">void</link> VirtButton::write_btn_flag (<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">const</link> <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> x, <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">bool</link> v)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00509">509</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00509 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">v</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>);
+00511 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>);
+00512 &#32;&#32;&#32;&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734"/><section>
+    <title>cb</title>
+<indexterm><primary>cb</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>cb</secondary></indexterm>
+<para><computeroutput><link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link> VirtButton::cb = <link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">nullptr</link><computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00484">484</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159"/><section>
+    <title>clicks</title>
+<indexterm><primary>clicks</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>clicks</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::clicks</computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00382">382</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707"/><section>
+    <title>EB_CLICK_T</title>
+<indexterm><primary>EB_CLICK_T</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>EB_CLICK_T</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::EB_CLICK_T = (500 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00491">491</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df"/><section>
+    <title>EB_DEB_T</title>
+<indexterm><primary>EB_DEB_T</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>EB_DEB_T</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::EB_DEB_T = 50<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00488">488</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1a26f084309609e463cca76339d16970dc"/><section>
+    <title>EB_HOLD_T</title>
+<indexterm><primary>EB_HOLD_T</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>EB_HOLD_T</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::EB_HOLD_T = (600 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00494">494</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118"/><section>
+    <title>EB_STEP_T</title>
+<indexterm><primary>EB_STEP_T</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>EB_STEP_T</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link> VirtButton::EB_STEP_T = (200 &gt;&gt; <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00497">497</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045"/><section>
+    <title>run_timer</title>
+<indexterm><primary>run_timer</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>run_timer</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::run_timer = 0<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00480">480</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1"/><section>
+    <title>timer</title>
+<indexterm><primary>timer</primary><secondary>VirtButton</secondary></indexterm>
+<indexterm><primary>VirtButton</primary><secondary>timer</secondary></indexterm>
+<para><computeroutput><link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link> VirtButton::timer = 0<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00478">478</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+src/core/<link linkend="__virt_button_8h">VirtButton.h</link></section>
+</section>

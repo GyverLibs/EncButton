@@ -1,3 +1,8 @@
+/**
+ * @file Button.h
+ * @brief Button class for handling button presses and debouncing.
+ */
+
 #pragma once
 #include <Arduino.h>
 
@@ -6,50 +11,62 @@
 
 // ============= VAR PIN =============
 
+/**
+ * @brief Represents a button that extends the VirtButton class.
+ * 
+ * The Button class provides functionality to read the state of a button,
+ * update the internal state machine, and perform initialization.
+ */
 class Button : public VirtButton {
    public:
-    // Button(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
-        // init(npin, mode, btnLevel);
-    // }
-
-    Button(uint8_t npin) : mode(INPUT_PULLUP), btnLevel(LOW) {
-        init(npin, mode, btnLevel);
-    }
-
-    void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
-        pin = npin;
-        pinMode(pin, mode);
-        setBtnLevel(btnLevel);
-    }
+    /**
+     * @brief Constructs a Button object with the specified pin number.
+     * 
+     * @param npin The pin number to which the button is connected.
+     */
+    Button(uint8_t npin);
 
     /**
-     * Reads the raw pin state for this button instance.
+     * @brief Initializes the button with the specified pin, mode, and button level.
+     * 
+     * @param npin The pin number to which the button is connected.
+     * @param mode The mode of the pin (INPUT, INPUT_PULLUP, etc.).
+     * @param btnLevel The active level of the button (LOW or HIGH).
+     */
+    void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW);
+
+    /**
+     * @brief Reads the raw pin state for this button instance.
+     * 
      * Performs an XOR against the configured active level
      * to return the logical button state.
+     * 
+     * @return The logical state of the button (true for pressed, false for released).
      */
-    bool read()
-    {
-        return EBread(pin) ^ read_bf(EB_INV);
-    }
+    bool read();
 
     /**
-     * Reads the button state and updates the internal state machine.
+     * @brief Reads the button state and updates the internal state machine.
+     * 
      * Calls the parent VirtButton::tick() method to update
      * the debounced/held state based on the latest raw pin reading.
+     * 
+     * @return The updated state of the button (true for pressed, false for released).
      */
-    bool tick()  
-    {
-        return VirtButton::tick(EBread(pin));
-    }
+    bool tick();
 
-    bool tickRaw() {
-        return VirtButton::tickRaw(EBread(pin));
-    }
+    /**
+     * @brief Reads the raw pin state for this button instance and updates the internal state machine.
+     * 
+     * Calls the parent VirtButton::tickRaw() method to update
+     * the debounced/held state based on the latest raw pin reading.
+     * 
+     * @return The updated state of the button (true for pressed, false for released).
+     */
+    bool tickRaw();
 
    private:
     uint8_t pin;
-    uint8_t mode;
-    uint8_t btnLevel;
 };
 
 // ============= TEMPLATE PIN =============
@@ -67,7 +84,7 @@ class ButtonT : public VirtButton {
     }
 
     bool read() {
-        return EBread(PIN) ^ read_bf(EB_INV);
+        return EBread(PIN) ^ read_btn_flag(B_INV);
     }
 
     bool tick() {

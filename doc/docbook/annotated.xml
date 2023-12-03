@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_button">Button</link>
+<para>Represents a button that extends the <link linkend="_class_virt_button">VirtButton</link> class </para>
+<link linkend="_class_button_t">ButtonT&lt; PIN &gt;</link><link linkend="_class_enc_button">EncButton</link>
+<para>A class that represents an encoder button </para>
+<link linkend="_class_enc_button_t">EncButtonT&lt; ENCA, ENCB, BTN &gt;</link><link linkend="_class_encoder">Encoder</link>
+<para><link linkend="_class_encoder">Encoder</link> device </para>
+<link linkend="_class_encoder_t">EncoderT&lt; ENCA, ENCB &gt;</link><link linkend="_class_virt_button">VirtButton</link><link linkend="_class_virt_enc_button">VirtEncButton</link>
+<para>A class representing a virtual encoder button </para>
+<link linkend="_class_virt_encoder">VirtEncoder</link>
+<para>A class representing a virtual encoder. This class provides methods to set the encoder&apos;s properties, attach_call callback functions for handling encoder events, and poll the encoder for rotation and direction </para>
+</section>

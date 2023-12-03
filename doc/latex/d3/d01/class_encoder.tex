@@ -1,0 +1,974 @@
+\doxysection{Encoder Class Reference}
+\hypertarget{class_encoder}{}\label{class_encoder}\index{Encoder@{Encoder}}
+
+
+The \doxylink{class_encoder}{Encoder} class represents an encoder device.  
+
+
+
+
+{\ttfamily \#include $<$Encoder.\+h$>$}
+
+Inheritance diagram for Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/d01/class_encoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_encoder_afa2f29643453e2a3daeac00b0eaec48e}{Encoder}} (uint8\+\_\+t encA=0, uint8\+\_\+t encB=0, uint8\+\_\+t mode=INPUT)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_encoder}{Encoder} object with the specified pin numbers and mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_encoder_adf55c5cca9a90167e22508fe6cdded45}{init}} (uint8\+\_\+t encA=0, uint8\+\_\+t encB=0, uint8\+\_\+t mode=INPUT)
+\begin{DoxyCompactList}\small\item\em Initializes the encoder with the specified pin numbers and mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_encoder_aba6517e3652d6b92b55e9b9a0b2a8667}{tick\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Performs a tick operation on the encoder using an interrupt service routine (ISR). \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_encoder_a10b27af0b62a9bc4138f861ab19c4b08}{tick}} ()
+\begin{DoxyCompactList}\small\item\em Performs a tick operation on the encoder. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_encoder_a81df852424a4b900d9ad92429405aae3}{tick\+Raw}} ()
+\begin{DoxyCompactList}\small\item\em Performs a raw tick operation on the encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_ad161c0d2a29621731ff89d250ddd8a4f}{set\+Enc\+Reverse}} (bool rev=false)
+\begin{DoxyCompactList}\small\item\em Set the encoder\textquotesingle{}s reverse flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_aade2ae205e9ec50bed6d76ce3c0f33a9}{set\+Enc\+Type}} (uint8\+\_\+t type=\mbox{\hyperlink{_virt_encoder_8h_ab5c622eaea29916b55c4b2f8023cbbe3}{EB\+\_\+\+STEP1}})
+\begin{DoxyCompactList}\small\item\em Set the encoder\textquotesingle{}s type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_a5d17150b3610b8978bdde0540c1e1c55}{set\+Enc\+ISR}} (bool use=true)
+\begin{DoxyCompactList}\small\item\em Set the encoder\textquotesingle{}s interrupt service routine. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_virt_encoder_ae8b27255ffb4264dd2ed1110c9926191}{attach\+\_\+right}} (\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} callback\+\_\+func)
+\begin{DoxyCompactList}\small\item\em Attach a callback function to handle encoder events when turned right. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_virt_encoder_a96eb6f113c8af74ad511ee646f4159f4}{attach\+\_\+left}} (\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} callback\+\_\+func)
+\begin{DoxyCompactList}\small\item\em Attach a callback function to handle encoder events when turned left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_a3a32f66b8b6888e75bb17e6ad88f12f0}{detach\+\_\+call}} ()
+\begin{DoxyCompactList}\small\item\em Detach the callback functions for handling encoder events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_a5cb9dd003233ebe80ec7c8946492c961}{init\+Enc}} (bool e0, bool e1)
+\begin{DoxyCompactList}\small\item\em Initialize the encoder with the specified values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_ad2702e1e7ea1b8bd1e9eea976fc61077}{init\+Enc}} (int8\+\_\+t v)
+\begin{DoxyCompactList}\small\item\em Initialize the encoder with the specified value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_virt_encoder_a7a265f7e7e8758ef555fc42d6d23efd5}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear the encoder flags. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_virt_encoder_a25ad5e989164bdf4d10a83a1057a0001}{turn}} ()
+\begin{DoxyCompactList}\small\item\em Check if the encoder has been turned. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_abf07cf920815fecb1438b28a4c29f52d}{dir}} ()
+\begin{DoxyCompactList}\small\item\em Get the direction of rotation of the encoder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}} \mbox{\hyperlink{class_virt_encoder_a39814605b70ce60f2a27755571362b76}{action}} ()
+\begin{DoxyCompactList}\small\item\em Representing the possible flags for the encoder. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a80e335bb4c1af4f1e209a874df16beef}{tick\+ISR}} (bool e0, bool e1)
+\begin{DoxyCompactList}\small\item\em Process the encoder tick using the interrupt service routine. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a9cedefb68bb0cd0ac9ed2a2804c3c818}{tick\+ISR}} (int8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Process the encoder tick using the interrupt service routine. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a247cc0576b95540bb3cc94fe34a3879e}{tick}} (bool e0, bool e1)
+\begin{DoxyCompactList}\small\item\em Process the encoder tick. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_ae452240d0eb1cc8bfc00c6fa52691cb1}{tick}} (int8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Process the encoder tick. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a19e253eba8cdb651f472635511f4ea2f}{tick\+Raw}} (bool e0, bool e1)
+\begin{DoxyCompactList}\small\item\em Process the encoder tick without clearing the turn flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{tick\+Raw \texorpdfstring{$<$}{<}br\texorpdfstring{$>$}{>}}
+Process the encoder tick without clearing the turn flag.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & the current state of the encoder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a439bdcec3f5dc165e4a4ed8b8fdb9035}{tick\+Raw}} (int8\+\_\+t state)
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e}{poll\+Enc}} (bool e0, bool e1)
+\begin{DoxyCompactList}\small\item\em Poll the encoder without setting the turn flag. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_virt_encoder_a0257b348f0139e7a8fed629bb8acbde0}{poll\+Enc}} (int8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Poll the encoder without setting the turn flag. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{class_virt_encoder_a966668cc0a577818e294a4084b4dabea}{counter}} = 0
+\item 
+\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}} \mbox{[}2\mbox{]} = \{nullptr, nullptr\}
+\item 
+void \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\+\_\+encf}} (const uint16\+\_\+t x) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline))
+\item 
+void \mbox{\hyperlink{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}{clr\+\_\+encf}} (const uint16\+\_\+t x) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline))
+\item 
+void \mbox{\hyperlink{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724}{write\+\_\+encf}} (const uint16\+\_\+t x, bool v) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline))
+\item 
+bool \mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\+\_\+encf}} (const uint16\+\_\+t x) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_encoder}{Encoder} class represents an encoder device. 
+
+This class inherits from the \doxylink{class_virt_encoder}{Virt\+Encoder} class and provides additional functionality for initializing and reading the encoder. 
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00017}{17}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_encoder_afa2f29643453e2a3daeac00b0eaec48e}\label{class_encoder_afa2f29643453e2a3daeac00b0eaec48e} 
+\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{Encoder()}{Encoder()}}
+{\footnotesize\ttfamily Encoder\+::\+Encoder (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{encA = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{encB = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{mode = {\ttfamily INPUT} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs an \doxylink{class_encoder}{Encoder} object with the specified pin numbers and mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encA} & The pin number for encoder A. \\
+\hline
+{\em encB} & The pin number for encoder B. \\
+\hline
+{\em mode} & The mode of the pins (INPUT, OUTPUT, INPUT\+\_\+\+PULLUP, etc.). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00026}{26}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_encoder_adf55c5cca9a90167e22508fe6cdded45}{init}}(encA,\ encB,\ mode);}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_virt_encoder_a39814605b70ce60f2a27755571362b76}\label{class_virt_encoder_a39814605b70ce60f2a27755571362b76} 
+\index{Encoder@{Encoder}!action@{action}}
+\index{action@{action}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{action()}{action()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}} Virt\+Encoder\+::action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Representing the possible flags for the encoder. 
+
+\begin{DoxyReturn}{Returns}
+EB\+\_\+\+FLAGS\+\_\+T can have the following values\+:
+\begin{DoxyItemize}
+\item EB\+\_\+\+TURN\+: Represents the flag for turning action.
+\item EB\+\_\+\+TURN\+\_\+L\+: Represents the flag for left turning action.
+\item EB\+\_\+\+TURN\+\_\+R\+: Represents the flag for right turning action.
+\item EB\+\_\+\+NONE\+: Represents the flag for no action. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00182}{182}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (flags\ \&\ 0b111111111)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(E\_TRN\_R\ |\ E\_FAST):}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EB\_TURN;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(E\_TRN\_R\ |\ E\_DIR\ |\ E\_REVERSE):}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EB\_TURN\_L;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(E\_TRN\_R\ |\ E\_DIR):}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EB\_TURN\_R;\ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EB\_NONE;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a96eb6f113c8af74ad511ee646f4159f4}\label{class_virt_encoder_a96eb6f113c8af74ad511ee646f4159f4} 
+\index{Encoder@{Encoder}!attach\_left@{attach\_left}}
+\index{attach\_left@{attach\_left}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{attach\_left()}{attach\_left()}}
+{\footnotesize\ttfamily bool Virt\+Encoder\+::attach\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}}}]{callback\+\_\+func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Attach a callback function to handle encoder events when turned left. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em callback\+\_\+func} & pointer to the callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the callback is attached, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00105}{105}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ uint8\_t\ l\_r\ =\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_REVERSE))\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback\_func\ ==\ \textcolor{keyword}{nullptr}\ ||\ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[l\_r])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[l\_r]\ =\ *callback\_func;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_ae8b27255ffb4264dd2ed1110c9926191}\label{class_virt_encoder_ae8b27255ffb4264dd2ed1110c9926191} 
+\index{Encoder@{Encoder}!attach\_right@{attach\_right}}
+\index{attach\_right@{attach\_right}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{attach\_right()}{attach\_right()}}
+{\footnotesize\ttfamily bool Virt\+Encoder\+::attach\+\_\+right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}}}]{callback\+\_\+func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Attach a callback function to handle encoder events when turned right. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em callback\+\_\+func} & pointer to the callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+callback\+\_\+func can be "{}cb\+\_\+t"{} type 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the callback is attached, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00089}{89}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ uint8\_t\ l\_r\ =\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_REVERSE))\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback\_func\ ==\ \textcolor{keyword}{nullptr}\ ||\ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[l\_r])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[l\_r]\ =\ *callback\_func;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a7a265f7e7e8758ef555fc42d6d23efd5}\label{class_virt_encoder_a7a265f7e7e8758ef555fc42d6d23efd5} 
+\index{Encoder@{Encoder}!clear@{clear}}
+\index{clear@{clear}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Clear the encoder flags. 
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00150}{150}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_TRN\_R))\ \mbox{\hyperlink{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}{clr\_encf}}(E\_TRN\_R);}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}\label{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab} 
+\index{Encoder@{Encoder}!clr\_encf@{clr\_encf}}
+\index{clr\_encf@{clr\_encf}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{clr\_encf()}{clr\_encf()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::clr\+\_\+encf (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00350}{350}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ flags\ \&=\ \string~x;}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a3a32f66b8b6888e75bb17e6ad88f12f0}\label{class_virt_encoder_a3a32f66b8b6888e75bb17e6ad88f12f0} 
+\index{Encoder@{Encoder}!detach\_call@{detach\_call}}
+\index{detach\_call@{detach\_call}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{detach\_call()}{detach\_call()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::detach\+\_\+call (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Detach the callback functions for handling encoder events. 
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00121}{121}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[0]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[1]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_abf07cf920815fecb1438b28a4c29f52d}\label{class_virt_encoder_abf07cf920815fecb1438b28a4c29f52d} 
+\index{Encoder@{Encoder}!dir@{dir}}
+\index{dir@{dir}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{dir()}{dir()}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Get the direction of rotation of the encoder. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 if rotated left, 1 if rotated right 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00170}{170}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_DIR)\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_encoder_adf55c5cca9a90167e22508fe6cdded45}\label{class_encoder_adf55c5cca9a90167e22508fe6cdded45} 
+\index{Encoder@{Encoder}!init@{init}}
+\index{init@{init}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Encoder\+::init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{encA = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{encB = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{mode = {\ttfamily INPUT} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes the encoder with the specified pin numbers and mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encA} & The pin number for encoder A. \\
+\hline
+{\em encB} & The pin number for encoder B. \\
+\hline
+{\em mode} & The mode of the pins (INPUT, OUTPUT, INPUT\+\_\+\+PULLUP, etc.). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00037}{37}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ e0\ =\ encA;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ e1\ =\ encB;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ pinMode(e0,\ mode);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ pinMode(e1,\ mode);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a5cb9dd003233ebe80ec7c8946492c961}{initEnc}}(readEnc());}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a5cb9dd003233ebe80ec7c8946492c961}\label{class_virt_encoder_a5cb9dd003233ebe80ec7c8946492c961} 
+\index{Encoder@{Encoder}!initEnc@{initEnc}}
+\index{initEnc@{initEnc}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{initEnc()}{initEnc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::init\+Enc (\begin{DoxyParamCaption}\item[{bool}]{e0,  }\item[{bool}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Initialize the encoder with the specified values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e0} & the value of the first encoder pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em e1} & the value of the second encoder pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00134}{134}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a5cb9dd003233ebe80ec7c8946492c961}{initEnc}}(e0\ |\ (e1\ <<\ 1));}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_ad2702e1e7ea1b8bd1e9eea976fc61077}\label{class_virt_encoder_ad2702e1e7ea1b8bd1e9eea976fc61077} 
+\index{Encoder@{Encoder}!initEnc@{initEnc}}
+\index{initEnc@{initEnc}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{initEnc()}{initEnc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::init\+Enc (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Initialize the encoder with the specified value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v} & the initial value of the encoder \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00143}{143}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ prev\ =\ v;}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e}\label{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e} 
+\index{Encoder@{Encoder}!pollEnc@{pollEnc}}
+\index{pollEnc@{pollEnc}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{pollEnc()}{pollEnc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::poll\+Enc (\begin{DoxyParamCaption}\item[{bool}]{e0,  }\item[{bool}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Poll the encoder without setting the turn flag. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e0} & the value of the first encoder pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em e1} & the value of the second encoder pin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00305}{305}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e}{pollEnc}}(e0\ |\ (e1\ <<\ 1));}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a0257b348f0139e7a8fed629bb8acbde0}\label{class_virt_encoder_a0257b348f0139e7a8fed629bb8acbde0} 
+\index{Encoder@{Encoder}!pollEnc@{pollEnc}}
+\index{pollEnc@{pollEnc}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{pollEnc()}{pollEnc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::poll\+Enc (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Poll the encoder without setting the turn flag. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & the current state of the encoder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00315}{315}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\ !=\ state)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ ecount\ +=\ ((0x49941661\ >>\ ((state\ |\ (prev\ <<\ 2))\ <<\ 1))\ \&\ 0b11)\ -\/\ 1;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ state;}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ecount)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (flags\ \&\ 0b11)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_virt_encoder_8h_aeb2be3bd32d8e97a7d1cdd912896e414}{EB\_STEP4\_LOW}}:}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\ !=\ 0b11)\ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ skip\ 00,\ 01,\ 10}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_virt_encoder_8h_ac884883a546362d9ecce60cba2590128}{EB\_STEP4\_HIGH}}:}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ skip\ 01,\ 10,\ 11}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_virt_encoder_8h_a8f1e0ffc5b198284f3e41bb44819b4f4}{EB\_STEP2}}:}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ 0b10\ ||\ state\ ==\ 0b01)\ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ skip\ 10\ 01}}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ ((ecount\ >\ 0)\ \string^\ \mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_REVERSE))\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ ecount\ =\ 0;}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_COUNTER }}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a966668cc0a577818e294a4084b4dabea}{counter}}\ +=\ state;}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00339\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}\label{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef} 
+\index{Encoder@{Encoder}!read\_encf@{read\_encf}}
+\index{read\_encf@{read\_encf}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{read\_encf()}{read\_encf()}}
+{\footnotesize\ttfamily bool Virt\+Encoder\+::read\+\_\+encf (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00357}{357}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ x;}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}\label{class_virt_encoder_aab174e7ed37b422a27192aedee8be977} 
+\index{Encoder@{Encoder}!set\_encf@{set\_encf}}
+\index{set\_encf@{set\_encf}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{set\_encf()}{set\_encf()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::set\+\_\+encf (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00347}{347}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ flags\ |=\ x;}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a5d17150b3610b8978bdde0540c1e1c55}\label{class_virt_encoder_a5d17150b3610b8978bdde0540c1e1c55} 
+\index{Encoder@{Encoder}!setEncISR@{setEncISR}}
+\index{setEncISR@{setEncISR}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{setEncISR()}{setEncISR()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::set\+Enc\+ISR (\begin{DoxyParamCaption}\item[{bool}]{use = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Set the encoder\textquotesingle{}s interrupt service routine. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em use} & true to use the ISR, false otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Argument "{}use"{} by default is true because name of this function means that it is used to set/activate the ISR. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00078}{78}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724}{write\_encf}}(E\_ISR,\ use);}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_ad161c0d2a29621731ff89d250ddd8a4f}\label{class_virt_encoder_ad161c0d2a29621731ff89d250ddd8a4f} 
+\index{Encoder@{Encoder}!setEncReverse@{setEncReverse}}
+\index{setEncReverse@{setEncReverse}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{setEncReverse()}{setEncReverse()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::set\+Enc\+Reverse (\begin{DoxyParamCaption}\item[{bool}]{rev = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Set the encoder\textquotesingle{}s reverse flag. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rev} & true to reverse the encoder, false otherwise \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00057}{57}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rev)\ \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\_encf}}(E\_REVERSE);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}{clr\_encf}}(E\_REVERSE);}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_aade2ae205e9ec50bed6d76ce3c0f33a9}\label{class_virt_encoder_aade2ae205e9ec50bed6d76ce3c0f33a9} 
+\index{Encoder@{Encoder}!setEncType@{setEncType}}
+\index{setEncType@{setEncType}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{setEncType()}{setEncType()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::set\+Enc\+Type (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type = {\ttfamily \mbox{\hyperlink{_virt_encoder_8h_ab5c622eaea29916b55c4b2f8023cbbe3}{EB\+\_\+\+STEP1}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Set the encoder\textquotesingle{}s type. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & the encoder type to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00067}{67}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ flags\ =\ (flags\ \&\ 0b11111100)\ |\ type;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_encoder_a10b27af0b62a9bc4138f861ab19c4b08}\label{class_encoder_a10b27af0b62a9bc4138f861ab19c4b08} 
+\index{Encoder@{Encoder}!tick@{tick}}
+\index{tick@{tick}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Encoder\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs a tick operation on the encoder. 
+
+If the encoder has an interrupt flag set, it uses the interrupt-\/based tick operation. Otherwise, it uses the regular tick operation.
+
+\begin{DoxyReturn}{Returns}
+The change in encoder position. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00061}{61}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_ISR))}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a47e4135d2e88ea6a2313977aa9307784}{VirtEncoder::tick}}();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a47e4135d2e88ea6a2313977aa9307784}{VirtEncoder::tick}}(readEnc());}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a247cc0576b95540bb3cc94fe34a3879e}\label{class_virt_encoder_a247cc0576b95540bb3cc94fe34a3879e} 
+\index{Encoder@{Encoder}!tick@{tick}}
+\index{tick@{tick}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick (\begin{DoxyParamCaption}\item[{bool}]{e0,  }\item[{bool}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Process the encoder tick. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e0} & the value of the first encoder pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em e1} & the value of the second encoder pin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00228}{228}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a47e4135d2e88ea6a2313977aa9307784}{tick}}(e0\ |\ (e1\ <<\ 1));}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_ae452240d0eb1cc8bfc00c6fa52691cb1}\label{class_virt_encoder_ae452240d0eb1cc8bfc00c6fa52691cb1} 
+\index{Encoder@{Encoder}!tick@{tick}}
+\index{tick@{tick}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Process the encoder tick. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & the current state of the encoder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00238}{238}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ state\ =\ \mbox{\hyperlink{class_virt_encoder_a91ed170018a12988260f3ab33c720bc5}{tickRaw}}(state);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[0]\ \&\&\ state\ <\ 0)\ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[0]();}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[1]\ \&\&\ state\ >\ 0)\ \mbox{\hyperlink{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}{cb}}[1]();}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \ \ \#endif }}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a7a265f7e7e8758ef555fc42d6d23efd5}{clear}}();}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_encoder_aba6517e3652d6b92b55e9b9a0b2a8667}\label{class_encoder_aba6517e3652d6b92b55e9b9a0b2a8667} 
+\index{Encoder@{Encoder}!tickISR@{tickISR}}
+\index{tickISR@{tickISR}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickISR()}{tickISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Encoder\+::tick\+ISR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs a tick operation on the encoder using an interrupt service routine (ISR). 
+
+\begin{DoxyReturn}{Returns}
+The change in encoder position. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00050}{50}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a80e335bb4c1af4f1e209a874df16beef}{VirtEncoder::tickISR}}(readEnc());}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a80e335bb4c1af4f1e209a874df16beef}\label{class_virt_encoder_a80e335bb4c1af4f1e209a874df16beef} 
+\index{Encoder@{Encoder}!tickISR@{tickISR}}
+\index{tickISR@{tickISR}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickISR()}{tickISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick\+ISR (\begin{DoxyParamCaption}\item[{bool}]{e0,  }\item[{bool}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Process the encoder tick using the interrupt service routine. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e0} & the value of the first encoder pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em e1} & the value of the second encoder pin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00202}{202}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a80e335bb4c1af4f1e209a874df16beef}{tickISR}}(e0\ |\ (e1\ <<\ 1));}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a9cedefb68bb0cd0ac9ed2a2804c3c818}\label{class_virt_encoder_a9cedefb68bb0cd0ac9ed2a2804c3c818} 
+\index{Encoder@{Encoder}!tickISR@{tickISR}}
+\index{tickISR@{tickISR}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickISR()}{tickISR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick\+ISR (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Process the encoder tick using the interrupt service routine. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & the current state of the encoder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00212}{212}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ state\ =\ \mbox{\hyperlink{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e}{pollEnc}}(state);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\_encf}}(E\_ISR\_F);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724}{write\_encf}}(E\_DIR,\ state\ >\ 0);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_encoder_a81df852424a4b900d9ad92429405aae3}\label{class_encoder_a81df852424a4b900d9ad92429405aae3} 
+\index{Encoder@{Encoder}!tickRaw@{tickRaw}}
+\index{tickRaw@{tickRaw}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickRaw()}{tickRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Encoder\+::tick\+Raw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs a raw tick operation on the encoder. 
+
+If the encoder has an interrupt flag set, it uses the interrupt-\/based raw tick operation. Otherwise, it uses the regular raw tick operation.
+
+\begin{DoxyReturn}{Returns}
+The change in encoder position. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_encoder_8h_source_l00075}{75}} of file \mbox{\hyperlink{_encoder_8h_source}{Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_ISR))}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a91ed170018a12988260f3ab33c720bc5}{VirtEncoder::tickRaw}}();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a91ed170018a12988260f3ab33c720bc5}{VirtEncoder::tickRaw}}(readEnc());}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a19e253eba8cdb651f472635511f4ea2f}\label{class_virt_encoder_a19e253eba8cdb651f472635511f4ea2f} 
+\index{Encoder@{Encoder}!tickRaw@{tickRaw}}
+\index{tickRaw@{tickRaw}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickRaw()}{tickRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick\+Raw (\begin{DoxyParamCaption}\item[{bool}]{e0,  }\item[{bool}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Process the encoder tick without clearing the turn flag. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em e0} & the value of the first encoder pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em e1} & the value of the second encoder pin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 based on the direction of rotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00268}{268}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a91ed170018a12988260f3ab33c720bc5}{tickRaw}}(e0\ |\ (e1\ <<\ 1));}
+\DoxyCodeLine{00270\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a439bdcec3f5dc165e4a4ed8b8fdb9035}\label{class_virt_encoder_a439bdcec3f5dc165e4a4ed8b8fdb9035} 
+\index{Encoder@{Encoder}!tickRaw@{tickRaw}}
+\index{tickRaw@{tickRaw}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{tickRaw()}{tickRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int8\+\_\+t Virt\+Encoder\+::tick\+Raw (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00279}{279}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_ISR\_F))\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}{clr\_encf}}(E\_ISR\_F);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\_encf}}(E\_TRN\_R);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_abf07cf920815fecb1438b28a4c29f52d}{dir}}();}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((state\ >=\ 0)\ \&\&\ (state\ =\ \mbox{\hyperlink{class_virt_encoder_aa5dbe1eb7b590f4a97498a20e1b5542e}{pollEnc}}(state)))\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724}{write\_encf}}(E\_DIR,\ state\ >\ 0);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\_encf}}(E\_TRN\_R);}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a25ad5e989164bdf4d10a83a1057a0001}\label{class_virt_encoder_a25ad5e989164bdf4d10a83a1057a0001} 
+\index{Encoder@{Encoder}!turn@{turn}}
+\index{turn@{turn}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily bool Virt\+Encoder\+::turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Check if the encoder has been turned. 
+
+\begin{DoxyReturn}{Returns}
+true if the encoder has been turned, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00161}{161}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_encoder_a1daa32206f3c108deb4aaad943f96fef}{read\_encf}}(E\_TRN\_R);}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724}\label{class_virt_encoder_aa729ee6d9919727d86a7eecd2f51e724} 
+\index{Encoder@{Encoder}!write\_encf@{write\_encf}}
+\index{write\_encf@{write\_encf}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{write\_encf()}{write\_encf()}}
+{\footnotesize\ttfamily void Virt\+Encoder\+::write\+\_\+encf (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{x,  }\item[{bool}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00353}{353}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v)\ \mbox{\hyperlink{class_virt_encoder_aab174e7ed37b422a27192aedee8be977}{set\_encf}}(x);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_encoder_a6bdb1a2dec10e1be3c14c3c49869ebab}{clr\_encf}}(x);}
+\DoxyCodeLine{00356\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6}\label{class_virt_encoder_a1d31ec913728966cf0ef6ca774c5cfe6} 
+\index{Encoder@{Encoder}!cb@{cb}}
+\index{cb@{cb}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} Virt\+Encoder\+::cb\mbox{[}2\mbox{]} = \{nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00362}{362}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00362\ \{\textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr}\};\ \textcolor{comment}{//\ callbacks\ for\ right\ and\ left\ turns}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_encoder_a966668cc0a577818e294a4084b4dabea}\label{class_virt_encoder_a966668cc0a577818e294a4084b4dabea} 
+\index{Encoder@{Encoder}!counter@{counter}}
+\index{counter@{counter}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily int32\+\_\+t Virt\+Encoder\+::counter = 0\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_encoder_8h_source_l00342}{342}} of file \mbox{\hyperlink{_virt_encoder_8h_source}{Virt\+Encoder.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/core/\mbox{\hyperlink{_encoder_8h}{Encoder.\+h}}\end{DoxyCompactItemize}

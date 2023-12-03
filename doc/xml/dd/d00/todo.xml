@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dd/d00/todo" kind="page">
+    <compoundname>todo</compoundname>
+    <title>Todo List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Member <ref refid="dc/d00/class_virt_enc_button_1a889370afd906746fa5866298cf4cc30d" kindref="member">VirtEncButton::action</ref>  ()</term></varlistentry>
+<listitem><para><anchor id="dd/d00/todo_1_todo000001"/>todo in binary switch case block e_state + b_state and EB_HOLD + EB_TURN verification if ((state &amp; EB_HOLD) &amp;&amp; (state &amp; EB_TURN_R)) return EB_TURN_HOLD_R; </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="dd/d00/todo"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__virt_encoder_8h_source" xml:lang="en-US">
+<title>VirtEncoder.h</title>
+<indexterm><primary>src/core/VirtEncoder.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__virt_encoder_8h_source_1l00001"/>00001 
+<anchor xml:id="__virt_encoder_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00009"/>00009 
+<anchor xml:id="__virt_encoder_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00011"/>00011 
+<anchor xml:id="__virt_encoder_8h_source_1l00012"/>00012 <emphasis role="comment">//&#32;=====================&#32;CONST&#32;======================</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00013"/>00013 
+<anchor xml:id="__virt_encoder_8h_source_1l00014"/><link linkend="__virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414">00014</link> <emphasis role="preprocessor">#define&#32;EB_STEP4_LOW&#32;0</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00015"/><link linkend="__virt_encoder_8h_1ac884883a546362d9ecce60cba2590128">00015</link> <emphasis role="preprocessor">#define&#32;EB_STEP4_HIGH&#32;1</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00016"/><link linkend="__virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4">00016</link> <emphasis role="preprocessor">#define&#32;EB_STEP2&#32;2</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00017"/><link linkend="__virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3">00017</link> <emphasis role="preprocessor">#define&#32;EB_STEP1&#32;3</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00018"/>00018 
+<anchor xml:id="__virt_encoder_8h_source_1l00019"/><link linkend="__virt_encoder_8h_1a1ce8742512126ac149fbf10fe9470179">00019</link> <emphasis role="preprocessor">#define&#32;ENC_FLAGS&#32;\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00020"/>00020 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_TYPE,&#32;&#32;&#32;&#32;0)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00021"/>00021 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_REVERSE,&#32;2)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00022"/>00022 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_FAST,&#32;&#32;&#32;&#32;3)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00023"/>00023 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_DIR,&#32;&#32;&#32;&#32;&#32;4)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00024"/>00024 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_TRN_R,&#32;&#32;&#32;5)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00025"/>00025 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_ISR_F,&#32;&#32;&#32;6)\</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00026"/>00026 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(E_ISR,&#32;&#32;&#32;&#32;&#32;7)</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00027"/>00027 
+<anchor xml:id="__virt_encoder_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;
+<anchor xml:id="__virt_encoder_8h_source_1l00029"/><link linkend="__virt_encoder_8h_1a8a0d2d602acb24d74237c3f310e935cd">00029</link> <emphasis role="preprocessor">#define&#32;X(a,&#32;b)&#32;a&#32;=&#32;(1&#32;&lt;&lt;&#32;b),</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00030"/><link linkend="__virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668">00030</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<link linkend="__virt_encoder_8h_1a1ce8742512126ac149fbf10fe9470179">ENC_FLAGS</link>
+<anchor xml:id="__virt_encoder_8h_source_1l00032"/><link linkend="__virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668a1a93281d355333e187e376ea04b25e92">00032</link> }&#32;<link linkend="__virt_encoder_8h_1ac38c7efc1dd08c024ddfe9a95c0be668">ENC_FLAG_T</link>;
+<anchor xml:id="__virt_encoder_8h_source_1l00033"/>00033 <emphasis role="preprocessor">#undef&#32;X</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00034"/>00034 
+<anchor xml:id="__virt_encoder_8h_source_1l00042"/><link linkend="_class_virt_encoder">00042</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_virt_encoder">VirtEncoder</link>&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00043"/>00043 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__virt_encoder_8h_source_1l00044"/>00044 &#32;&#32;&#32;
+<anchor xml:id="__virt_encoder_8h_source_1l00048"/><link linkend="_class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0">00048</link> &#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0">VirtEncoder</link>()&#32;:&#32;prev(0),&#32;ecount(0)&#32;{}
+<anchor xml:id="__virt_encoder_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;
+<anchor xml:id="__virt_encoder_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;SET&#32;======================</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00051"/>00051 
+<anchor xml:id="__virt_encoder_8h_source_1l00057"/><link linkend="_class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f">00057</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f">setEncReverse</link>(<emphasis role="keywordtype">bool</emphasis>&#32;rev&#32;=&#32;<emphasis role="keyword">false</emphasis>)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(rev)&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_REVERSE);
+<anchor xml:id="__virt_encoder_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_REVERSE);
+<anchor xml:id="__virt_encoder_8h_source_1l00060"/>00060 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00061"/>00061 
+<anchor xml:id="__virt_encoder_8h_source_1l00067"/><link linkend="_class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9">00067</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9">setEncType</link>(uint8_t&#32;type&#32;=&#32;<link linkend="__virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3">EB_STEP1</link>)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;=&#32;(flags&#32;&amp;&#32;0b11111100)&#32;|&#32;type;
+<anchor xml:id="__virt_encoder_8h_source_1l00069"/>00069 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00070"/>00070 
+<anchor xml:id="__virt_encoder_8h_source_1l00078"/><link linkend="_class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55">00078</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55">setEncISR</link>(<emphasis role="keywordtype">bool</emphasis>&#32;use=<emphasis role="keyword">true</emphasis>){
+<anchor xml:id="__virt_encoder_8h_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_ISR,&#32;use);
+<anchor xml:id="__virt_encoder_8h_source_1l00080"/>00080 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00081"/>00081 
+<anchor xml:id="__virt_encoder_8h_source_1l00089"/><link linkend="_class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191">00089</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191">attach_right</link>(<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>&#32;callback_func){
+<anchor xml:id="__virt_encoder_8h_source_1l00090"/>00090 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;l_r&#32;=&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;1&#32;:&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(callback_func&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r])&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r]&#32;=&#32;*callback_func;
+<anchor xml:id="__virt_encoder_8h_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00095"/>00095 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00097"/>00097 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00098"/>00098 
+<anchor xml:id="__virt_encoder_8h_source_1l00105"/><link linkend="_class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4">00105</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4">attach_left</link>(<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>&#32;callback_func){
+<anchor xml:id="__virt_encoder_8h_source_1l00106"/>00106 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;l_r&#32;=&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;0&#32;:&#32;1;
+<anchor xml:id="__virt_encoder_8h_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(callback_func&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r])&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[l_r]&#32;=&#32;*callback_func;
+<anchor xml:id="__virt_encoder_8h_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00111"/>00111 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00114"/>00114 
+<anchor xml:id="__virt_encoder_8h_source_1l00115"/>00115 &#32;&#32;&#32;&#32;<emphasis role="comment">//todo&#32;universal&#32;function</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00116"/>00116 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;void&#32;attach_call(){}</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00117"/>00117 
+<anchor xml:id="__virt_encoder_8h_source_1l00121"/><link linkend="_class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0">00121</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1a3a32f66b8b6888e75bb17e6ad88f12f0">detach_call</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00122"/>00122 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00125"/>00125 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00127"/>00127 
+<anchor xml:id="__virt_encoder_8h_source_1l00134"/><link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">00134</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(<emphasis role="keywordtype">bool</emphasis>&#32;e0,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;e1)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+<anchor xml:id="__virt_encoder_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00137"/>00137 
+<anchor xml:id="__virt_encoder_8h_source_1l00143"/><link linkend="_class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077">00143</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077">initEnc</link>(int8_t&#32;v)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;prev&#32;=&#32;v;
+<anchor xml:id="__virt_encoder_8h_source_1l00145"/>00145 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00146"/>00146 
+<anchor xml:id="__virt_encoder_8h_source_1l00150"/><link linkend="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5">00150</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5">clear</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_TRN_R))&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_TRN_R);
+<anchor xml:id="__virt_encoder_8h_source_1l00152"/>00152 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00153"/>00153 
+<anchor xml:id="__virt_encoder_8h_source_1l00154"/>00154 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;POLL&#32;======================</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00155"/>00155 
+<anchor xml:id="__virt_encoder_8h_source_1l00161"/><link linkend="_class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001">00161</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001">turn</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_TRN_R);
+<anchor xml:id="__virt_encoder_8h_source_1l00163"/>00163 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00164"/>00164 
+<anchor xml:id="__virt_encoder_8h_source_1l00170"/><link linkend="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d">00170</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d">dir</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_DIR)&#32;?&#32;1&#32;:&#32;-1;
+<anchor xml:id="__virt_encoder_8h_source_1l00172"/>00172 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00173"/>00173 
+<anchor xml:id="__virt_encoder_8h_source_1l00182"/><link linkend="_class_virt_encoder_1a39814605b70ce60f2a27755571362b76">00182</link> &#32;&#32;&#32;&#32;<link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link>&#32;<link linkend="_class_virt_encoder_1a39814605b70ce60f2a27755571362b76">action</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0b111111111)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_FAST):
+<anchor xml:id="__virt_encoder_8h_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN;
+<anchor xml:id="__virt_encoder_8h_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_DIR&#32;|&#32;E_REVERSE):
+<anchor xml:id="__virt_encoder_8h_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN_L;
+<anchor xml:id="__virt_encoder_8h_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>(E_TRN_R&#32;|&#32;E_DIR):
+<anchor xml:id="__virt_encoder_8h_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_TURN_R;&#32;&#32;&#32;
+<anchor xml:id="__virt_encoder_8h_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="__virt_encoder_8h_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EB_NONE;
+<anchor xml:id="__virt_encoder_8h_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00193"/>00193 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00194"/>00194 
+<anchor xml:id="__virt_encoder_8h_source_1l00202"/><link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">00202</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">tickISR</link>(<emphasis role="keywordtype">bool</emphasis>&#32;e0,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;e1)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">tickISR</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+<anchor xml:id="__virt_encoder_8h_source_1l00204"/>00204 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00205"/>00205 
+<anchor xml:id="__virt_encoder_8h_source_1l00212"/><link linkend="_class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818">00212</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a9cedefb68bb0cd0ac9ed2a2804c3c818">tickISR</link>(int8_t&#32;state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(state);
+<anchor xml:id="__virt_encoder_8h_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_ISR_F);
+<anchor xml:id="__virt_encoder_8h_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_DIR,&#32;state&#32;&gt;&#32;0);
+<anchor xml:id="__virt_encoder_8h_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00219"/>00219 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00220"/>00220 
+<anchor xml:id="__virt_encoder_8h_source_1l00228"/><link linkend="_class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e">00228</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e">tick</link>(<emphasis role="keywordtype">bool</emphasis>&#32;e0,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;e1)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+<anchor xml:id="__virt_encoder_8h_source_1l00230"/>00230 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00231"/>00231 
+<anchor xml:id="__virt_encoder_8h_source_1l00238"/><link linkend="_class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1">00238</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1">tick</link>(int8_t&#32;state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(state);
+<anchor xml:id="__virt_encoder_8h_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)
+<anchor xml:id="__virt_encoder_8h_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00242"/>00242 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;EB_NO_CALLBACK</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]&#32;&amp;&amp;&#32;state&#32;&lt;&#32;0)&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[0]();
+<anchor xml:id="__virt_encoder_8h_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]&#32;&amp;&amp;&#32;state&#32;&gt;&#32;0)&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[1]();
+<anchor xml:id="__virt_encoder_8h_source_1l00245"/>00245 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a7a265f7e7e8758ef555fc42d6d23efd5">clear</link>();
+<anchor xml:id="__virt_encoder_8h_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00250"/>00250 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00251"/>00251 
+<anchor xml:id="__virt_encoder_8h_source_1l00257"/><link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">00257</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">tick</link>(-1);
+<anchor xml:id="__virt_encoder_8h_source_1l00259"/>00259 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00260"/>00260 
+<anchor xml:id="__virt_encoder_8h_source_1l00268"/><link linkend="_class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f">00268</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f">tickRaw</link>(<emphasis role="keywordtype">bool</emphasis>&#32;e0,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;e1)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+<anchor xml:id="__virt_encoder_8h_source_1l00270"/>00270 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00271"/>00271 
+<anchor xml:id="__virt_encoder_8h_source_1l00279"/><link linkend="_class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035">00279</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035">tickRaw</link>(int8_t&#32;state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR_F))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(E_ISR_F);
+<anchor xml:id="__virt_encoder_8h_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_TRN_R);
+<anchor xml:id="__virt_encoder_8h_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d">dir</link>();
+<anchor xml:id="__virt_encoder_8h_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((state&#32;&gt;=&#32;0)&#32;&amp;&amp;&#32;(state&#32;=&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(state)))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(E_DIR,&#32;state&#32;&gt;&#32;0);
+<anchor xml:id="__virt_encoder_8h_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(E_TRN_R);
+<anchor xml:id="__virt_encoder_8h_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00291"/>00291 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00292"/>00292 
+<anchor xml:id="__virt_encoder_8h_source_1l00293"/>00293 &#32;&#32;&#32;&#32;
+<anchor xml:id="__virt_encoder_8h_source_1l00294"/><link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">00294</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>()&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">tickRaw</link>(-1);
+<anchor xml:id="__virt_encoder_8h_source_1l00296"/>00296 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00297"/>00297 
+<anchor xml:id="__virt_encoder_8h_source_1l00305"/><link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">00305</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(<emphasis role="keywordtype">bool</emphasis>&#32;e0,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;e1)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e">pollEnc</link>(e0&#32;|&#32;(e1&#32;&lt;&lt;&#32;1));
+<anchor xml:id="__virt_encoder_8h_source_1l00307"/>00307 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00308"/>00308 
+<anchor xml:id="__virt_encoder_8h_source_1l00315"/><link linkend="_class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0">00315</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0">pollEnc</link>(int8_t&#32;state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(prev&#32;!=&#32;state)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ecount&#32;+=&#32;((0x49941661&#32;&gt;&gt;&#32;((state&#32;|&#32;(prev&#32;&lt;&lt;&#32;2))&#32;&lt;&lt;&#32;1))&#32;&amp;&#32;0b11)&#32;-&#32;1;
+<anchor xml:id="__virt_encoder_8h_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;prev&#32;=&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!ecount)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0b11)&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1aeb2be3bd32d8e97a7d1cdd912896e414">EB_STEP4_LOW</link>:
+<anchor xml:id="__virt_encoder_8h_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state&#32;!=&#32;0b11)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;00,&#32;01,&#32;10</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1ac884883a546362d9ecce60cba2590128">EB_STEP4_HIGH</link>:
+<anchor xml:id="__virt_encoder_8h_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;01,&#32;10,&#32;11</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="__virt_encoder_8h_1a8f1e0ffc5b198284f3e41bb44819b4f4">EB_STEP2</link>:
+<anchor xml:id="__virt_encoder_8h_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(state&#32;==&#32;0b10&#32;||&#32;state&#32;==&#32;0b01)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;&#32;&#32;<emphasis role="comment">//&#32;skip&#32;10&#32;01</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__virt_encoder_8h_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;((ecount&#32;&gt;&#32;0)&#32;^&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_REVERSE))&#32;?&#32;1&#32;:&#32;-1;
+<anchor xml:id="__virt_encoder_8h_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ecount&#32;=&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00333"/>00333 <emphasis role="preprocessor">#ifndef&#32;EB_NO_COUNTER</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea">counter</link>&#32;+=&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00335"/>00335 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+<anchor xml:id="__virt_encoder_8h_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00338"/>00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00339"/>00339 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00340"/>00340 
+<anchor xml:id="__virt_encoder_8h_source_1l00341"/>00341 <emphasis role="preprocessor">#ifndef&#32;EB_NO_COUNTER</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00342"/><link linkend="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea">00342</link> &#32;&#32;&#32;&#32;int32_t&#32;<link linkend="_class_virt_encoder_1a966668cc0a577818e294a4084b4dabea">counter</link>&#32;=&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00343"/>00343 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00344"/>00344 
+<anchor xml:id="__virt_encoder_8h_source_1l00345"/>00345 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;=====================&#32;PROTECTED&#32;=====================</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00346"/>00346 &#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="__virt_encoder_8h_source_1l00347"/><link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">00347</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;x)&#32;__attribute__((always_inline))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;|=&#32;x;
+<anchor xml:id="__virt_encoder_8h_source_1l00349"/>00349 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00350"/><link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">00350</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;x)&#32;__attribute__((always_inline))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;&amp;=&#32;~x;
+<anchor xml:id="__virt_encoder_8h_source_1l00352"/>00352 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00353"/><link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">00353</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724">write_encf</link>(<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;x,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;v)&#32;__attribute__((always_inline))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v)&#32;<link linkend="_class_virt_encoder_1aab174e7ed37b422a27192aedee8be977">set_encf</link>(x);
+<anchor xml:id="__virt_encoder_8h_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab">clr_encf</link>(x);
+<anchor xml:id="__virt_encoder_8h_source_1l00356"/>00356 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00357"/><link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">00357</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;x)&#32;__attribute__((always_inline))&#32;{
+<anchor xml:id="__virt_encoder_8h_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;flags&#32;&amp;&#32;x;
+<anchor xml:id="__virt_encoder_8h_source_1l00359"/>00359 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__virt_encoder_8h_source_1l00360"/>00360 
+<anchor xml:id="__virt_encoder_8h_source_1l00361"/>00361 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00362"/><link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">00362</link> &#32;&#32;&#32;&#32;<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>&#32;<link linkend="_class_virt_encoder_1a1d31ec913728966cf0ef6ca774c5cfe6">cb</link>[2]&#32;=&#32;{<emphasis role="keyword">nullptr</emphasis>,&#32;<emphasis role="keyword">nullptr</emphasis>};&#32;<emphasis role="comment">//&#32;callbacks&#32;for&#32;right&#32;and&#32;left&#32;turns</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00363"/>00363 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00364"/>00364 
+<anchor xml:id="__virt_encoder_8h_source_1l00365"/>00365 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;=====================&#32;PRIVATE&#32;=====================</emphasis>
+<anchor xml:id="__virt_encoder_8h_source_1l00366"/>00366 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__virt_encoder_8h_source_1l00367"/>00367 &#32;&#32;&#32;&#32;uint8_t&#32;flags&#32;=&#32;0;
+<anchor xml:id="__virt_encoder_8h_source_1l00368"/>00368 &#32;&#32;&#32;&#32;int8_t&#32;prev&#32;:&#32;4;
+<anchor xml:id="__virt_encoder_8h_source_1l00369"/>00369 &#32;&#32;&#32;&#32;int8_t&#32;ecount&#32;:&#32;4;
+<anchor xml:id="__virt_encoder_8h_source_1l00370"/>00370 };
+</programlisting></section>

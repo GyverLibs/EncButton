@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8h_source" xml:lang="en-US">
+<title>utils.h</title>
+<indexterm><primary>src/core/utils.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_utils_8h_source_1l00001"/>00001 
+<anchor xml:id="_utils_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_utils_8h_source_1l00007"/>00007 
+<anchor xml:id="_utils_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00009"/>00009 
+<anchor xml:id="_utils_8h_source_1l00010"/>00010 <emphasis role="comment">//&#32;=====================&#32;FLAGS&#32;======================</emphasis>
+<anchor xml:id="_utils_8h_source_1l00011"/>00011 <emphasis role="comment">//EB_NONE&#32;for&#32;error&#32;catching&#32;and&#32;Encoder&#32;with&#32;button&#32;handling</emphasis>
+<anchor xml:id="_utils_8h_source_1l00012"/><link linkend="_utils_8h_1a4d04a1d6fed6589d40376ca9b2a6ef98">00012</link> <emphasis role="preprocessor">#define&#32;EB_FLAGS&#32;\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00013"/>00013 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_NONE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;0)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00014"/>00014 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_PRESS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;1)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00015"/>00015 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_STEP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;2)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00016"/>00016 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_HOLD&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;3)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00017"/>00017 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_RELEASE&#32;&#32;&#32;&#32;&#32;&#32;,&#32;4)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00018"/>00018 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_CLICK&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;5)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00019"/>00019 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_CLICKS&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;6)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00020"/>00020 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_REL_HOLD&#32;&#32;&#32;&#32;&#32;,&#32;7)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00021"/>00021 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_REL_HOLD_C&#32;&#32;&#32;,&#32;8)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00022"/>00022 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_REL_STEP&#32;&#32;&#32;&#32;&#32;,&#32;9)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00023"/>00023 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_REL_STEP_C&#32;&#32;&#32;,&#32;10)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00024"/>00024 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_TURN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;11)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00025"/>00025 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_TURN_R&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;12)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00026"/>00026 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_TURN_L&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;13)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00027"/>00027 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_TURN_HOLD_R&#32;&#32;,&#32;14)\</emphasis>
+<anchor xml:id="_utils_8h_source_1l00028"/>00028 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;X(EB_TURN_HOLD_L&#32;&#32;,&#32;15)</emphasis>
+<anchor xml:id="_utils_8h_source_1l00029"/>00029 
+<anchor xml:id="_utils_8h_source_1l00030"/>00030 <emphasis role="comment">//TURN_H_HANDLER&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00031"/><link linkend="_utils_8h_1a8a0d2d602acb24d74237c3f310e935cd">00031</link> <emphasis role="preprocessor">#define&#32;X(a,&#32;b)&#32;a&#32;=&#32;(1&#32;&lt;&lt;&#32;b),</emphasis>
+<anchor xml:id="_utils_8h_source_1l00032"/><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">00032</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;{
+<anchor xml:id="_utils_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<link linkend="_utils_8h_1a4d04a1d6fed6589d40376ca9b2a6ef98">EB_FLAGS</link>
+<anchor xml:id="_utils_8h_source_1l00034"/><link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b">00034</link> }&#32;<link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link>;
+<anchor xml:id="_utils_8h_source_1l00035"/>00035 <emphasis role="preprocessor">#undef&#32;X</emphasis>
+<anchor xml:id="_utils_8h_source_1l00036"/>00036 
+<anchor xml:id="_utils_8h_source_1l00037"/><link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">00037</link> <emphasis role="preprocessor">#define&#32;EB_UPTIME()&#32;millis()</emphasis>
+<anchor xml:id="_utils_8h_source_1l00038"/>00038 
+<anchor xml:id="_utils_8h_source_1l00039"/><link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">00039</link> <emphasis role="keyword">typedef</emphasis>&#32;void&#32;(*<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>)();
+<anchor xml:id="_utils_8h_source_1l00040"/>00040 
+<anchor xml:id="_utils_8h_source_1l00041"/>00041 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;pin);
+<anchor xml:id="_utils_8h_source_1l00042"/>00042 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1af74a9306d2c033fe5f90bcd54010baf4">EBwrite</link>(<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;pin,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;value);
+</programlisting></section>

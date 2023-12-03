@@ -1,0 +1,2153 @@
+.TH "VirtEncButton" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VirtEncButton \- A class representing a virtual encoder button\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <VirtEncButton\&.h>\fP
+.PP
+Inherits \fBVirtButton\fP, and \fBVirtEncoder\fP\&.
+.PP
+Inherited by \fBEncButton\fP, and \fBEncButtonT< ENCA, ENCB, BTN >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbool\fP \fBsetFastTimeout\fP (\fBuint8_t\fP \fBtout\fP)"
+.br
+.RI "Set the Fast Timeout object\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBclear\fP ()"
+.br
+.RI "Clear the state of the virtual encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBattach_call\fP (\fBEB_FLAGS_T\fP \fBhandler\fP, \fBcb_t\fP \fBcallback_func\fP)"
+.br
+.RI "Attaches a callback function to handle a specific event of the virtual encoder button\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBdetach_call\fP ()"
+.br
+.RI "Detach the callback functions for the virtual encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBturnH\fP ()"
+.br
+.RI "Check if the encoder button is turned to the right\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfast\fP ()"
+.br
+.RI "Check if the encoder button is in the fast mode\&. "
+.ti -1c
+.RI "\fBbool\fP \fBright\fP ()"
+.br
+.RI "Check if the encoder button is turned to the right without holding the button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBleft\fP ()"
+.br
+.RI "Check if the encoder button is turned to the left without holding the button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBrightH\fP ()"
+.br
+.RI "Check if the encoder button is turned to the right while holding the button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBleftH\fP ()"
+.br
+.RI "Check if the encoder button is turned to the left while holding the button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBencHolding\fP ()"
+.br
+.RI "Check if the encoder button is being held\&. "
+.ti -1c
+.RI "\fBEB_FLAGS_T\fP \fBaction\fP ()"
+.br
+.RI "Get the action of the encoder button\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtickISR\fP (\fBbool\fP e0, \fBbool\fP e1)"
+.br
+.RI "Handle the interrupt tick for the encoder button\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtickISR\fP (\fBint8_t\fP \fBstate\fP)"
+.br
+.RI "Handle the interrupt tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBbool\fP e0, \fBbool\fP e1, \fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBint8_t\fP \fBstate\fP, \fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtickRaw\fP (\fBbool\fP e0, \fBbool\fP e1, \fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the raw tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtickRaw\fP (\fBint8_t\fP \fBstate\fP, \fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the raw tick for the encoder button\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtickRaw\fP (\fBbool\fP \fBbtn\fP)"
+.br
+.RI "Handle the raw tick for the encoder button\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetHoldTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=600)"
+.br
+.RI "Sets the hold timeout for the virtual button\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetStepTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=200)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetClickTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=500)"
+.br
+.RI "Sets the click timeout for the virtual button\&. Clicks faster than this timeout will be detected\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetDebounceTimeout\fP (\fBuint8_t\fP \fBtimeout\fP=50)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetBtnLevel\fP (\fBbool\fP \fBlevel\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBpressISR\fP ()"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBattach_call\fP (\fBcb_t\fP \fBcallback_func\fP)"
+.br
+.RI "Attach a callback function to handle button events\&. The callback will be called when button events occur\&. "
+.ti -1c
+.RI "\fBbool\fP \fBpress\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBrelease\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBclick\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBpressing\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhold\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhold\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholding\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholding\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstep\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstep\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhasClicks\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhasClicks\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBgetClicks\fP ()"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBgetSteps\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseHold\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseHold\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseStep\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseStep\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBwaiting\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBbusy\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtimeout\fP (uint16_t tout)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBpressFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBpressFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBholdFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholdFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBstepFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstepFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBVirtButton\fP &\fBb0\fP, \fBVirtButton\fP &\fBb1\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetButtonLevel\fP (\fBbool\fP \fBlevel\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetEncReverse\fP (\fBbool\fP \fBrev\fP=\fBfalse\fP)"
+.br
+.RI "Set the encoder's reverse flag\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetEncType\fP (\fBuint8_t\fP \fBtype\fP=\fBEB_STEP1\fP)"
+.br
+.RI "Set the encoder's type\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetEncISR\fP (\fBbool\fP \fBuse\fP=\fBtrue\fP)"
+.br
+.RI "Set the encoder's interrupt service routine\&. "
+.ti -1c
+.RI "\fBbool\fP \fBattach_right\fP (\fBcb_t\fP \fBcallback_func\fP)"
+.br
+.RI "Attach a callback function to handle encoder events when turned right\&. "
+.ti -1c
+.RI "\fBbool\fP \fBattach_left\fP (\fBcb_t\fP \fBcallback_func\fP)"
+.br
+.RI "Attach a callback function to handle encoder events when turned left\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBinitEnc\fP (\fBbool\fP e0, \fBbool\fP e1)"
+.br
+.RI "Initialize the encoder with the specified values\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBinitEnc\fP (\fBint8_t\fP \fBv\fP)"
+.br
+.RI "Initialize the encoder with the specified value\&. "
+.ti -1c
+.RI "\fBbool\fP \fBturn\fP ()"
+.br
+.RI "Check if the encoder has been turned\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBdir\fP ()"
+.br
+.RI "Get the direction of rotation of the encoder\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtick\fP (\fBbool\fP e0, \fBbool\fP e1)"
+.br
+.RI "Process the encoder tick\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtick\fP (\fBint8_t\fP \fBstate\fP)"
+.br
+.RI "Process the encoder tick\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtick\fP ()"
+.br
+.RI "Process the encoder tick without clearing the turn flag\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBtickRaw\fP (\fBbool\fP e0, \fBbool\fP e1)"
+.br
+.RI "Process the encoder tick without clearing the turn flag\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBuint8_t\fP \fBclicks\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbool\fP \fBpollBtn\fP (\fBbool\fP \fBs\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBset_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBclr_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBread_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBwrite_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP, \fBbool\fP \fBv\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBeq_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP, \fBconst\fP \fBuint16_t\fP \fBy\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBcb_t\fP \fBcb\fP [5] = {VirtButton::cb, VirtEncoder::cb[0], VirtEncoder::cb[1], \fBnullptr\fP, \fBnullptr\fP}"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_FAST_T\fP = 30"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBebuffer\fP = 0"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBtimer\fP = 0"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBrun_timer\fP = 0"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_DEB_T\fP = 50"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_CLICK_T\fP = (500 >> \fBEB_SHIFT\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_HOLD_T\fP = (600 >> \fBEB_SHIFT\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_STEP_T\fP = (200 >> \fBEB_SHIFT\fP)"
+.br
+.in -1c
+.SS "tickRaw <br>"
+Process the encoder tick without clearing the turn flag\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.in +1c
+.ti -1c
+.RI "\fBint8_t\fP \fBtickRaw\fP (\fBint8_t\fP \fBstate\fP)"
+.br
+.ti -1c
+.RI "\fBint8_t\fP \fBtickRaw\fP ()"
+.br
+.ti -1c
+.RI "\fBint8_t\fP \fBpollEnc\fP (\fBbool\fP e0, \fBbool\fP e1)"
+.br
+.RI "Poll the encoder without setting the turn flag\&. "
+.ti -1c
+.RI "\fBint8_t\fP \fBpollEnc\fP (\fBint8_t\fP \fBstate\fP)"
+.br
+.RI "Poll the encoder without setting the turn flag\&. "
+.ti -1c
+.RI "\fBint32_t\fP \fBcounter\fP = 0"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBset_encf\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBclr_encf\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBwrite_encf\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP, \fBbool\fP \fBv\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBread_encf\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class representing a virtual encoder button\&. 
+
+This class inherits from \fBVirtButton\fP and \fBVirtEncoder\fP classes\&. It provides methods for setting and getting the fast timeout, as well as various methods for checking the state of the encoder button\&. The class also includes methods for handling interrupts and polling the encoder button\&. 
+.PP
+Definition at line \fB25\fP of file \fBVirtEncButton\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEB_FLAGS_T\fP VirtEncButton::action ()\fC [inline]\fP"
+
+.PP
+Get the action of the encoder button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The action of the encoder button 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+todo in binary switch case block e_state + b_state and EB_HOLD + EB_TURN verification if ((state & EB_HOLD) && (state & EB_TURN_R)) return EB_TURN_HOLD_R; 
+.RE
+.PP
+
+.PP
+Definition at line \fB180\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+180                         {
+181         EB_FLAGS_T e_state =  VirtEncoder::action(); 
+182         EB_FLAGS_T b_state =  VirtButton::action();
+183 
+184         if (e_state == EB_NONE) {
+185             return b_state; 
+186         }
+187         
+188         if(b_state == EB_HOLD){
+189             switch (e_state)
+190             {
+191                 case EB_TURN_R:
+192                     return EB_TURN_HOLD_R;
+193                 case EB_TURN_L:
+194                     return EB_TURN_HOLD_L;
+195                 case EB_TURN:
+196                     return EB_TURN;
+197                 default:
+198                     return EB_HOLD;
+199             }
+200         }
+201         return e_state;
+202 
+203 
+204         /* needs to be tested
+205 
+206          switch (b_state | e_state)
+207          {
+208             case 1000000001000:
+209                 return EB_TURN_HOLD_R; //EB_HOLD + EB_TURN_R
+210             case 10000000011000:
+211                 return EB_TURN_HOLD_L; //EB_HOLD + EB_TURN_L
+212             case 10000001000 :
+213                 return EB_TURN;//EB_HOLD + EB_TURN
+214             case (e_state | EB_NONE):
+215                 return e_state; //if b_state == EB_NONE
+216             default:
+217                 return b_state; 
+218          }
+219         
+220         */
+221     }
+.fi
+
+.SS "\fBbool\fP VirtButton::attach_call (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle button events\&. The callback will be called when button events occur\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB137\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+137                                           { 
+138 #ifndef EB_NO_CALLBACK
+139         if (callback_func == nullptr || cb) return false;
+140         cb = *callback_func;
+141         return true;
+142 #endif
+143         return false;
+144     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::attach_call (\fBEB_FLAGS_T\fP handler, \fBcb_t\fP callback_func)\fC [inline]\fP"
+
+.PP
+Attaches a callback function to handle a specific event of the virtual encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhandler\fP The event type to attach the callback function to\&. 
+.br
+\fIcallback_func\fP The callback function to be attached\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns true if the callback function was successfully attached, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB61\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+61                                                             {
+62 #ifndef EB_NO_CALLBACK
+63         if(callback_func){
+64             switch (handler)
+65             {
+66                 case EB_PRESS:
+67                     if(cb[0]) return false;
+68                     return VirtButton::attach_call(callback_func);
+69                 
+70                 case EB_TURN_R:
+71                     if(cb[1]) return false;
+72                     return VirtEncoder::attach_right(callback_func); //todo attach_call
+73 
+74                 case EB_TURN_L:
+75                     if(cb[2]) return false;
+76                     return VirtEncoder::attach_left(callback_func); //todo attach_call
+77 
+78                 case EB_TURN_HOLD_R:
+79                     if(cb[3]) return false;
+80                     cb[3] = *callback_func;
+81                     return true;
+82 
+83                 case EB_TURN_HOLD_L:
+84                     if(cb[4]) return false;
+85                     cb[4] = *callback_func;
+86                     return true;
+87 
+88                 default:
+89                     return false;
+90             }
+91         }       
+92 #endif
+93         return false;
+94     }
+.fi
+
+.SS "\fBbool\fP VirtEncoder::attach_left (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle encoder events when turned left\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB105\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+105                                         {
+106 #ifndef EB_NO_CALLBACK
+107         uint8_t l_r = (read_encf(E_REVERSE)) ? 0 : 1;
+108         if (callback_func == nullptr || cb[l_r]) return false;
+109         cb[l_r] = *callback_func;
+110         return true;
+111 #endif
+112         return false;
+113     }
+.fi
+
+.SS "\fBbool\fP VirtEncoder::attach_right (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle encoder events when turned right\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+callback_func can be 'cb_t' type 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB89\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+89                                          {
+90 #ifndef EB_NO_CALLBACK
+91         uint8_t l_r = (read_encf(E_REVERSE)) ? 1 : 0;
+92         if (callback_func == nullptr || cb[l_r]) return false;
+93         cb[l_r] = *callback_func;
+94         return true;
+95 #endif
+96         return false;
+97     }
+.fi
+
+.SS "\fBbool\fP VirtButton::busy ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB237\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+237                 {
+238         return read_btn_flag(B_BUSY);
+239     }
+.fi
+
+.SS "\fBvoid\fP VirtEncButton::clear ()\fC [inline]\fP"
+
+.PP
+Clear the state of the virtual encoder button\&. This function clears the state of the virtual encoder button, including the button state and encoder state\&. 
+.PP
+Definition at line \fB49\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+49                  {
+50         VirtButton::clear();
+51         VirtEncoder::clear();
+52     }
+.fi
+
+.SS "\fBbool\fP VirtButton::click ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB162\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+162                  {
+163         return eq_btn_flag(B_REL_R | B_REL | B_HLD, B_REL_R);
+164     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::clr_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB503\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+503                                                                               {
+504         flags &= ~x;
+505     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::clr_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB350\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+350                                                                           {
+351         flags &= ~x;
+352     }
+.fi
+
+.SS "\fBvoid\fP VirtEncButton::detach_call ()\fC [inline]\fP"
+
+.PP
+Detach the callback functions for the virtual encoder button\&. 
+.PP
+Definition at line \fB99\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+99                       {
+100 #ifndef EB_NO_CALLBACK
+101         VirtButton::detach_call();
+102         VirtEncoder::detach_call();
+103         cb[3] = nullptr;
+104         cb[4] = nullptr;
+105 #endif
+106     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::dir ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Get the direction of rotation of the encoder\&. 
+.PP
+\fBReturns\fP
+.RS 4
+-1 if rotated left, 1 if rotated right 
+.RE
+.PP
+
+.PP
+Definition at line \fB170\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+170                  {
+171         return read_encf(E_DIR) ? 1 : \-1;
+172     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::encHolding ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is being held\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is being held, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB169\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+169                       {
+170         return read_btn_flag(B_EHLD);
+171     }
+.fi
+
+.SS "\fBbool\fP VirtButton::eq_btn_flag (\fBconst\fP \fBuint16_t\fP x, \fBconst\fP \fBuint16_t\fP y)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB513\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+513                                                                                                {
+514         return (flags & x) == y;
+515     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::fast ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is in the fast mode\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is in the fast mode, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB124\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+124                 {
+125         return read_encf(E_FAST);
+126     }
+.fi
+
+.SS "\fBuint8_t\fP VirtButton::getClicks ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB202\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+202                         {
+203         return clicks;
+204     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::getSteps ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB206\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+206                         {
+207 #ifndef EB_NO_PEDOMETER
+208 #ifdef EB_STEP_TIME
+209         return run_timer ? ((stepFor() + EB_STEP_T \- 1) / EB_STEP_T) : 0;  
+210 #else
+211         return run_timer ? ((stepFor() + (EB_STEP_T << EB_SHIFT) \- 1) / (EB_STEP_T << EB_SHIFT)) : 0;
+212 #endif
+213 #endif
+214         return 0;
+215     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hasClicks ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB194\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+194                      {
+195         return eq_btn_flag(B_CLKS_R | B_HLD, B_CLKS_R);
+196     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hasClicks (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB198\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+198                                 {
+199         return clicks == num && hasClicks();
+200     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hold ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB170\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+170                 {
+171         return read_btn_flag(B_HLD_R);
+172     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hold (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB174\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+174                            {
+175         return clicks == num && hold();
+176     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::holdFor ()\fC [inline]\fP, \fC [inherited]\fP"
+Calculates the duration for which the button has been held\&.
+.PP
+\fBReturns\fP
+.RS 4
+The duration in milliseconds\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB313\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+313                        {
+314 #ifndef EB_NO_PEDOMETER
+315         if (read_btn_flag(B_HLD)) {
+316 #ifdef EB_HOLD_TIME
+317             return pressFor() \- EB_HOLD_T;
+318 #else
+319             return pressFor() \- (EB_HOLD_T << EB_SHIFT);
+320 #endif
+321         }
+322 #endif
+323         return 0;
+324     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holdFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+Checks if the button has been held for a specified duration\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIms\fP The duration in milliseconds\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the button has been held for the specified duration, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB332\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+332                               {
+333         return holdFor() > ms;
+334     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holding ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB178\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+178                    {
+179         return eq_btn_flag(B_PRS | B_HLD, B_PRS | B_HLD);
+180     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holding (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB182\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+182                               {
+183         return clicks == num && holding();
+184     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::init ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB60\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+60                {
+61         setHoldTimeout();
+62         setStepTimeout();
+63         setClickTimeout();
+64         setDebounceTimeout();
+65 
+66     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::initEnc (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Initialize the encoder with the specified values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+
+.PP
+Definition at line \fB134\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+134                                    {
+135         initEnc(e0 | (e1 << 1));
+136     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::initEnc (int8_t v)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Initialize the encoder with the specified value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP the initial value of the encoder 
+.RE
+.PP
+
+.PP
+Definition at line \fB143\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+143                            {
+144         prev = v;
+145     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::left ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is turned to the left without holding the button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is turned to the left without holding the button, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB142\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+142                 {
+143         return !read_encf(E_DIR) && turn() && !read_btn_flag(B_EHLD);
+144     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::leftH ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is turned to the left while holding the button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is turned to the left while holding the button, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB160\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+160                  {
+161         return !read_encf(E_DIR) && turnH();
+162     }
+.fi
+
+.SS "\fBbool\fP VirtButton::pollBtn (\fBbool\fP s)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB391\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+391                          {
+392         if (read_btn_flag(B_BISR)) {
+393             clr_btn_flag(B_BISR);
+394             s = 1;
+395         } else s ^= read_btn_flag(B_INV);
+396 
+397         if (!read_btn_flag(B_BUSY)) {
+398             if (s) set_btn_flag(B_BUSY);
+399             else return 0;
+400         }
+401 
+402         uint16_t ms = EB_UPTIME();
+403         uint16_t deb = ms \- timer;
+404 
+405         if (s) {                                      
+406             if (!read_btn_flag(B_PRS)) {                  
+407                 if (!read_btn_flag(B_DEB) && EB_DEB_T) {  
+408                     set_btn_flag(B_DEB);                   
+409                     timer = ms;                         
+410                 } else {                                
+411                     if (deb >= EB_DEB_T || !EB_DEB_T) { 
+412                         set_btn_flag(B_PRS | B_PRS_R);      
+413 #ifndef EB_NO_PEDOMETER
+414                         run_timer = ms;
+415 #endif
+416                         timer = ms;  
+417                     }
+418                 }
+419             } else {  
+420                 if (!read_btn_flag(B_EHLD)) {
+421                     if (!read_btn_flag(B_HLD)) {  
+422 #ifdef EB_HOLD_TIME
+423                         if (deb >= (uint16_t)EB_HOLD_T) {  
+424 #else
+425                         if (deb >= (uint16_t)(EB_HOLD_T << EB_SHIFT)) {  
+426 #endif
+427                             set_btn_flag(B_HLD_R | B_HLD); 
+428                             timer = ms;                 
+429                         }
+430                     } else {  
+431 #ifdef EB_STEP_TIME
+432                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? EB_STEP_T : EB_HOLD_T)) {
+433 #else
+434                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? (EB_STEP_T << EB_SHIFT) : (EB_HOLD_T << EB_SHIFT))) {
+435 #endif
+436                             set_btn_flag(B_STP | B_STP_R);  
+437                             timer = ms;                   
+438                         }
+439                     }
+440                 }
+441             }
+442         } else {                                     
+443             if (read_btn_flag(B_PRS)) {                 
+444                 if (deb >= EB_DEB_T) {               
+445                     if (!read_btn_flag(B_HLD)) clicks++;    
+446                     if (read_btn_flag(B_EHLD)) clicks = 0;  
+447                     set_btn_flag(B_REL | B_REL_R);        
+448                     clr_btn_flag(B_PRS);                   
+449                 }
+450             } else if (read_btn_flag(B_REL)) {
+451                 if (!read_btn_flag(B_EHLD)) {
+452                     set_btn_flag(B_REL_R);
+453                 }
+454                 clr_btn_flag(B_REL | B_EHLD);
+455                 timer = ms;       
+456             } else if (clicks) {  
+457 #ifdef EB_CLICK_TIME
+458                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)EB_CLICK_T) set_btn_flag(B_CLKS_R);  
+459 #else
+460                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_btn_flag(B_CLKS_R);  
+461 #endif
+462 #ifndef EB_NO_PEDOMETER
+463                 else if (run_timer) run_timer = 0;
+464 #endif
+465             } else if (read_btn_flag(B_BUSY)) {
+466                 clr_btn_flag(B_HLD | B_STP | B_BUSY);
+467                 set_btn_flag(B_TOUT);
+468 #ifndef EB_NO_PEDOMETER
+469                 run_timer = 0;
+470 #endif
+471                 timer = ms;  // test!!
+472             }
+473             if (read_btn_flag(B_DEB)) clr_btn_flag(B_DEB);  
+474         }
+475         return read_btn_flag(B_CLKS_R | B_PRS_R | B_HLD_R | B_STP_R | B_REL_R);
+476     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::pollEnc (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Poll the encoder without setting the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB305\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+305                                      {
+306         return pollEnc(e0 | (e1 << 1));
+307     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::pollEnc (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Poll the encoder without setting the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB315\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+315                                  {
+316         if (prev != state) {
+317             ecount += ((0x49941661 >> ((state | (prev << 2)) << 1)) & 0b11) \- 1;
+318             prev = state;
+319             if (!ecount) return 0;
+320             switch (flags & 0b11) {
+321                 case EB_STEP4_LOW:
+322                     if (state != 0b11) return 0;  // skip 00, 01, 10
+323                     break;
+324                 case EB_STEP4_HIGH:
+325                     if (state) return 0;  // skip 01, 10, 11
+326                     break;
+327                 case EB_STEP2:
+328                     if (state == 0b10 || state == 0b01) return 0;  // skip 10 01
+329                     break;
+330             }
+331             state = ((ecount > 0) ^ read_encf(E_REVERSE)) ? 1 : \-1;
+332             ecount = 0;
+333 #ifndef EB_NO_COUNTER
+334             counter += state;
+335 #endif
+336             return state;
+337         }
+338         return 0;
+339     }
+.fi
+
+.SS "\fBbool\fP VirtButton::press ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB154\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+154                  {
+155         return read_btn_flag(B_PRS_R);
+156     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::pressFor ()\fC [inline]\fP, \fC [inherited]\fP"
+Returns the duration in milliseconds for which the button has been pressed\&. If the EB_NO_PEDOMETER macro is defined, the function always returns 0\&. If the button is not currently pressed, the function also returns 0\&.
+.PP
+\fBReturns\fP
+.RS 4
+The duration in milliseconds for which the button has been pressed\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB297\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+297                         {
+298 #ifndef EB_NO_PEDOMETER
+299         if (run_timer) return (uint16_t)EB_UPTIME() \- run_timer;
+300 #endif
+301         return 0;
+302     }
+.fi
+
+.SS "\fBbool\fP VirtButton::pressFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB304\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+304                                {
+305         return pressFor() > ms;
+306     }
+.fi
+
+.SS "\fBbool\fP VirtButton::pressing ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB166\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+166                     {
+167         return read_btn_flag(B_PRS);
+168     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::pressISR ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB112\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+112                     {
+113         if (!read_btn_flag(B_DEB)) timer = EB_UPTIME();
+114         set_btn_flag(B_DEB | B_BISR);
+115     }
+.fi
+
+.SS "\fBbool\fP VirtButton::read_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB506\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+506                                                                                {
+507         return flags & x;
+508     }
+.fi
+
+.SS "\fBbool\fP VirtEncoder::read_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB357\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+357                                                                            {
+358         return flags & x;
+359     }
+.fi
+
+.SS "\fBbool\fP VirtButton::release ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB158\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+158                    {
+159         return eq_btn_flag(B_REL_R | B_REL, B_REL_R | B_REL);
+160     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseHold ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB217\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+217                        {
+218         return eq_btn_flag(B_REL_R | B_REL | B_HLD | B_STP, B_REL_R | B_HLD);
+219     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseHold (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB221\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+221                                   {
+222         return clicks == num && eq_btn_flag(B_CLKS_R | B_HLD | B_STP, B_CLKS_R | B_HLD);
+223     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseStep ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB225\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+225                        {
+226         return eq_btn_flag(B_REL_R | B_REL | B_STP, B_REL_R | B_STP);
+227     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseStep (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB229\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+229                                   {
+230         return clicks == num && eq_btn_flag(B_CLKS_R | B_STP, B_CLKS_R | B_STP);
+231     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::reset ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB117\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+117                  {
+118         clicks = 0;
+119         clr_btn_flag(~B_INV);
+120     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::right ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is turned to the right without holding the button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is turned to the right without holding the button, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB133\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+133                  {
+134         return read_encf(E_DIR) && turn() && !read_btn_flag(B_EHLD);
+135     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::rightH ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is turned to the right while holding the button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is turned to the right while holding the button, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB151\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+151                   {
+152         return read_encf(E_DIR) && turnH();
+153     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::set_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB500\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+500                                                                               {
+501         flags |= x;
+502     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::set_encf (const uint16_t x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB347\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+347                                                                           {
+348         flags |= x;
+349     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setBtnLevel (\fBbool\fP level)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB108\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+108                                  {
+109         write_btn_flag(B_INV, !level);
+110     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setButtonLevel (\fBbool\fP level)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB385\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+385                                     {
+386         write_btn_flag(B_INV, !level);
+387     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setClickTimeout (\fBuint16_t\fP timeout = \fC500\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Sets the click timeout for the virtual button\&. Clicks faster than this timeout will be detected\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The click timeout value in milliseconds\&. Default is 500 milliseconds\&. Max is 4000ms\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB96\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+96                                                {
+97 #ifndef EB_CLICK_TIME
+98         EB_CLICK_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+99 #endif
+100     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setDebounceTimeout (\fBuint8_t\fP timeout = \fC50\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB102\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+102                                                 {
+103 #ifndef EB_DEB_TIME
+104         EB_DEB_T = (timeout < 255) ? timeout : 255;
+105 #endif
+106     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::setEncISR (bool use = \fCtrue\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's interrupt service routine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuse\fP true to use the ISR, false otherwise 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Argument 'use' by default is true because name of this function means that it is used to set/activate the ISR\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB78\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+78                                  {
+79         write_encf(E_ISR, use);
+80     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::setEncReverse (bool rev = \fCfalse\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's reverse flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrev\fP true to reverse the encoder, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+57                                          {
+58         if (rev) set_encf(E_REVERSE);
+59         else clr_encf(E_REVERSE);
+60     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::setEncType (uint8_t type = \fC\fBEB_STEP1\fP\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Set the encoder's type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the encoder type to set 
+.RE
+.PP
+
+.PP
+Definition at line \fB67\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+67                                              {
+68         flags = (flags & 0b11111100) | type;
+69     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::setFastTimeout (\fBuint8_t\fP tout)\fC [inline]\fP"
+
+.PP
+Set the Fast Timeout object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItout\fP The fast timeout value to set 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the fast timeout was successfully set, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB35\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+35                                       {
+36 #ifndef EB_FAST_TIME
+37         EB_FAST_T = tout;
+38         return true;
+39 #endif
+40         return false;
+41     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setHoldTimeout (\fBuint16_t\fP timeout = \fC600\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Sets the hold timeout for the virtual button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The hold timeout value in milliseconds\&. Default is 600 milliseconds\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+max timeout is 4000 ms 
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+74                                               {
+75 #ifndef EB_HOLD_TIME
+76         EB_HOLD_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+77 #endif
+78     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setStepTimeout (\fBuint16_t\fP timeout = \fC200\fP)\fC [inline]\fP, \fC [inherited]\fP"
+Sets the step timeout for the virtual button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The timeout value in milliseconds\&. Default is 200 milliseconds\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+max timeout is 4000 ms 
+.RE
+.PP
+
+.PP
+Definition at line \fB85\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+85                                               {
+86 #ifndef EB_STEP_TIME
+87         EB_STEP_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+88 #endif
+89     }
+.fi
+
+.SS "\fBbool\fP VirtButton::step ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB186\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+186                 {
+187         return read_btn_flag(B_STP_R);
+188     }
+.fi
+
+.SS "\fBbool\fP VirtButton::step (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB190\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+190                            {
+191         return clicks == num && step();
+192     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::stepFor ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB336\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+336                        {
+337 #ifndef EB_NO_PEDOMETER
+338         if (read_btn_flag(B_STP)) {
+339 #ifdef EB_HOLD_TIME
+340             return pressFor() \- EB_HOLD_T * 2;
+341 #else
+342             return pressFor() \- (EB_HOLD_T << EB_SHIFT) * 2;
+343 #endif
+344         }
+345 #endif
+346         return 0;
+347     }
+.fi
+
+.SS "\fBbool\fP VirtButton::stepFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB349\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+349                               {
+350         return stepFor() > ms;
+351     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tick ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick without clearing the turn flag\&. 
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB257\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+257                   {
+258         return tick(\-1);
+259     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tick (\fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB324\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+324                         {
+325         return tick(\-1, btn);
+326     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tick (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB228\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+228                                   {
+229         return tick(e0 | (e1 << 1));
+230     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tick (\fBbool\fP e0, \fBbool\fP e1, \fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP The state of the first encoder pin 
+.br
+\fIe1\fP The state of the second encoder pin 
+.br
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB276\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+276                                           {
+277         return tick(e0 | (e1 << 1), btn);
+278     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tick (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP the current state of the encoder 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB238\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+238                               {
+239         state = tickRaw(state);
+240         if (state)
+241         {
+242     #ifndef EB_NO_CALLBACK
+243             if (cb[0] && state < 0) cb[0]();
+244             if (cb[1] && state > 0) cb[1]();
+245     #endif
+246             return state;
+247         }
+248         clear();
+249         return 0;
+250     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tick (\fBint8_t\fP state, \fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP The current state of the encoder button 
+.br
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB287\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+287                                       {
+288         clear();
+289         bool f = tickRaw(state, btn);
+290 
+291 #ifndef EB_NO_CALLBACK
+292         if(f){
+293             switch (action())
+294             {
+295                 case EB_PRESS:
+296                     if(cb[0]) (this\->cb[0])();
+297                     break;
+298                 case EB_TURN_R:
+299                     if(cb[1]) (this\->cb[1])();
+300                     break;
+301                 case EB_TURN_L:
+302                     if(cb[2]) (this\->cb[2])();
+303                     break;
+304                 case EB_TURN_HOLD_R:
+305                     if(cb[3]) (this\->cb[3])();
+306                     break;
+307                 case EB_TURN_HOLD_L:
+308                     if(cb[4]) (this\->cb[4])();
+309                     break;
+310                 default:
+311                     break;
+312             }
+313         }
+314 #endif
+315         return f;
+316     }
+.fi
+
+.SS "\fBbool\fP VirtButton::tick (\fBVirtButton\fP & b0, \fBVirtButton\fP & b1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB354\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+354                                               {
+355         if (read_btn_flag(B_BOTH)) {
+356             if (!b0\&.pressing() && !b1\&.pressing()) clr_btn_flag(B_BOTH);
+357             if (!b0\&.pressing()) b0\&.reset();
+358             if (!b1\&.pressing()) b1\&.reset();
+359             b0\&.clear();
+360             b1\&.clear();
+361             return tick(1);
+362         } else {
+363             if (b0\&.pressing() && b1\&.pressing()) set_btn_flag(B_BOTH);
+364             return tick(0);
+365         }
+366     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncButton::tickISR (\fBbool\fP e0, \fBbool\fP e1)\fC [inline]\fP"
+
+.PP
+Handle the interrupt tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP The state of the first encoder pin 
+.br
+\fIe1\fP The state of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The updated state of the encoder button 
+.RE
+.PP
+
+.PP
+Definition at line \fB234\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+234                                      {
+235         return tickISR(e0 | (e1 << 1));
+236     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncButton::tickISR (\fBint8_t\fP state)\fC [inline]\fP"
+
+.PP
+Handle the interrupt tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP The current state of the encoder button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The updated state of the encoder button 
+.RE
+.PP
+
+.PP
+Definition at line \fB244\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+244                                  {
+245         state = VirtEncoder::pollEnc(state);
+246         if (state) {
+247 #ifdef EB_NO_BUFFER
+248             set_encf(E_ISR_F);
+249             write_encf(E_DIR, state > 0);
+250             write_encf(E_FAST, checkFast());
+251 #else
+252             for (uint8_t i = 0; i < 15; i += 3) {
+253                 if (!(ebuffer & (1 << i))) {
+254                     ebuffer |= (1 << i);                 // turn
+255                     if (state > 0) ebuffer |= E_DIR;    // dir
+256                     if (checkFast()) ebuffer |= E_FAST;  // fast
+257 
+258                     // if (state > 0) ebuffer |= (1 << (i + 1));    // dir
+259                     // if (checkFast()) ebuffer |= (1 << (i + 2));  // fast
+260                     break;
+261                 }
+262             }
+263 #endif
+264         }
+265         return state;
+266     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tickRaw ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB294\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+294                      {
+295         return tickRaw(\-1);
+296     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tickRaw (\fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the raw tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB386\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+386                            {
+387         return tickRaw(\-1, btn);
+388     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tickRaw (bool e0, bool e1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Process the encoder tick without clearing the turn flag\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP the value of the first encoder pin 
+.br
+\fIe1\fP the value of the second encoder pin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+-1, 0, or 1 based on the direction of rotation 
+.RE
+.PP
+
+.PP
+Definition at line \fB268\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+268                                      {
+269         return tickRaw(e0 | (e1 << 1));
+270     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tickRaw (\fBbool\fP e0, \fBbool\fP e1, \fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the raw tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIe0\fP The state of the first encoder pin 
+.br
+\fIe1\fP The state of the second encoder pin 
+.br
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB338\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+338                                              {
+339         return tickRaw(e0 | (e1 << 1), btn);
+340     }
+.fi
+
+.SS "\fBint8_t\fP VirtEncoder::tickRaw (int8_t state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB279\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+279                                  {
+280         if (read_encf(E_ISR_F)) {
+281             clr_encf(E_ISR_F);
+282             set_encf(E_TRN_R);
+283             return dir();
+284         }
+285         if ((state >= 0) && (state = pollEnc(state))) {
+286             write_encf(E_DIR, state > 0);
+287             set_encf(E_TRN_R);
+288             return state;
+289         }
+290         return 0;
+291     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::tickRaw (\fBint8_t\fP state, \fBbool\fP btn)\fC [inline]\fP"
+
+.PP
+Handle the raw tick for the encoder button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP The current state of the encoder button 
+.br
+\fIbtn\fP The state of the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button state has changed, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB349\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+349                                          {
+350         btn = VirtButton::tickRaw(btn);
+351 
+352         bool encf = 0;
+353 #ifdef EB_NO_BUFFER
+354         if (read_encf(E_ISR_F)) {
+355             clr_encf(E_ISR_F);
+356             encf = 1;
+357         }
+358 #else
+359         if (ebuffer) {
+360             write_encf(E_DIR, ebuffer & 0b10);
+361             write_encf(E_FAST, ebuffer & 0b100);
+362             ebuffer >>= 3;
+363             encf = 1;
+364         }
+365 #endif
+366         else if ((state >= 0) && (state = VirtEncoder::pollEnc(state))) {
+367             write_encf(E_DIR, state > 0);
+368             write_encf(E_FAST, checkFast());
+369             encf = 1;
+370         }
+371         if (encf) {
+372             if (read_btn_flag(B_PRS)) set_btn_flag(B_EHLD);    
+373             else clicks = 0;
+374             if (!read_btn_flag(B_TOUT)) set_btn_flag(B_TOUT);  
+375             set_encf(E_TRN_R);                      
+376         }
+377         return encf | btn;
+378     }
+.fi
+
+.SS "bool VirtButton::timeout (uint16_t tout)\fC [inline]\fP, \fC [inherited]\fP"
+Checks if the timeout has occurred\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItout\fP The timeout value in milliseconds\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the timeout has occurred, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB282\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+282                                 {
+283         if (read_btn_flag(B_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() \- timer) > tout) {
+284             clr_btn_flag(B_TOUT);
+285             return 1;
+286         }
+287         return 0;
+288     }
+.fi
+
+.SS "\fBbool\fP VirtEncoder::turn ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Check if the encoder has been turned\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder has been turned, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB161\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+161                 {
+162         return read_encf(E_TRN_R);
+163     }
+.fi
+
+.SS "\fBbool\fP VirtEncButton::turnH ()\fC [inline]\fP"
+
+.PP
+Check if the encoder button is turned to the right\&. 
+.PP
+\fBReturns\fP
+.RS 4
+true if the encoder button is turned to the right, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+115                  {
+116         return turn() && read_btn_flag(B_EHLD);
+117     }
+.fi
+
+.SS "\fBbool\fP VirtButton::waiting ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB233\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+233                    {
+234         return clicks && eq_btn_flag(B_PRS | B_REL, 0);
+235     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::write_btn_flag (\fBconst\fP \fBuint16_t\fP x, \fBbool\fP v)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB509\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+509                                                                                         {
+510         if (v) set_btn_flag(x);
+511         else clr_btn_flag(x);
+512     }
+.fi
+
+.SS "\fBvoid\fP VirtEncoder::write_encf (const uint16_t x, bool v)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB353\fP of file \fBVirtEncoder\&.h\fP\&..PP
+.nf
+353                                                                                     {
+354         if (v) set_encf(x);
+355         else clr_encf(x);
+356     }
+.fi
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBcb_t\fP VirtEncButton::cb[5] = {VirtButton::cb, VirtEncoder::cb[0], VirtEncoder::cb[1], \fBnullptr\fP, \fBnullptr\fP}\fC [protected]\fP"
+
+.PP
+Definition at line \fB396\fP of file \fBVirtEncButton\&.h\fP\&..PP
+.nf
+396 {VirtButton::cb, VirtEncoder::cb[0], VirtEncoder::cb[1], nullptr, nullptr};
+.fi
+
+.SS "\fBuint8_t\fP VirtButton::clicks\fC [inherited]\fP"
+
+.PP
+Definition at line \fB382\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBint32_t\fP VirtEncoder::counter = 0\fC [inherited]\fP"
+
+.PP
+Definition at line \fB342\fP of file \fBVirtEncoder\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_CLICK_T = (500 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB491\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_DEB_T = 50\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB488\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtEncButton::EB_FAST_T = 30\fC [protected]\fP"
+
+.PP
+Definition at line \fB400\fP of file \fBVirtEncButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_HOLD_T = (600 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB494\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_STEP_T = (200 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB497\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint16_t\fP VirtEncButton::ebuffer = 0\fC [protected]\fP"
+
+.PP
+Definition at line \fB404\fP of file \fBVirtEncButton\&.h\fP\&.
+.SS "\fBuint16_t\fP VirtButton::run_timer = 0\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB480\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint16_t\fP VirtButton::timer = 0\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB478\fP of file \fBVirtButton\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.

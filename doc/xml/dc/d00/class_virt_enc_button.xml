@@ -1,0 +1,2343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dc/d00/class_virt_enc_button" kind="class" language="C++" prot="public">
+    <compoundname>VirtEncButton</compoundname>
+    <basecompoundref refid="d7/d02/class_virt_button" prot="public" virt="non-virtual">VirtButton</basecompoundref>
+    <basecompoundref refid="dc/d02/class_virt_encoder" prot="public" virt="non-virtual">VirtEncoder</basecompoundref>
+    <derivedcompoundref refid="d1/d01/class_enc_button" prot="public" virt="non-virtual">EncButton</derivedcompoundref>
+    <derivedcompoundref refid="d4/d03/class_enc_button_t" prot="public" virt="non-virtual">EncButtonT&lt; ENCA, ENCB, BTN &gt;</derivedcompoundref>
+    <includes refid="d0/d02/_virt_enc_button_8h" local="no">VirtEncButton.h</includes>
+    <sectiondef kind="user-defined">
+      <header>tickRaw   &lt;br&gt;</header>
+      <description><para>Process the encoder tick without clearing the turn flag.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current state of the encoder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tickRaw</definition>
+        <argsstring>(int8_t state)</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncoder::tickRaw</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="279" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="279" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tickRaw</definition>
+        <argsstring>()</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncoder::tickRaw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="294" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="294" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::pollEnc</definition>
+        <argsstring>(bool e0, bool e1)</argsstring>
+        <name>pollEnc</name>
+        <qualifiedname>VirtEncoder::pollEnc</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <briefdescription>
+<para>Poll the encoder without setting the turn flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="305" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="305" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::pollEnc</definition>
+        <argsstring>(int8_t state)</argsstring>
+        <name>pollEnc</name>
+        <qualifiedname>VirtEncoder::pollEnc</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Poll the encoder without setting the turn flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current state of the encoder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="315" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="315" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d02/class_virt_encoder_1a966668cc0a577818e294a4084b4dabea" prot="public" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int32_t</ref></type>
+        <definition>int32_t VirtEncoder::counter</definition>
+        <argsstring></argsstring>
+        <name>counter</name>
+        <qualifiedname>VirtEncoder::counter</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="342" column="13" bodyfile="src/core/VirtEncoder.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::set_encf</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>set_encf</name>
+        <qualifiedname>VirtEncoder::set_encf</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="347" column="17" bodyfile="src/core/VirtEncoder.h" bodystart="347" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::clr_encf</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>clr_encf</name>
+        <qualifiedname>VirtEncoder::clr_encf</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="350" column="17" bodyfile="src/core/VirtEncoder.h" bodystart="350" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::write_encf</definition>
+        <argsstring>(const uint16_t x, bool v) __attribute__((always_inline))</argsstring>
+        <name>write_encf</name>
+        <qualifiedname>VirtEncoder::write_encf</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="353" column="17" bodyfile="src/core/VirtEncoder.h" bodystart="353" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncoder::read_encf</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>read_encf</name>
+        <qualifiedname>VirtEncoder::read_encf</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="357" column="17" bodyfile="src/core/VirtEncoder.h" bodystart="357" bodyend="359"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="dc/d00/class_virt_enc_button_1acd4808d79e571dec851e60670914a174" prot="protected" static="no" mutable="no">
+        <type><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref></type>
+        <definition>cb_t VirtEncButton::cb[5]</definition>
+        <argsstring>[5]</argsstring>
+        <name>cb</name>
+        <qualifiedname>VirtEncButton::cb</qualifiedname>
+        <initializer>= {VirtButton::cb, VirtEncoder::cb[0], VirtEncoder::cb[1], <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">nullptr</ref>, <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">nullptr</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="396" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="396" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d00/class_virt_enc_button_1a11f9a3967999acb14cc6ad8ff9a22cdf" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtEncButton::EB_FAST_T</definition>
+        <argsstring></argsstring>
+        <name>EB_FAST_T</name>
+        <qualifiedname>VirtEncButton::EB_FAST_T</qualifiedname>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="400" column="13" bodyfile="src/core/VirtEncButton.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d00/class_virt_enc_button_1a35134c56ba9700300ea9c1f6fbb14276" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtEncButton::ebuffer</definition>
+        <argsstring></argsstring>
+        <name>ebuffer</name>
+        <qualifiedname>VirtEncButton::ebuffer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="404" column="14" bodyfile="src/core/VirtEncButton.h" bodystart="404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>VirtButton::timer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="478" column="14" bodyfile="src/core/VirtButton.h" bodystart="478" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::run_timer</definition>
+        <argsstring></argsstring>
+        <name>run_timer</name>
+        <qualifiedname>VirtButton::run_timer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="480" column="14" bodyfile="src/core/VirtButton.h" bodystart="480" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1a02ec52c911ea40944b04c86afc2452df" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::EB_DEB_T</definition>
+        <argsstring></argsstring>
+        <name>EB_DEB_T</name>
+        <qualifiedname>VirtButton::EB_DEB_T</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="488" column="13" bodyfile="src/core/VirtButton.h" bodystart="488" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1aeac80efbb6be30c6ea26e1867926c707" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::EB_CLICK_T</definition>
+        <argsstring></argsstring>
+        <name>EB_CLICK_T</name>
+        <qualifiedname>VirtButton::EB_CLICK_T</qualifiedname>
+        <initializer>= (500 &gt;&gt; <ref refid="d0/d01/_virt_button_8h_1a51757961e269e3d0598606584377b968" kindref="member">EB_SHIFT</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="491" column="13" bodyfile="src/core/VirtButton.h" bodystart="491" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1a26f084309609e463cca76339d16970dc" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::EB_HOLD_T</definition>
+        <argsstring></argsstring>
+        <name>EB_HOLD_T</name>
+        <qualifiedname>VirtButton::EB_HOLD_T</qualifiedname>
+        <initializer>= (600 &gt;&gt; <ref refid="d0/d01/_virt_button_8h_1a51757961e269e3d0598606584377b968" kindref="member">EB_SHIFT</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="494" column="13" bodyfile="src/core/VirtButton.h" bodystart="494" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118" prot="protected" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::EB_STEP_T</definition>
+        <argsstring></argsstring>
+        <name>EB_STEP_T</name>
+        <qualifiedname>VirtButton::EB_STEP_T</qualifiedname>
+        <initializer>= (200 &gt;&gt; <ref refid="d0/d01/_virt_button_8h_1a51757961e269e3d0598606584377b968" kindref="member">EB_SHIFT</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="497" column="13" bodyfile="src/core/VirtButton.h" bodystart="497" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a6479c908479a9c1916a8ea3582f3e422" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::setFastTimeout</definition>
+        <argsstring>(uint8_t tout)</argsstring>
+        <name>setFastTimeout</name>
+        <qualifiedname>VirtEncButton::setFastTimeout</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>tout</declname>
+        </param>
+        <briefdescription>
+<para>Set the Fast Timeout object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The fast timeout value to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the fast timeout was successfully set, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="35" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="35" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a97060b93e1e38df766b0a800e603f3de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncButton::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>VirtEncButton::clear</qualifiedname>
+        <briefdescription>
+<para>Clear the state of the virtual encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function clears the state of the virtual encoder button, including the button state and encoder state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="49" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1aed25de98b15dfe76ed85cd0eddd58535" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::attach_call</definition>
+        <argsstring>(EB_FLAGS_T handler, cb_t callback_func)</argsstring>
+        <name>attach_call</name>
+        <qualifiedname>VirtEncButton::attach_call</qualifiedname>
+        <param>
+          <type><ref refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" kindref="member">EB_FLAGS_T</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref></type>
+          <declname>callback_func</declname>
+        </param>
+        <briefdescription>
+<para>Attaches a callback function to handle a specific event of the virtual encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event type to attach the callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callback function to be attached. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns true if the callback function was successfully attached, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="61" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="61" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1aa775b5e4422d36c04b5c78c612541b5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncButton::detach_call</definition>
+        <argsstring>()</argsstring>
+        <name>detach_call</name>
+        <qualifiedname>VirtEncButton::detach_call</qualifiedname>
+        <briefdescription>
+<para>Detach the callback functions for the virtual encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="99" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="99" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a53621b1557fa013fa7a6844dc59c1ad4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::turnH</definition>
+        <argsstring>()</argsstring>
+        <name>turnH</name>
+        <qualifiedname>VirtEncButton::turnH</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is turned to the right. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is turned to the right, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="115" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1aeb203c0f22a07fb387d43e2b7657e24f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::fast</definition>
+        <argsstring>()</argsstring>
+        <name>fast</name>
+        <qualifiedname>VirtEncButton::fast</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is in the fast mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is in the fast mode, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="124" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a57c3e4133477d9902af2a581b90700bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::right</definition>
+        <argsstring>()</argsstring>
+        <name>right</name>
+        <qualifiedname>VirtEncButton::right</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is turned to the right without holding the button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is turned to the right without holding the button, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="133" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1adaa0ce46e2773bbdb09ee08db589a1b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::left</definition>
+        <argsstring>()</argsstring>
+        <name>left</name>
+        <qualifiedname>VirtEncButton::left</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is turned to the left without holding the button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is turned to the left without holding the button, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="142" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="142" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a2beb348a28bb01f27b224217d7224092" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::rightH</definition>
+        <argsstring>()</argsstring>
+        <name>rightH</name>
+        <qualifiedname>VirtEncButton::rightH</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is turned to the right while holding the button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is turned to the right while holding the button, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="151" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="151" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a8bd9caade910e004e495520c19b9d696" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::leftH</definition>
+        <argsstring>()</argsstring>
+        <name>leftH</name>
+        <qualifiedname>VirtEncButton::leftH</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is turned to the left while holding the button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is turned to the left while holding the button, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="160" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="160" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a8d70f08ee710d5f2be87d5d4de3e6ddd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::encHolding</definition>
+        <argsstring>()</argsstring>
+        <name>encHolding</name>
+        <qualifiedname>VirtEncButton::encHolding</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder button is being held. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder button is being held, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="169" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="169" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a889370afd906746fa5866298cf4cc30d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" kindref="member">EB_FLAGS_T</ref></type>
+        <definition>EB_FLAGS_T VirtEncButton::action</definition>
+        <argsstring>()</argsstring>
+        <name>action</name>
+        <qualifiedname>VirtEncButton::action</qualifiedname>
+        <briefdescription>
+<para>Get the action of the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The action of the encoder button </para>
+</simplesect>
+<xrefsect id="dd/d00/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>todo in binary switch case block e_state + b_state and EB_HOLD + EB_TURN verification if ((state &amp; EB_HOLD) &amp;&amp; (state &amp; EB_TURN_R)) return EB_TURN_HOLD_R; </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="180" column="16" bodyfile="src/core/VirtEncButton.h" bodystart="180" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncButton::tickISR</definition>
+        <argsstring>(bool e0, bool e1)</argsstring>
+        <name>tickISR</name>
+        <qualifiedname>VirtEncButton::tickISR</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <briefdescription>
+<para>Handle the interrupt tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The updated state of the encoder button </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="234" column="12" bodyfile="src/core/VirtEncButton.h" bodystart="234" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a03b7c1cf5be756ae9edc6a4d8b566200" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncButton::tickISR</definition>
+        <argsstring>(int8_t state)</argsstring>
+        <name>tickISR</name>
+        <qualifiedname>VirtEncButton::tickISR</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Handle the interrupt tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current state of the encoder button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The updated state of the encoder button </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="244" column="12" bodyfile="src/core/VirtEncButton.h" bodystart="244" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1ab1239a037d7cd46cb7fc1b7c87e0fb3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tick</definition>
+        <argsstring>(bool e0, bool e1, bool btn)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncButton::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="276" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="276" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1ad7c5bd764e09b977f60ad01bc8f830c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tick</definition>
+        <argsstring>(int8_t state, bool btn)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncButton::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current state of the encoder button </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="287" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="287" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1af72ce00f11b876aa6353840fad4f1a55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tick</definition>
+        <argsstring>(bool btn)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncButton::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="324" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="324" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1aa36b84bf965151ab141024342a7f69aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tickRaw</definition>
+        <argsstring>(bool e0, bool e1, bool btn)</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncButton::tickRaw</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the raw tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="338" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="338" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1ab86c2fa3936825f4be380f1a00b788bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tickRaw</definition>
+        <argsstring>(int8_t state, bool btn)</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncButton::tickRaw</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the raw tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current state of the encoder button </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="349" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="349" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a5f3140f26b5e0c3f2fdcff2f0f665b7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::tickRaw</definition>
+        <argsstring>(bool btn)</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncButton::tickRaw</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Handle the raw tick for the encoder button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state of the button </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the encoder button state has changed, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="386" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="386" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>VirtButton::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="60" column="10" bodyfile="src/core/VirtButton.h" bodystart="60" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1abb46734e4374bcd7047e0a641bef62ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setHoldTimeout</definition>
+        <argsstring>(uint16_t timeout=600)</argsstring>
+        <name>setHoldTimeout</name>
+        <qualifiedname>VirtButton::setHoldTimeout</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>timeout</declname>
+          <defval>600</defval>
+        </param>
+        <briefdescription>
+<para>Sets the hold timeout for the virtual button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hold timeout value in milliseconds. Default is 600 milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>max timeout is 4000 ms </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="74" column="10" bodyfile="src/core/VirtButton.h" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setStepTimeout</definition>
+        <argsstring>(uint16_t timeout=200)</argsstring>
+        <name>setStepTimeout</name>
+        <qualifiedname>VirtButton::setStepTimeout</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>timeout</declname>
+          <defval>200</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the step timeout for the virtual button. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timeout value in milliseconds. Default is 200 milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>max timeout is 4000 ms </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="85" column="10" bodyfile="src/core/VirtButton.h" bodystart="85" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setClickTimeout</definition>
+        <argsstring>(uint16_t timeout=500)</argsstring>
+        <name>setClickTimeout</name>
+        <qualifiedname>VirtButton::setClickTimeout</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>timeout</declname>
+          <defval>500</defval>
+        </param>
+        <briefdescription>
+<para>Sets the click timeout for the virtual button. Clicks faster than this timeout will be detected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The click timeout value in milliseconds. Default is 500 milliseconds. Max is 4000ms. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="96" column="10" bodyfile="src/core/VirtButton.h" bodystart="96" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setDebounceTimeout</definition>
+        <argsstring>(uint8_t timeout=50)</argsstring>
+        <name>setDebounceTimeout</name>
+        <qualifiedname>VirtButton::setDebounceTimeout</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>timeout</declname>
+          <defval>50</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="102" column="10" bodyfile="src/core/VirtButton.h" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setBtnLevel</definition>
+        <argsstring>(bool level)</argsstring>
+        <name>setBtnLevel</name>
+        <qualifiedname>VirtButton::setBtnLevel</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="108" column="10" bodyfile="src/core/VirtButton.h" bodystart="108" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1aa556b513fa0e2c59d3f55954eeb0ff15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::pressISR</definition>
+        <argsstring>()</argsstring>
+        <name>pressISR</name>
+        <qualifiedname>VirtButton::pressISR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="112" column="10" bodyfile="src/core/VirtButton.h" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a7e0ca1c632bcc03a4134ecc849b1690d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>VirtButton::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="117" column="10" bodyfile="src/core/VirtButton.h" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a97c03ff8b2bdbebdbe69a14c92f50ebe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::attach_call</definition>
+        <argsstring>(cb_t callback_func)</argsstring>
+        <name>attach_call</name>
+        <qualifiedname>VirtButton::attach_call</qualifiedname>
+        <param>
+          <type><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref></type>
+          <declname>callback_func</declname>
+        </param>
+        <briefdescription>
+<para>Attach a callback function to handle button events. The callback will be called when button events occur. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callback_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the callback function </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the callback is attached, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="137" column="10" bodyfile="src/core/VirtButton.h" bodystart="137" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a0405edb8ba969d6fdb30732d33fff4ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::press</definition>
+        <argsstring>()</argsstring>
+        <name>press</name>
+        <qualifiedname>VirtButton::press</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="154" column="10" bodyfile="src/core/VirtButton.h" bodystart="154" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1add4b40cf62454b7533cfaa6481325c6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::release</definition>
+        <argsstring>()</argsstring>
+        <name>release</name>
+        <qualifiedname>VirtButton::release</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="158" column="10" bodyfile="src/core/VirtButton.h" bodystart="158" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a151aa26a19beca73e3af724fa56808e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::click</definition>
+        <argsstring>()</argsstring>
+        <name>click</name>
+        <qualifiedname>VirtButton::click</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="162" column="10" bodyfile="src/core/VirtButton.h" bodystart="162" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a1a825e3b028a74b351070468118f4c8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::pressing</definition>
+        <argsstring>()</argsstring>
+        <name>pressing</name>
+        <qualifiedname>VirtButton::pressing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="166" column="10" bodyfile="src/core/VirtButton.h" bodystart="166" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::hold</definition>
+        <argsstring>()</argsstring>
+        <name>hold</name>
+        <qualifiedname>VirtButton::hold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="170" column="10" bodyfile="src/core/VirtButton.h" bodystart="170" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a4a0bb4a5b702398f051c0de78a3e4d5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::hold</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>hold</name>
+        <qualifiedname>VirtButton::hold</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="174" column="10" bodyfile="src/core/VirtButton.h" bodystart="174" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::holding</definition>
+        <argsstring>()</argsstring>
+        <name>holding</name>
+        <qualifiedname>VirtButton::holding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="178" column="10" bodyfile="src/core/VirtButton.h" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1aabb3f562851185af17b19c35bbea2afd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::holding</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>holding</name>
+        <qualifiedname>VirtButton::holding</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="182" column="10" bodyfile="src/core/VirtButton.h" bodystart="182" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a2636015e47e232be87f3bce9ff327df4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::step</definition>
+        <argsstring>()</argsstring>
+        <name>step</name>
+        <qualifiedname>VirtButton::step</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="186" column="10" bodyfile="src/core/VirtButton.h" bodystart="186" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a499511ff69ff95ac3f88ddb0ab53c390" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::step</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>step</name>
+        <qualifiedname>VirtButton::step</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="190" column="10" bodyfile="src/core/VirtButton.h" bodystart="190" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a91f33795750a2c29a8b371d1f7372872" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::hasClicks</definition>
+        <argsstring>()</argsstring>
+        <name>hasClicks</name>
+        <qualifiedname>VirtButton::hasClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="194" column="10" bodyfile="src/core/VirtButton.h" bodystart="194" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1ab2e93c61b9862a0b82a4957316646a1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::hasClicks</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>hasClicks</name>
+        <qualifiedname>VirtButton::hasClicks</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="198" column="10" bodyfile="src/core/VirtButton.h" bodystart="198" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a03a1baee78264505a8d33690e3a91d2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::getClicks</definition>
+        <argsstring>()</argsstring>
+        <name>getClicks</name>
+        <qualifiedname>VirtButton::getClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="202" column="13" bodyfile="src/core/VirtButton.h" bodystart="202" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1add38d1e6687ebee0df64c3e2f5502d7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::getSteps</definition>
+        <argsstring>()</argsstring>
+        <name>getSteps</name>
+        <qualifiedname>VirtButton::getSteps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="206" column="14" bodyfile="src/core/VirtButton.h" bodystart="206" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::releaseHold</definition>
+        <argsstring>()</argsstring>
+        <name>releaseHold</name>
+        <qualifiedname>VirtButton::releaseHold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="217" column="10" bodyfile="src/core/VirtButton.h" bodystart="217" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a79873f1bd68e199bfae83437e8ff9011" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::releaseHold</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>releaseHold</name>
+        <qualifiedname>VirtButton::releaseHold</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="221" column="10" bodyfile="src/core/VirtButton.h" bodystart="221" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a11c355bb449932ef49276d2c191f436b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::releaseStep</definition>
+        <argsstring>()</argsstring>
+        <name>releaseStep</name>
+        <qualifiedname>VirtButton::releaseStep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="225" column="10" bodyfile="src/core/VirtButton.h" bodystart="225" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1ac0944855154d9903defeaf137f1049df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::releaseStep</definition>
+        <argsstring>(uint8_t num)</argsstring>
+        <name>releaseStep</name>
+        <qualifiedname>VirtButton::releaseStep</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="229" column="10" bodyfile="src/core/VirtButton.h" bodystart="229" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a527d4fbbceb1fd5b8ecfb9112b068e83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::waiting</definition>
+        <argsstring>()</argsstring>
+        <name>waiting</name>
+        <qualifiedname>VirtButton::waiting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="233" column="10" bodyfile="src/core/VirtButton.h" bodystart="233" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a2edf056136c8cd9c830afb7e6811d1fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::busy</definition>
+        <argsstring>()</argsstring>
+        <name>busy</name>
+        <qualifiedname>VirtButton::busy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="237" column="10" bodyfile="src/core/VirtButton.h" bodystart="237" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VirtButton::timeout</definition>
+        <argsstring>(uint16_t tout)</argsstring>
+        <name>timeout</name>
+        <qualifiedname>VirtButton::timeout</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>tout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the timeout has occurred.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timeout value in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the timeout has occurred, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="282" column="10" bodyfile="src/core/VirtButton.h" bodystart="282" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::pressFor</definition>
+        <argsstring>()</argsstring>
+        <name>pressFor</name>
+        <qualifiedname>VirtButton::pressFor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the duration in milliseconds for which the button has been pressed. If the EB_NO_PEDOMETER macro is defined, the function always returns 0. If the button is not currently pressed, the function also returns 0.</para>
+<para><simplesect kind="return"><para>The duration in milliseconds for which the button has been pressed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="297" column="14" bodyfile="src/core/VirtButton.h" bodystart="297" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a12e463e8d316cb0a93620786a4d1a04d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::pressFor</definition>
+        <argsstring>(uint16_t ms)</argsstring>
+        <name>pressFor</name>
+        <qualifiedname>VirtButton::pressFor</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="304" column="10" bodyfile="src/core/VirtButton.h" bodystart="304" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::holdFor</definition>
+        <argsstring>()</argsstring>
+        <name>holdFor</name>
+        <qualifiedname>VirtButton::holdFor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the duration for which the button has been held.</para>
+<para><simplesect kind="return"><para>The duration in milliseconds. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="313" column="14" bodyfile="src/core/VirtButton.h" bodystart="313" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1ae2ad9099e39b6eea1b30f2ffdcbf1a9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::holdFor</definition>
+        <argsstring>(uint16_t ms)</argsstring>
+        <name>holdFor</name>
+        <qualifiedname>VirtButton::holdFor</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the button has been held for a specified duration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The duration in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the button has been held for the specified duration, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="332" column="10" bodyfile="src/core/VirtButton.h" bodystart="332" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1ab4d8ead514781eb48beccb544540b125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+        <definition>uint16_t VirtButton::stepFor</definition>
+        <argsstring>()</argsstring>
+        <name>stepFor</name>
+        <qualifiedname>VirtButton::stepFor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="336" column="14" bodyfile="src/core/VirtButton.h" bodystart="336" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a962ce110e4bca21fde8544c88023723a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::stepFor</definition>
+        <argsstring>(uint16_t ms)</argsstring>
+        <name>stepFor</name>
+        <qualifiedname>VirtButton::stepFor</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="349" column="10" bodyfile="src/core/VirtButton.h" bodystart="349" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a905e81982b3a85ced1f91711b8f89193" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::tick</definition>
+        <argsstring>(VirtButton &amp;b0, VirtButton &amp;b1)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtButton::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button" kindref="compound">VirtButton</ref> &amp;</type>
+          <declname>b0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button" kindref="compound">VirtButton</ref> &amp;</type>
+          <declname>b1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="354" column="10" bodyfile="src/core/VirtButton.h" bodystart="354" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a5a921ae41835ec42e9e773b0bce3db7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::setButtonLevel</definition>
+        <argsstring>(bool level)</argsstring>
+        <name>setButtonLevel</name>
+        <qualifiedname>VirtButton::setButtonLevel</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="385" column="10" bodyfile="src/core/VirtButton.h" bodystart="385" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::setEncReverse</definition>
+        <argsstring>(bool rev=false)</argsstring>
+        <name>setEncReverse</name>
+        <qualifiedname>VirtEncoder::setEncReverse</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>rev</declname>
+          <defval><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">false</ref></defval>
+        </param>
+        <briefdescription>
+<para>Set the encoder&apos;s reverse flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to reverse the encoder, false otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="57" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::setEncType</definition>
+        <argsstring>(uint8_t type=EB_STEP1)</argsstring>
+        <name>setEncType</name>
+        <qualifiedname>VirtEncoder::setEncType</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+          <declname>type</declname>
+          <defval><ref refid="d2/d01/_virt_encoder_8h_1ab5c622eaea29916b55c4b2f8023cbbe3" kindref="member">EB_STEP1</ref></defval>
+        </param>
+        <briefdescription>
+<para>Set the encoder&apos;s type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the encoder type to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="67" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::setEncISR</definition>
+        <argsstring>(bool use=true)</argsstring>
+        <name>setEncISR</name>
+        <qualifiedname>VirtEncoder::setEncISR</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>use</declname>
+          <defval><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">true</ref></defval>
+        </param>
+        <briefdescription>
+<para>Set the encoder&apos;s interrupt service routine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">use</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to use the ISR, false otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Argument &quot;use&quot; by default is true because name of this function means that it is used to set/activate the ISR. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="78" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncoder::attach_right</definition>
+        <argsstring>(cb_t callback_func)</argsstring>
+        <name>attach_right</name>
+        <qualifiedname>VirtEncoder::attach_right</qualifiedname>
+        <param>
+          <type><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref></type>
+          <declname>callback_func</declname>
+        </param>
+        <briefdescription>
+<para>Attach a callback function to handle encoder events when turned right. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">callback_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the callback function </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>callback_func can be &quot;cb_t&quot; type </para>
+</simplesect>
+<simplesect kind="return"><para>true if the callback is attached, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="89" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="89" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncoder::attach_left</definition>
+        <argsstring>(cb_t callback_func)</argsstring>
+        <name>attach_left</name>
+        <qualifiedname>VirtEncoder::attach_left</qualifiedname>
+        <param>
+          <type><ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref></type>
+          <declname>callback_func</declname>
+        </param>
+        <briefdescription>
+<para>Attach a callback function to handle encoder events when turned left. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">callback_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the callback function </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the callback is attached, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="105" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="105" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::initEnc</definition>
+        <argsstring>(bool e0, bool e1)</argsstring>
+        <name>initEnc</name>
+        <qualifiedname>VirtEncoder::initEnc</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the encoder with the specified values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="134" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="134" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtEncoder::initEnc</definition>
+        <argsstring>(int8_t v)</argsstring>
+        <name>initEnc</name>
+        <qualifiedname>VirtEncoder::initEnc</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the encoder with the specified value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial value of the encoder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="143" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncoder::turn</definition>
+        <argsstring>()</argsstring>
+        <name>turn</name>
+        <qualifiedname>VirtEncoder::turn</qualifiedname>
+        <briefdescription>
+<para>Check if the encoder has been turned. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the encoder has been turned, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="161" column="10" bodyfile="src/core/VirtEncoder.h" bodystart="161" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::dir</definition>
+        <argsstring>()</argsstring>
+        <name>dir</name>
+        <qualifiedname>VirtEncoder::dir</qualifiedname>
+        <briefdescription>
+<para>Get the direction of rotation of the encoder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>-1 if rotated left, 1 if rotated right </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="170" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="170" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tick</definition>
+        <argsstring>(bool e0, bool e1)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncoder::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <briefdescription>
+<para>Process the encoder tick. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="228" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="228" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tick</definition>
+        <argsstring>(int8_t state)</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncoder::tick</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Process the encoder tick. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current state of the encoder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="238" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="238" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tick</definition>
+        <argsstring>()</argsstring>
+        <name>tick</name>
+        <qualifiedname>VirtEncoder::tick</qualifiedname>
+        <briefdescription>
+<para>Process the encoder tick without clearing the turn flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="257" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="257" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d02/class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref></type>
+        <definition>int8_t VirtEncoder::tickRaw</definition>
+        <argsstring>(bool e0, bool e1)</argsstring>
+        <name>tickRaw</name>
+        <qualifiedname>VirtEncoder::tickRaw</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e0</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>e1</declname>
+        </param>
+        <briefdescription>
+<para>Process the encoder tick without clearing the turn flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the first encoder pin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the second encoder pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1, 0, or 1 based on the direction of rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncoder.h" line="268" column="12" bodyfile="src/core/VirtEncoder.h" bodystart="268" bodyend="270"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="dc/d00/class_virt_enc_button_1a6458c7b4d09083cc47c80e544219ab3b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtEncButton::checkFast</definition>
+        <argsstring>()</argsstring>
+        <name>checkFast</name>
+        <qualifiedname>VirtEncButton::checkFast</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtEncButton.h" line="408" column="10" bodyfile="src/core/VirtEncButton.h" bodystart="408" bodyend="414"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d7/d02/class_virt_button_1a7df22ba2bd84d9f995c718698638a159" prot="public" static="no" mutable="no">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref></type>
+        <definition>uint8_t VirtButton::clicks</definition>
+        <argsstring></argsstring>
+        <name>clicks</name>
+        <qualifiedname>VirtButton::clicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="382" column="13" bodyfile="src/core/VirtButton.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a80522eab183bc908bd3363e2850e0981" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::pollBtn</definition>
+        <argsstring>(bool s)</argsstring>
+        <name>pollBtn</name>
+        <qualifiedname>VirtButton::pollBtn</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="391" column="10" bodyfile="src/core/VirtButton.h" bodystart="391" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::set_btn_flag</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>set_btn_flag</name>
+        <qualifiedname>VirtButton::set_btn_flag</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="500" column="17" bodyfile="src/core/VirtButton.h" bodystart="500" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::clr_btn_flag</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>clr_btn_flag</name>
+        <qualifiedname>VirtButton::clr_btn_flag</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="503" column="17" bodyfile="src/core/VirtButton.h" bodystart="503" bodyend="505"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1abbcecd7ead3d57ae533182b181b5df44" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::read_btn_flag</definition>
+        <argsstring>(const uint16_t x) __attribute__((always_inline))</argsstring>
+        <name>read_btn_flag</name>
+        <qualifiedname>VirtButton::read_btn_flag</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="506" column="17" bodyfile="src/core/VirtButton.h" bodystart="506" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">void</ref></type>
+        <definition>void VirtButton::write_btn_flag</definition>
+        <argsstring>(const uint16_t x, bool v) __attribute__((always_inline))</argsstring>
+        <name>write_btn_flag</name>
+        <qualifiedname>VirtButton::write_btn_flag</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="509" column="17" bodyfile="src/core/VirtButton.h" bodystart="509" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d02/class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">bool</ref></type>
+        <definition>bool VirtButton::eq_btn_flag</definition>
+        <argsstring>(const uint16_t x, const uint16_t y) __attribute__((always_inline))</argsstring>
+        <name>eq_btn_flag</name>
+        <qualifiedname>VirtButton::eq_btn_flag</qualifiedname>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">const</ref> <ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint16_t</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/VirtButton.h" line="513" column="17" bodyfile="src/core/VirtButton.h" bodystart="513" bodyend="515"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class representing a virtual encoder button. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class inherits from <ref refid="d7/d02/class_virt_button" kindref="compound">VirtButton</ref> and <ref refid="dc/d02/class_virt_encoder" kindref="compound">VirtEncoder</ref> classes. It provides methods for setting and getting the fast timeout, as well as various methods for checking the state of the encoder button. The class also includes methods for handling interrupts and polling the encoder button. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>EncButton</label>
+        <link refid="d1/d01/class_enc_button"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EncButtonT&lt; ENCA, ENCB, BTN &gt;</label>
+        <link refid="d4/d03/class_enc_button_t"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>VirtButton</label>
+        <link refid="d7/d02/class_virt_button"/>
+      </node>
+      <node id="1">
+        <label>VirtEncButton</label>
+        <link refid="dc/d00/class_virt_enc_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VirtEncoder</label>
+        <link refid="dc/d02/class_virt_encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>VirtButton</label>
+        <link refid="d7/d02/class_virt_button"/>
+      </node>
+      <node id="1">
+        <label>VirtEncButton</label>
+        <link refid="dc/d00/class_virt_enc_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VirtEncoder</label>
+        <link refid="dc/d02/class_virt_encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/VirtEncButton.h" line="25" column="1" bodyfile="src/core/VirtEncButton.h" bodystart="25" bodyend="415"/>
+    <listofallmembers>
+      <member refid="dc/d00/class_virt_enc_button_1a889370afd906746fa5866298cf4cc30d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>action</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1aed25de98b15dfe76ed85cd0eddd58535" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>attach_call</name></member>
+      <member refid="d7/d02/class_virt_button_1a97c03ff8b2bdbebdbe69a14c92f50ebe" prot="public" virt="non-virtual" ambiguityscope="VirtButton::"><scope>VirtEncButton</scope><name>attach_call</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a96eb6f113c8af74ad511ee646f4159f4" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>attach_left</name></member>
+      <member refid="dc/d02/class_virt_encoder_1ae8b27255ffb4264dd2ed1110c9926191" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>attach_right</name></member>
+      <member refid="d7/d02/class_virt_button_1a2edf056136c8cd9c830afb7e6811d1fa" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>busy</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1acd4808d79e571dec851e60670914a174" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>cb</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a6458c7b4d09083cc47c80e544219ab3b" prot="private" virt="non-virtual"><scope>VirtEncButton</scope><name>checkFast</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a97060b93e1e38df766b0a800e603f3de" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>clear</name></member>
+      <member refid="d7/d02/class_virt_button_1a151aa26a19beca73e3af724fa56808e6" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>click</name></member>
+      <member refid="d7/d02/class_virt_button_1a7df22ba2bd84d9f995c718698638a159" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>clicks</name></member>
+      <member refid="d7/d02/class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>clr_btn_flag</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a6bdb1a2dec10e1be3c14c3c49869ebab" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>clr_encf</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a966668cc0a577818e294a4084b4dabea" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>counter</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1aa775b5e4422d36c04b5c78c612541b5c" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>detach_call</name></member>
+      <member refid="dc/d02/class_virt_encoder_1abf07cf920815fecb1438b28a4c29f52d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>dir</name></member>
+      <member refid="d7/d02/class_virt_button_1aeac80efbb6be30c6ea26e1867926c707" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>EB_CLICK_T</name></member>
+      <member refid="d7/d02/class_virt_button_1a02ec52c911ea40944b04c86afc2452df" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>EB_DEB_T</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a11f9a3967999acb14cc6ad8ff9a22cdf" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>EB_FAST_T</name></member>
+      <member refid="d7/d02/class_virt_button_1a26f084309609e463cca76339d16970dc" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>EB_HOLD_T</name></member>
+      <member refid="d7/d02/class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>EB_STEP_T</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a35134c56ba9700300ea9c1f6fbb14276" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>ebuffer</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a8d70f08ee710d5f2be87d5d4de3e6ddd" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>encHolding</name></member>
+      <member refid="d7/d02/class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>eq_btn_flag</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1aeb203c0f22a07fb387d43e2b7657e24f" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>fast</name></member>
+      <member refid="d7/d02/class_virt_button_1a03a1baee78264505a8d33690e3a91d2e" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>getClicks</name></member>
+      <member refid="d7/d02/class_virt_button_1add38d1e6687ebee0df64c3e2f5502d7c" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>getSteps</name></member>
+      <member refid="d7/d02/class_virt_button_1a91f33795750a2c29a8b371d1f7372872" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>hasClicks</name></member>
+      <member refid="d7/d02/class_virt_button_1ab2e93c61b9862a0b82a4957316646a1c" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>hasClicks</name></member>
+      <member refid="d7/d02/class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>hold</name></member>
+      <member refid="d7/d02/class_virt_button_1a4a0bb4a5b702398f051c0de78a3e4d5a" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>hold</name></member>
+      <member refid="d7/d02/class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>holdFor</name></member>
+      <member refid="d7/d02/class_virt_button_1ae2ad9099e39b6eea1b30f2ffdcbf1a9f" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>holdFor</name></member>
+      <member refid="d7/d02/class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>holding</name></member>
+      <member refid="d7/d02/class_virt_button_1aabb3f562851185af17b19c35bbea2afd" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>holding</name></member>
+      <member refid="d7/d02/class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>init</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>initEnc</name></member>
+      <member refid="dc/d02/class_virt_encoder_1ad2702e1e7ea1b8bd1e9eea976fc61077" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>initEnc</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1adaa0ce46e2773bbdb09ee08db589a1b7" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>left</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a8bd9caade910e004e495520c19b9d696" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>leftH</name></member>
+      <member refid="d7/d02/class_virt_button_1a80522eab183bc908bd3363e2850e0981" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>pollBtn</name></member>
+      <member refid="dc/d02/class_virt_encoder_1aa5dbe1eb7b590f4a97498a20e1b5542e" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pollEnc</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a0257b348f0139e7a8fed629bb8acbde0" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pollEnc</name></member>
+      <member refid="d7/d02/class_virt_button_1a0405edb8ba969d6fdb30732d33fff4ec" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>press</name></member>
+      <member refid="d7/d02/class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pressFor</name></member>
+      <member refid="d7/d02/class_virt_button_1a12e463e8d316cb0a93620786a4d1a04d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pressFor</name></member>
+      <member refid="d7/d02/class_virt_button_1a1a825e3b028a74b351070468118f4c8c" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pressing</name></member>
+      <member refid="d7/d02/class_virt_button_1aa556b513fa0e2c59d3f55954eeb0ff15" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>pressISR</name></member>
+      <member refid="d7/d02/class_virt_button_1abbcecd7ead3d57ae533182b181b5df44" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>read_btn_flag</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>read_encf</name></member>
+      <member refid="d7/d02/class_virt_button_1add4b40cf62454b7533cfaa6481325c6a" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>release</name></member>
+      <member refid="d7/d02/class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>releaseHold</name></member>
+      <member refid="d7/d02/class_virt_button_1a79873f1bd68e199bfae83437e8ff9011" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>releaseHold</name></member>
+      <member refid="d7/d02/class_virt_button_1a11c355bb449932ef49276d2c191f436b" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>releaseStep</name></member>
+      <member refid="d7/d02/class_virt_button_1ac0944855154d9903defeaf137f1049df" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>releaseStep</name></member>
+      <member refid="d7/d02/class_virt_button_1a7e0ca1c632bcc03a4134ecc849b1690d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>reset</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a57c3e4133477d9902af2a581b90700bf" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>right</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a2beb348a28bb01f27b224217d7224092" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>rightH</name></member>
+      <member refid="d7/d02/class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>run_timer</name></member>
+      <member refid="d7/d02/class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>set_btn_flag</name></member>
+      <member refid="dc/d02/class_virt_encoder_1aab174e7ed37b422a27192aedee8be977" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>set_encf</name></member>
+      <member refid="d7/d02/class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setBtnLevel</name></member>
+      <member refid="d7/d02/class_virt_button_1a5a921ae41835ec42e9e773b0bce3db7d" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setButtonLevel</name></member>
+      <member refid="d7/d02/class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setClickTimeout</name></member>
+      <member refid="d7/d02/class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setDebounceTimeout</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a5d17150b3610b8978bdde0540c1e1c55" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setEncISR</name></member>
+      <member refid="dc/d02/class_virt_encoder_1ad161c0d2a29621731ff89d250ddd8a4f" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setEncReverse</name></member>
+      <member refid="dc/d02/class_virt_encoder_1aade2ae205e9ec50bed6d76ce3c0f33a9" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setEncType</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a6479c908479a9c1916a8ea3582f3e422" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setFastTimeout</name></member>
+      <member refid="d7/d02/class_virt_button_1abb46734e4374bcd7047e0a641bef62ac" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setHoldTimeout</name></member>
+      <member refid="d7/d02/class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>setStepTimeout</name></member>
+      <member refid="d7/d02/class_virt_button_1a2636015e47e232be87f3bce9ff327df4" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>step</name></member>
+      <member refid="d7/d02/class_virt_button_1a499511ff69ff95ac3f88ddb0ab53c390" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>step</name></member>
+      <member refid="d7/d02/class_virt_button_1ab4d8ead514781eb48beccb544540b125" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>stepFor</name></member>
+      <member refid="d7/d02/class_virt_button_1a962ce110e4bca21fde8544c88023723a" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>stepFor</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1ab1239a037d7cd46cb7fc1b7c87e0fb3a" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1ad7c5bd764e09b977f60ad01bc8f830c0" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1af72ce00f11b876aa6353840fad4f1a55" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="d7/d02/class_virt_button_1a905e81982b3a85ced1f91711b8f89193" prot="public" virt="non-virtual" ambiguityscope="VirtButton::"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a247cc0576b95540bb3cc94fe34a3879e" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d02/class_virt_encoder_1ae452240d0eb1cc8bfc00c6fa52691cb1" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tick</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tickISR</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a03b7c1cf5be756ae9edc6a4d8b566200" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tickISR</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1aa36b84bf965151ab141024342a7f69aa" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1ab86c2fa3936825f4be380f1a00b788bf" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a5f3140f26b5e0c3f2fdcff2f0f665b7e" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a19e253eba8cdb651f472635511f4ea2f" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a439bdcec3f5dc165e4a4ed8b8fdb9035" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" prot="public" virt="non-virtual" ambiguityscope="VirtEncoder::"><scope>VirtEncButton</scope><name>tickRaw</name></member>
+      <member refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>timeout</name></member>
+      <member refid="d7/d02/class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>timer</name></member>
+      <member refid="dc/d02/class_virt_encoder_1a25ad5e989164bdf4d10a83a1057a0001" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>turn</name></member>
+      <member refid="dc/d00/class_virt_enc_button_1a53621b1557fa013fa7a6844dc59c1ad4" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>turnH</name></member>
+      <member refid="dc/d02/class_virt_encoder_1ab0ba73852e308a8e365ef438f0cdc0b0" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>VirtEncoder</name></member>
+      <member refid="d7/d02/class_virt_button_1a527d4fbbceb1fd5b8ecfb9112b068e83" prot="public" virt="non-virtual"><scope>VirtEncButton</scope><name>waiting</name></member>
+      <member refid="d7/d02/class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>write_btn_flag</name></member>
+      <member refid="dc/d02/class_virt_encoder_1aa729ee6d9919727d86a7eecd2f51e724" prot="protected" virt="non-virtual"><scope>VirtEncButton</scope><name>write_encf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

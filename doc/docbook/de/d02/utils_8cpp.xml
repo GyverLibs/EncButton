@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8cpp" xml:lang="en-US">
+<title>src/core/utils.cpp File Reference</title>
+<indexterm><primary>src/core/utils.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;utils.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link> (const uint8_t pin)</para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8cpp_1af74a9306d2c033fe5f90bcd54010baf4">EBwrite</link> (const uint8_t pin, bool value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb"/><section>
+    <title>EBread()</title>
+<indexterm><primary>EBread</primary><secondary>utils.cpp</secondary></indexterm>
+<indexterm><primary>utils.cpp</primary><secondary>EBread</secondary></indexterm>
+<para><computeroutput>bool EBread (const uint8_t pin)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8cpp_source_1l00003">3</link> of file <link linkend="_utils_8cpp_source">utils.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00003 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00004 <emphasis role="preprocessor">#if&#32;defined(__AVR_ATmega328P__)&#32;||&#32;defined(__AVR_ATmega168__)&#x240D;</emphasis>
+00005 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+00006 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PIND,&#32;pin);
+00007 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+00008 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINB,&#32;pin&#32;-&#32;8);
+00009 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;20)
+00010 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINC,&#32;pin&#32;-&#32;14);
+00011 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATtiny85__)&#32;||&#32;defined(__AVR_ATtiny13__)&#x240D;</emphasis>
+00012 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINB,&#32;pin);
+00013 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATmega2560__)&#x240D;</emphasis>
+00014 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+00015 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PIND,&#32;pin);
+00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+00017 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINE,&#32;pin&#32;-&#32;8);
+00018 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;22)
+00019 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PING,&#32;pin&#32;-&#32;14);
+00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;30)
+00021 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINH,&#32;pin&#32;-&#32;22);
+00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;38)
+00023 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINJ,&#32;pin&#32;-&#32;30);
+00024 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;46)
+00025 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINK,&#32;pin&#32;-&#32;38);
+00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;54)
+00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bitRead(PINL,&#32;pin&#32;-&#32;46);
+00028 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;digitalRead(pin);
+00030 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00032 }
+</programlisting></section>
+<anchor xml:id="_utils_8cpp_1af74a9306d2c033fe5f90bcd54010baf4"/><section>
+    <title>EBwrite()</title>
+<indexterm><primary>EBwrite</primary><secondary>utils.cpp</secondary></indexterm>
+<indexterm><primary>utils.cpp</primary><secondary>EBwrite</secondary></indexterm>
+<para><computeroutput>void EBwrite (const uint8_t pin, bool value)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8cpp_source_1l00034">34</link> of file <link linkend="_utils_8cpp_source">utils.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00035 <emphasis role="preprocessor">#if&#32;defined(__AVR_ATmega328P__)&#32;||&#32;defined(__AVR_ATmega168__)&#x240D;</emphasis>
+00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTD,&#32;pin,&#32;value);
+00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTB,&#32;pin&#32;-&#32;8,&#32;value);
+00040 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;20)
+00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTC,&#32;pin&#32;-&#32;14,&#32;value);
+00042 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATtiny85__)&#32;||&#32;defined(__AVR_ATtiny13__)&#x240D;</emphasis>
+00043 &#32;&#32;&#32;&#32;bitWrite(PORTB,&#32;pin,&#32;value);
+00044 <emphasis role="preprocessor">#elif&#32;defined(__AVR_ATmega2560__)&#x240D;</emphasis>
+00045 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;8)
+00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTD,&#32;pin,&#32;value);
+00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;14)
+00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTE,&#32;pin&#32;-&#32;8,&#32;value);
+00049 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;22)
+00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTG,&#32;pin&#32;-&#32;14,&#32;value);
+00051 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;30)
+00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTH,&#32;pin&#32;-&#32;22,&#32;value);
+00053 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;38)
+00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTJ,&#32;pin&#32;-&#32;30,&#32;value);
+00055 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;46)
+00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTK,&#32;pin&#32;-&#32;38,&#32;value);
+00057 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pin&#32;&lt;&#32;54)
+00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bitWrite(PORTL,&#32;pin&#32;-&#32;46,&#32;value);
+00059 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00060 &#32;&#32;&#32;&#32;digitalWrite(pin,&#32;value);
+00061 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00062 }
+</programlisting></section>
+</section>
+</section>

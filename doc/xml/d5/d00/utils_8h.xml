@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d5/d00/utils_8h" kind="file" language="C++">
+    <compoundname>utils.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includedby refid="d2/d02/_button_8h" local="yes">src/core/Button.h</includedby>
+    <includedby refid="d8/d00/core_2_enc_button_8h" local="yes">src/core/EncButton.h</includedby>
+    <includedby refid="df/d03/_encoder_8h" local="yes">src/core/Encoder.h</includedby>
+    <includedby refid="d0/d01/_virt_button_8h" local="yes">src/core/VirtButton.h</includedby>
+    <includedby refid="d0/d02/_virt_enc_button_8h" local="yes">src/core/VirtEncButton.h</includedby>
+    <includedby refid="d2/d01/_virt_encoder_8h" local="yes">src/core/VirtEncoder.h</includedby>
+    <includedby refid="de/d02/utils_8cpp" local="yes">src/core/utils.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>src/core/utils.h</label>
+        <link refid="d5/d00/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/EncButton.h</label>
+        <link refid="dc/d01/_enc_button_8h"/>
+      </node>
+      <node id="2">
+        <label>src/core/Button.h</label>
+        <link refid="d2/d02/_button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/core/EncButton.h</label>
+        <link refid="d8/d00/core_2_enc_button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/core/Encoder.h</label>
+        <link refid="df/d03/_encoder_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/core/VirtButton.h</label>
+        <link refid="d0/d01/_virt_button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/core/VirtEncButton.h</label>
+        <link refid="d0/d02/_virt_enc_button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/core/VirtEncoder.h</label>
+        <link refid="d2/d01/_virt_encoder_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/core/utils.cpp</label>
+        <link refid="de/d02/utils_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/core/utils.h</label>
+        <link refid="d5/d00/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="d5/d00/utils_8h_1a4d04a1d6fed6589d40376ca9b2a6ef98" prot="public" static="no">
+        <name>EB_FLAGS</name>
+        <initializer>    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_NONE         , 0)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_PRESS        , 1)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_STEP         , 2)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_HOLD         , 3)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_RELEASE      , 4)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_CLICK        , 5)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_CLICKS       , 6)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_REL_HOLD     , 7)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_REL_HOLD_C   , 8)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_REL_STEP     , 9)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_REL_STEP_C   , 10)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_TURN         , 11)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_TURN_R       , 12)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_TURN_L       , 13)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_TURN_HOLD_R  , 14)\
+    <ref refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" kindref="member">X</ref>(EB_TURN_HOLD_L  , 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="12" column="9" bodyfile="src/core/utils.h" bodystart="12" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="define" id="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" prot="public" static="no">
+        <name>X</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>a = (1 &lt;&lt; b),</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="31" column="9" bodyfile="src/core/utils.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d5/d00/utils_8h_1aa32f6fd8b330750d6d09858020224537" prot="public" static="no">
+        <name>EB_UPTIME</name>
+        <param></param>
+        <initializer>millis()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="37" column="9" bodyfile="src/core/utils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EB_FLAGS_T</name>
+        <enumvalue id="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b" prot="public">
+          <name>EB_FLAGS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="32" column="1" bodyfile="src/core/utils.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* cb_t) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>cb_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="39" column="9" bodyfile="src/core/utils.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="d5/d00/utils_8h_1a625e5f80e7944b05a709cb27d08211bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EBread</definition>
+        <argsstring>(const uint8_t pin)</argsstring>
+        <name>EBread</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="41" column="6" bodyfile="src/core/utils.cpp" bodystart="3" bodyend="32" declfile="src/core/utils.h" declline="41" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d00/utils_8h_1af74a9306d2c033fe5f90bcd54010baf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EBwrite</definition>
+        <argsstring>(const uint8_t pin, bool value)</argsstring>
+        <name>EBwrite</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils.h" line="42" column="6" bodyfile="src/core/utils.cpp" bodystart="34" bodyend="62" declfile="src/core/utils.h" declline="42" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Utility functions for handling pins and flags. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=====================<sp/>FLAGS<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//EB_NONE<sp/>for<sp/>error<sp/>catching<sp/>and<sp/>Encoder<sp/>with<sp/>button<sp/>handling</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="d5/d00/utils_8h_1a4d04a1d6fed6589d40376ca9b2a6ef98" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_FLAGS<sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0)\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_PRESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>1)\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_STEP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>2)\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_HOLD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>3)\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_RELEASE<sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>4)\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_CLICK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>5)\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_CLICKS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>6)\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_REL_HOLD<sp/><sp/><sp/><sp/><sp/>,<sp/>7)\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_REL_HOLD_C<sp/><sp/><sp/>,<sp/>8)\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_REL_STEP<sp/><sp/><sp/><sp/><sp/>,<sp/>9)\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_REL_STEP_C<sp/><sp/><sp/>,<sp/>10)\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_TURN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>11)\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_TURN_R<sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>12)\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_TURN_L<sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>13)\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_TURN_HOLD_R<sp/><sp/>,<sp/>14)\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>X(EB_TURN_HOLD_L<sp/><sp/>,<sp/>15)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//TURN_H_HANDLER<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d5/d00/utils_8h_1a8a0d2d602acb24d74237c3f310e935cd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X(a,<sp/>b)<sp/>a<sp/>=<sp/>(1<sp/>&lt;&lt;<sp/>b),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d00/utils_8h_1a4d04a1d6fed6589d40376ca9b2a6ef98" kindref="member">EB_FLAGS</ref></highlight></codeline>
+<codeline lineno="34" refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67eaa08b435bb960b681662a924444d0fa8b" refkind="member"><highlight class="normal">}<sp/><ref refid="d5/d00/utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e" kindref="member">EB_FLAGS_T</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>X</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="d5/d00/utils_8h_1aa32f6fd8b330750d6d09858020224537" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EB_UPTIME()<sp/>millis()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="d5/d00/utils_8h_1a4c528c24d8196164062904f004d96c84" kindref="member">cb_t</ref>)();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d5/d00/utils_8h_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>pin);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/d00/utils_8h_1af74a9306d2c033fe5f90bcd54010baf4" kindref="member">EBwrite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>pin,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+    </programlisting>
+    <location file="src/core/utils.h"/>
+  </compounddef>
+</doxygen>

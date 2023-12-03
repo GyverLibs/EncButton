@@ -1,0 +1,99 @@
+.TH "src/core/utils.cpp" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/core/utils.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'utils\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBEBread\fP (const uint8_t pin)"
+.br
+.ti -1c
+.RI "void \fBEBwrite\fP (const uint8_t pin, bool value)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool EBread (const uint8_t pin)"
+
+.PP
+Definition at line \fB3\fP of file \fButils\&.cpp\fP\&..PP
+.nf
+3                               {
+4 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+5     if (pin < 8)
+6         return bitRead(PIND, pin);
+7     else if (pin < 14)
+8         return bitRead(PINB, pin \- 8);
+9     else if (pin < 20)
+10         return bitRead(PINC, pin \- 14);
+11 #elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
+12     return bitRead(PINB, pin);
+13 #elif defined(__AVR_ATmega2560__)
+14     if (pin < 8)
+15       return bitRead(PIND, pin);
+16     else if (pin < 14)
+17       return bitRead(PINE, pin \- 8);
+18     else if (pin < 22)
+19       return bitRead(PING, pin \- 14);
+20     else if (pin < 30)
+21       return bitRead(PINH, pin \- 22);
+22     else if (pin < 38)
+23       return bitRead(PINJ, pin \- 30);
+24     else if (pin < 46)
+25       return bitRead(PINK, pin \- 38);
+26     else if (pin < 54)
+27       return bitRead(PINL, pin \- 46);
+28 #else
+29     return digitalRead(pin);
+30 #endif
+31     return 0;
+32 }
+.fi
+
+.SS "void EBwrite (const uint8_t pin, bool value)"
+
+.PP
+Definition at line \fB34\fP of file \fButils\&.cpp\fP\&..PP
+.nf
+34                                            {
+35 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+36     if (pin < 8)
+37         bitWrite(PORTD, pin, value);
+38     else if (pin < 14)
+39         bitWrite(PORTB, pin \- 8, value);
+40     else if (pin < 20)
+41         bitWrite(PORTC, pin \- 14, value);
+42 #elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
+43     bitWrite(PORTB, pin, value);
+44 #elif defined(__AVR_ATmega2560__)
+45     if (pin < 8)
+46         bitWrite(PORTD, pin, value);
+47     else if (pin < 14)
+48         bitWrite(PORTE, pin \- 8, value);
+49     else if (pin < 22)
+50         bitWrite(PORTG, pin \- 14, value);
+51     else if (pin < 30)
+52         bitWrite(PORTH, pin \- 22, value);
+53     else if (pin < 38)
+54         bitWrite(PORTJ, pin \- 30, value);
+55     else if (pin < 46)
+56         bitWrite(PORTK, pin \- 38, value);
+57     else if (pin < 54)
+58         bitWrite(PORTL, pin \- 46, value);
+59 #else
+60     digitalWrite(pin, value);
+61 #endif
+62 }
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__encoder_8h_source" xml:lang="en-US">
+<title>Encoder.h</title>
+<indexterm><primary>src/core/Encoder.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__encoder_8h_source_1l00001"/>00001 
+<anchor xml:id="__encoder_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00008"/>00008 
+<anchor xml:id="__encoder_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__virt_encoder_8h">VirtEncoder.h</link>&quot;</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00011"/>00011 
+<anchor xml:id="__encoder_8h_source_1l00017"/><link linkend="_class_encoder">00017</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_encoder">Encoder</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_encoder">VirtEncoder</link>&#32;{
+<anchor xml:id="__encoder_8h_source_1l00018"/>00018 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__encoder_8h_source_1l00026"/><link linkend="_class_encoder_1afa2f29643453e2a3daeac00b0eaec48e">00026</link> &#32;&#32;&#32;&#32;<link linkend="_class_encoder_1afa2f29643453e2a3daeac00b0eaec48e">Encoder</link>(uint8_t&#32;encA&#32;=&#32;0,&#32;uint8_t&#32;encB&#32;=&#32;0,&#32;uint8_t&#32;mode&#32;=&#32;INPUT)&#32;{
+<anchor xml:id="__encoder_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_encoder_1adf55c5cca9a90167e22508fe6cdded45">init</link>(encA,&#32;encB,&#32;mode);
+<anchor xml:id="__encoder_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00029"/>00029 
+<anchor xml:id="__encoder_8h_source_1l00037"/><link linkend="_class_encoder_1adf55c5cca9a90167e22508fe6cdded45">00037</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_encoder_1adf55c5cca9a90167e22508fe6cdded45">init</link>(uint8_t&#32;encA&#32;=&#32;0,&#32;uint8_t&#32;encB&#32;=&#32;0,&#32;uint8_t&#32;mode&#32;=&#32;INPUT)&#32;{
+<anchor xml:id="__encoder_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e0&#32;=&#32;encA;
+<anchor xml:id="__encoder_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e1&#32;=&#32;encB;
+<anchor xml:id="__encoder_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(e0,&#32;mode);
+<anchor xml:id="__encoder_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(e1,&#32;mode);
+<anchor xml:id="__encoder_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(readEnc());
+<anchor xml:id="__encoder_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00044"/>00044 
+<anchor xml:id="__encoder_8h_source_1l00050"/><link linkend="_class_encoder_1aba6517e3652d6b92b55e9b9a0b2a8667">00050</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_1aba6517e3652d6b92b55e9b9a0b2a8667">tickISR</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">VirtEncoder::tickISR</link>(readEnc());
+<anchor xml:id="__encoder_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00053"/>00053 
+<anchor xml:id="__encoder_8h_source_1l00061"/><link linkend="_class_encoder_1a10b27af0b62a9bc4138f861ab19c4b08">00061</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_1a10b27af0b62a9bc4138f861ab19c4b08">tick</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))
+<anchor xml:id="__encoder_8h_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncoder::tick</link>();
+<anchor xml:id="__encoder_8h_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncoder::tick</link>(readEnc());
+<anchor xml:id="__encoder_8h_source_1l00066"/>00066 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00067"/>00067 
+<anchor xml:id="__encoder_8h_source_1l00075"/><link linkend="_class_encoder_1a81df852424a4b900d9ad92429405aae3">00075</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_1a81df852424a4b900d9ad92429405aae3">tickRaw</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))
+<anchor xml:id="__encoder_8h_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncoder::tickRaw</link>();
+<anchor xml:id="__encoder_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncoder::tickRaw</link>(readEnc());
+<anchor xml:id="__encoder_8h_source_1l00080"/>00080 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00081"/>00081 
+<anchor xml:id="__encoder_8h_source_1l00082"/>00082 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__encoder_8h_source_1l00083"/>00083 &#32;&#32;&#32;&#32;uint8_t&#32;e0,&#32;e1;
+<anchor xml:id="__encoder_8h_source_1l00084"/>00084 
+<anchor xml:id="__encoder_8h_source_1l00090"/>00090 &#32;&#32;&#32;&#32;int8_t&#32;readEnc()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(e0)&#32;|&#32;(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(e1)&#32;&lt;&lt;&#32;1);
+<anchor xml:id="__encoder_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00093"/>00093 };
+<anchor xml:id="__encoder_8h_source_1l00094"/>00094 
+<anchor xml:id="__encoder_8h_source_1l00095"/>00095 <emphasis role="comment">//&#32;=============&#32;TEMPLATE&#32;PIN&#32;=============</emphasis>
+<anchor xml:id="__encoder_8h_source_1l00096"/>00096 <emphasis role="keyword">template</emphasis>&#32;&lt;u<emphasis role="keywordtype">int</emphasis>8_t&#32;ENCA,&#32;u<emphasis role="keywordtype">int</emphasis>8_t&#32;ENCB&gt;
+<anchor xml:id="__encoder_8h_source_1l00097"/><link linkend="_class_encoder_t">00097</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_encoder_t">EncoderT</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_encoder">VirtEncoder</link>&#32;{
+<anchor xml:id="__encoder_8h_source_1l00098"/>00098 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__encoder_8h_source_1l00099"/><link linkend="_class_encoder_t_1a21652cf4bc133c2389125c9fc588f4bb">00099</link> &#32;&#32;&#32;&#32;<link linkend="_class_encoder_t_1a21652cf4bc133c2389125c9fc588f4bb">EncoderT</link>(uint8_t&#32;mode&#32;=&#32;INPUT)&#32;{
+<anchor xml:id="__encoder_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_encoder_t_1a5ff13be94bb7e9f75417067f6548b8a9">init</link>(mode);
+<anchor xml:id="__encoder_8h_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00102"/>00102 
+<anchor xml:id="__encoder_8h_source_1l00103"/><link linkend="_class_encoder_t_1a5ff13be94bb7e9f75417067f6548b8a9">00103</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_encoder_t_1a5ff13be94bb7e9f75417067f6548b8a9">init</link>(uint8_t&#32;mode&#32;=&#32;INPUT)&#32;{
+<anchor xml:id="__encoder_8h_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(ENCA,&#32;mode);
+<anchor xml:id="__encoder_8h_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(ENCB,&#32;mode);
+<anchor xml:id="__encoder_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(<link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">readEnc</link>());
+<anchor xml:id="__encoder_8h_source_1l00107"/>00107 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00108"/>00108 
+<anchor xml:id="__encoder_8h_source_1l00109"/><link linkend="_class_encoder_t_1ab91b3a9287d036f125b13ed95e1ca494">00109</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_t_1ab91b3a9287d036f125b13ed95e1ca494">tickISR</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a80e335bb4c1af4f1e209a874df16beef">VirtEncoder::tickISR</link>(<link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">readEnc</link>());
+<anchor xml:id="__encoder_8h_source_1l00111"/>00111 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00112"/>00112 
+<anchor xml:id="__encoder_8h_source_1l00113"/><link linkend="_class_encoder_t_1a80cebb5f9a764874aec94218d76b17d1">00113</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_t_1a80cebb5f9a764874aec94218d76b17d1">tick</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncoder::tick</link>();
+<anchor xml:id="__encoder_8h_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncoder::tick</link>(<link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">readEnc</link>());
+<anchor xml:id="__encoder_8h_source_1l00116"/>00116 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00117"/>00117 
+<anchor xml:id="__encoder_8h_source_1l00118"/><link linkend="_class_encoder_t_1aa4f4bb13344f9ef555d6a6b84c502ee1">00118</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_t_1aa4f4bb13344f9ef555d6a6b84c502ee1">tickRaw</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncoder::tickRaw</link>();
+<anchor xml:id="__encoder_8h_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncoder::tickRaw</link>(<link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">readEnc</link>());
+<anchor xml:id="__encoder_8h_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00122"/>00122 
+<anchor xml:id="__encoder_8h_source_1l00123"/><link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">00123</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_encoder_t_1a4753ae87ced6fea865a9c5026033abc7">readEnc</link>()&#32;{
+<anchor xml:id="__encoder_8h_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(ENCA)&#32;|&#32;(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(ENCB)&#32;&lt;&lt;&#32;1);
+<anchor xml:id="__encoder_8h_source_1l00125"/>00125 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__encoder_8h_source_1l00126"/>00126 
+<anchor xml:id="__encoder_8h_source_1l00127"/>00127 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__encoder_8h_source_1l00128"/>00128 };
+</programlisting></section>

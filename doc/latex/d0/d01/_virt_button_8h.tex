@@ -1,0 +1,551 @@
+\doxysection{src/core/\+Virt\+Button.h File Reference}
+\hypertarget{_virt_button_8h}{}\label{_virt_button_8h}\index{src/core/VirtButton.h@{src/core/VirtButton.h}}
+
+
+\doxylink{class_virt_button}{Virt\+Button} class for handling virtual buttons.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_virt_button}{Virt\+Button}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}}~4
+\item 
+\#define \mbox{\hyperlink{_virt_button_8h_a4503f9391d4dae6f9b01e0021fc32eb0}{EB\+\_\+\+FOR\+\_\+\+SCALE}}~6
+\item 
+\#define \mbox{\hyperlink{_virt_button_8h_a88bc0ee7e4c7dced44ac3ad5c3014b42}{BUTTON\+\_\+\+FLAGS}}
+\item 
+\#define \mbox{\hyperlink{_virt_button_8h_a8a0d2d602acb24d74237c3f310e935cd}{X}}(a,  b)~a = (1 $<$$<$ b),
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3}{BUTTON\+\_\+\+FLAG\+\_\+T}} \{ \mbox{\hyperlink{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3a45d088c77e277413912fa5c2b45c6988}{BUTTON\+\_\+\+FLAGS}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_virt_button}{Virt\+Button} class for handling virtual buttons. 
+
+
+
+Definition in file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_virt_button_8h_a88bc0ee7e4c7dced44ac3ad5c3014b42}\label{_virt_button_8h_a88bc0ee7e4c7dced44ac3ad5c3014b42} 
+\index{VirtButton.h@{VirtButton.h}!BUTTON\_FLAGS@{BUTTON\_FLAGS}}
+\index{BUTTON\_FLAGS@{BUTTON\_FLAGS}!VirtButton.h@{VirtButton.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_FLAGS}{BUTTON\_FLAGS}}
+{\footnotesize\ttfamily \#define BUTTON\+\_\+\+FLAGS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{_virt_button_8h_a8a0d2d602acb24d74237c3f310e935cd}{X}}(B\_CLKS\_R,\ 0)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_PRS\_R,\ \ 1)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_HLD\_R,\ \ 2)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_STP\_R,\ \ 3)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_REL\_R,\ \ 4)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_PRS,\ \ \ \ 5)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_HLD,\ \ \ \ 6)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_STP,\ \ \ \ 7)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_REL,\ \ \ \ 8)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_BUSY,\ \ \ 9)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_DEB,\ \ \ \ 10)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_TOUT,\ \ \ 11)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_INV,\ \ \ \ 12)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_BOTH,\ \ \ 13)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_BISR,\ \ \ 14)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ X(B\_EHLD,\ \ \ 15)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00031}{31}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_virt_button_8h_a88bc0ee7e4c7dced44ac3ad5c3014b42}{BUTTON\_FLAGS}}}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3}{BUTTON\_FLAG\_T}};}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#undef\ X }}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_virt_button}{VirtButton}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ ======================\ SET\ ======================}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc}{init}}()\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_abb46734e4374bcd7047e0a641bef62ac}{setHoldTimeout}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e}{setStepTimeout}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b}{setClickTimeout}}();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a}{setDebounceTimeout}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_abb46734e4374bcd7047e0a641bef62ac}{setHoldTimeout}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=600)\ \{}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifndef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e}{setStepTimeout}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=200)\ \{}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifndef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b}{setClickTimeout}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=500)\ \{}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifndef\ EB\_CLICK\_TIME }}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a}{setDebounceTimeout}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=50)\ \{}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifndef\ EB\_DEB\_TIME }}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}\ <\ 255)\ ?\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}\ :\ 255;}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea}{setBtnLevel}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}})\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}},\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}});}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_aa556b513fa0e2c59d3f55954eeb0ff15}{pressISR}}()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}))\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}});}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a7e0ca1c632bcc03a4134ecc849b1690d}{reset}}()\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\string~\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}});}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7}{clear}}()\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}))\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a97c03ff8b2bdbebdbe69a14c92f50ebe}{attach\_call}}(\ \mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\_func}})\ \{\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\_func}}\ ==\ \textcolor{keyword}{nullptr}\ ||\ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ =\ *\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\_func}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//todo\ check\ variant\ with\ one\ name\ on\ 2\ virtual\ functions}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_aa636d6f296e23877c7e87b09b018860d}{detach\_call}}()\ \{}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ ======================\ GET\ ======================}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a0405edb8ba969d6fdb30732d33fff4ec}{press}}()\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}});}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_add4b40cf62454b7533cfaa6481325c6a}{release}}()\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}});}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a151aa26a19beca73e3af724fa56808e6}{click}}()\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a1a825e3b028a74b351070468118f4c8c}{pressing}}()\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}});}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}{hold}}()\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}});}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}{hold}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}{hold}}();}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}{holding}}()\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}{holding}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}{holding}}();}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a2636015e47e232be87f3bce9ff327df4}{step}}()\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}});}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a2636015e47e232be87f3bce9ff327df4}{step}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a2636015e47e232be87f3bce9ff327df4}{step}}();}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a91f33795750a2c29a8b371d1f7372872}{hasClicks}}()\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a91f33795750a2c29a8b371d1f7372872}{hasClicks}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a91f33795750a2c29a8b371d1f7372872}{hasClicks}}();}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a03a1baee78264505a8d33690e3a91d2e}{getClicks}}()\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_add38d1e6687ebee0df64c3e2f5502d7c}{getSteps}}()\ \{}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#ifdef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ ?\ ((\mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ +\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ -\/\ 1)\ /\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}})\ :\ 0;\ \ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ ?\ ((\mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ +\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ -\/\ 1)\ /\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ :\ 0;}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a97ec608c73faa3a5ed175d52b3e2611d}{releaseHold}}()\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a97ec608c73faa3a5ed175d52b3e2611d}{releaseHold}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a11c355bb449932ef49276d2c191f436b}{releaseStep}}()\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}});}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a11c355bb449932ef49276d2c191f436b}{releaseStep}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}});}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a527d4fbbceb1fd5b8ecfb9112b068e83}{waiting}}()\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}},\ 0);}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a2edf056136c8cd9c830afb7e6811d1fa}{busy}}()\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\_FLAGS\_T}}\ \mbox{\hyperlink{class_virt_button_a9a6b3481ae19a239bcc9fb7b3ab3fd47}{action}}()\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (flags\ \&\ 0\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b111111111}})\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}):}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_PRESS}};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}):}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_HOLD}};}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}):}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_STEP}};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}):}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_RELEASE}};}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}):}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_CLICK}};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}):}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_CLICKS}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_HOLD}};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_HOLD\_C}};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_STEP}};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_STEP\_C}};}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_NONE}};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{comment}{//\ ======================\ TIME\ ======================}}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{tout}})\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}})\ \&\&\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}()\ -\/\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}})\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{tout}})\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}});}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00288\ \ \ \ \ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ \{}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}})\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}};}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00306\ \ \ \ \ \}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}{holdFor}}()\ \{}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \{}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}};}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}});}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}{holdFor}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}{holdFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00334\ \ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ \{}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}))\ \{}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ *\ 2;}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ *\ 2;}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})\ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{comment}{//\ ======================\ POLL\ ======================}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(\mbox{\hyperlink{class_virt_button}{VirtButton}}\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}},\ \mbox{\hyperlink{class_virt_button}{VirtButton}}\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}})\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}}))\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing()\ \&\&\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}});}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing())\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.reset();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.reset();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.clear();}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.clear();}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(1);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing()\ \&\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}});}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(0);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7}{clear}}();}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}}\ =\ \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{pollBtn}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}});}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})\ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}();}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}};}
+\DoxyCodeLine{00375\ \ \ \ \ \}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a74cadea61f398fbb590514715d065fee}{tickRaw}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{pollBtn}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}});}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}};}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{comment}{//\ deprecated}}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a5a921ae41835ec42e9e773b0bce3db7d}{setButtonLevel}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}})\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}},\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}});}
+\DoxyCodeLine{00387\ \ \ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{comment}{//\ ======================\ PRIVATE\ ======================}}
+\DoxyCodeLine{00390\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{pollBtn}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}}))\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}});}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}}\ =\ 1;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}}\ \string^=\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}});}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}}))\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}}\ =\ \mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}();}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}}\ -\/\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}};}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}})\ \&\&\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ \ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}}\ ||\ !\mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}});\ \ \ \ \ \ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \{\ \ }
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}})\ \{\ \ }
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ \{\ \ }
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});\ }
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ }
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#ifdef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ?\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ :\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}))\ \{}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ?\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ :\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})))\ \{}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}});\ \ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}++;\ \ \ \ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;\ \ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}))\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}});}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}})\ \{\ \ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#ifdef\ EB\_CLICK\_TIME }}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ||\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});\ \ }
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ||\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});\ \ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}})\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ 0;}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}}))\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}});}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ 0;}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \textcolor{comment}{//\ test!!}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}))\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}});\ \ }
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00476\ \ \ \ \ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ 0;}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00480\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ 0;}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00484\ \ \ \ \ \mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\_t}}\ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\#ifndef\ EB\_DEB\_TIME }}
+\DoxyCodeLine{00488\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}}\ =\ 50;}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#ifndef\ EB\_CLICK\_TIME }}
+\DoxyCodeLine{00491\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}}\ =\ (500\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}});}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#ifndef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00494\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ =\ (600\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}});}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#ifndef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00497\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\_t}}\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ =\ (200\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}});}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}})\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\_\_attribute\_\_}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\_inline}}))\ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ flags\ |=\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}};}
+\DoxyCodeLine{00502\ \ \ \ \ \}}
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}})\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\_\_attribute\_\_}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\_inline}}))\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ flags\ \&=\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\string~x}};}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}})\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\_\_attribute\_\_}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\_inline}}))\ \{}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}};}
+\DoxyCodeLine{00508\ \ \ \ \ \}}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\_btn\_flag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{v}})\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\_\_attribute\_\_}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\_inline}}))\ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{v}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}});}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}});}
+\DoxyCodeLine{00512\ \ \ \ \ \}}
+\DoxyCodeLine{00513\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{y}})\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\_\_attribute\_\_}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\_inline}}))\ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (flags\ \&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}})\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{y}};}
+\DoxyCodeLine{00515\ \ \ \ \ \}}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00518\ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ flags\ =\ 0;}
+\DoxyCodeLine{00519\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_virt_button_8h_a4503f9391d4dae6f9b01e0021fc32eb0}\label{_virt_button_8h_a4503f9391d4dae6f9b01e0021fc32eb0} 
+\index{VirtButton.h@{VirtButton.h}!EB\_FOR\_SCALE@{EB\_FOR\_SCALE}}
+\index{EB\_FOR\_SCALE@{EB\_FOR\_SCALE}!VirtButton.h@{VirtButton.h}}
+\doxysubsubsection{\texorpdfstring{EB\_FOR\_SCALE}{EB\_FOR\_SCALE}}
+{\footnotesize\ttfamily \#define EB\+\_\+\+FOR\+\_\+\+SCALE~6}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00029}{29}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{_virt_button_8h_a51757961e269e3d0598606584377b968}\label{_virt_button_8h_a51757961e269e3d0598606584377b968} 
+\index{VirtButton.h@{VirtButton.h}!EB\_SHIFT@{EB\_SHIFT}}
+\index{EB\_SHIFT@{EB\_SHIFT}!VirtButton.h@{VirtButton.h}}
+\doxysubsubsection{\texorpdfstring{EB\_SHIFT}{EB\_SHIFT}}
+{\footnotesize\ttfamily \#define EB\+\_\+\+SHIFT~4}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00011}{11}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{_virt_button_8h_a8a0d2d602acb24d74237c3f310e935cd}\label{_virt_button_8h_a8a0d2d602acb24d74237c3f310e935cd} 
+\index{VirtButton.h@{VirtButton.h}!X@{X}}
+\index{X@{X}!VirtButton.h@{VirtButton.h}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \#define X(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~a = (1 $<$$<$ b),}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00049}{49}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3}\label{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3} 
+\index{VirtButton.h@{VirtButton.h}!BUTTON\_FLAG\_T@{BUTTON\_FLAG\_T}}
+\index{BUTTON\_FLAG\_T@{BUTTON\_FLAG\_T}!VirtButton.h@{VirtButton.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_FLAG\_T}{BUTTON\_FLAG\_T}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3}{BUTTON\+\_\+\+FLAG\+\_\+T}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BUTTON\_FLAGS@{BUTTON\_FLAGS}!VirtButton.h@{VirtButton.h}}\index{VirtButton.h@{VirtButton.h}!BUTTON\_FLAGS@{BUTTON\_FLAGS}}}\Hypertarget{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3a45d088c77e277413912fa5c2b45c6988}\label{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3a45d088c77e277413912fa5c2b45c6988} 
+BUTTON\+\_\+\+FLAGS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00050}{50}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_virt_button_8h_a88bc0ee7e4c7dced44ac3ad5c3014b42}{BUTTON\_FLAGS}}}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{_virt_button_8h_a0becbe8258463b93038fc7b74dae85e3}{BUTTON\_FLAG\_T}};}
+
+\end{DoxyCode}

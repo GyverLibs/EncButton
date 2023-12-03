@@ -1,0 +1,534 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__virt_button_8h" xml:lang="en-US">
+<title>src/core/VirtButton.h File Reference</title>
+<indexterm><primary>src/core/VirtButton.h</primary></indexterm>
+<para>
+
+<para><link linkend="_class_virt_button">VirtButton</link> class for handling virtual buttons. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_virt_button">VirtButton</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#160;&#160;&#160;4</para>
+</listitem>
+            <listitem><para>#define <link linkend="__virt_button_8h_1a4503f9391d4dae6f9b01e0021fc32eb0">EB_FOR_SCALE</link>&#160;&#160;&#160;6</para>
+</listitem>
+            <listitem><para>#define <link linkend="__virt_button_8h_1a88bc0ee7e4c7dced44ac3ad5c3014b42">BUTTON_FLAGS</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__virt_button_8h_1a8a0d2d602acb24d74237c3f310e935cd">X</link>(a,  b)&#160;&#160;&#160;a = (1 &lt;&lt; b),</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3">BUTTON_FLAG_T</link> { <link linkend="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3a45d088c77e277413912fa5c2b45c6988">BUTTON_FLAGS</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_class_virt_button">VirtButton</link> class for handling virtual buttons. </para>
+<para>
+Definition in file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__virt_button_8h_1a88bc0ee7e4c7dced44ac3ad5c3014b42"/><section>
+    <title>BUTTON_FLAGS</title>
+<indexterm><primary>BUTTON_FLAGS</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>BUTTON_FLAGS</secondary></indexterm>
+<para><computeroutput>#define BUTTON_FLAGS</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;<link linkend="__virt_button_8h_1a8a0d2d602acb24d74237c3f310e935cd">X</link>(B_CLKS_R,&#32;0)\
+&#32;&#32;&#32;&#32;X(B_PRS_R,&#32;&#32;1)\
+&#32;&#32;&#32;&#32;X(B_HLD_R,&#32;&#32;2)\
+&#32;&#32;&#32;&#32;X(B_STP_R,&#32;&#32;3)\
+&#32;&#32;&#32;&#32;X(B_REL_R,&#32;&#32;4)\
+&#32;&#32;&#32;&#32;X(B_PRS,&#32;&#32;&#32;&#32;5)\
+&#32;&#32;&#32;&#32;X(B_HLD,&#32;&#32;&#32;&#32;6)\
+&#32;&#32;&#32;&#32;X(B_STP,&#32;&#32;&#32;&#32;7)\
+&#32;&#32;&#32;&#32;X(B_REL,&#32;&#32;&#32;&#32;8)\
+&#32;&#32;&#32;&#32;X(B_BUSY,&#32;&#32;&#32;9)\
+&#32;&#32;&#32;&#32;X(B_DEB,&#32;&#32;&#32;&#32;10)\
+&#32;&#32;&#32;&#32;X(B_TOUT,&#32;&#32;&#32;11)\
+&#32;&#32;&#32;&#32;X(B_INV,&#32;&#32;&#32;&#32;12)\
+&#32;&#32;&#32;&#32;X(B_BOTH,&#32;&#32;&#32;13)\
+&#32;&#32;&#32;&#32;X(B_BISR,&#32;&#32;&#32;14)\
+&#32;&#32;&#32;&#32;X(B_EHLD,&#32;&#32;&#32;15)
+</programlisting><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00031">31</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00051 &#32;&#32;&#32;&#32;<link linkend="__virt_button_8h_1a88bc0ee7e4c7dced44ac3ad5c3014b42">BUTTON_FLAGS</link>
+00052 }&#32;<link linkend="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3">BUTTON_FLAG_T</link>;
+00053 <emphasis role="preprocessor">#undef&#32;X&#x240D;</emphasis>
+00054 
+00055 
+00056 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_virt_button">VirtButton</link>&#32;{
+00057 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+00058 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;SET&#32;======================</emphasis>
+00059 
+00060 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc">init</link>(){
+00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1abb46734e4374bcd7047e0a641bef62ac">setHoldTimeout</link>();
+00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e">setStepTimeout</link>();
+00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b">setClickTimeout</link>();
+00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a">setDebounceTimeout</link>();
+00065 
+00066 &#32;&#32;&#32;&#32;}
+00067 
+00074 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1abb46734e4374bcd7047e0a641bef62ac">setHoldTimeout</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=600)&#32;{
+00075 <emphasis role="preprocessor">#ifndef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00077 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00078 &#32;&#32;&#32;&#32;}
+00079 
+00085 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1af6cbb38f692fd1dcf7b1af1cf946071e">setStepTimeout</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=200)&#32;{
+00086 <emphasis role="preprocessor">#ifndef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00088 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00089 &#32;&#32;&#32;&#32;}
+00090 
+00096 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a8b1c20cc59aadf513a5f00deb395c53b">setClickTimeout</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=500)&#32;{
+00097 <emphasis role="preprocessor">#ifndef&#32;EB_CLICK_TIME&#x240D;</emphasis>
+00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout &lt; 4000) ? timeout &gt;</link>&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>&#32;:&#32;4000&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>;
+00099 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00100 &#32;&#32;&#32;&#32;}
+00101 
+00102 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a8c24daaef19d92c5182a37e69fe59a1a">setDebounceTimeout</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>=50)&#32;{
+00103 <emphasis role="preprocessor">#ifndef&#32;EB_DEB_TIME&#x240D;</emphasis>
+00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>&#32;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>&#32;&lt;&#32;255)&#32;?&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>&#32;:&#32;255;
+00105 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00106 &#32;&#32;&#32;&#32;}
+00107 
+00108 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea">setBtnLevel</link>(<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>)&#32;{
+00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>,&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>);
+00110 &#32;&#32;&#32;&#32;}
+00111 
+00112 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1aa556b513fa0e2c59d3f55954eeb0ff15">pressISR</link>()&#32;{
+00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>))&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>();
+00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>);
+00115 &#32;&#32;&#32;&#32;}
+00116 
+00117 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a7e0ca1c632bcc03a4134ecc849b1690d">reset</link>()&#32;{
+00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;
+00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(~<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>);
+00120 &#32;&#32;&#32;&#32;}
+00121 
+00122 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a2b86f0d1725aa68e4b52ea74d98321b7">clear</link>()&#32;{
+00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;
+00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>))&#32;{
+00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00127 &#32;&#32;&#32;&#32;}
+00128 
+00129 
+00137 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a97c03ff8b2bdbebdbe69a14c92f50ebe">attach_call</link>(&#32;<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>)&#32;{&#32;
+00138 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>&#32;||&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;=&#32;*<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">callback_func</link>;
+00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00142 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+00144 &#32;&#32;&#32;&#32;}
+00145 
+00146 &#32;&#32;&#32;&#32;<emphasis role="comment">//todo&#32;check&#32;variant&#32;with&#32;one&#32;name&#32;on&#32;2&#32;virtual&#32;functions</emphasis>
+00147 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1aa636d6f296e23877c7e87b09b018860d">detach_call</link>()&#32;{
+00148 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+00150 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00151 &#32;&#32;&#32;&#32;}
+00152 
+00153 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;GET&#32;======================</emphasis>
+00154 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a0405edb8ba969d6fdb30732d33fff4ec">press</link>()&#32;{
+00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>);
+00156 &#32;&#32;&#32;&#32;}
+00157 
+00158 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1add4b40cf62454b7533cfaa6481325c6a">release</link>()&#32;{
+00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>);
+00160 &#32;&#32;&#32;&#32;}
+00161 
+00162 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a151aa26a19beca73e3af724fa56808e6">click</link>()&#32;{
+00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00164 &#32;&#32;&#32;&#32;}
+00165 
+00166 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a1a825e3b028a74b351070468118f4c8c">pressing</link>()&#32;{
+00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>);
+00168 &#32;&#32;&#32;&#32;}
+00169 
+00170 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91">hold</link>()&#32;{
+00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>);
+00172 &#32;&#32;&#32;&#32;}
+00173 
+00174 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91">hold</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a17448b7e1105a9acaf5d9216e24d0f91">hold</link>();
+00176 &#32;&#32;&#32;&#32;}
+00177 
+00178 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025">holding</link>()&#32;{
+00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00180 &#32;&#32;&#32;&#32;}
+00181 
+00182 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025">holding</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a7c5fa8d35c480a4538bbde8e83115025">holding</link>();
+00184 &#32;&#32;&#32;&#32;}
+00185 
+00186 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4">step</link>()&#32;{
+00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>);
+00188 &#32;&#32;&#32;&#32;}
+00189 
+00190 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4">step</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a2636015e47e232be87f3bce9ff327df4">step</link>();
+00192 &#32;&#32;&#32;&#32;}
+00193 
+00194 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872">hasClicks</link>()&#32;{
+00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);
+00196 &#32;&#32;&#32;&#32;}
+00197 
+00198 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872">hasClicks</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a91f33795750a2c29a8b371d1f7372872">hasClicks</link>();
+00200 &#32;&#32;&#32;&#32;}
+00201 
+00202 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a03a1baee78264505a8d33690e3a91d2e">getClicks</link>()&#32;{
+00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>;
+00204 &#32;&#32;&#32;&#32;}
+00205 
+00206 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1add38d1e6687ebee0df64c3e2f5502d7c">getSteps</link>()&#32;{
+00207 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00208 <emphasis role="preprocessor">#ifdef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;?&#32;((<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;+&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;-&#32;1)&#32;/&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>)&#32;:&#32;0;&#32;&#32;
+00210 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;?&#32;((<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;+&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;-&#32;1)&#32;/&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;:&#32;0;
+00212 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00213 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00215 &#32;&#32;&#32;&#32;}
+00216 
+00217 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d">releaseHold</link>()&#32;{
+00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00219 &#32;&#32;&#32;&#32;}
+00220 
+00221 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a97ec608c73faa3a5ed175d52b3e2611d">releaseHold</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);
+00223 &#32;&#32;&#32;&#32;}
+00224 
+00225 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a11c355bb449932ef49276d2c191f436b">releaseStep</link>()&#32;{
+00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>);
+00227 &#32;&#32;&#32;&#32;}
+00228 
+00229 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a11c355bb449932ef49276d2c191f436b">releaseStep</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>)&#32;{
+00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">num</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>,&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>);
+00231 &#32;&#32;&#32;&#32;}
+00232 
+00233 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a527d4fbbceb1fd5b8ecfb9112b068e83">waiting</link>()&#32;{
+00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>,&#32;0);
+00235 &#32;&#32;&#32;&#32;}
+00236 
+00237 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a2edf056136c8cd9c830afb7e6811d1fa">busy</link>()&#32;{
+00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00239 &#32;&#32;&#32;&#32;}
+00240 
+00246 &#32;&#32;&#32;&#32;<link linkend="_utils_8h_1a5522e17c74054cb11d1d67e4bdeca67e">EB_FLAGS_T</link>&#32;<link linkend="_class_virt_button_1a9a6b3481ae19a239bcc9fb7b3ab3fd47">action</link>()&#32;{
+00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(flags&#32;&amp;&#32;0<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b111111111</link>)&#32;{
+00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>):
+00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_PRESS</link>;
+00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>):
+00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_HOLD</link>;
+00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>):
+00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_STEP</link>;
+00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>):
+00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_RELEASE</link>;
+00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>):
+00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_CLICK</link>;
+00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>):
+00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_CLICKS</link>;
+00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_HOLD</link>;
+00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>):
+00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_HOLD_C</link>;
+00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_STEP</link>;
+00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>):
+00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_REL_STEP_C</link>;
+00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">EB_NONE</link>;
+00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00273 &#32;&#32;&#32;&#32;}
+00274 
+00275 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;TIME&#32;======================</emphasis>
+00282 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">timeout</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">tout</link>)&#32;{
+00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>)&#32;&amp;&amp;&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>()&#32;-&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>)&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">tout</link>)&#32;{
+00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>);
+00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00288 &#32;&#32;&#32;&#32;}
+00289 
+00297 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;{
+00298 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>()&#32;-&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>;
+00300 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00302 &#32;&#32;&#32;&#32;}
+00303 
+00304 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)&#32;{
+00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00306 &#32;&#32;&#32;&#32;}
+00307 
+00313 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436">holdFor</link>()&#32;{
+00314 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;{
+00316 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>;
+00318 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>);
+00320 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00322 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00324 &#32;&#32;&#32;&#32;}
+00325 
+00332 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436">holdFor</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)&#32;{
+00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1ad630c377278fdac7e6bdd8c5f9abf436">holdFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00334 &#32;&#32;&#32;&#32;}
+00335 
+00336 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;{
+00337 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>))&#32;{
+00339 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;*&#32;2;
+00341 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a2ca226fee93a6b37f003bce6e239ad59">pressFor</link>()&#32;-&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;*&#32;2;
+00343 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00345 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00347 &#32;&#32;&#32;&#32;}
+00348 
+00349 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>)&#32;{
+00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1ab4d8ead514781eb48beccb544540b125">stepFor</link>()&#32;&gt;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00351 &#32;&#32;&#32;&#32;}
+00352 
+00353 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;POLL&#32;======================</emphasis>
+00354 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(<link linkend="_class_virt_button">VirtButton</link>&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>,&#32;<link linkend="_class_virt_button">VirtButton</link>&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>)&#32;{
+00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>))&#32;{
+00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing()&#32;&amp;&amp;&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>);
+00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing())&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.reset();
+00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.reset();
+00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.clear();
+00360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.clear();
+00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(1);
+00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b0</link>.pressing()&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">b1</link>.pressing())&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BOTH</link>);
+00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(0);
+00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00366 &#32;&#32;&#32;&#32;}
+00367 
+00368 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">tick</link>(<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)&#32;{
+00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a2b86f0d1725aa68e4b52ea74d98321b7">clear</link>();
+00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>&#32;=&#32;<link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>);
+00371 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>();
+00373 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>;
+00375 &#32;&#32;&#32;&#32;}
+00376 
+00377 
+00378 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a74cadea61f398fbb590514715d065fee">tickRaw</link>(<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>)&#32;{
+00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">state</link>);
+00380 &#32;&#32;&#32;&#32;}
+00381 
+00382 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>;
+00383 
+00384 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;deprecated</emphasis>
+00385 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a5a921ae41835ec42e9e773b0bce3db7d">setButtonLevel</link>(<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>)&#32;{
+00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>,&#32;!<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">level</link>);
+00387 &#32;&#32;&#32;&#32;}
+00388 
+00389 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;PRIVATE&#32;======================</emphasis>
+00390 &#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>:
+00391 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a80522eab183bc908bd3363e2850e0981">pollBtn</link>(<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)&#32;{
+00392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>))&#32;{
+00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BISR</link>);
+00394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>&#32;=&#32;1;
+00395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>&#32;^=&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_INV</link>);
+00396 
+00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>))&#32;{
+00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00401 
+00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>&#32;=&#32;<link linkend="_utils_8h_1aa32f6fd8b330750d6d09858020224537">EB_UPTIME</link>();
+00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>&#32;-&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>;
+00404 
+00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">s</link>)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>))&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>)&#32;&amp;&amp;&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;&#32;
+00408 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>&#32;||&#32;!<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;
+00412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>);&#32;&#32;&#32;&#32;&#32;&#32;
+00413 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;
+00415 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;
+00417 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00418 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00419 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;
+00420 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;{
+00421 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;{&#32;&#32;
+00422 <emphasis role="preprocessor">#ifdef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>)&#32;{&#32;&#32;
+00424 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00425 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;{&#32;&#32;
+00426 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00427 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>);&#32;
+00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00429 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;
+00431 <emphasis role="preprocessor">#ifdef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;?&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;:&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>))&#32;{
+00433 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00434 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;?&#32;(<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)&#32;:&#32;(<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>)))&#32;{
+00435 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>);&#32;&#32;
+00437 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00438 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00439 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00440 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00441 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00443 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>))&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00444 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00445 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>++;&#32;&#32;&#32;&#32;
+00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>&#32;=&#32;0;&#32;&#32;
+00447 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00448 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS</link>);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00450 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>))&#32;{
+00451 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>))&#32;{
+00452 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00453 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00454 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_EHLD</link>);
+00455 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+00456 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a7df22ba2bd84d9f995c718698638a159">clicks</link>)&#32;{&#32;&#32;
+00457 <emphasis role="preprocessor">#ifdef&#32;EB_CLICK_TIME&#x240D;</emphasis>
+00458 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;||&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);&#32;&#32;
+00459 <emphasis role="preprocessor">#else&#x240D;</emphasis>
+00460 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>)&#32;||&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">deb</link>&#32;&gt;=&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>)(<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>&#32;&lt;&lt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>))&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>);&#32;&#32;
+00461 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00462 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>)&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;0;
+00464 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00465 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>))&#32;{
+00466 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_BUSY</link>);
+00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_TOUT</link>);
+00468 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00469 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;0;
+00470 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00471 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">ms</link>;&#32;&#32;<emphasis role="comment">//&#32;test!!</emphasis>
+00472 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00473 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>))&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_DEB</link>);&#32;&#32;
+00474 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+00475 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_CLKS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_PRS_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_HLD_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_STP_R</link>&#32;|&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">B_REL_R</link>);
+00476 &#32;&#32;&#32;&#32;}
+00477 
+00478 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1ac37097bc828b62abeb7983bc5aaaebf1">timer</link>&#32;=&#32;0;
+00479 <emphasis role="preprocessor">#ifndef&#32;EB_NO_PEDOMETER&#x240D;</emphasis>
+00480 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5021c7272cff8b84a2aa72366e6f8045">run_timer</link>&#32;=&#32;0;
+00481 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00482 
+00483 <emphasis role="preprocessor">#ifndef&#32;EB_NO_CALLBACK&#x240D;</emphasis>
+00484 &#32;&#32;&#32;&#32;<link linkend="_utils_8h_1a4c528c24d8196164062904f004d96c84">cb_t</link>&#32;<link linkend="_class_virt_button_1ac22d3b21669c18bc3e29c8fc1e80b734">cb</link>&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+00485 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00486 
+00487 <emphasis role="preprocessor">#ifndef&#32;EB_DEB_TIME&#x240D;</emphasis>
+00488 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a02ec52c911ea40944b04c86afc2452df">EB_DEB_T</link>&#32;=&#32;50;
+00489 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00490 <emphasis role="preprocessor">#ifndef&#32;EB_CLICK_TIME&#x240D;</emphasis>
+00491 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1aeac80efbb6be30c6ea26e1867926c707">EB_CLICK_T</link>&#32;=&#32;(500&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>);
+00492 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00493 <emphasis role="preprocessor">#ifndef&#32;EB_HOLD_TIME&#x240D;</emphasis>
+00494 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1a26f084309609e463cca76339d16970dc">EB_HOLD_T</link>&#32;=&#32;(600&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>);
+00495 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00496 <emphasis role="preprocessor">#ifndef&#32;EB_STEP_TIME&#x240D;</emphasis>
+00497 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint8_t</link>&#32;<link linkend="_class_virt_button_1ad86e8c99bc6a6d48f92170282d7a5118">EB_STEP_T</link>&#32;=&#32;(200&#32;&gt;&gt;&#32;<link linkend="__virt_button_8h_1a51757961e269e3d0598606584377b968">EB_SHIFT</link>);
+00498 <emphasis role="preprocessor">#endif&#x240D;</emphasis>
+00499 
+00500 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>)&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))&#32;{
+00501 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;|=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>;
+00502 &#32;&#32;&#32;&#32;}
+00503 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>)&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))&#32;{
+00504 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;flags&#32;&amp;=&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">~x</link>;
+00505 &#32;&#32;&#32;&#32;}
+00506 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>)&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))&#32;{
+00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;flags&#32;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>;
+00508 &#32;&#32;&#32;&#32;}
+00509 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_virt_button_1a51bccbdd75ff7cf5f99d1a49ca4cdf58">write_btn_flag</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">v</link>)&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))&#32;{
+00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">v</link>)&#32;<link linkend="_class_virt_button_1adf50fa6e842cedb923fc1ef3954c8c5e">set_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>);
+00511 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_class_virt_button_1a3f68d7bc1356f8802e455617dc4ec8c8">clr_btn_flag</link>(<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>);
+00512 &#32;&#32;&#32;&#32;}
+00513 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_virt_button_1a1dedbf2c1b984095ca8b4931ee7cd8f7">eq_btn_flag</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">y</link>)&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">__attribute__</link>((<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">always_inline</link>))&#32;{
+00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(flags&#32;&amp;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">x</link>)&#32;==&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">y</link>;
+00515 &#32;&#32;&#32;&#32;}
+00516 
+00517 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+00518 &#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0">uint16_t</link>&#32;flags&#32;=&#32;0;
+00519 }
+</programlisting></section>
+<anchor xml:id="__virt_button_8h_1a4503f9391d4dae6f9b01e0021fc32eb0"/><section>
+    <title>EB_FOR_SCALE</title>
+<indexterm><primary>EB_FOR_SCALE</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>EB_FOR_SCALE</secondary></indexterm>
+<para><computeroutput>#define EB_FOR_SCALE&#160;&#160;&#160;6</computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00029">29</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="__virt_button_8h_1a51757961e269e3d0598606584377b968"/><section>
+    <title>EB_SHIFT</title>
+<indexterm><primary>EB_SHIFT</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>EB_SHIFT</secondary></indexterm>
+<para><computeroutput>#define EB_SHIFT&#160;&#160;&#160;4</computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00011">11</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+<anchor xml:id="__virt_button_8h_1a8a0d2d602acb24d74237c3f310e935cd"/><section>
+    <title>X</title>
+<indexterm><primary>X</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>X</secondary></indexterm>
+<para><computeroutput>#define X( a,  b)&#160;&#160;&#160;a = (1 &lt;&lt; b),</computeroutput></para><para>
+Definition at line <link linkend="__virt_button_8h_source_1l00049">49</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3"/><section>
+    <title>BUTTON_FLAG_T</title>
+<indexterm><primary>BUTTON_FLAG_T</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>BUTTON_FLAG_T</secondary></indexterm>
+<para><computeroutput>enum <link linkend="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3">BUTTON_FLAG_T</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>BUTTON_FLAGS</primary><secondary>VirtButton.h</secondary></indexterm>
+<indexterm><primary>VirtButton.h</primary><secondary>BUTTON_FLAGS</secondary></indexterm>
+<anchor xml:id="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3a45d088c77e277413912fa5c2b45c6988"/>BUTTON_FLAGS</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__virt_button_8h_source_1l00050">50</link> of file <link linkend="__virt_button_8h_source">VirtButton.h</link>.</para>
+<programlisting linenumbering="unnumbered">00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00051 &#32;&#32;&#32;&#32;<link linkend="__virt_button_8h_1a88bc0ee7e4c7dced44ac3ad5c3014b42">BUTTON_FLAGS</link>
+00052 }&#32;<link linkend="__virt_button_8h_1a0becbe8258463b93038fc7b74dae85e3">BUTTON_FLAG_T</link>;
+</programlisting></section>
+</section>
+</section>

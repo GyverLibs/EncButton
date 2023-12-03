@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d8/d00/core_2_enc_button_8h" kind="file" language="C++">
+    <compoundname>EncButton.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="d0/d02/_virt_enc_button_8h" local="yes">VirtEncButton.h</includes>
+    <includes refid="d5/d00/utils_8h" local="yes">utils.h</includes>
+    <includedby refid="dc/d01/_enc_button_8h" local="yes">src/EncButton.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>src/core/EncButton.h</label>
+        <link refid="d8/d00/core_2_enc_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>VirtButton.h</label>
+        <link refid="d0/d01/_virt_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VirtEncButton.h</label>
+        <link refid="d0/d02/_virt_enc_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>VirtEncoder.h</label>
+        <link refid="d2/d01/_virt_encoder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>utils.h</label>
+        <link refid="d5/d00/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/EncButton.h</label>
+        <link refid="dc/d01/_enc_button_8h"/>
+      </node>
+      <node id="1">
+        <label>src/core/EncButton.h</label>
+        <link refid="d8/d00/core_2_enc_button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d1/d01/class_enc_button" prot="public">EncButton</innerclass>
+    <innerclass refid="d4/d03/class_enc_button_t" prot="public">EncButtonT</innerclass>
+    <briefdescription>
+<para><ref refid="d1/d01/class_enc_button" kindref="compound">EncButton</ref> class for handling rotary encoder with button. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/d02/_virt_enc_button_8h" kindref="compound">VirtEncButton.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d00/utils_8h" kindref="compound">utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=====================<sp/>CLASS<sp/>=====================</highlight></codeline>
+<codeline lineno="20" refid="d1/d01/class_enc_button" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d1/d01/class_enc_button" kindref="compound">EncButton</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d00/class_virt_enc_button" kindref="compound">VirtEncButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32" refid="d1/d01/class_enc_button_1ae08424b0b4c26b5c48089b9c40f3d526" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d1/d01/class_enc_button_1ae08424b0b4c26b5c48089b9c40f3d526" kindref="member">EncButton</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encA</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encB</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btn</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encA</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encB</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btn</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d1/d01/class_enc_button_1a781321a155b9a102ab61e9f6090e063b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/d01/class_enc_button_1a781321a155b9a102ab61e9f6090e063b" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encA</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encB</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btn</ref><sp/>=<sp/>0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e0<sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encA</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e1<sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">encB</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b<sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btn</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(e0,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(e1,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(b,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea" kindref="member">setBtnLevel</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" kindref="member">initEnc</ref>(<ref refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" kindref="member">readEnc</ref>());</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>TICK<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="d1/d01/class_enc_button_1a5bd47f2e09579d6fde8161b6d3c0fd9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref><sp/><ref refid="d1/d01/class_enc_button_1a5bd47f2e09579d6fde8161b6d3c0fd9d" kindref="member">tickISR</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d00/class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149" kindref="member">VirtEncButton::tickISR</ref>(<ref refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" kindref="member">readEnc</ref>());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="d1/d01/class_enc_button_1a0c211230fe67d29364b1b560eef11e0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d1/d01/class_enc_button_1a0c211230fe67d29364b1b560eef11e0e" kindref="member">tick</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">E_ISR</ref>))</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">VirtEncButton::tick</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(b));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">VirtEncButton::tick</ref>(<ref refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" kindref="member">readEnc</ref>(),<sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(b));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="d1/d01/class_enc_button_1a2ff796ad8e671fa147c7c2521e840d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d1/d01/class_enc_button_1a2ff796ad8e671fa147c7c2521e840d06" kindref="member">tickRaw</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">E_ISR</ref>))</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">VirtEncButton::tickRaw</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(b));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">VirtEncButton::tickRaw</ref>(<ref refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" kindref="member">readEnc</ref>(),<sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(b));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>READ<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="d1/d01/class_enc_button_1aab67d97568a2fc5ab24ed76ba3c517a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d1/d01/class_enc_button_1aab67d97568a2fc5ab24ed76ba3c517a4" kindref="member">readBtn</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(b)<sp/>^<sp/><ref refid="d7/d02/class_virt_button_1abbcecd7ead3d57ae533182b181b5df44" kindref="member">read_btn_flag</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">B_INV</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref><sp/><ref refid="d1/d01/class_enc_button_1aa3863501f48483ba47af7160429df011" kindref="member">readEnc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(e0)<sp/>|<sp/>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(e1)<sp/>&lt;&lt;<sp/>1);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=====================<sp/>PRIVATE<sp/>=====================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/>e0,<sp/>e1,<sp/>b;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//<sp/>=====================<sp/>T<sp/>CLASS<sp/>=====================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;u</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8_t<sp/>ENCA,<sp/>u</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8_t<sp/>ENCB,<sp/>u</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8_t<sp/>BTN&gt;</highlight></codeline>
+<codeline lineno="119" refid="d4/d03/class_enc_button_t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d03/class_enc_button_t" kindref="compound">EncButtonT</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d00/class_virt_enc_button" kindref="compound">VirtEncButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="121" refid="d4/d03/class_enc_button_t_1a4e41ff34ff2eb8dde11db0d4ab650044" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d03/class_enc_button_t_1a4e41ff34ff2eb8dde11db0d4ab650044" kindref="member">EncButtonT</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="d4/d03/class_enc_button_t_1ae12e17716781e1557c7ce49b1a0c696c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_enc_button_t_1ae12e17716781e1557c7ce49b1a0c696c" kindref="member">init</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">INPUT_PULLUP</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">uint8_t</ref><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref><sp/>=<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">ENCA</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">ENCB</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeEnc</ref>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">pinMode</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>,<sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">modeBtn</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea" kindref="member">setBtnLevel</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">btnLevel</ref>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d02/class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961" kindref="member">initEnc</ref>(<ref refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" kindref="member">readEnc</ref>());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>TICK<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="d4/d03/class_enc_button_t_1a1bd495fbe8f0c96561497f46a2ff8757" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref><sp/><ref refid="d4/d03/class_enc_button_t_1a1bd495fbe8f0c96561497f46a2ff8757" kindref="member">tickISR</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d00/class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149" kindref="member">VirtEncButton::tickISR</ref>(<ref refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" kindref="member">readEnc</ref>());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="d4/d03/class_enc_button_t_1ae1588d7e3abc4f185b7aae017d3eb027" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_enc_button_t_1ae1588d7e3abc4f185b7aae017d3eb027" kindref="member">tick</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">E_ISR</ref>))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">VirtEncButton::tick</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784" kindref="member">VirtEncButton::tick</ref>(<ref refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" kindref="member">readEnc</ref>(),<sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="d4/d03/class_enc_button_t_1aa22bdce97285723cd67875892eb95b84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_enc_button_t_1aa22bdce97285723cd67875892eb95b84" kindref="member">tickRaw</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d02/class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef" kindref="member">read_encf</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">E_ISR</ref>))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">VirtEncButton::tickRaw</ref>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d02/class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5" kindref="member">VirtEncButton::tickRaw</ref>(<ref refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" kindref="member">readEnc</ref>(),<sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>======================<sp/>READ<sp/>======================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="d4/d03/class_enc_button_t_1a5245af25af5d9d11024afc09d2601734" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/d03/class_enc_button_t_1a5245af25af5d9d11024afc09d2601734" kindref="member">readBtn</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">BTN</ref>)<sp/>^<sp/><ref refid="d7/d02/class_virt_button_1abbcecd7ead3d57ae533182b181b5df44" kindref="member">read_btn_flag</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">B_INV</ref>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">int8_t</ref><sp/><ref refid="d4/d03/class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8" kindref="member">readEnc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">ENCA</ref>)<sp/>|<sp/>(<ref refid="de/d02/utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb" kindref="member">EBread</ref>(<ref refid="d7/d02/class_virt_button_1a5dc04d5d164a4fea978b9004daf23de0" kindref="member">ENCB</ref>)<sp/>&lt;&lt;<sp/>1);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=====================<sp/>PRIVATE<sp/>=====================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/core/EncButton.h"/>
+  </compounddef>
+</doxygen>

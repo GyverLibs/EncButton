@@ -1,0 +1,529 @@
+.TH "src/core/VirtButton.h" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/core/VirtButton.h \- \fBVirtButton\fP class for handling virtual buttons\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Arduino\&.h>\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBVirtButton\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEB_SHIFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBEB_FOR_SCALE\fP   6"
+.br
+.ti -1c
+.RI "#define \fBBUTTON_FLAGS\fP"
+.br
+.ti -1c
+.RI "#define \fBX\fP(a,  b)   a = (1 << b),"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBBUTTON_FLAG_T\fP { \fBBUTTON_FLAGS\fP }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBVirtButton\fP class for handling virtual buttons\&. 
+
+
+.PP
+Definition in file \fBVirtButton\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BUTTON_FLAGS"
+\fBValue:\fP.PP
+.nf
+    X(B_CLKS_R, 0)\\
+    X(B_PRS_R,  1)\\
+    X(B_HLD_R,  2)\\
+    X(B_STP_R,  3)\\
+    X(B_REL_R,  4)\\
+    X(B_PRS,    5)\\
+    X(B_HLD,    6)\\
+    X(B_STP,    7)\\
+    X(B_REL,    8)\\
+    X(B_BUSY,   9)\\
+    X(B_DEB,    10)\\
+    X(B_TOUT,   11)\\
+    X(B_INV,    12)\\
+    X(B_BOTH,   13)\\
+    X(B_BISR,   14)\\
+    X(B_EHLD,   15)
+.fi
+
+.PP
+Definition at line \fB31\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+50              {
+51     BUTTON_FLAGS
+52 } BUTTON_FLAG_T;
+53 #undef X
+54 
+55 
+56 class VirtButton {
+57    public:
+58     // ====================== SET ======================
+59 
+60     void init(){
+61         setHoldTimeout();
+62         setStepTimeout();
+63         setClickTimeout();
+64         setDebounceTimeout();
+65 
+66     }
+67 
+74     void setHoldTimeout(uint16_t timeout=600) {
+75 #ifndef EB_HOLD_TIME
+76         EB_HOLD_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+77 #endif
+78     }
+79 
+85     void setStepTimeout(uint16_t timeout=200) {
+86 #ifndef EB_STEP_TIME
+87         EB_STEP_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+88 #endif
+89     }
+90 
+96     void setClickTimeout(uint16_t timeout=500) {
+97 #ifndef EB_CLICK_TIME
+98         EB_CLICK_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+99 #endif
+100     }
+101 
+102     void setDebounceTimeout(uint8_t timeout=50) {
+103 #ifndef EB_DEB_TIME
+104         EB_DEB_T = (timeout < 255) ? timeout : 255;
+105 #endif
+106     }
+107 
+108     void setBtnLevel(bool level) {
+109         write_btn_flag(B_INV, !level);
+110     }
+111 
+112     void pressISR() {
+113         if (!read_btn_flag(B_DEB)) timer = EB_UPTIME();
+114         set_btn_flag(B_DEB | B_BISR);
+115     }
+116 
+117     void reset() {
+118         clicks = 0;
+119         clr_btn_flag(~B_INV);
+120     }
+121 
+122     void clear() {
+123         if (read_btn_flag(B_CLKS_R)) clicks = 0;
+124         if (read_btn_flag(B_CLKS_R | B_STP_R | B_PRS_R | B_HLD_R | B_REL_R)) {
+125             clr_btn_flag(B_CLKS_R | B_STP_R | B_PRS_R | B_HLD_R | B_REL_R);
+126         }
+127     }
+128 
+129 
+137     bool attach_call( cb_t callback_func) { 
+138 #ifndef EB_NO_CALLBACK
+139         if (callback_func == nullptr || cb) return false;
+140         cb = *callback_func;
+141         return true;
+142 #endif
+143         return false;
+144     }
+145 
+146     //todo check variant with one name on 2 virtual functions
+147     void detach_call() {
+148 #ifndef EB_NO_CALLBACK
+149         cb = nullptr;
+150 #endif
+151     }
+152 
+153     // ====================== GET ======================
+154     bool press() {
+155         return read_btn_flag(B_PRS_R);
+156     }
+157 
+158     bool release() {
+159         return eq_btn_flag(B_REL_R | B_REL, B_REL_R | B_REL);
+160     }
+161 
+162     bool click() {
+163         return eq_btn_flag(B_REL_R | B_REL | B_HLD, B_REL_R);
+164     }
+165 
+166     bool pressing() {
+167         return read_btn_flag(B_PRS);
+168     }
+169 
+170     bool hold() {
+171         return read_btn_flag(B_HLD_R);
+172     }
+173 
+174     bool hold(uint8_t num) {
+175         return clicks == num && hold();
+176     }
+177 
+178     bool holding() {
+179         return eq_btn_flag(B_PRS | B_HLD, B_PRS | B_HLD);
+180     }
+181 
+182     bool holding(uint8_t num) {
+183         return clicks == num && holding();
+184     }
+185 
+186     bool step() {
+187         return read_btn_flag(B_STP_R);
+188     }
+189 
+190     bool step(uint8_t num) {
+191         return clicks == num && step();
+192     }
+193 
+194     bool hasClicks() {
+195         return eq_btn_flag(B_CLKS_R | B_HLD, B_CLKS_R);
+196     }
+197 
+198     bool hasClicks(uint8_t num) {
+199         return clicks == num && hasClicks();
+200     }
+201 
+202     uint8_t getClicks() {
+203         return clicks;
+204     }
+205 
+206     uint16_t getSteps() {
+207 #ifndef EB_NO_PEDOMETER
+208 #ifdef EB_STEP_TIME
+209         return run_timer ? ((stepFor() + EB_STEP_T \- 1) / EB_STEP_T) : 0;  
+210 #else
+211         return run_timer ? ((stepFor() + (EB_STEP_T << EB_SHIFT) \- 1) / (EB_STEP_T << EB_SHIFT)) : 0;
+212 #endif
+213 #endif
+214         return 0;
+215     }
+216 
+217     bool releaseHold() {
+218         return eq_btn_flag(B_REL_R | B_REL | B_HLD | B_STP, B_REL_R | B_HLD);
+219     }
+220 
+221     bool releaseHold(uint8_t num) {
+222         return clicks == num && eq_btn_flag(B_CLKS_R | B_HLD | B_STP, B_CLKS_R | B_HLD);
+223     }
+224 
+225     bool releaseStep() {
+226         return eq_btn_flag(B_REL_R | B_REL | B_STP, B_REL_R | B_STP);
+227     }
+228 
+229     bool releaseStep(uint8_t num) {
+230         return clicks == num && eq_btn_flag(B_CLKS_R | B_STP, B_CLKS_R | B_STP);
+231     }
+232 
+233     bool waiting() {
+234         return clicks && eq_btn_flag(B_PRS | B_REL, 0);
+235     }
+236 
+237     bool busy() {
+238         return read_btn_flag(B_BUSY);
+239     }
+240 
+246     EB_FLAGS_T action() {
+247         switch (flags & 0b111111111) {
+248             case (B_PRS | B_PRS_R):
+249                 return EB_PRESS;
+250             case (B_PRS | B_HLD | B_HLD_R):
+251                 return EB_HOLD;
+252             case (B_PRS | B_HLD | B_STP | B_STP_R):
+253                 return EB_STEP;
+254             case (B_REL | B_REL_R):
+255             case (B_REL | B_REL_R | B_HLD):
+256             case (B_REL | B_REL_R | B_HLD | B_STP):
+257                 return EB_RELEASE;
+258             case (B_REL_R):
+259                 return EB_CLICK;
+260             case (B_CLKS_R):
+261                 return EB_CLICKS;
+262             case (B_REL_R | B_HLD):
+263                 return EB_REL_HOLD;
+264             case (B_CLKS_R | B_HLD):
+265                 return EB_REL_HOLD_C;
+266             case (B_REL_R | B_HLD | B_STP):
+267                 return EB_REL_STEP;
+268             case (B_CLKS_R | B_HLD | B_STP):
+269                 return EB_REL_STEP_C;
+270             default:
+271                 return EB_NONE;
+272         }
+273     }
+274 
+275     // ====================== TIME ======================
+282     bool timeout(uint16_t tout) {
+283         if (read_btn_flag(B_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() \- timer) > tout) {
+284             clr_btn_flag(B_TOUT);
+285             return 1;
+286         }
+287         return 0;
+288     }
+289 
+297     uint16_t pressFor() {
+298 #ifndef EB_NO_PEDOMETER
+299         if (run_timer) return (uint16_t)EB_UPTIME() \- run_timer;
+300 #endif
+301         return 0;
+302     }
+303 
+304     bool pressFor(uint16_t ms) {
+305         return pressFor() > ms;
+306     }
+307 
+313     uint16_t holdFor() {
+314 #ifndef EB_NO_PEDOMETER
+315         if (read_btn_flag(B_HLD)) {
+316 #ifdef EB_HOLD_TIME
+317             return pressFor() \- EB_HOLD_T;
+318 #else
+319             return pressFor() \- (EB_HOLD_T << EB_SHIFT);
+320 #endif
+321         }
+322 #endif
+323         return 0;
+324     }
+325 
+332     bool holdFor(uint16_t ms) {
+333         return holdFor() > ms;
+334     }
+335 
+336     uint16_t stepFor() {
+337 #ifndef EB_NO_PEDOMETER
+338         if (read_btn_flag(B_STP)) {
+339 #ifdef EB_HOLD_TIME
+340             return pressFor() \- EB_HOLD_T * 2;
+341 #else
+342             return pressFor() \- (EB_HOLD_T << EB_SHIFT) * 2;
+343 #endif
+344         }
+345 #endif
+346         return 0;
+347     }
+348 
+349     bool stepFor(uint16_t ms) {
+350         return stepFor() > ms;
+351     }
+352 
+353     // ====================== POLL ======================
+354     bool tick(VirtButton& b0, VirtButton& b1) {
+355         if (read_btn_flag(B_BOTH)) {
+356             if (!b0\&.pressing() && !b1\&.pressing()) clr_btn_flag(B_BOTH);
+357             if (!b0\&.pressing()) b0\&.reset();
+358             if (!b1\&.pressing()) b1\&.reset();
+359             b0\&.clear();
+360             b1\&.clear();
+361             return tick(1);
+362         } else {
+363             if (b0\&.pressing() && b1\&.pressing()) set_btn_flag(B_BOTH);
+364             return tick(0);
+365         }
+366     }
+367 
+368     bool tick(bool state) {
+369         clear();
+370         state = pollBtn(state);
+371 #ifndef EB_NO_CALLBACK
+372         if (cb && state) cb();
+373 #endif
+374         return state;
+375     }
+376 
+377 
+378     bool tickRaw(bool state) {
+379         return pollBtn(state);
+380     }
+381 
+382     uint8_t clicks;
+383 
+384     // deprecated
+385     void setButtonLevel(bool level) {
+386         write_btn_flag(B_INV, !level);
+387     }
+388 
+389     // ====================== PRIVATE ======================
+390    protected:
+391     bool pollBtn(bool s) {
+392         if (read_btn_flag(B_BISR)) {
+393             clr_btn_flag(B_BISR);
+394             s = 1;
+395         } else s ^= read_btn_flag(B_INV);
+396 
+397         if (!read_btn_flag(B_BUSY)) {
+398             if (s) set_btn_flag(B_BUSY);
+399             else return 0;
+400         }
+401 
+402         uint16_t ms = EB_UPTIME();
+403         uint16_t deb = ms \- timer;
+404 
+405         if (s) {                                      
+406             if (!read_btn_flag(B_PRS)) {                  
+407                 if (!read_btn_flag(B_DEB) && EB_DEB_T) {  
+408                     set_btn_flag(B_DEB);                   
+409                     timer = ms;                         
+410                 } else {                                
+411                     if (deb >= EB_DEB_T || !EB_DEB_T) { 
+412                         set_btn_flag(B_PRS | B_PRS_R);      
+413 #ifndef EB_NO_PEDOMETER
+414                         run_timer = ms;
+415 #endif
+416                         timer = ms;  
+417                     }
+418                 }
+419             } else {  
+420                 if (!read_btn_flag(B_EHLD)) {
+421                     if (!read_btn_flag(B_HLD)) {  
+422 #ifdef EB_HOLD_TIME
+423                         if (deb >= (uint16_t)EB_HOLD_T) {  
+424 #else
+425                         if (deb >= (uint16_t)(EB_HOLD_T << EB_SHIFT)) {  
+426 #endif
+427                             set_btn_flag(B_HLD_R | B_HLD); 
+428                             timer = ms;                 
+429                         }
+430                     } else {  
+431 #ifdef EB_STEP_TIME
+432                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? EB_STEP_T : EB_HOLD_T)) {
+433 #else
+434                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? (EB_STEP_T << EB_SHIFT) : (EB_HOLD_T << EB_SHIFT))) {
+435 #endif
+436                             set_btn_flag(B_STP | B_STP_R);  
+437                             timer = ms;                   
+438                         }
+439                     }
+440                 }
+441             }
+442         } else {                                     
+443             if (read_btn_flag(B_PRS)) {                 
+444                 if (deb >= EB_DEB_T) {               
+445                     if (!read_btn_flag(B_HLD)) clicks++;    
+446                     if (read_btn_flag(B_EHLD)) clicks = 0;  
+447                     set_btn_flag(B_REL | B_REL_R);        
+448                     clr_btn_flag(B_PRS);                   
+449                 }
+450             } else if (read_btn_flag(B_REL)) {
+451                 if (!read_btn_flag(B_EHLD)) {
+452                     set_btn_flag(B_REL_R);
+453                 }
+454                 clr_btn_flag(B_REL | B_EHLD);
+455                 timer = ms;       
+456             } else if (clicks) {  
+457 #ifdef EB_CLICK_TIME
+458                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)EB_CLICK_T) set_btn_flag(B_CLKS_R);  
+459 #else
+460                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_btn_flag(B_CLKS_R);  
+461 #endif
+462 #ifndef EB_NO_PEDOMETER
+463                 else if (run_timer) run_timer = 0;
+464 #endif
+465             } else if (read_btn_flag(B_BUSY)) {
+466                 clr_btn_flag(B_HLD | B_STP | B_BUSY);
+467                 set_btn_flag(B_TOUT);
+468 #ifndef EB_NO_PEDOMETER
+469                 run_timer = 0;
+470 #endif
+471                 timer = ms;  // test!!
+472             }
+473             if (read_btn_flag(B_DEB)) clr_btn_flag(B_DEB);  
+474         }
+475         return read_btn_flag(B_CLKS_R | B_PRS_R | B_HLD_R | B_STP_R | B_REL_R);
+476     }
+477 
+478     uint16_t timer = 0;
+479 #ifndef EB_NO_PEDOMETER
+480     uint16_t run_timer = 0;
+481 #endif
+482 
+483 #ifndef EB_NO_CALLBACK
+484     cb_t cb = nullptr;
+485 #endif
+486 
+487 #ifndef EB_DEB_TIME
+488     uint8_t EB_DEB_T = 50;
+489 #endif
+490 #ifndef EB_CLICK_TIME
+491     uint8_t EB_CLICK_T = (500 >> EB_SHIFT);
+492 #endif
+493 #ifndef EB_HOLD_TIME
+494     uint8_t EB_HOLD_T = (600 >> EB_SHIFT);
+495 #endif
+496 #ifndef EB_STEP_TIME
+497     uint8_t EB_STEP_T = (200 >> EB_SHIFT);
+498 #endif
+499 
+500     inline void set_btn_flag(const uint16_t x) __attribute__((always_inline)) {
+501         flags |= x;
+502     }
+503     inline void clr_btn_flag(const uint16_t x) __attribute__((always_inline)) {
+504         flags &= ~x;
+505     }
+506     inline bool read_btn_flag(const uint16_t x) __attribute__((always_inline)) {
+507         return flags & x;
+508     }
+509     inline void write_btn_flag(const uint16_t x, bool v) __attribute__((always_inline)) {
+510         if (v) set_btn_flag(x);
+511         else clr_btn_flag(x);
+512     }
+513     inline bool eq_btn_flag(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
+514         return (flags & x) == y;
+515     }
+516 
+517    private:
+518     uint16_t flags = 0;
+519 }
+.fi
+
+.SS "#define EB_FOR_SCALE   6"
+
+.PP
+Definition at line \fB29\fP of file \fBVirtButton\&.h\fP\&.
+.SS "#define EB_SHIFT   4"
+
+.PP
+Definition at line \fB11\fP of file \fBVirtButton\&.h\fP\&.
+.SS "#define X(a, b)   a = (1 << b),"
+
+.PP
+Definition at line \fB49\fP of file \fBVirtButton\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBBUTTON_FLAG_T\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIBUTTON_FLAGS \fP\fP
+.PP
+Definition at line \fB50\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+50              {
+51     BUTTON_FLAGS
+52 } BUTTON_FLAG_T;
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.

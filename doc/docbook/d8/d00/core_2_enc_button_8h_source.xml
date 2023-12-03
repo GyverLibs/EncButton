@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_core_2_enc_button_8h_source" xml:lang="en-US">
+<title>EncButton.h</title>
+<indexterm><primary>src/core/EncButton.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_core_2_enc_button_8h_source_1l00001"/>00001 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00008"/>00008 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__virt_enc_button_8h">VirtEncButton.h</link>&quot;</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00011"/>00011 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00012"/>00012 <emphasis role="comment">//&#32;=====================&#32;CLASS&#32;=====================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00020"/><link linkend="_class_enc_button">00020</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_enc_button">EncButton</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_enc_button">VirtEncButton</link>&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00021"/>00021 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_core_2_enc_button_8h_source_1l00032"/><link linkend="_class_enc_button_1ae08424b0b4c26b5c48089b9c40f3d526">00032</link> &#32;&#32;&#32;&#32;<link linkend="_class_enc_button_1ae08424b0b4c26b5c48089b9c40f3d526">EncButton</link>(uint8_t&#32;encA&#32;=&#32;0,&#32;uint8_t&#32;encB&#32;=&#32;0,&#32;uint8_t&#32;btn&#32;=&#32;0,&#32;uint8_t&#32;modeEnc&#32;=&#32;INPUT,&#32;uint8_t&#32;modeBtn&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc">init</link>(encA,&#32;encB,&#32;btn,&#32;modeEnc,&#32;modeBtn,&#32;btnLevel);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00035"/>00035 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00046"/><link linkend="_class_enc_button_1a781321a155b9a102ab61e9f6090e063b">00046</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_enc_button_1a781321a155b9a102ab61e9f6090e063b">init</link>(uint8_t&#32;encA&#32;=&#32;0,&#32;uint8_t&#32;encB&#32;=&#32;0,&#32;uint8_t&#32;btn&#32;=&#32;0,&#32;uint8_t&#32;modeEnc&#32;=&#32;INPUT,&#32;uint8_t&#32;modeBtn&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e0&#32;=&#32;encA;
+<anchor xml:id="_core_2_enc_button_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e1&#32;=&#32;encB;
+<anchor xml:id="_core_2_enc_button_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b&#32;=&#32;btn;
+<anchor xml:id="_core_2_enc_button_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(e0,&#32;modeEnc);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(e1,&#32;modeEnc);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(b,&#32;modeBtn);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea">setBtnLevel</link>(btnLevel);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(<link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">readEnc</link>());
+<anchor xml:id="_core_2_enc_button_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00056"/>00056 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;TICK&#32;======================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00058"/>00058 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00064"/><link linkend="_class_enc_button_1a5bd47f2e09579d6fde8161b6d3c0fd9d">00064</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_enc_button_1a5bd47f2e09579d6fde8161b6d3c0fd9d">tickISR</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149">VirtEncButton::tickISR</link>(<link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">readEnc</link>());
+<anchor xml:id="_core_2_enc_button_8h_source_1l00066"/>00066 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00067"/>00067 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00073"/><link linkend="_class_enc_button_1a0c211230fe67d29364b1b560eef11e0e">00073</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_1a0c211230fe67d29364b1b560eef11e0e">tick</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))
+<anchor xml:id="_core_2_enc_button_8h_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncButton::tick</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(b));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncButton::tick</link>(<link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">readEnc</link>(),&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(b));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00079"/>00079 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00085"/><link linkend="_class_enc_button_1a2ff796ad8e671fa147c7c2521e840d06">00085</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_1a2ff796ad8e671fa147c7c2521e840d06">tickRaw</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))
+<anchor xml:id="_core_2_enc_button_8h_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncButton::tickRaw</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(b));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncButton::tickRaw</link>(<link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">readEnc</link>(),&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(b));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00090"/>00090 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00091"/>00091 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;READ&#32;======================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00093"/>00093 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00099"/><link linkend="_class_enc_button_1aab67d97568a2fc5ab24ed76ba3c517a4">00099</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_1aab67d97568a2fc5ab24ed76ba3c517a4">readBtn</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(b)&#32;^&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(B_INV);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00102"/>00102 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00108"/><link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">00108</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_enc_button_1aa3863501f48483ba47af7160429df011">readEnc</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(e0)&#32;|&#32;(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(e1)&#32;&lt;&lt;&#32;1);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00111"/>00111 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00112"/>00112 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;=====================&#32;PRIVATE&#32;=====================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00113"/>00113 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_core_2_enc_button_8h_source_1l00114"/>00114 &#32;&#32;&#32;&#32;uint8_t&#32;e0,&#32;e1,&#32;b;
+<anchor xml:id="_core_2_enc_button_8h_source_1l00115"/>00115 };
+<anchor xml:id="_core_2_enc_button_8h_source_1l00116"/>00116 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00117"/>00117 <emphasis role="comment">//&#32;=====================&#32;T&#32;CLASS&#32;=====================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00118"/>00118 <emphasis role="keyword">template</emphasis>&#32;&lt;u<emphasis role="keywordtype">int</emphasis>8_t&#32;ENCA,&#32;u<emphasis role="keywordtype">int</emphasis>8_t&#32;ENCB,&#32;u<emphasis role="keywordtype">int</emphasis>8_t&#32;BTN&gt;
+<anchor xml:id="_core_2_enc_button_8h_source_1l00119"/><link linkend="_class_enc_button_t">00119</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_enc_button_t">EncButtonT</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_enc_button">VirtEncButton</link>&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00120"/>00120 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_core_2_enc_button_8h_source_1l00121"/><link linkend="_class_enc_button_t_1a4e41ff34ff2eb8dde11db0d4ab650044">00121</link> &#32;&#32;&#32;&#32;<link linkend="_class_enc_button_t_1a4e41ff34ff2eb8dde11db0d4ab650044">EncButtonT</link>(uint8_t&#32;modeEnc&#32;=&#32;INPUT,&#32;uint8_t&#32;modeBtn&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc">init</link>(modeEnc,&#32;modeBtn,&#32;btnLevel);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00123"/>00123 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00124"/>00124 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00125"/><link linkend="_class_enc_button_t_1ae12e17716781e1557c7ce49b1a0c696c">00125</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_enc_button_t_1ae12e17716781e1557c7ce49b1a0c696c">init</link>(uint8_t&#32;modeEnc&#32;=&#32;INPUT,&#32;uint8_t&#32;modeBtn&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(ENCA,&#32;modeEnc);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(ENCB,&#32;modeEnc);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(BTN,&#32;modeBtn);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea">setBtnLevel</link>(btnLevel);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_encoder_1a5cb9dd003233ebe80ec7c8946492c961">initEnc</link>(<link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">readEnc</link>());
+<anchor xml:id="_core_2_enc_button_8h_source_1l00131"/>00131 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00132"/>00132 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00133"/>00133 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;TICK&#32;======================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00134"/><link linkend="_class_enc_button_t_1a1bd495fbe8f0c96561497f46a2ff8757">00134</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_enc_button_t_1a1bd495fbe8f0c96561497f46a2ff8757">tickISR</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_enc_button_1a75c3d533f976022d4248748bfbd1c149">VirtEncButton::tickISR</link>(<link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">readEnc</link>());
+<anchor xml:id="_core_2_enc_button_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00137"/>00137 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00138"/><link linkend="_class_enc_button_t_1ae1588d7e3abc4f185b7aae017d3eb027">00138</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_t_1ae1588d7e3abc4f185b7aae017d3eb027">tick</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncButton::tick</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(BTN));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a47e4135d2e88ea6a2313977aa9307784">VirtEncButton::tick</link>(<link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">readEnc</link>(),&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(BTN));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00141"/>00141 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00142"/>00142 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00143"/><link linkend="_class_enc_button_t_1aa22bdce97285723cd67875892eb95b84">00143</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_t_1aa22bdce97285723cd67875892eb95b84">tickRaw</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_virt_encoder_1a1daa32206f3c108deb4aaad943f96fef">read_encf</link>(E_ISR))&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncButton::tickRaw</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(BTN));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_encoder_1a91ed170018a12988260f3ab33c720bc5">VirtEncButton::tickRaw</link>(<link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">readEnc</link>(),&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(BTN));
+<anchor xml:id="_core_2_enc_button_8h_source_1l00146"/>00146 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00147"/>00147 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00148"/>00148 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;======================&#32;READ&#32;======================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00149"/><link linkend="_class_enc_button_t_1a5245af25af5d9d11024afc09d2601734">00149</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_enc_button_t_1a5245af25af5d9d11024afc09d2601734">readBtn</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(BTN)&#32;^&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(B_INV);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00151"/>00151 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00152"/>00152 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00153"/><link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">00153</link> &#32;&#32;&#32;&#32;int8_t&#32;<link linkend="_class_enc_button_t_1a9e25f5e48b660af6a0cfc5d661c37db8">readEnc</link>()&#32;{
+<anchor xml:id="_core_2_enc_button_8h_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(ENCA)&#32;|&#32;(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(ENCB)&#32;&lt;&lt;&#32;1);
+<anchor xml:id="_core_2_enc_button_8h_source_1l00155"/>00155 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_core_2_enc_button_8h_source_1l00156"/>00156 
+<anchor xml:id="_core_2_enc_button_8h_source_1l00157"/>00157 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;=====================&#32;PRIVATE&#32;=====================</emphasis>
+<anchor xml:id="_core_2_enc_button_8h_source_1l00158"/>00158 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_core_2_enc_button_8h_source_1l00159"/>00159 };
+</programlisting></section>

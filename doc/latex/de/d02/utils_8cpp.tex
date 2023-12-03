@@ -1,0 +1,100 @@
+\doxysection{src/core/utils.cpp File Reference}
+\hypertarget{utils_8cpp}{}\label{utils_8cpp}\index{src/core/utils.cpp@{src/core/utils.cpp}}
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}} (const uint8\+\_\+t pin)
+\item 
+void \mbox{\hyperlink{utils_8cpp_af74a9306d2c033fe5f90bcd54010baf4}{EBwrite}} (const uint8\+\_\+t pin, bool value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}\label{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb} 
+\index{utils.cpp@{utils.cpp}!EBread@{EBread}}
+\index{EBread@{EBread}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{EBread()}{EBread()}}
+{\footnotesize\ttfamily bool EBread (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{utils_8cpp_source}{utils.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#if\ defined(\_\_AVR\_ATmega328P\_\_)\ ||\ defined(\_\_AVR\_ATmega168\_\_) }}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PIND,\ pin);}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINB,\ pin\ -\/\ 8);}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 20)}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINC,\ pin\ -\/\ 14);}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATtiny85\_\_)\ ||\ defined(\_\_AVR\_ATtiny13\_\_) }}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINB,\ pin);}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATmega2560\_\_) }}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PIND,\ pin);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINE,\ pin\ -\/\ 8);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 22)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PING,\ pin\ -\/\ 14);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 30)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINH,\ pin\ -\/\ 22);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 38)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINJ,\ pin\ -\/\ 30);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 46)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINK,\ pin\ -\/\ 38);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 54)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitRead(PINL,\ pin\ -\/\ 46);}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ digitalRead(pin);}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{utils_8cpp_af74a9306d2c033fe5f90bcd54010baf4}\label{utils_8cpp_af74a9306d2c033fe5f90bcd54010baf4} 
+\index{utils.cpp@{utils.cpp}!EBwrite@{EBwrite}}
+\index{EBwrite@{EBwrite}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{EBwrite()}{EBwrite()}}
+{\footnotesize\ttfamily void EBwrite (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{utils_8cpp_source}{utils.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#if\ defined(\_\_AVR\_ATmega328P\_\_)\ ||\ defined(\_\_AVR\_ATmega168\_\_) }}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ bitWrite(PORTD,\ pin,\ value);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ bitWrite(PORTB,\ pin\ -\/\ 8,\ value);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 20)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ bitWrite(PORTC,\ pin\ -\/\ 14,\ value);}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATtiny85\_\_)\ ||\ defined(\_\_AVR\_ATtiny13\_\_) }}
+\DoxyCodeLine{00043\ \ \ \ \ bitWrite(PORTB,\ pin,\ value);}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#elif\ defined(\_\_AVR\_ATmega2560\_\_) }}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (pin\ <\ 8)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ bitWrite(PORTD,\ pin,\ value);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 14)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ bitWrite(PORTE,\ pin\ -\/\ 8,\ value);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 22)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ bitWrite(PORTG,\ pin\ -\/\ 14,\ value);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 30)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ bitWrite(PORTH,\ pin\ -\/\ 22,\ value);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 38)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ bitWrite(PORTJ,\ pin\ -\/\ 30,\ value);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 46)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ bitWrite(PORTK,\ pin\ -\/\ 38,\ value);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pin\ <\ 54)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ bitWrite(PORTL,\ pin\ -\/\ 46,\ value);}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00060\ \ \ \ \ digitalWrite(pin,\ value);}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

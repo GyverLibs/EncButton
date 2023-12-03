@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_aebb8dcc11953d78e620bbef0b9e2183" xml:lang="en-US">
+<title>src/core Directory Reference</title>
+<indexterm><primary>src/core Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__button_8h">Button.h</link></para>
+
+<para><link linkend="_class_button">Button</link> class for handling button presses and debouncing. </para>
+</listitem>
+            <listitem><para>file <link linkend="_core_2_enc_button_8h">EncButton.h</link></para>
+
+<para><link linkend="_class_enc_button">EncButton</link> class for handling rotary encoder with button. </para>
+</listitem>
+            <listitem><para>file <link linkend="__encoder_8h">Encoder.h</link></para>
+
+<para><link linkend="_class_encoder">Encoder</link> class for handling rotary encoder. </para>
+</listitem>
+            <listitem><para>file <link linkend="_utils_8cpp">utils.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_utils_8h">utils.h</link></para>
+
+<para>Utility functions for handling pins and flags. </para>
+</listitem>
+            <listitem><para>file <link linkend="__virt_button_8h">VirtButton.h</link></para>
+
+<para><link linkend="_class_virt_button">VirtButton</link> class for handling virtual buttons. </para>
+</listitem>
+            <listitem><para>file <link linkend="__virt_enc_button_8h">VirtEncButton.h</link></para>
+
+<para>Virtual encoder button class. </para>
+</listitem>
+            <listitem><para>file <link linkend="__virt_encoder_8h">VirtEncoder.h</link></para>
+
+<para>Virtual encoder class. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,1095 @@
+.TH "Button" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Button \- Represents a button that extends the \fBVirtButton\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Button\&.h>\fP
+.PP
+Inherits \fBVirtButton\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBButton\fP (\fBuint8_t\fP \fBnpin\fP)"
+.br
+.RI "Constructs a \fBButton\fP object with the specified pin number\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBinit\fP (\fBuint8_t\fP \fBnpin\fP=0, \fBuint8_t\fP \fBmode\fP=\fBINPUT_PULLUP\fP, \fBuint8_t\fP \fBbtnLevel\fP=\fBLOW\fP)"
+.br
+.RI "Initializes the button with the specified pin, mode, and button level\&. "
+.ti -1c
+.RI "\fBbool\fP \fBread\fP ()"
+.br
+.RI "Reads the raw pin state for this button instance\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP ()"
+.br
+.RI "Reads the button state and updates the internal state machine\&. "
+.ti -1c
+.RI "\fBbool\fP \fBtickRaw\fP ()"
+.br
+.RI "Reads the raw pin state for this button instance and updates the internal state machine\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetHoldTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=600)"
+.br
+.RI "Sets the hold timeout for the virtual button\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetStepTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=200)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetClickTimeout\fP (\fBuint16_t\fP \fBtimeout\fP=500)"
+.br
+.RI "Sets the click timeout for the virtual button\&. Clicks faster than this timeout will be detected\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsetDebounceTimeout\fP (\fBuint8_t\fP \fBtimeout\fP=50)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetBtnLevel\fP (\fBbool\fP \fBlevel\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBpressISR\fP ()"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBattach_call\fP (\fBcb_t\fP \fBcallback_func\fP)"
+.br
+.RI "Attach a callback function to handle button events\&. The callback will be called when button events occur\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBdetach_call\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBpress\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBrelease\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBclick\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBpressing\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhold\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhold\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholding\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholding\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstep\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstep\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhasClicks\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBhasClicks\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBgetClicks\fP ()"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBgetSteps\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseHold\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseHold\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseStep\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBreleaseStep\fP (\fBuint8_t\fP \fBnum\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBwaiting\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBbusy\fP ()"
+.br
+.ti -1c
+.RI "\fBEB_FLAGS_T\fP \fBaction\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtimeout\fP (uint16_t tout)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBpressFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBpressFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBholdFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBholdFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBstepFor\fP ()"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBstepFor\fP (\fBuint16_t\fP \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBVirtButton\fP &\fBb0\fP, \fBVirtButton\fP &\fBb1\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBtick\fP (\fBbool\fP \fBstate\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBtickRaw\fP (\fBbool\fP \fBstate\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBsetButtonLevel\fP (\fBbool\fP \fBlevel\fP)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBuint8_t\fP \fBclicks\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbool\fP \fBpollBtn\fP (\fBbool\fP \fBs\fP)"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBset_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBclr_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBread_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBvoid\fP \fBwrite_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP, \fBbool\fP \fBv\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBeq_btn_flag\fP (\fBconst\fP \fBuint16_t\fP \fBx\fP, \fBconst\fP \fBuint16_t\fP \fBy\fP) \fB__attribute__\fP((\fBalways_inline\fP))"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBuint16_t\fP \fBtimer\fP = 0"
+.br
+.ti -1c
+.RI "\fBuint16_t\fP \fBrun_timer\fP = 0"
+.br
+.ti -1c
+.RI "\fBcb_t\fP \fBcb\fP = \fBnullptr\fP"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_DEB_T\fP = 50"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_CLICK_T\fP = (500 >> \fBEB_SHIFT\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_HOLD_T\fP = (600 >> \fBEB_SHIFT\fP)"
+.br
+.ti -1c
+.RI "\fBuint8_t\fP \fBEB_STEP_T\fP = (200 >> \fBEB_SHIFT\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a button that extends the \fBVirtButton\fP class\&. 
+
+The \fBButton\fP class provides functionality to read the state of a button, update the internal state machine, and perform initialization\&. 
+.PP
+Definition at line \fB20\fP of file \fBButton\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Button::Button (\fBuint8_t\fP npin)"
+
+.PP
+Constructs a \fBButton\fP object with the specified pin number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInpin\fP The pin number to which the button is connected\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEB_FLAGS_T\fP VirtButton::action ()\fC [inline]\fP, \fC [inherited]\fP"
+Get the action corresponding to the current flag combination\&.
+.PP
+\fBReturns\fP
+.RS 4
+The action corresponding to the current flag combination\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB246\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+246                         {
+247         switch (flags & 0b111111111) {
+248             case (B_PRS | B_PRS_R):
+249                 return EB_PRESS;
+250             case (B_PRS | B_HLD | B_HLD_R):
+251                 return EB_HOLD;
+252             case (B_PRS | B_HLD | B_STP | B_STP_R):
+253                 return EB_STEP;
+254             case (B_REL | B_REL_R):
+255             case (B_REL | B_REL_R | B_HLD):
+256             case (B_REL | B_REL_R | B_HLD | B_STP):
+257                 return EB_RELEASE;
+258             case (B_REL_R):
+259                 return EB_CLICK;
+260             case (B_CLKS_R):
+261                 return EB_CLICKS;
+262             case (B_REL_R | B_HLD):
+263                 return EB_REL_HOLD;
+264             case (B_CLKS_R | B_HLD):
+265                 return EB_REL_HOLD_C;
+266             case (B_REL_R | B_HLD | B_STP):
+267                 return EB_REL_STEP;
+268             case (B_CLKS_R | B_HLD | B_STP):
+269                 return EB_REL_STEP_C;
+270             default:
+271                 return EB_NONE;
+272         }
+273     }
+.fi
+
+.SS "\fBbool\fP VirtButton::attach_call (\fBcb_t\fP callback_func)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Attach a callback function to handle button events\&. The callback will be called when button events occur\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcallback_func\fP pointer to the callback function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the callback is attached, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line \fB137\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+137                                           { 
+138 #ifndef EB_NO_CALLBACK
+139         if (callback_func == nullptr || cb) return false;
+140         cb = *callback_func;
+141         return true;
+142 #endif
+143         return false;
+144     }
+.fi
+
+.SS "\fBbool\fP VirtButton::busy ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB237\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+237                 {
+238         return read_btn_flag(B_BUSY);
+239     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::clear ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB122\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+122                  {
+123         if (read_btn_flag(B_CLKS_R)) clicks = 0;
+124         if (read_btn_flag(B_CLKS_R | B_STP_R | B_PRS_R | B_HLD_R | B_REL_R)) {
+125             clr_btn_flag(B_CLKS_R | B_STP_R | B_PRS_R | B_HLD_R | B_REL_R);
+126         }
+127     }
+.fi
+
+.SS "\fBbool\fP VirtButton::click ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB162\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+162                  {
+163         return eq_btn_flag(B_REL_R | B_REL | B_HLD, B_REL_R);
+164     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::clr_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB503\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+503                                                                               {
+504         flags &= ~x;
+505     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::detach_call ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB147\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+147                        {
+148 #ifndef EB_NO_CALLBACK
+149         cb = nullptr;
+150 #endif
+151     }
+.fi
+
+.SS "\fBbool\fP VirtButton::eq_btn_flag (\fBconst\fP \fBuint16_t\fP x, \fBconst\fP \fBuint16_t\fP y)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB513\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+513                                                                                                {
+514         return (flags & x) == y;
+515     }
+.fi
+
+.SS "\fBuint8_t\fP VirtButton::getClicks ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB202\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+202                         {
+203         return clicks;
+204     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::getSteps ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB206\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+206                         {
+207 #ifndef EB_NO_PEDOMETER
+208 #ifdef EB_STEP_TIME
+209         return run_timer ? ((stepFor() + EB_STEP_T \- 1) / EB_STEP_T) : 0;  
+210 #else
+211         return run_timer ? ((stepFor() + (EB_STEP_T << EB_SHIFT) \- 1) / (EB_STEP_T << EB_SHIFT)) : 0;
+212 #endif
+213 #endif
+214         return 0;
+215     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hasClicks ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB194\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+194                      {
+195         return eq_btn_flag(B_CLKS_R | B_HLD, B_CLKS_R);
+196     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hasClicks (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB198\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+198                                 {
+199         return clicks == num && hasClicks();
+200     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hold ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB170\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+170                 {
+171         return read_btn_flag(B_HLD_R);
+172     }
+.fi
+
+.SS "\fBbool\fP VirtButton::hold (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB174\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+174                            {
+175         return clicks == num && hold();
+176     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::holdFor ()\fC [inline]\fP, \fC [inherited]\fP"
+Calculates the duration for which the button has been held\&.
+.PP
+\fBReturns\fP
+.RS 4
+The duration in milliseconds\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB313\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+313                        {
+314 #ifndef EB_NO_PEDOMETER
+315         if (read_btn_flag(B_HLD)) {
+316 #ifdef EB_HOLD_TIME
+317             return pressFor() \- EB_HOLD_T;
+318 #else
+319             return pressFor() \- (EB_HOLD_T << EB_SHIFT);
+320 #endif
+321         }
+322 #endif
+323         return 0;
+324     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holdFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+Checks if the button has been held for a specified duration\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIms\fP The duration in milliseconds\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the button has been held for the specified duration, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB332\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+332                               {
+333         return holdFor() > ms;
+334     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holding ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB178\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+178                    {
+179         return eq_btn_flag(B_PRS | B_HLD, B_PRS | B_HLD);
+180     }
+.fi
+
+.SS "\fBbool\fP VirtButton::holding (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB182\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+182                               {
+183         return clicks == num && holding();
+184     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::init ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB60\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+60                {
+61         setHoldTimeout();
+62         setStepTimeout();
+63         setClickTimeout();
+64         setDebounceTimeout();
+65 
+66     }
+.fi
+
+.SS "\fBvoid\fP Button::init (\fBuint8_t\fP npin = \fC0\fP, \fBuint8_t\fP mode = \fC\fBINPUT_PULLUP\fP\fP, \fBuint8_t\fP btnLevel = \fC\fBLOW\fP\fP)"
+
+.PP
+Initializes the button with the specified pin, mode, and button level\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInpin\fP The pin number to which the button is connected\&. 
+.br
+\fImode\fP The mode of the pin (INPUT, INPUT_PULLUP, etc\&.)\&. 
+.br
+\fIbtnLevel\fP The active level of the button (LOW or HIGH)\&. 
+.RE
+.PP
+
+.SS "\fBbool\fP VirtButton::pollBtn (\fBbool\fP s)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB391\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+391                          {
+392         if (read_btn_flag(B_BISR)) {
+393             clr_btn_flag(B_BISR);
+394             s = 1;
+395         } else s ^= read_btn_flag(B_INV);
+396 
+397         if (!read_btn_flag(B_BUSY)) {
+398             if (s) set_btn_flag(B_BUSY);
+399             else return 0;
+400         }
+401 
+402         uint16_t ms = EB_UPTIME();
+403         uint16_t deb = ms \- timer;
+404 
+405         if (s) {                                      
+406             if (!read_btn_flag(B_PRS)) {                  
+407                 if (!read_btn_flag(B_DEB) && EB_DEB_T) {  
+408                     set_btn_flag(B_DEB);                   
+409                     timer = ms;                         
+410                 } else {                                
+411                     if (deb >= EB_DEB_T || !EB_DEB_T) { 
+412                         set_btn_flag(B_PRS | B_PRS_R);      
+413 #ifndef EB_NO_PEDOMETER
+414                         run_timer = ms;
+415 #endif
+416                         timer = ms;  
+417                     }
+418                 }
+419             } else {  
+420                 if (!read_btn_flag(B_EHLD)) {
+421                     if (!read_btn_flag(B_HLD)) {  
+422 #ifdef EB_HOLD_TIME
+423                         if (deb >= (uint16_t)EB_HOLD_T) {  
+424 #else
+425                         if (deb >= (uint16_t)(EB_HOLD_T << EB_SHIFT)) {  
+426 #endif
+427                             set_btn_flag(B_HLD_R | B_HLD); 
+428                             timer = ms;                 
+429                         }
+430                     } else {  
+431 #ifdef EB_STEP_TIME
+432                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? EB_STEP_T : EB_HOLD_T)) {
+433 #else
+434                         if (deb >= (uint16_t)(read_btn_flag(B_STP) ? (EB_STEP_T << EB_SHIFT) : (EB_HOLD_T << EB_SHIFT))) {
+435 #endif
+436                             set_btn_flag(B_STP | B_STP_R);  
+437                             timer = ms;                   
+438                         }
+439                     }
+440                 }
+441             }
+442         } else {                                     
+443             if (read_btn_flag(B_PRS)) {                 
+444                 if (deb >= EB_DEB_T) {               
+445                     if (!read_btn_flag(B_HLD)) clicks++;    
+446                     if (read_btn_flag(B_EHLD)) clicks = 0;  
+447                     set_btn_flag(B_REL | B_REL_R);        
+448                     clr_btn_flag(B_PRS);                   
+449                 }
+450             } else if (read_btn_flag(B_REL)) {
+451                 if (!read_btn_flag(B_EHLD)) {
+452                     set_btn_flag(B_REL_R);
+453                 }
+454                 clr_btn_flag(B_REL | B_EHLD);
+455                 timer = ms;       
+456             } else if (clicks) {  
+457 #ifdef EB_CLICK_TIME
+458                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)EB_CLICK_T) set_btn_flag(B_CLKS_R);  
+459 #else
+460                 if (read_btn_flag(B_HLD | B_STP) || deb >= (uint16_t)(EB_CLICK_T << EB_SHIFT)) set_btn_flag(B_CLKS_R);  
+461 #endif
+462 #ifndef EB_NO_PEDOMETER
+463                 else if (run_timer) run_timer = 0;
+464 #endif
+465             } else if (read_btn_flag(B_BUSY)) {
+466                 clr_btn_flag(B_HLD | B_STP | B_BUSY);
+467                 set_btn_flag(B_TOUT);
+468 #ifndef EB_NO_PEDOMETER
+469                 run_timer = 0;
+470 #endif
+471                 timer = ms;  // test!!
+472             }
+473             if (read_btn_flag(B_DEB)) clr_btn_flag(B_DEB);  
+474         }
+475         return read_btn_flag(B_CLKS_R | B_PRS_R | B_HLD_R | B_STP_R | B_REL_R);
+476     }
+.fi
+
+.SS "\fBbool\fP VirtButton::press ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB154\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+154                  {
+155         return read_btn_flag(B_PRS_R);
+156     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::pressFor ()\fC [inline]\fP, \fC [inherited]\fP"
+Returns the duration in milliseconds for which the button has been pressed\&. If the EB_NO_PEDOMETER macro is defined, the function always returns 0\&. If the button is not currently pressed, the function also returns 0\&.
+.PP
+\fBReturns\fP
+.RS 4
+The duration in milliseconds for which the button has been pressed\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB297\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+297                         {
+298 #ifndef EB_NO_PEDOMETER
+299         if (run_timer) return (uint16_t)EB_UPTIME() \- run_timer;
+300 #endif
+301         return 0;
+302     }
+.fi
+
+.SS "\fBbool\fP VirtButton::pressFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB304\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+304                                {
+305         return pressFor() > ms;
+306     }
+.fi
+
+.SS "\fBbool\fP VirtButton::pressing ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB166\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+166                     {
+167         return read_btn_flag(B_PRS);
+168     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::pressISR ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB112\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+112                     {
+113         if (!read_btn_flag(B_DEB)) timer = EB_UPTIME();
+114         set_btn_flag(B_DEB | B_BISR);
+115     }
+.fi
+
+.SS "\fBbool\fP Button::read ()"
+
+.PP
+Reads the raw pin state for this button instance\&. Performs an XOR against the configured active level to return the logical button state\&.
+.PP
+\fBReturns\fP
+.RS 4
+The logical state of the button (true for pressed, false for released)\&. 
+.RE
+.PP
+
+.SS "\fBbool\fP VirtButton::read_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB506\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+506                                                                                {
+507         return flags & x;
+508     }
+.fi
+
+.SS "\fBbool\fP VirtButton::release ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB158\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+158                    {
+159         return eq_btn_flag(B_REL_R | B_REL, B_REL_R | B_REL);
+160     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseHold ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB217\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+217                        {
+218         return eq_btn_flag(B_REL_R | B_REL | B_HLD | B_STP, B_REL_R | B_HLD);
+219     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseHold (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB221\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+221                                   {
+222         return clicks == num && eq_btn_flag(B_CLKS_R | B_HLD | B_STP, B_CLKS_R | B_HLD);
+223     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseStep ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB225\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+225                        {
+226         return eq_btn_flag(B_REL_R | B_REL | B_STP, B_REL_R | B_STP);
+227     }
+.fi
+
+.SS "\fBbool\fP VirtButton::releaseStep (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB229\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+229                                   {
+230         return clicks == num && eq_btn_flag(B_CLKS_R | B_STP, B_CLKS_R | B_STP);
+231     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::reset ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB117\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+117                  {
+118         clicks = 0;
+119         clr_btn_flag(~B_INV);
+120     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::set_btn_flag (\fBconst\fP \fBuint16_t\fP x)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB500\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+500                                                                               {
+501         flags |= x;
+502     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setBtnLevel (\fBbool\fP level)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB108\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+108                                  {
+109         write_btn_flag(B_INV, !level);
+110     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setButtonLevel (\fBbool\fP level)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB385\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+385                                     {
+386         write_btn_flag(B_INV, !level);
+387     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setClickTimeout (\fBuint16_t\fP timeout = \fC500\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Sets the click timeout for the virtual button\&. Clicks faster than this timeout will be detected\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The click timeout value in milliseconds\&. Default is 500 milliseconds\&. Max is 4000ms\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB96\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+96                                                {
+97 #ifndef EB_CLICK_TIME
+98         EB_CLICK_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+99 #endif
+100     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setDebounceTimeout (\fBuint8_t\fP timeout = \fC50\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB102\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+102                                                 {
+103 #ifndef EB_DEB_TIME
+104         EB_DEB_T = (timeout < 255) ? timeout : 255;
+105 #endif
+106     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setHoldTimeout (\fBuint16_t\fP timeout = \fC600\fP)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Sets the hold timeout for the virtual button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The hold timeout value in milliseconds\&. Default is 600 milliseconds\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+max timeout is 4000 ms 
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+74                                               {
+75 #ifndef EB_HOLD_TIME
+76         EB_HOLD_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+77 #endif
+78     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::setStepTimeout (\fBuint16_t\fP timeout = \fC200\fP)\fC [inline]\fP, \fC [inherited]\fP"
+Sets the step timeout for the virtual button\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The timeout value in milliseconds\&. Default is 200 milliseconds\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+max timeout is 4000 ms 
+.RE
+.PP
+
+.PP
+Definition at line \fB85\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+85                                               {
+86 #ifndef EB_STEP_TIME
+87         EB_STEP_T = (timeout < 4000) ? timeout >> EB_SHIFT : 4000 >> EB_SHIFT;
+88 #endif
+89     }
+.fi
+
+.SS "\fBbool\fP VirtButton::step ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB186\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+186                 {
+187         return read_btn_flag(B_STP_R);
+188     }
+.fi
+
+.SS "\fBbool\fP VirtButton::step (\fBuint8_t\fP num)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB190\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+190                            {
+191         return clicks == num && step();
+192     }
+.fi
+
+.SS "\fBuint16_t\fP VirtButton::stepFor ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB336\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+336                        {
+337 #ifndef EB_NO_PEDOMETER
+338         if (read_btn_flag(B_STP)) {
+339 #ifdef EB_HOLD_TIME
+340             return pressFor() \- EB_HOLD_T * 2;
+341 #else
+342             return pressFor() \- (EB_HOLD_T << EB_SHIFT) * 2;
+343 #endif
+344         }
+345 #endif
+346         return 0;
+347     }
+.fi
+
+.SS "\fBbool\fP VirtButton::stepFor (\fBuint16_t\fP ms)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB349\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+349                               {
+350         return stepFor() > ms;
+351     }
+.fi
+
+.SS "\fBbool\fP Button::tick ()"
+
+.PP
+Reads the button state and updates the internal state machine\&. Calls the parent \fBVirtButton::tick()\fP method to update the debounced/held state based on the latest raw pin reading\&.
+.PP
+\fBReturns\fP
+.RS 4
+The updated state of the button (true for pressed, false for released)\&. 
+.RE
+.PP
+
+.SS "\fBbool\fP VirtButton::tick (\fBbool\fP state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB368\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+368                           {
+369         clear();
+370         state = pollBtn(state);
+371 #ifndef EB_NO_CALLBACK
+372         if (cb && state) cb();
+373 #endif
+374         return state;
+375     }
+.fi
+
+.SS "\fBbool\fP VirtButton::tick (\fBVirtButton\fP & b0, \fBVirtButton\fP & b1)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB354\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+354                                               {
+355         if (read_btn_flag(B_BOTH)) {
+356             if (!b0\&.pressing() && !b1\&.pressing()) clr_btn_flag(B_BOTH);
+357             if (!b0\&.pressing()) b0\&.reset();
+358             if (!b1\&.pressing()) b1\&.reset();
+359             b0\&.clear();
+360             b1\&.clear();
+361             return tick(1);
+362         } else {
+363             if (b0\&.pressing() && b1\&.pressing()) set_btn_flag(B_BOTH);
+364             return tick(0);
+365         }
+366     }
+.fi
+
+.SS "\fBbool\fP Button::tickRaw ()"
+
+.PP
+Reads the raw pin state for this button instance and updates the internal state machine\&. Calls the parent \fBVirtButton::tickRaw()\fP method to update the debounced/held state based on the latest raw pin reading\&.
+.PP
+\fBReturns\fP
+.RS 4
+The updated state of the button (true for pressed, false for released)\&. 
+.RE
+.PP
+
+.SS "\fBbool\fP VirtButton::tickRaw (\fBbool\fP state)\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB378\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+378                              {
+379         return pollBtn(state);
+380     }
+.fi
+
+.SS "bool VirtButton::timeout (uint16_t tout)\fC [inline]\fP, \fC [inherited]\fP"
+Checks if the timeout has occurred\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItout\fP The timeout value in milliseconds\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the timeout has occurred, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB282\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+282                                 {
+283         if (read_btn_flag(B_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() \- timer) > tout) {
+284             clr_btn_flag(B_TOUT);
+285             return 1;
+286         }
+287         return 0;
+288     }
+.fi
+
+.SS "\fBbool\fP VirtButton::waiting ()\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB233\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+233                    {
+234         return clicks && eq_btn_flag(B_PRS | B_REL, 0);
+235     }
+.fi
+
+.SS "\fBvoid\fP VirtButton::write_btn_flag (\fBconst\fP \fBuint16_t\fP x, \fBbool\fP v)\fC [inline]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB509\fP of file \fBVirtButton\&.h\fP\&..PP
+.nf
+509                                                                                         {
+510         if (v) set_btn_flag(x);
+511         else clr_btn_flag(x);
+512     }
+.fi
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBcb_t\fP VirtButton::cb = \fBnullptr\fP\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB484\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::clicks\fC [inherited]\fP"
+
+.PP
+Definition at line \fB382\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_CLICK_T = (500 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB491\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_DEB_T = 50\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB488\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_HOLD_T = (600 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB494\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint8_t\fP VirtButton::EB_STEP_T = (200 >> \fBEB_SHIFT\fP)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB497\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint16_t\fP VirtButton::run_timer = 0\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB480\fP of file \fBVirtButton\&.h\fP\&.
+.SS "\fBuint16_t\fP VirtButton::timer = 0\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Definition at line \fB478\fP of file \fBVirtButton\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.

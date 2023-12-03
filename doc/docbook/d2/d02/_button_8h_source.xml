@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__button_8h_source" xml:lang="en-US">
+<title>Button.h</title>
+<indexterm><primary>src/core/Button.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__button_8h_source_1l00001"/>00001 
+<anchor xml:id="__button_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__button_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="__button_8h_source_1l00008"/>00008 
+<anchor xml:id="__button_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__virt_button_8h">VirtButton.h</link>&quot;</emphasis>
+<anchor xml:id="__button_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="__button_8h_source_1l00011"/>00011 
+<anchor xml:id="__button_8h_source_1l00012"/>00012 <emphasis role="comment">//&#32;=============&#32;VAR&#32;PIN&#32;=============</emphasis>
+<anchor xml:id="__button_8h_source_1l00013"/>00013 
+<anchor xml:id="__button_8h_source_1l00020"/><link linkend="_class_button">00020</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_button">Button</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_button">VirtButton</link>&#32;{
+<anchor xml:id="__button_8h_source_1l00021"/>00021 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__button_8h_source_1l00027"/><link linkend="_class_button_1a7b5a0420703bef7be28f84a55a1ae4e3">00027</link> &#32;&#32;&#32;&#32;<link linkend="_class_button_1a7b5a0420703bef7be28f84a55a1ae4e3">Button</link>(uint8_t&#32;npin);
+<anchor xml:id="__button_8h_source_1l00028"/>00028 
+<anchor xml:id="__button_8h_source_1l00036"/><link linkend="_class_button_1aa42b0ec0fd9c0b4a356b4ee07d4ac44a">00036</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_button_1aa42b0ec0fd9c0b4a356b4ee07d4ac44a">init</link>(uint8_t&#32;npin&#32;=&#32;0,&#32;uint8_t&#32;mode&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW);
+<anchor xml:id="__button_8h_source_1l00037"/>00037 
+<anchor xml:id="__button_8h_source_1l00046"/><link linkend="_class_button_1a36db34a62ae4839b9e61bc6dfc9a46eb">00046</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_1a36db34a62ae4839b9e61bc6dfc9a46eb">read</link>();
+<anchor xml:id="__button_8h_source_1l00047"/>00047 
+<anchor xml:id="__button_8h_source_1l00056"/><link linkend="_class_button_1aec0337f8f13972df0fd651c4789b5d64">00056</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_1aec0337f8f13972df0fd651c4789b5d64">tick</link>();
+<anchor xml:id="__button_8h_source_1l00057"/>00057 
+<anchor xml:id="__button_8h_source_1l00066"/><link linkend="_class_button_1a5fd7808bd879525055ad7cc3b749562d">00066</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_1a5fd7808bd879525055ad7cc3b749562d">tickRaw</link>();
+<anchor xml:id="__button_8h_source_1l00067"/>00067 
+<anchor xml:id="__button_8h_source_1l00068"/>00068 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__button_8h_source_1l00069"/>00069 &#32;&#32;&#32;&#32;uint8_t&#32;pin;
+<anchor xml:id="__button_8h_source_1l00070"/>00070 };
+<anchor xml:id="__button_8h_source_1l00071"/>00071 
+<anchor xml:id="__button_8h_source_1l00072"/>00072 <emphasis role="comment">//&#32;=============&#32;TEMPLATE&#32;PIN&#32;=============</emphasis>
+<anchor xml:id="__button_8h_source_1l00073"/>00073 
+<anchor xml:id="__button_8h_source_1l00074"/>00074 <emphasis role="keyword">template</emphasis>&#32;&lt;u<emphasis role="keywordtype">int</emphasis>8_t&#32;PIN&gt;
+<anchor xml:id="__button_8h_source_1l00075"/><link linkend="_class_button_t">00075</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_button_t">ButtonT</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_virt_button">VirtButton</link>&#32;{
+<anchor xml:id="__button_8h_source_1l00076"/>00076 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__button_8h_source_1l00077"/><link linkend="_class_button_t_1a796688d56eaa47e0def09f98219d4748">00077</link> &#32;&#32;&#32;&#32;<link linkend="_class_button_t_1a796688d56eaa47e0def09f98219d4748">ButtonT</link>(uint8_t&#32;mode&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="__button_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1adb5cdda1c5abc43a3cde31bdd38911bc">init</link>(mode,&#32;btnLevel);
+<anchor xml:id="__button_8h_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__button_8h_source_1l00080"/>00080 
+<anchor xml:id="__button_8h_source_1l00081"/><link linkend="_class_button_t_1a9a1ce77f6a04a7dde1d893b398445a86">00081</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_button_t_1a9a1ce77f6a04a7dde1d893b398445a86">init</link>(uint8_t&#32;mode&#32;=&#32;INPUT_PULLUP,&#32;uint8_t&#32;btnLevel&#32;=&#32;LOW)&#32;{
+<anchor xml:id="__button_8h_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pinMode(PIN,&#32;mode);
+<anchor xml:id="__button_8h_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_virt_button_1a102c6d135a96fe63e615fda4f09f2cea">setBtnLevel</link>(btnLevel);
+<anchor xml:id="__button_8h_source_1l00084"/>00084 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__button_8h_source_1l00085"/>00085 
+<anchor xml:id="__button_8h_source_1l00086"/><link linkend="_class_button_t_1a99014cdfd99e2ee569922abf8b8707fe">00086</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_t_1a99014cdfd99e2ee569922abf8b8707fe">read</link>()&#32;{
+<anchor xml:id="__button_8h_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(PIN)&#32;^&#32;<link linkend="_class_virt_button_1abbcecd7ead3d57ae533182b181b5df44">read_btn_flag</link>(B_INV);
+<anchor xml:id="__button_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__button_8h_source_1l00089"/>00089 
+<anchor xml:id="__button_8h_source_1l00090"/><link linkend="_class_button_t_1a2da4f1c3621a3148e255a4cb83f76fca">00090</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_t_1a2da4f1c3621a3148e255a4cb83f76fca">tick</link>()&#32;{
+<anchor xml:id="__button_8h_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a905e81982b3a85ced1f91711b8f89193">VirtButton::tick</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(PIN));
+<anchor xml:id="__button_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__button_8h_source_1l00093"/>00093 
+<anchor xml:id="__button_8h_source_1l00094"/><link linkend="_class_button_t_1ad34dfe4ce24443b244727d30d3ad1b40">00094</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_button_t_1ad34dfe4ce24443b244727d30d3ad1b40">tickRaw</link>()&#32;{
+<anchor xml:id="__button_8h_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_virt_button_1a74cadea61f398fbb590514715d065fee">VirtButton::tickRaw</link>(<link linkend="_utils_8cpp_1a625e5f80e7944b05a709cb27d08211bb">EBread</link>(PIN));
+<anchor xml:id="__button_8h_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__button_8h_source_1l00097"/>00097 
+<anchor xml:id="__button_8h_source_1l00098"/>00098 &#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__button_8h_source_1l00099"/>00099 };
+</programlisting></section>

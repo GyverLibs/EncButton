@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_aebb8dcc11953d78e620bbef0b9e2183" kind="dir">
+    <compoundname>src/core</compoundname>
+    <innerfile refid="d2/d02/_button_8h">Button.h</innerfile>
+    <innerfile refid="d8/d00/core_2_enc_button_8h">EncButton.h</innerfile>
+    <innerfile refid="df/d03/_encoder_8h">Encoder.h</innerfile>
+    <innerfile refid="de/d02/utils_8cpp">utils.cpp</innerfile>
+    <innerfile refid="d5/d00/utils_8h">utils.h</innerfile>
+    <innerfile refid="d0/d01/_virt_button_8h">VirtButton.h</innerfile>
+    <innerfile refid="d0/d02/_virt_enc_button_8h">VirtEncButton.h</innerfile>
+    <innerfile refid="d2/d01/_virt_encoder_8h">VirtEncoder.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/"/>
+  </compounddef>
+</doxygen>

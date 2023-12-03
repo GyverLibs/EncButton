@@ -1,0 +1,1431 @@
+\doxysection{ButtonT\texorpdfstring{$<$}{<} PIN \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_button_t}{}\label{class_button_t}\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+Inheritance diagram for ButtonT\texorpdfstring{$<$}{<} PIN \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/d03/class_button_t}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_t_a796688d56eaa47e0def09f98219d4748}{ButtonT}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{mode}}=\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{INPUT\+\_\+\+PULLUP}}, \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{btn\+Level}}=\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{LOW}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_button_t_a9a1ce77f6a04a7dde1d893b398445a86}{init}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{mode}}=\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{INPUT\+\_\+\+PULLUP}}, \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{btn\+Level}}=\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{LOW}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t_a99014cdfd99e2ee569922abf8b8707fe}{read}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t_a2da4f1c3621a3148e255a4cb83f76fca}{tick}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t_ad34dfe4ce24443b244727d30d3ad1b40}{tick\+Raw}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc}{init}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_abb46734e4374bcd7047e0a641bef62ac}{set\+Hold\+Timeout}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=600)
+\begin{DoxyCompactList}\small\item\em Sets the hold timeout for the virtual button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e}{set\+Step\+Timeout}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=200)
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b}{set\+Click\+Timeout}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=500)
+\begin{DoxyCompactList}\small\item\em Sets the click timeout for the virtual button. Clicks faster than this timeout will be detected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a}{set\+Debounce\+Timeout}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}=50)
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea}{set\+Btn\+Level}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_aa556b513fa0e2c59d3f55954eeb0ff15}{press\+ISR}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a7e0ca1c632bcc03a4134ecc849b1690d}{reset}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7}{clear}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a97c03ff8b2bdbebdbe69a14c92f50ebe}{attach\+\_\+call}} (\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\+\_\+func}})
+\begin{DoxyCompactList}\small\item\em Attach a callback function to handle button events. The callback will be called when button events occur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_aa636d6f296e23877c7e87b09b018860d}{detach\+\_\+call}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a0405edb8ba969d6fdb30732d33fff4ec}{press}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_add4b40cf62454b7533cfaa6481325c6a}{release}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a151aa26a19beca73e3af724fa56808e6}{click}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a1a825e3b028a74b351070468118f4c8c}{pressing}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}{hold}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a4a0bb4a5b702398f051c0de78a3e4d5a}{hold}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}{holding}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_aabb3f562851185af17b19c35bbea2afd}{holding}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a2636015e47e232be87f3bce9ff327df4}{step}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a499511ff69ff95ac3f88ddb0ab53c390}{step}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a91f33795750a2c29a8b371d1f7372872}{has\+Clicks}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_ab2e93c61b9862a0b82a4957316646a1c}{has\+Clicks}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a03a1baee78264505a8d33690e3a91d2e}{get\+Clicks}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_add38d1e6687ebee0df64c3e2f5502d7c}{get\+Steps}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a97ec608c73faa3a5ed175d52b3e2611d}{release\+Hold}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a79873f1bd68e199bfae83437e8ff9011}{release\+Hold}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a11c355bb449932ef49276d2c191f436b}{release\+Step}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_ac0944855154d9903defeaf137f1049df}{release\+Step}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a527d4fbbceb1fd5b8ecfb9112b068e83}{waiting}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a2edf056136c8cd9c830afb7e6811d1fa}{busy}} ()
+\item 
+\mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}} \mbox{\hyperlink{class_virt_button_a9a6b3481ae19a239bcc9fb7b3ab3fd47}{action}} ()
+\item 
+bool \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}} (uint16\+\_\+t tout)
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{press\+For}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a12e463e8d316cb0a93620786a4d1a04d}{press\+For}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}{hold\+For}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_ae2ad9099e39b6eea1b30f2ffdcbf1a9f}{hold\+For}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{step\+For}} ()
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a962ce110e4bca21fde8544c88023723a}{step\+For}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}} (\mbox{\hyperlink{class_virt_button}{Virt\+Button}} \&\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}, \mbox{\hyperlink{class_virt_button}{Virt\+Button}} \&\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a12414d2af49e1b02c9cedcb6619503f5}{tick}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a74cadea61f398fbb590514715d065fee}{tick\+Raw}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a5a921ae41835ec42e9e773b0bce3db7d}{set\+Button\+Level}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{poll\+Btn}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\+\_\+btn\+\_\+flag}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}}) \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\+\_\+inline}}))
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\+\_\+btn\+\_\+flag}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}}) \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\+\_\+inline}}))
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\+\_\+btn\+\_\+flag}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}}) \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\+\_\+inline}}))
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\+\_\+btn\+\_\+flag}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}}, \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{v}}) \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\+\_\+inline}}))
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\+\_\+btn\+\_\+flag}} (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}}, \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{y}}) \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{always\+\_\+inline}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}} = 0
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\+\_\+timer}} = 0
+\item 
+\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}} = \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{nullptr}}
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\+\_\+\+DEB\+\_\+T}} = 50
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\+\_\+\+CLICK\+\_\+T}} = (500 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\+\_\+\+HOLD\+\_\+T}} = (600 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})
+\item 
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\+\_\+\+STEP\+\_\+T}} = (200 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$\newline
+class Button\+T$<$ PIN $>$}
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00075}{75}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_button_t_a796688d56eaa47e0def09f98219d4748}\label{class_button_t_a796688d56eaa47e0def09f98219d4748} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!ButtonT@{ButtonT}}
+\index{ButtonT@{ButtonT}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{ButtonT()}{ButtonT()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$ \\
+\mbox{\hyperlink{class_button_t}{ButtonT}}$<$ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}} $>$\mbox{\hyperlink{class_button_t}{\+::\+ButtonT}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{mode = {\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{INPUT\+\_\+\+PULLUP}}},  }\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{btn\+Level = {\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{LOW}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00077}{77}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc}{init}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{mode}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{btnLevel}});}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_virt_button_a9a6b3481ae19a239bcc9fb7b3ab3fd47}\label{class_virt_button_a9a6b3481ae19a239bcc9fb7b3ab3fd47} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!action@{action}}
+\index{action@{action}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{action()}{action()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{utils_8h_a5522e17c74054cb11d1d67e4bdeca67e}{EB\+\_\+\+FLAGS\+\_\+T}} Virt\+Button\+::action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Get the action corresponding to the current flag combination.
+
+\begin{DoxyReturn}{Returns}
+The action corresponding to the current flag combination. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00246}{246}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (flags\ \&\ 0b111111111)\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}):}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_PRESS}};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}):}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_HOLD}};}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}):}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_STEP}};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}):}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_RELEASE}};}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}):}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_CLICK}};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}):}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_CLICKS}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_HOLD}};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}):}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_HOLD\_C}};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_STEP}};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}):}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_REL\_STEP\_C}};}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{EB\_NONE}};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a97c03ff8b2bdbebdbe69a14c92f50ebe}\label{class_virt_button_a97c03ff8b2bdbebdbe69a14c92f50ebe} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!attach\_call@{attach\_call}}
+\index{attach\_call@{attach\_call}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{attach\_call()}{attach\_call()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::attach\+\_\+call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}}}]{callback\+\_\+func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Attach a callback function to handle button events. The callback will be called when button events occur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback\+\_\+func} & pointer to the callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the callback is attached, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00137}{137}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\_func}}\ ==\ \textcolor{keyword}{nullptr}\ ||\ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ =\ *\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{callback\_func}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a2edf056136c8cd9c830afb7e6811d1fa}\label{class_virt_button_a2edf056136c8cd9c830afb7e6811d1fa} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!busy@{busy}}
+\index{busy@{busy}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{busy()}{busy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::busy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00237}{237}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7}\label{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!clear@{clear}}
+\index{clear@{clear}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00122}{122}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}))\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a151aa26a19beca73e3af724fa56808e6}\label{class_virt_button_a151aa26a19beca73e3af724fa56808e6} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!click@{click}}
+\index{click@{click}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{click()}{click()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00162}{162}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}\label{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!clr\_btn\_flag@{clr\_btn\_flag}}
+\index{clr\_btn\_flag@{clr\_btn\_flag}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{clr\_btn\_flag()}{clr\_btn\_flag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::clr\+\_\+btn\+\_\+flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00503}{503}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ flags\ \&=\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{\string~x}};}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_aa636d6f296e23877c7e87b09b018860d}\label{class_virt_button_aa636d6f296e23877c7e87b09b018860d} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!detach\_call@{detach\_call}}
+\index{detach\_call@{detach\_call}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{detach\_call()}{detach\_call()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::detach\+\_\+call (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00147}{147}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}\label{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!eq\_btn\_flag@{eq\_btn\_flag}}
+\index{eq\_btn\_flag@{eq\_btn\_flag}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{eq\_btn\_flag()}{eq\_btn\_flag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::eq\+\_\+btn\+\_\+flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00513}{513}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (flags\ \&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}})\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{y}};}
+\DoxyCodeLine{00515\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a03a1baee78264505a8d33690e3a91d2e}\label{class_virt_button_a03a1baee78264505a8d33690e3a91d2e} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!getClicks@{getClicks}}
+\index{getClicks@{getClicks}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{getClicks()}{getClicks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::get\+Clicks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00202}{202}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_add38d1e6687ebee0df64c3e2f5502d7c}\label{class_virt_button_add38d1e6687ebee0df64c3e2f5502d7c} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!getSteps@{getSteps}}
+\index{getSteps@{getSteps}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{getSteps()}{getSteps()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::get\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00206}{206}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#ifdef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ ?\ ((\mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ +\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ -\/\ 1)\ /\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}})\ :\ 0;\ \ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ ?\ ((\mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ +\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ -\/\ 1)\ /\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ :\ 0;}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a91f33795750a2c29a8b371d1f7372872}\label{class_virt_button_a91f33795750a2c29a8b371d1f7372872} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!hasClicks@{hasClicks}}
+\index{hasClicks@{hasClicks}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{hasClicks()}{hasClicks()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::has\+Clicks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00194}{194}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_ab2e93c61b9862a0b82a4957316646a1c}\label{class_virt_button_ab2e93c61b9862a0b82a4957316646a1c} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!hasClicks@{hasClicks}}
+\index{hasClicks@{hasClicks}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{hasClicks()}{hasClicks()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::has\+Clicks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00198}{198}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a91f33795750a2c29a8b371d1f7372872}{hasClicks}}();}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}\label{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!hold@{hold}}
+\index{hold@{hold}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{hold()}{hold()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::hold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00170}{170}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}});}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a4a0bb4a5b702398f051c0de78a3e4d5a}\label{class_virt_button_a4a0bb4a5b702398f051c0de78a3e4d5a} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!hold@{hold}}
+\index{hold@{hold}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{hold()}{hold()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::hold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00174}{174}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a17448b7e1105a9acaf5d9216e24d0f91}{hold}}();}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}\label{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!holdFor@{holdFor}}
+\index{holdFor@{holdFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{holdFor()}{holdFor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::hold\+For (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Calculates the duration for which the button has been held.
+
+\begin{DoxyReturn}{Returns}
+The duration in milliseconds. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00313}{313}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \{}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}};}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}});}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_ae2ad9099e39b6eea1b30f2ffdcbf1a9f}\label{class_virt_button_ae2ad9099e39b6eea1b30f2ffdcbf1a9f} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!holdFor@{holdFor}}
+\index{holdFor@{holdFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{holdFor()}{holdFor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::hold\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Checks if the button has been held for a specified duration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The duration in milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the button has been held for the specified duration, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00332}{332}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_ad630c377278fdac7e6bdd8c5f9abf436}{holdFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00334\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}\label{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!holding@{holding}}
+\index{holding@{holding}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{holding()}{holding()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::holding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00178}{178}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_aabb3f562851185af17b19c35bbea2afd}\label{class_virt_button_aabb3f562851185af17b19c35bbea2afd} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!holding@{holding}}
+\index{holding@{holding}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{holding()}{holding()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::holding (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00182}{182}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a7c5fa8d35c480a4538bbde8e83115025}{holding}}();}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc}\label{class_virt_button_adb5cdda1c5abc43a3cde31bdd38911bc} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!init@{init}}
+\index{init@{init}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00060}{60}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_abb46734e4374bcd7047e0a641bef62ac}{setHoldTimeout}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e}{setStepTimeout}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b}{setClickTimeout}}();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a}{setDebounceTimeout}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_button_t_a9a1ce77f6a04a7dde1d893b398445a86}\label{class_button_t_a9a1ce77f6a04a7dde1d893b398445a86} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!init@{init}}
+\index{init@{init}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$ \\
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} \mbox{\hyperlink{class_button_t}{ButtonT}}$<$ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}} $>$\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{mode = {\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{INPUT\+\_\+\+PULLUP}}},  }\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{btn\+Level = {\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{LOW}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00081}{81}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{pinMode}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{mode}});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea}{setBtnLevel}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{btnLevel}});}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a80522eab183bc908bd3363e2850e0981}\label{class_virt_button_a80522eab183bc908bd3363e2850e0981} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!pollBtn@{pollBtn}}
+\index{pollBtn@{pollBtn}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{pollBtn()}{pollBtn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::poll\+Btn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00391}{391}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}}))\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}});}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}}\ =\ 1;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}}\ \string^=\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}});}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}}))\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}}\ =\ \mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}();}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}}\ -\/\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}};}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{s}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}})\ \&\&\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ \ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}}\ ||\ !\mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}});\ \ \ \ \ \ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \{\ \ }
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}})\ \{\ \ }
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ \{\ \ }
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});\ }
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ }
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#ifdef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ?\ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ :\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}))\ \{}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ?\ (\mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ :\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})))\ \{}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}});\ \ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}++;\ \ \ \ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;\ \ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}))\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}}))\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_EHLD}});}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}})\ \{\ \ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#ifdef\ EB\_CLICK\_TIME }}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ||\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});\ \ }
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}})\ ||\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{deb}}\ >=\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})(\mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}))\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}});\ \ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}})\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ 0;}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}}))\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BUSY}});}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}});}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}}\ =\ 0;}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};\ \ \textcolor{comment}{//\ test!!}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}))\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}});\ \ }
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}});}
+\DoxyCodeLine{00476\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a0405edb8ba969d6fdb30732d33fff4ec}\label{class_virt_button_a0405edb8ba969d6fdb30732d33fff4ec} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!press@{press}}
+\index{press@{press}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{press()}{press()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::press (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00154}{154}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS\_R}});}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}\label{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!pressFor@{pressFor}}
+\index{pressFor@{pressFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{pressFor()}{pressFor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::press\+For (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Returns the duration in milliseconds for which the button has been pressed. If the EB\+\_\+\+NO\+\_\+\+PEDOMETER macro is defined, the function always returns 0. If the button is not currently pressed, the function also returns 0.
+
+\begin{DoxyReturn}{Returns}
+The duration in milliseconds for which the button has been pressed. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00297}{297}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}})\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}{run\_timer}};}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a12e463e8d316cb0a93620786a4d1a04d}\label{class_virt_button_a12e463e8d316cb0a93620786a4d1a04d} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!pressFor@{pressFor}}
+\index{pressFor@{pressFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{pressFor()}{pressFor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::press\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00304}{304}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00306\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a1a825e3b028a74b351070468118f4c8c}\label{class_virt_button_a1a825e3b028a74b351070468118f4c8c} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!pressing@{pressing}}
+\index{pressing@{pressing}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{pressing()}{pressing()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::pressing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00166}{166}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}});}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_aa556b513fa0e2c59d3f55954eeb0ff15}\label{class_virt_button_aa556b513fa0e2c59d3f55954eeb0ff15} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!pressISR@{pressISR}}
+\index{pressISR@{pressISR}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{pressISR()}{pressISR()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::press\+ISR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00112}{112}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}))\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}}\ =\ \mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_DEB}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BISR}});}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_button_t_a99014cdfd99e2ee569922abf8b8707fe}\label{class_button_t_a99014cdfd99e2ee569922abf8b8707fe} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!read@{read}}
+\index{read@{read}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$ \\
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t}{ButtonT}}$<$ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}} $>$\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00086}{86}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}})\ \string^\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}});}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}\label{class_virt_button_abbcecd7ead3d57ae533182b181b5df44} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!read\_btn\_flag@{read\_btn\_flag}}
+\index{read\_btn\_flag@{read\_btn\_flag}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{read\_btn\_flag()}{read\_btn\_flag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::read\+\_\+btn\+\_\+flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00506}{506}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}};}
+\DoxyCodeLine{00508\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_add4b40cf62454b7533cfaa6481325c6a}\label{class_virt_button_add4b40cf62454b7533cfaa6481325c6a} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!release@{release}}
+\index{release@{release}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00158}{158}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}});}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a97ec608c73faa3a5ed175d52b3e2611d}\label{class_virt_button_a97ec608c73faa3a5ed175d52b3e2611d} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!releaseHold@{releaseHold}}
+\index{releaseHold@{releaseHold}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{releaseHold()}{releaseHold()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::release\+Hold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00217}{217}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a79873f1bd68e199bfae83437e8ff9011}\label{class_virt_button_a79873f1bd68e199bfae83437e8ff9011} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!releaseHold@{releaseHold}}
+\index{releaseHold@{releaseHold}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{releaseHold()}{releaseHold()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::release\+Hold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00221}{221}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_HLD}});}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a11c355bb449932ef49276d2c191f436b}\label{class_virt_button_a11c355bb449932ef49276d2c191f436b} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!releaseStep@{releaseStep}}
+\index{releaseStep@{releaseStep}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{releaseStep()}{releaseStep()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::release\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00225}{225}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}});}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_ac0944855154d9903defeaf137f1049df}\label{class_virt_button_ac0944855154d9903defeaf137f1049df} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!releaseStep@{releaseStep}}
+\index{releaseStep@{releaseStep}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{releaseStep()}{releaseStep()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::release\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00229}{229}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}},\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_CLKS\_R}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}});}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a7e0ca1c632bcc03a4134ecc849b1690d}\label{class_virt_button_a7e0ca1c632bcc03a4134ecc849b1690d} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!reset@{reset}}
+\index{reset@{reset}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00117}{117}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\string~\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}});}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}\label{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!set\_btn\_flag@{set\_btn\_flag}}
+\index{set\_btn\_flag@{set\_btn\_flag}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{set\_btn\_flag()}{set\_btn\_flag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+\_\+btn\+\_\+flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00500}{500}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ flags\ |=\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}};}
+\DoxyCodeLine{00502\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea}\label{class_virt_button_a102c6d135a96fe63e615fda4f09f2cea} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setBtnLevel@{setBtnLevel}}
+\index{setBtnLevel@{setBtnLevel}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setBtnLevel()}{setBtnLevel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Btn\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00108}{108}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}},\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}});}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a5a921ae41835ec42e9e773b0bce3db7d}\label{class_virt_button_a5a921ae41835ec42e9e773b0bce3db7d} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setButtonLevel@{setButtonLevel}}
+\index{setButtonLevel@{setButtonLevel}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setButtonLevel()}{setButtonLevel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Button\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00385}{385}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}{write\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_INV}},\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{level}});}
+\DoxyCodeLine{00387\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b}\label{class_virt_button_a8b1c20cc59aadf513a5f00deb395c53b} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setClickTimeout@{setClickTimeout}}
+\index{setClickTimeout@{setClickTimeout}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setClickTimeout()}{setClickTimeout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Click\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{timeout = {\ttfamily 500} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Sets the click timeout for the virtual button. Clicks faster than this timeout will be detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The click timeout value in milliseconds. Default is 500 milliseconds. Max is 4000ms. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00096}{96}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifndef\ EB\_CLICK\_TIME }}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}{EB\_CLICK\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a}\label{class_virt_button_a8c24daaef19d92c5182a37e69fe59a1a} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setDebounceTimeout@{setDebounceTimeout}}
+\index{setDebounceTimeout@{setDebounceTimeout}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setDebounceTimeout()}{setDebounceTimeout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Debounce\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{timeout = {\ttfamily 50} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00102}{102}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifndef\ EB\_DEB\_TIME }}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a02ec52c911ea40944b04c86afc2452df}{EB\_DEB\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}\ <\ 255)\ ?\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout}}\ :\ 255;}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_abb46734e4374bcd7047e0a641bef62ac}\label{class_virt_button_abb46734e4374bcd7047e0a641bef62ac} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setHoldTimeout@{setHoldTimeout}}
+\index{setHoldTimeout@{setHoldTimeout}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setHoldTimeout()}{setHoldTimeout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Hold\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{timeout = {\ttfamily 600} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Sets the hold timeout for the virtual button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The hold timeout value in milliseconds. Default is 600 milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+max timeout is 4000 ms 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00074}{74}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifndef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e}\label{class_virt_button_af6cbb38f692fd1dcf7b1af1cf946071e} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!setStepTimeout@{setStepTimeout}}
+\index{setStepTimeout@{setStepTimeout}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{setStepTimeout()}{setStepTimeout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::set\+Step\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{timeout = {\ttfamily 200} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Sets the step timeout for the virtual button. 
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The timeout value in milliseconds. Default is 200 milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+max timeout is 4000 ms 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00085}{85}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifndef\ EB\_STEP\_TIME }}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}{EB\_STEP\_T}}\ =\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{timeout\ <\ 4000)\ ?\ timeout\ >}}>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}}\ :\ 4000\ >>\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}};}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a2636015e47e232be87f3bce9ff327df4}\label{class_virt_button_a2636015e47e232be87f3bce9ff327df4} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!step@{step}}
+\index{step@{step}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00186}{186}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP\_R}});}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a499511ff69ff95ac3f88ddb0ab53c390}\label{class_virt_button_a499511ff69ff95ac3f88ddb0ab53c390} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!step@{step}}
+\index{step@{step}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}}}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00190}{190}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ ==\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{num}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a2636015e47e232be87f3bce9ff327df4}{step}}();}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_ab4d8ead514781eb48beccb544540b125}\label{class_virt_button_ab4d8ead514781eb48beccb544540b125} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!stepFor@{stepFor}}
+\index{stepFor@{stepFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{stepFor()}{stepFor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::step\+For (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00336}{336}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_PEDOMETER }}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_STP}}))\ \{}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#ifdef\ EB\_HOLD\_TIME }}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ \mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ *\ 2;}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a2ca226fee93a6b37f003bce6e239ad59}{pressFor}}()\ -\/\ (\mbox{\hyperlink{class_virt_button_a26f084309609e463cca76339d16970dc}{EB\_HOLD\_T}}\ <<\ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\_SHIFT}})\ *\ 2;}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a962ce110e4bca21fde8544c88023723a}\label{class_virt_button_a962ce110e4bca21fde8544c88023723a} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!stepFor@{stepFor}}
+\index{stepFor@{stepFor}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{stepFor()}{stepFor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::step\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00349}{349}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_ab4d8ead514781eb48beccb544540b125}{stepFor}}()\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{ms}};}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_button_t_a2da4f1c3621a3148e255a4cb83f76fca}\label{class_button_t_a2da4f1c3621a3148e255a4cb83f76fca} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!tick@{tick}}
+\index{tick@{tick}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$ \\
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t}{ButtonT}}$<$ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}} $>$\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00090}{90}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{VirtButton::tick}}(\mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}}));}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a12414d2af49e1b02c9cedcb6619503f5}\label{class_virt_button_a12414d2af49e1b02c9cedcb6619503f5} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!tick@{tick}}
+\index{tick@{tick}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::tick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00368}{368}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a2b86f0d1725aa68e4b52ea74d98321b7}{clear}}();}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}}\ =\ \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{pollBtn}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}});}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#ifndef\ EB\_NO\_CALLBACK }}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}})\ \mbox{\hyperlink{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}{cb}}();}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}};}
+\DoxyCodeLine{00375\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a905e81982b3a85ced1f91711b8f89193}\label{class_virt_button_a905e81982b3a85ced1f91711b8f89193} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!tick@{tick}}
+\index{tick@{tick}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::tick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button}{Virt\+Button}} \&}]{b0,  }\item[{\mbox{\hyperlink{class_virt_button}{Virt\+Button}} \&}]{b1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00354}{354}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}}))\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing()\ \&\&\ !\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}});}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing())\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.reset();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.reset();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.clear();}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.clear();}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(1);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b0}}.pressing()\ \&\&\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{b1}}.pressing())\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_BOTH}});}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a905e81982b3a85ced1f91711b8f89193}{tick}}(0);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_button_t_ad34dfe4ce24443b244727d30d3ad1b40}\label{class_button_t_ad34dfe4ce24443b244727d30d3ad1b40} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!tickRaw@{tickRaw}}
+\index{tickRaw@{tickRaw}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{tickRaw()}{tickRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} PIN$>$ \\
+\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} \mbox{\hyperlink{class_button_t}{ButtonT}}$<$ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}} $>$\+::tick\+Raw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_button_8h_source_l00094}{94}} of file \mbox{\hyperlink{_button_8h_source}{Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a74cadea61f398fbb590514715d065fee}{VirtButton::tickRaw}}(\mbox{\hyperlink{utils_8cpp_a625e5f80e7944b05a709cb27d08211bb}{EBread}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{PIN}}));}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a74cadea61f398fbb590514715d065fee}\label{class_virt_button_a74cadea61f398fbb590514715d065fee} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!tickRaw@{tickRaw}}
+\index{tickRaw@{tickRaw}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{tickRaw()}{tickRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::tick\+Raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00378}{378}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a80522eab183bc908bd3363e2850e0981}{pollBtn}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{state}});}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}\label{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!timeout@{timeout}}
+\index{timeout@{timeout}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{timeout()}{timeout()}}
+{\footnotesize\ttfamily bool Virt\+Button\+::timeout (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{tout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+Checks if the timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tout} & The timeout value in milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the timeout has occurred, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00282}{282}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_abbcecd7ead3d57ae533182b181b5df44}{read\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}})\ \&\&\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})((\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\_t}})\mbox{\hyperlink{utils_8h_aa32f6fd8b330750d6d09858020224537}{EB\_UPTIME}}()\ -\/\ \mbox{\hyperlink{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}{timer}})\ >\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{tout}})\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_TOUT}});}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00288\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a527d4fbbceb1fd5b8ecfb9112b068e83}\label{class_virt_button_a527d4fbbceb1fd5b8ecfb9112b068e83} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!waiting@{waiting}}
+\index{waiting@{waiting}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{waiting()}{waiting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}} Virt\+Button\+::waiting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00233}{233}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_virt_button_a7df22ba2bd84d9f995c718698638a159}{clicks}}\ \&\&\ \mbox{\hyperlink{class_virt_button_a1dedbf2c1b984095ca8b4931ee7cd8f7}{eq\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_PRS}}\ |\ \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{B\_REL}},\ 0);}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58}\label{class_virt_button_a51bccbdd75ff7cf5f99d1a49ca4cdf58} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!write\_btn\_flag@{write\_btn\_flag}}
+\index{write\_btn\_flag@{write\_btn\_flag}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{write\_btn\_flag()}{write\_btn\_flag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{void}} Virt\+Button\+::write\+\_\+btn\+\_\+flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{const}} \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{bool}}}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00509}{509}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{v}})\ \mbox{\hyperlink{class_virt_button_adf50fa6e842cedb923fc1ef3954c8c5e}{set\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}});}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_virt_button_a3f68d7bc1356f8802e455617dc4ec8c8}{clr\_btn\_flag}}(\mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{x}});}
+\DoxyCodeLine{00512\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734}\label{class_virt_button_ac22d3b21669c18bc3e29c8fc1e80b734} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!cb@{cb}}
+\index{cb@{cb}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{utils_8h_a4c528c24d8196164062904f004d96c84}{cb\+\_\+t}} Virt\+Button\+::cb = \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{nullptr}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00484}{484}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_a7df22ba2bd84d9f995c718698638a159}\label{class_virt_button_a7df22ba2bd84d9f995c718698638a159} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!clicks@{clicks}}
+\index{clicks@{clicks}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{clicks}{clicks}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::clicks\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00382}{382}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_aeac80efbb6be30c6ea26e1867926c707}\label{class_virt_button_aeac80efbb6be30c6ea26e1867926c707} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!EB\_CLICK\_T@{EB\_CLICK\_T}}
+\index{EB\_CLICK\_T@{EB\_CLICK\_T}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{EB\_CLICK\_T}{EB\_CLICK\_T}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::\+EB\+\_\+\+CLICK\+\_\+T = (500 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00491}{491}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_a02ec52c911ea40944b04c86afc2452df}\label{class_virt_button_a02ec52c911ea40944b04c86afc2452df} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!EB\_DEB\_T@{EB\_DEB\_T}}
+\index{EB\_DEB\_T@{EB\_DEB\_T}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{EB\_DEB\_T}{EB\_DEB\_T}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::\+EB\+\_\+\+DEB\+\_\+T = 50\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00488}{488}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_a26f084309609e463cca76339d16970dc}\label{class_virt_button_a26f084309609e463cca76339d16970dc} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!EB\_HOLD\_T@{EB\_HOLD\_T}}
+\index{EB\_HOLD\_T@{EB\_HOLD\_T}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{EB\_HOLD\_T}{EB\_HOLD\_T}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::\+EB\+\_\+\+HOLD\+\_\+T = (600 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00494}{494}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118}\label{class_virt_button_ad86e8c99bc6a6d48f92170282d7a5118} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!EB\_STEP\_T@{EB\_STEP\_T}}
+\index{EB\_STEP\_T@{EB\_STEP\_T}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{EB\_STEP\_T}{EB\_STEP\_T}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint8\+\_\+t}} Virt\+Button\+::\+EB\+\_\+\+STEP\+\_\+T = (200 $>$$>$ \mbox{\hyperlink{_virt_button_8h_a51757961e269e3d0598606584377b968}{EB\+\_\+\+SHIFT}})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00497}{497}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045}\label{class_virt_button_a5021c7272cff8b84a2aa72366e6f8045} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!run\_timer@{run\_timer}}
+\index{run\_timer@{run\_timer}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{run\_timer}{run\_timer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::run\+\_\+timer = 0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00480}{480}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+\Hypertarget{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1}\label{class_virt_button_ac37097bc828b62abeb7983bc5aaaebf1} 
+\index{ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}!timer@{timer}}
+\index{timer@{timer}!ButtonT$<$ PIN $>$@{ButtonT$<$ PIN $>$}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_virt_button_a5dc04d5d164a4fea978b9004daf23de0}{uint16\+\_\+t}} Virt\+Button\+::timer = 0\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line \mbox{\hyperlink{_virt_button_8h_source_l00478}{478}} of file \mbox{\hyperlink{_virt_button_8h_source}{Virt\+Button.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/core/\mbox{\hyperlink{_button_8h}{Button.\+h}}\end{DoxyCompactItemize}

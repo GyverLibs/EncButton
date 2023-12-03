@@ -1,0 +1,204 @@
+.TH "src/core/utils.h" 3 "Version 3.5" "EncButton" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/core/utils.h \- Utility functions for handling pins and flags\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Arduino\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEB_FLAGS\fP"
+.br
+.ti -1c
+.RI "#define \fBX\fP(a,  b)   a = (1 << b),"
+.br
+.ti -1c
+.RI "#define \fBEB_UPTIME\fP()   millis()"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBcb_t\fP) ()"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBEB_FLAGS_T\fP { \fBEB_FLAGS\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBEBread\fP (const uint8_t pin)"
+.br
+.ti -1c
+.RI "void \fBEBwrite\fP (const uint8_t pin, bool value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Utility functions for handling pins and flags\&. 
+
+
+.PP
+Definition in file \fButils\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define EB_FLAGS"
+\fBValue:\fP.PP
+.nf
+    X(EB_NONE         , 0)\\
+    X(EB_PRESS        , 1)\\
+    X(EB_STEP         , 2)\\
+    X(EB_HOLD         , 3)\\
+    X(EB_RELEASE      , 4)\\
+    X(EB_CLICK        , 5)\\
+    X(EB_CLICKS       , 6)\\
+    X(EB_REL_HOLD     , 7)\\
+    X(EB_REL_HOLD_C   , 8)\\
+    X(EB_REL_STEP     , 9)\\
+    X(EB_REL_STEP_C   , 10)\\
+    X(EB_TURN         , 11)\\
+    X(EB_TURN_R       , 12)\\
+    X(EB_TURN_L       , 13)\\
+    X(EB_TURN_HOLD_R  , 14)\\
+    X(EB_TURN_HOLD_L  , 15)
+.fi
+
+.PP
+Definition at line \fB12\fP of file \fButils\&.h\fP\&..PP
+.nf
+32              {
+33     EB_FLAGS
+34 } EB_FLAGS_T;
+35 #undef X
+36 
+37 #define EB_UPTIME() millis()
+38 
+39 typedef void (*cb_t)();
+40 
+41 bool EBread(const uint8_t pin);
+42 void EBwrite(const uint8_t pin, bool value);
+.fi
+
+.SS "#define EB_UPTIME()   millis()"
+
+.PP
+Definition at line \fB37\fP of file \fButils\&.h\fP\&.
+.SS "#define X(a, b)   a = (1 << b),"
+
+.PP
+Definition at line \fB31\fP of file \fButils\&.h\fP\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* cb_t) ()"
+
+.PP
+Definition at line \fB39\fP of file \fButils\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBEB_FLAGS_T\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIEB_FLAGS \fP\fP
+.PP
+Definition at line \fB32\fP of file \fButils\&.h\fP\&..PP
+.nf
+32              {
+33     EB_FLAGS
+34 } EB_FLAGS_T;
+.fi
+
+.SH "Function Documentation"
+.PP 
+.SS "bool EBread (const uint8_t pin)"
+
+.PP
+Definition at line \fB3\fP of file \fButils\&.cpp\fP\&..PP
+.nf
+3                               {
+4 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+5     if (pin < 8)
+6         return bitRead(PIND, pin);
+7     else if (pin < 14)
+8         return bitRead(PINB, pin \- 8);
+9     else if (pin < 20)
+10         return bitRead(PINC, pin \- 14);
+11 #elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
+12     return bitRead(PINB, pin);
+13 #elif defined(__AVR_ATmega2560__)
+14     if (pin < 8)
+15       return bitRead(PIND, pin);
+16     else if (pin < 14)
+17       return bitRead(PINE, pin \- 8);
+18     else if (pin < 22)
+19       return bitRead(PING, pin \- 14);
+20     else if (pin < 30)
+21       return bitRead(PINH, pin \- 22);
+22     else if (pin < 38)
+23       return bitRead(PINJ, pin \- 30);
+24     else if (pin < 46)
+25       return bitRead(PINK, pin \- 38);
+26     else if (pin < 54)
+27       return bitRead(PINL, pin \- 46);
+28 #else
+29     return digitalRead(pin);
+30 #endif
+31     return 0;
+32 }
+.fi
+
+.SS "void EBwrite (const uint8_t pin, bool value)"
+
+.PP
+Definition at line \fB34\fP of file \fButils\&.cpp\fP\&..PP
+.nf
+34                                            {
+35 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+36     if (pin < 8)
+37         bitWrite(PORTD, pin, value);
+38     else if (pin < 14)
+39         bitWrite(PORTB, pin \- 8, value);
+40     else if (pin < 20)
+41         bitWrite(PORTC, pin \- 14, value);
+42 #elif defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny13__)
+43     bitWrite(PORTB, pin, value);
+44 #elif defined(__AVR_ATmega2560__)
+45     if (pin < 8)
+46         bitWrite(PORTD, pin, value);
+47     else if (pin < 14)
+48         bitWrite(PORTE, pin \- 8, value);
+49     else if (pin < 22)
+50         bitWrite(PORTG, pin \- 14, value);
+51     else if (pin < 30)
+52         bitWrite(PORTH, pin \- 22, value);
+53     else if (pin < 38)
+54         bitWrite(PORTJ, pin \- 30, value);
+55     else if (pin < 46)
+56         bitWrite(PORTK, pin \- 38, value);
+57     else if (pin < 54)
+58         bitWrite(PORTL, pin \- 46, value);
+59 #else
+60     digitalWrite(pin, value);
+61 #endif
+62 }
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EncButton from the source code\&.
