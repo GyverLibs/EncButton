@@ -185,6 +185,7 @@ Thus, to study all the available functions of a particular library, you need to 
 |Reset |✔ |✔ |✔ |✔ |
 |Clear |✔ |✔ |✔ |✔ |
 |Attach |✔ |✔ |✔ |✔ |
+|Detach |✔ |✔ |✔ |✔ |
 |Press |✔ |✔ |✔ |✔ |
 |Release |✔ |✔ |✔ |✔ |
 |Click |✔ |✔ |✔ |✔ |
@@ -229,10 +230,10 @@ Thus, to study all the available functions of a particular library, you need to 
 |Left |||✔ |✔ |
 |Righth |||✔ |✔ |
 |Lefth |||✔ |✔ |
-|Encholding |||✔ |✔ |
 |Action |||✔ |✔ |
 |Timeout |||✔ |✔ |
 |Attach |||✔ |✔ |
+|Detach |||✔ |✔ |
 </details>
 
 <details>
@@ -258,6 +259,9 @@ VOID setbtnlevel (Bool LEVEL);
 
 // Connect the function-processor of events (type VOID F ())
 VOID attach (VOID (*handler) ());
+
+// Disconnect the event-handle function
+VOID Detach ();
 
 // ==============ward
 // throw off system flags (forcibly finish processing)
@@ -304,7 +308,7 @@ Bool Holding ();
 // The button is held (more timeout) with preliminary clicks [condition]
 Bool Holding (Uint8_T Num);
 
-// Impulse retention [event]
+// Impulretention [event]
 Bool Step ();
 
 // Impulse deduction with preliminary clicks [Event]
@@ -455,13 +459,10 @@ Bool Righth ();
 // pressed turn to the left [event]
 Bool Lefth ();
 
-// Pressing the Encoder button [condition]
-Bool Encholding ();
-
-// there was an action from a button or encoder, will return the event code [event]
+// there was an action from a button or encoder, will return the code withCranberries [event]
 Uint16_T Action ();
 
-// ====================subtrade =====================
+// ====ward
 // processing in interruption (only encoder).Will return 0 at rest, 1 or -1 when turning
 Int8_t Tickisr (Bool E0, Bool E1);
 Int8_T Tickisr (int8_t e01);
@@ -611,7 +612,7 @@ Int8_T Readenc ();
 ENCBUTTONT <uint8_T ENCA, UINT8_T ENCB, UINT8_T BTN>;
 
 // + Pino operation mode, button level
-ENCBUTTONT <UINT8_T ENCA, UINT8_T ENCB, UINT8_T BTN> (Uint8_T Modeenc = Input, Uint8_t Modebtn = Input_pullup, Uint8_t Btnlevel = Low);
+Encbuttont <uint8_tENCA, UINT8_T ENCB, UINT8_T BTN> (Uint8_t Modeenc = Input, Uint8_t Modebtn = Input_Pullup, Uint8_T BTNlevel = Low);
 `` `
 `` `CPP
 // Configure Pino operation mode, button level
@@ -712,8 +713,8 @@ The Encbutton - ** asynchronous ** library: it does not wait until the button is
   - write asynchronous code in `loop ()`
   - Any synchronous structure on `delay ()` can be made asynchronous using `millis ()` `
   - if in the program * each * main cycle is executed longer than 50-100ms- in most cases the program is written incorrectly, with the exception of some special cases
-- connect the button to the hardware interruption (see below)
-- avoid the execution of "heavy" sections of the code while theBota button, for example, by placing them in the condition `if (! Button.busy ()) {heavy code}`
+- connect the button to the hardware interruption (see lowerCranberries e)
+- avoid the execution of "heavy" sections of the code while the button is processing, for example, by placing them in the condition `If (! Button.busy ()) {heavy code}`} `
 - If it is impossible to optimize the main cycle - call the ticker in another "stream" and use the processor:
   - in interruption of a timer with a period of ~ 50ms or more often
   - on another core (for example, ESP32)
@@ -804,8 +805,8 @@ The library processes the button as follows:
 
 Online symulation is available [here] (https://wokwi.com/projects/373591584298469377)
 
-#### Encoder Processing
-- "Fast" turn is considered to be a turn,cranberries in less than configured timout from the previous turn
+####processing encoder
+- "Fast" turn is considered a turn committed less than tuned timaut from the previous turn
 - the turns processed in interruption become active (cause events) after calling `tick ()`
 - Access to the encoder’s counter `Counter` is a public variable of the class, you can do anything with it:
 `` `CPP
@@ -817,6 +818,7 @@ eb.counter = 0;// Knock
 #### encoder processing with a button
 - The turning of the encoder with a clamped button removes and blocks all subsequent events and clicks, with the exception of the event `redase`.The states of the pressed button do not change
 - The turning of the encoder also affects the system timout (the `timeout ()` function) will work after the indicated time after turning the enkoder
+- the Klikov counter is available when pressed: several clicks, click of a button, turn
 
 <a id="preclicks"> </a>
 
@@ -906,7 +908,7 @@ VOID loop () {
 <a id="busy"> </a>
 
 ### Busy
-Function `Busy() `Returns` true` while the button is processing, i.e.So far, the system awaits actions and the release of timeouts.This can be used to optimize the code, for example, avoid some long and heavy parts of the program during the button processing:
+The `Busy () function` Returns `True` while the button processing is underway, i.e.So far, the system awaits actions and the release of timeouts.This can be used to optimize the code, for example, avoid some long and heavy parts of the program during the button processing:
 `` `CPP
 VOID loop () {
   eb.tick ();
@@ -1048,9 +1050,9 @@ VOID loop () {
 
 <a id="duble"> </a>
 
-### Simultaneous pressing
+### Simultaneous onJatius
 The library supports work with two simultaneously pressed buttons as with the third button.For this you need:
-1. Cut the virtual button`virtbutton`
+1. To make a virtual button `virtbutton`
 2. Call the processing of real buttons
 3. Pass these buttons to the virtual button to process (these can be objects of classes `virtbutton`,` button`, `encbutton` + their` t`- version)
 4. Next to interrogate events
@@ -1165,12 +1167,12 @@ VOID loop () {
 }
 `` `
 
-Note: the button is processed mainly `tick ()`, and the function `Pressisr ()` just informs the library that the button was pressed outside `Tick ()`.This allows you not to miss the pressing of the button until the program was busy with something else.
+Note: the button is processed mainly `tick ()`, and the function is `Pressisr ()` just informs the library that the button was NAAta outside `Tick ()`.This allows you not to miss the pressing of the button until the program was busy with something else.
 
 <a id="array"> </a>
 
 ### Array of buttons/Encoder
-WITHThe cranberries can be naked only from non -step classes (without the letter `t`), because Pinov’s numbers will have to be indicated already in the radime further in the program.For example:
+You can create an array only from non -step classes (without the letter `t`), because Pinov numbers will have to be indicated already in the radio further in the program.For example:
 `` `CPP
 Button btns [5];
 ENCBUTTON EBS [3];
@@ -1209,11 +1211,24 @@ if (enc.turn ()) {
   Var += ENC.FAST ()?10: 1;
 
   // Change in step 1 with a normal turn, 10 with pressed
-  var += enc.encholding ()?10: 1;
+  Var += ENC.Pressing ()?10: 1;
 
   // Change one variable when turning, the other - with a pressed turn
-  if.encholding ()) Var0 ++;
+  if (enc.pressing ()) Var0 ++;
   Else Var1 ++;
+
+  // If the button is pressed - preliminary clicks are available
+  // Choose a variable for changes in the premises.Clicks
+  if (enc.pressing ()) {
+    Switch (enc.getClicks ()) {
+      CASE 1: VAR0 += ENC.DIR ();
+        Break;
+      CASE 2: VAR1 += ENC.DIR ();
+        Break;
+      CASE 3: VAR2 += ENC.DIR ();
+        Break;
+    }
+  }
 }
 
 // Impulse retention at every step is increasing the variable
@@ -1285,7 +1300,7 @@ Buttont <pin> b;// PIN
 Buttont <pin> b (mode);// + Pin mode buttons (silent. Input_pullup)
 Buttont <pin> b (mode, btnlevel);// + button level (silence)
 
-// Encoder
+// eNkoder
 ENCODER E (ENC0, ENC1);// Pines of Encoder
 ENCODER E (ENC0, ENC1, Mode);// + Pino Pino Encoder Pin (silence. Input)
 // template
@@ -1301,7 +1316,7 @@ Encodert <Enc0, Enc1> E (Mode);// + Pino Pino Encoder Pin (silence. Input)
 |`state ()` |`Pressing ()` |
 | `setpins ()` |`Init ()` |
 
-- The order has changedOK Pinov instructions (see Dok.
+- The procedure for indicating Pinov has changed (see DEMPLE above)
 - `Clearflags ()` replaced by `Clear ()` (drop the flags of events) and `reset ()` (drop systemic flags of processing, finish processing)
 
 ### Logic of Work
@@ -1314,6 +1329,7 @@ The rest of the examples look at ** Examples **!
 <summary> Full demo encbutton </summary>
 
 `` `CPP
+// #define eb_no_for // Disable Pressfor/Holdfor/StepFor support and Stepov counter (saves 2 bytes of RAM)
 // #define eb_no_callback // Disable the event processor Attach (saves 2 bytes of RAM)
 // #define eb_no_counter // Disable the enkoder counter (saves 4 bytes of RAM)
 // #define EB_NO_BUFFER // Disable the buffer of the encoder (saves 1 byte of RAM)
@@ -1343,6 +1359,9 @@ VOID setup () {
     eb.setencreverse (0);
     eb.setenctype (eb_step4_low);
     eb.setfasttimeout (30);
+
+    // throw the Encoder counter
+    eb.counter = 0;
 }
 
 VOID loop () {
@@ -1355,9 +1374,11 @@ VOID loop () {
         Serial.print (", fast");
         Serial.print (eb.fast ());
         Serial.print (", Hold");
-        Serial.print (eb.encholding ());
+        Serial.print (eb.pressing ());
         Serial.print (", Counter");
-        Serial.println (eb.counter);
+        Serial.print (eb.counter);
+        Serial.print (", clicks");
+        Serial.println (eb.getClicks ());
     }
 
     // Turning rotation processing
@@ -1368,8 +1389,22 @@ VOID loop () {
 
     // button
     if.press ()) serial.println ("Press");
-    if (eb.release ()) serial.println ("Release");
     if.click ()) serial.println ("click");
+
+    if.release ()) {
+      Serial.println ("Release");
+
+      Serial.print ("Clicks:");
+      Serial.print (eb.getClicks ());
+      Serial.print (", stps:");
+      Serial.print (eb.getsteps ());
+      Serial.print (", Press for:");
+      Serial.print (eb.pressfor ());
+      Serial.print (", Hold for:");
+      Serial.print (eb.holdfor ());
+      Serial.print (", step for:");
+      Serial.println (eb.stepfor ());
+    }
 
     // States
     // serial.println (eb.pressing ());
@@ -1382,23 +1417,14 @@ VOID loop () {
 
     // Holding
     if.hold ()) serial.println ("Hold");
-    // if.hold ()) {
-    // serial.print ("Hold +");
-    // serial.print (eb.getClicks ());
-    // serial.println ("Clicks");
-    //}
-
-    if.hold (2)) serial.println ("Hold 2");
-    if.hold (3)) serial.println ("Hold 3");
+    if.hoLD (3)) serial.println ("Hold 3");
 
     // Impulse retention
     if.step ()) serial.println ("step");
-    if (eb.step (2)) serial.println ("STEP 2");
     if.step (3)) serial.println ("STEP 3");
 
     // released after impulse deduction
     if (eb.releastep ()) serial.println ("Release Step");
-    if (eb.releastep (2)) serial.println ("Release STEP 2");
     if (eb.releastep (3)) serial.println ("Release Step 3");
 
     // released after holding
@@ -1406,7 +1432,6 @@ VOID loop () {
     if (eb.releasehold (2)) serial.println ("Release Hold 2");
 
     // Check for the number of clicks
-    if.hasclicks (1)) serial.println ("Has 1 Clicks");
     if.hasclicks (3)) Serial.println ("Has 3 Clicks");
 
     // Bring the number of clicks
@@ -1417,7 +1442,7 @@ VOID loop () {
 }
 `` `
 </details>
-<DetailsCranberry>
+<details>
 <summary> connection of the handler </summary>
 
 `` `CPP
@@ -1452,7 +1477,7 @@ Void callback () {
             Serial.print ("");
             Serial.print (eb.fast ());
             Serial.print ("");
-            Serial.println (eb.encholding ());
+            Serial.println (eb.pressing ());
             Break;
         Case eb_rel_hold:
             Serial.println ("Release Hold");
@@ -1557,7 +1582,7 @@ VOID loop () {
 - V1.6 - Optimization of work in interruption
 - V1.6.1 - Saching by default Input_pullup
 - V1.7 - a large memory optimization, remade Fastio
-- V1.8 - Individual tuning of the TIMUUT Maintenance of the button (was common at all)
+- V1.8 - Individual tuning of the time retention time (was abouton everyone)
 - v1.8.1 - removed Fastio
 - v1.9 - added a separate development of a pressed turn and a request for direction
 - V1.10 - improved ReleASDE processing, eased the weight in callback and corrected the bugs
@@ -1569,7 +1594,7 @@ VOID loop () {
 - v1.15 - added Setpins () for Encbutton2
 - V1.16 - added EB_HALFSTEP_Enc mode for hemisphere encoders
 - v1.17 - added STEP with preliminary clicks
-- V1.18 - We do not consider clicks after the activation of STEP.Hold () and HELD () can also acceptis preliminary clicks.Redistributed and improved debate
+- V1.18 - We do not consider clicks after the activation of STEP.Hold () and Held () can also take preliminary clicks.Redistributed and improved debate
 - V1.18.1 - Fixed error in ReleaseStep () (did not return the result)
 - V1.18.2 - Fix Compiler Warnings
 - V1.19 - speed optimization, reduced weight in SRAM
@@ -1620,6 +1645,9 @@ VOID loop () {
 - V3.3
   - Added functions of receiving PressFor (), HoldFor (), StepFor () (disconnected)
   - Added meter of the steps Getsteps () (disconnected)
+- V3.4
+  - access to the click counter during a pressed turn
+  - Added function Detach ()
     
 <a id="feedback"> </a>
 ## bugs and feedback
@@ -1631,6 +1659,6 @@ When reporting about bugs or incorrect work of the library, it is necessary to i
 - What is MK used
 - SDK version (for ESP)
 - version of Arduino ide
-- whether the built -in examples work correctly, in which the functions and designs are used, leading to a bug in your code
+- whether the built -in examples work correctly in the catCranberries use the functions and designs leading to a bug in your code
 - what code has been loaded, what work was expected from it and how it works in reality
 - Ideally, attach the minimum code in which the bug is observed.Not a canvas of a thousand lines, but a minimum code
