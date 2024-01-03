@@ -20,17 +20,17 @@ class Button : public VirtButton {
 
     // прочитать текущее значение кнопки (без дебаунса)
     bool read() {
-        return EBread(pin) ^ read_bf(EB_INV);
+        return EB_read(pin) ^ read_bf(EB_INV);
     }
 
     // функция обработки, вызывать в loop
     bool tick() {
-        return VirtButton::tick(EBread(pin));
+        return VirtButton::tick(EB_read(pin));
     }
 
     // обработка кнопки без сброса событий и вызова коллбэка
     bool tickRaw() {
-        return VirtButton::tickRaw(EBread(pin));
+        return VirtButton::tickRaw(EB_read(pin));
     }
 
    private:
@@ -53,17 +53,17 @@ class ButtonT : public VirtButton {
 
     // прочитать текущее значение кнопки (без дебаунса)
     bool read() {
-        return EBread(PIN) ^ read_bf(EB_INV);
+        return EB_read(PIN) ^ read_bf(EB_INV);
     }
 
     // функция обработки, вызывать в loop
     bool tick() {
-        return VirtButton::tick(EBread(PIN));
+        return VirtButton::tick(EB_read(PIN));
     }
 
     // обработка кнопки без сброса событий и вызова коллбэка
     bool tickRaw() {
-        return VirtButton::tickRaw(EBread(PIN));
+        return VirtButton::tickRaw(EB_read(PIN));
     }
 
    private:

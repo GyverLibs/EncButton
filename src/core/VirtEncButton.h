@@ -174,7 +174,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 
    private:
     bool checkFast() {
-        uint16_t ms = EB_UPTIME();
+        uint16_t ms = EB_uptime();
         bool f = 0;
         if (ms - tmr < EB_FAST_T) f = 1;
         tmr = ms;

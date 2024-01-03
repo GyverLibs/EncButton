@@ -43,7 +43,7 @@ class Encoder : public VirtEncoder {
 
     // прочитать значение энкодера
     int8_t readEnc() {
-        return EBread(e0) | (EBread(e1) << 1);
+        return EB_read(e0) | (EB_read(e1) << 1);
     }
 };
 
@@ -82,7 +82,7 @@ class EncoderT : public VirtEncoder {
 
     // прочитать значение энкодера
     int8_t readEnc() {
-        return EBread(ENCA) | (EBread(ENCB) << 1);
+        return EB_read(ENCA) | (EB_read(ENCB) << 1);
     }
 
    private:

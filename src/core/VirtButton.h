@@ -101,7 +101,7 @@ class VirtButton {
 
     // кнопка нажата в прерывании (не учитывает btnLevel!)
     void pressISR() {
-        if (!read_bf(EB_DEB)) tmr = EB_UPTIME();
+        if (!read_bf(EB_DEB)) tmr = EB_uptime();
         set_bf(EB_DEB | EB_BISR);
     }
 
@@ -273,7 +273,7 @@ class VirtButton {
     // ====================== TIME ======================
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
     bool timeout(uint16_t tout) {
-        if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_UPTIME() - tmr) > tout) {
+        if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) > tout) {
             clr_bf(EB_TOUT);
             return 1;
         }
@@ -283,7 +283,7 @@ class VirtButton {
     // время, которое кнопка удерживается (с начала нажатия), мс
     uint16_t pressFor() {
 #ifndef EB_NO_FOR
-        if (ftmr) return (uint16_t)EB_UPTIME() - ftmr;
+        if (ftmr) return (uint16_t)EB_uptime() - ftmr;
 #endif
         return 0;
     }
@@ -382,7 +382,7 @@ class VirtButton {
             else return 0;
         }
 
-        uint16_t ms = EB_UPTIME();
+        uint16_t ms = EB_uptime();
         uint16_t deb = ms - tmr;
 
         if (s) {                                         // кнопка нажата

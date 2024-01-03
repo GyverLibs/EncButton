@@ -32,25 +32,25 @@ class EncButton : public VirtEncButton {
 
     // функция обработки, вызывать в loop
     bool tick() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(b));
-        else return VirtEncButton::tick(readEnc(), EBread(b));
+        if (read_ef(EB_EISR)) return VirtEncButton::tick(EB_read(b));
+        else return VirtEncButton::tick(readEnc(), EB_read(b));
     }
 
     // функция обработки без сброса событий
     bool tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(b));
-        else return VirtEncButton::tickRaw(readEnc(), EBread(b));
+        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EB_read(b));
+        else return VirtEncButton::tickRaw(readEnc(), EB_read(b));
     }
 
     // ====================== READ ======================
     // прочитать значение кнопки
     bool readBtn() {
-        return EBread(b) ^ read_bf(EB_INV);
+        return EB_read(b) ^ read_bf(EB_INV);
     }
 
     // прочитать значение энкодера
     int8_t readEnc() {
-        return EBread(e0) | (EBread(e1) << 1);
+        return EB_read(e0) | (EB_read(e1) << 1);
     }
 
     // ===================== PRIVATE =====================
@@ -84,25 +84,25 @@ class EncButtonT : public VirtEncButton {
 
     // функция обработки, вызывать в loop
     bool tick() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tick(EBread(BTN));
-        else return VirtEncButton::tick(readEnc(), EBread(BTN));
+        if (read_ef(EB_EISR)) return VirtEncButton::tick(EB_read(BTN));
+        else return VirtEncButton::tick(readEnc(), EB_read(BTN));
     }
 
     // функция обработки без сброса событий
     bool tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EBread(BTN));
-        else return VirtEncButton::tickRaw(readEnc(), EBread(BTN));
+        if (read_ef(EB_EISR)) return VirtEncButton::tickRaw(EB_read(BTN));
+        else return VirtEncButton::tickRaw(readEnc(), EB_read(BTN));
     }
 
     // ====================== READ ======================
     // прочитать значение кнопки
     bool readBtn() {
-        return EBread(BTN) ^ read_bf(EB_INV);
+        return EB_read(BTN) ^ read_bf(EB_INV);
     }
 
     // прочитать значение энкодера
     int8_t readEnc() {
-        return EBread(ENCA) | (EBread(ENCB) << 1);
+        return EB_read(ENCA) | (EB_read(ENCB) << 1);
     }
 
     // ===================== PRIVATE =====================
