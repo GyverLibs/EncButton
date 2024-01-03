@@ -16,8 +16,8 @@ class Encoder : public VirtEncoder {
     void init(uint8_t encA = 0, uint8_t encB = 0, uint8_t mode = INPUT) {
         e0 = encA;
         e1 = encB;
-        pinMode(e0, mode);
-        pinMode(e1, mode);
+        EB_mode(e0, mode);
+        EB_mode(e1, mode);
         initEnc(readEnc());
     }
 
@@ -58,8 +58,8 @@ class EncoderT : public VirtEncoder {
 
     // указать режим работы пинов
     void init(uint8_t mode = INPUT) {
-        pinMode(ENCA, mode);
-        pinMode(ENCB, mode);
+        EB_mode(ENCA, mode);
+        EB_mode(ENCB, mode);
         initEnc(readEnc());
     }
 

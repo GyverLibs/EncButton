@@ -5,18 +5,25 @@
 #include <GyverIO.h>
 #endif
 
-bool EB_read(const uint8_t pin);
+bool EB_read(uint8_t pin);
+void EB_mode(uint8_t pin, uint8_t mode);
 uint32_t EB_uptime();
 
 // ====================
 
 #ifndef EB_CUSTOM_READ
-bool EB_read(const uint8_t pin) {
+bool EB_read(uint8_t pin) {
 #ifndef EB_NO_GYVER_IO
     return gio::read(pin);
 #else
     return digitalRead(pin);
 #endif
+}
+#endif
+
+#ifndef EB_CUSTOM_MODE
+void EB_mode(uint8_t pin, uint8_t mode) {
+    pinMode(pin, mode);
 }
 #endif
 

@@ -14,7 +14,7 @@ class Button : public VirtButton {
     // указать пин и его режим работы
     void init(uint8_t npin = 0, uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
         pin = npin;
-        pinMode(pin, mode);
+        EB_mode(pin, mode);
         setBtnLevel(btnLevel);
     }
 
@@ -47,7 +47,7 @@ class ButtonT : public VirtButton {
 
     // указать режим работы пина
     void init(uint8_t mode = INPUT_PULLUP, uint8_t btnLevel = LOW) {
-        pinMode(PIN, mode);
+        EB_mode(PIN, mode);
         setBtnLevel(btnLevel);
     }
 

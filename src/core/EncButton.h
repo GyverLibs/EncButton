@@ -17,9 +17,9 @@ class EncButton : public VirtEncButton {
         e0 = encA;
         e1 = encB;
         b = btn;
-        pinMode(e0, modeEnc);
-        pinMode(e1, modeEnc);
-        pinMode(b, modeBtn);
+        EB_mode(e0, modeEnc);
+        EB_mode(e1, modeEnc);
+        EB_mode(b, modeBtn);
         setBtnLevel(btnLevel);
         initEnc(readEnc());
     }
@@ -69,9 +69,9 @@ class EncButtonT : public VirtEncButton {
 
     // настроить пины (pinmode энк, pinmode кнопка)
     void init(uint8_t modeEnc = INPUT, uint8_t modeBtn = INPUT_PULLUP, uint8_t btnLevel = LOW) {
-        pinMode(ENCA, modeEnc);
-        pinMode(ENCB, modeEnc);
-        pinMode(BTN, modeBtn);
+        EB_mode(ENCA, modeEnc);
+        EB_mode(ENCB, modeEnc);
+        EB_mode(BTN, modeBtn);
         setBtnLevel(btnLevel);
         initEnc(readEnc());
     }
