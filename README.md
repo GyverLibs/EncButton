@@ -1580,7 +1580,7 @@ void loop() {
 
     // VirtButton
     btnv.tick(!digitalRead(4));  // передать логическое значение
-    if (btn.click()) Serial.println("btnv click");
+    if (btnv.click()) Serial.println("btnv click");
 }
 ```
 </details>
