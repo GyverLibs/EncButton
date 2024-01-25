@@ -1,7 +1,7 @@
 #pragma once
 #include <Arduino.h>
 
-#include "utils.h"
+#include "io.h"
 
 // ===================== CONST ======================
 #define EB_STEP4_LOW 0
@@ -26,28 +26,28 @@ class VirtEncoder {
     }
     // ====================== SET ======================
     // инвертировать направление энкодера
-    void setEncReverse(bool rev) {
+    void setEncReverse(const bool& rev) {
         if (rev) set_ef(EB_REV);
         else clr_ef(EB_REV);
     }
 
     // установить тип энкодера (EB_STEP4_LOW, EB_STEP4_HIGH, EB_STEP2, EB_STEP1)
-    void setEncType(uint8_t type) {
+    void setEncType(const uint8_t& type) {
         flags = (flags & 0b11111100) | type;
     }
 
     // использовать обработку энкодера в прерывании
-    void setEncISR(bool use) {
+    void setEncISR(const bool& use) {
         write_ef(EB_EISR, use);
     }
 
     // инициализация энкодера
-    void initEnc(bool e0, bool e1) {
+    void initEnc(const bool& e0, const bool& e1) {
         initEnc(e0 | (e1 << 1));
     }
 
     // инициализация энкодера совмещённым значением
-    void initEnc(int8_t v) {
+    void initEnc(const int8_t& v) {
         prev = v;
     }
 
@@ -70,7 +70,7 @@ class VirtEncoder {
     // ====================== POLL ======================
     // ISR
     // опросить энкодер в прерывании. Вернёт 1 или -1 при вращении, 0 при остановке
-    int8_t tickISR(bool e0, bool e1) {
+    int8_t tickISR(const bool& e0, const bool& e1) {
         return tickISR(e0 | (e1 << 1));
     }
 
@@ -86,7 +86,7 @@ class VirtEncoder {
 
     // TICK
     // опросить энкодер. Вернёт 1 или -1 при вращении, 0 при остановке
-    int8_t tick(bool e0, bool e1) {
+    int8_t tick(const bool& e0, const bool& e1) {
         return tick(e0 | (e1 << 1));
     }
 
@@ -105,7 +105,7 @@ class VirtEncoder {
 
     // RAW
     // опросить энкодер без сброса события поворота
-    int8_t tickRaw(bool e0, bool e1) {
+    int8_t tickRaw(const bool& e0, const bool& e1) {
         return tickRaw(e0 | (e1 << 1));
     }
 
@@ -131,7 +131,7 @@ class VirtEncoder {
 
     // POLL
     // опросить энкодер без установки события поворота (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
-    int8_t pollEnc(bool e0, bool e1) {
+    int8_t pollEnc(const bool& e0, const bool& e1) {
         return pollEnc(e0 | (e1 << 1));
     }
 
@@ -168,17 +168,17 @@ class VirtEncoder {
 
     // ===================== PRIVATE =====================
    protected:
-    inline void set_ef(const uint16_t x) __attribute__((always_inline)) {
+    inline void set_ef(const uint16_t& x) __attribute__((always_inline)) {
         flags |= x;
     }
-    inline void clr_ef(const uint16_t x) __attribute__((always_inline)) {
+    inline void clr_ef(const uint16_t& x) __attribute__((always_inline)) {
         flags &= ~x;
     }
-    inline void write_ef(const uint16_t x, bool v) __attribute__((always_inline)) {
+    inline void write_ef(const uint16_t& x, const bool& v) __attribute__((always_inline)) {
         if (v) set_ef(x);
         else clr_ef(x);
     }
-    inline bool read_ef(const uint16_t x) __attribute__((always_inline)) {
+    inline bool read_ef(const uint16_t& x) __attribute__((always_inline)) {
         return flags & x;
     }
 

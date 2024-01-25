@@ -2,7 +2,7 @@
 #include <Arduino.h>
 
 #include "VirtEncoder.h"
-#include "utils.h"
+#include "io.h"
 
 // ============= VAR PIN =============
 class Encoder : public VirtEncoder {

@@ -2,7 +2,7 @@
 #include <Arduino.h>
 
 #include "VirtEncButton.h"
-#include "utils.h"
+#include "io.h"
 
 // ===================== CLASS =====================
 class EncButton : public VirtEncButton {

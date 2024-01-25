@@ -3,7 +3,7 @@
 
 #include "VirtButton.h"
 #include "VirtEncoder.h"
-#include "utils.h"
+#include "io.h"
 
 #ifdef EB_FAST_TIME
 #define EB_FAST_T (EB_FAST_TIME)
@@ -14,7 +14,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
    public:
     // ====================== SET ======================
     // установить таймаут быстрого поворота, мс
-    void setFastTimeout(uint8_t tout) {
+    void setFastTimeout(const uint8_t& tout) {
 #ifndef EB_FAST_TIME
         EB_FAST_T = tout;
 #endif
@@ -71,7 +71,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     // ====================== POLL ======================
     // ISR
     // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
-    int8_t tickISR(bool e0, bool e1) {
+    int8_t tickISR(const bool& e0, const bool& e1) {
         return tickISR(e0 | (e1 << 1));
     }
 
@@ -99,12 +99,12 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 
     // TICK
     // обработка энкодера и кнопки
-    bool tick(bool e0, bool e1, bool btn) {
+    bool tick(const bool& e0, const bool& e1, const bool& btn) {
         return tick(e0 | (e1 << 1), btn);
     }
 
     // обработка энкодера и кнопки. state = -1 для пропуска обработки энкодера
-    bool tick(int8_t state, bool btn) {
+    bool tick(const int8_t& state, const bool& btn) {
         clear();
         bool f = tickRaw(state, btn);
 
@@ -115,13 +115,13 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     }
 
     // обработка энкодера (в прерывании) и кнопки
-    bool tick(bool btn) {
+    bool tick(const bool& btn) {
         return tick(-1, btn);
     }
 
     // RAW
     // обработка без сброса событий и вызова коллбэка
-    bool tickRaw(bool e0, bool e1, bool btn) {
+    bool tickRaw(const bool& e0, const bool& e1, const bool& btn) {
         return tickRaw(e0 | (e1 << 1), btn);
     }
 
@@ -158,7 +158,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     }
 
     // обработка без сброса событий и вызова коллбэка (кнопка)
-    bool tickRaw(bool btn) {
+    bool tickRaw(const bool& btn) {
         return tickRaw(-1, btn);
     }
 

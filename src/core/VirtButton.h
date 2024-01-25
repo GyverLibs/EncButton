@@ -1,7 +1,7 @@
 #pragma once
 #include <Arduino.h>
 
-#include "utils.h"
+#include "io.h"
 
 // ===================== FLAGS ======================
 #define EB_PRESS (1 << 0)        // нажатие на кнопку
@@ -67,35 +67,35 @@ class VirtButton {
    public:
     // ====================== SET ======================
     // установить таймаут удержания, умолч. 600 (макс. 4000 мс)
-    void setHoldTimeout(uint16_t tout) {
+    void setHoldTimeout(const uint16_t& tout) {
 #ifndef EB_HOLD_TIME
         EB_HOLD_T = tout >> EB_SHIFT;
 #endif
     }
 
     // установить таймаут импульсного удержания, умолч. 200 (макс. 4000 мс)
-    void setStepTimeout(uint16_t tout) {
+    void setStepTimeout(const uint16_t& tout) {
 #ifndef EB_STEP_TIME
         EB_STEP_T = tout >> EB_SHIFT;
 #endif
     }
 
     // установить таймаут ожидания кликов, умолч. 500 (макс. 4000 мс)
-    void setClickTimeout(uint16_t tout) {
+    void setClickTimeout(const uint16_t& tout) {
 #ifndef EB_CLICK_TIME
         EB_CLICK_T = tout >> EB_SHIFT;
 #endif
     }
 
     // установить таймаут антидребезга, умолч. 50 (макс. 255 мс)
-    void setDebTimeout(uint8_t tout) {
+    void setDebTimeout(const uint8_t& tout) {
 #ifndef EB_DEB_TIME
         EB_DEB_T = tout;
 #endif
     }
 
     // установить уровень кнопки (HIGH - кнопка замыкает VCC, LOW - замыкает GND)
-    void setBtnLevel(bool level) {
+    void setBtnLevel(const bool& level) {
         write_bf(EB_INV, !level);
     }
 
@@ -160,7 +160,7 @@ class VirtButton {
     }
 
     // кнопка была удержана (больше таймаута) с предварительными кликами [событие]
-    bool hold(uint8_t num) {
+    bool hold(const uint8_t& num) {
         return clicks == num && hold();
     }
 
@@ -170,7 +170,7 @@ class VirtButton {
     }
 
     // кнопка удерживается (больше таймаута) с предварительными кликами [состояние]
-    bool holding(uint8_t num) {
+    bool holding(const uint8_t& num) {
         return clicks == num && holding();
     }
 
@@ -180,7 +180,7 @@ class VirtButton {
     }
 
     // импульсное удержание с предварительными кликами [событие]
-    bool step(uint8_t num) {
+    bool step(const uint8_t& num) {
         return clicks == num && step();
     }
 
@@ -190,7 +190,7 @@ class VirtButton {
     }
 
     // зафиксировано указанное количество кликов [событие]
-    bool hasClicks(uint8_t num) {
+    bool hasClicks(const uint8_t& num) {
         return clicks == num && hasClicks();
     }
 
@@ -217,7 +217,7 @@ class VirtButton {
     }
 
     // кнопка отпущена после удержания с предварительными кликами [событие]
-    bool releaseHold(uint8_t num) {
+    bool releaseHold(const uint8_t& num) {
         return clicks == num && eq_bf(EB_CLKS_R | EB_HLD | EB_STP, EB_CLKS_R | EB_HLD);
     }
 
@@ -227,7 +227,7 @@ class VirtButton {
     }
 
     // кнопка отпущена после импульсного удержания с предварительными кликами [событие]
-    bool releaseStep(uint8_t num) {
+    bool releaseStep(const uint8_t& num) {
         return clicks == num && eq_bf(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP);
     }
 
@@ -272,7 +272,7 @@ class VirtButton {
 
     // ====================== TIME ======================
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
-    bool timeout(uint16_t tout) {
+    bool timeout(const uint16_t& tout) {
         if (read_bf(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) > tout) {
             clr_bf(EB_TOUT);
             return 1;
@@ -289,7 +289,7 @@ class VirtButton {
     }
 
     // кнопка удерживается дольше чем (с начала нажатия), мс [состояние]
-    bool pressFor(uint16_t ms) {
+    bool pressFor(const uint16_t& ms) {
         return pressFor() > ms;
     }
 
@@ -308,7 +308,7 @@ class VirtButton {
     }
 
     // кнопка удерживается дольше чем (с начала удержания), мс [состояние]
-    bool holdFor(uint16_t ms) {
+    bool holdFor(const uint16_t& ms) {
         return holdFor() > ms;
     }
 
@@ -358,7 +358,7 @@ class VirtButton {
     }
 
     // обработка кнопки без сброса событий и вызова коллбэка
-    bool tickRaw(bool s) {
+    bool tickRaw(const bool& s) {
         return pollBtn(s);
     }
 
@@ -480,20 +480,20 @@ class VirtButton {
     uint8_t EB_STEP_T = (200 >> EB_SHIFT);
 #endif
 
-    inline void set_bf(const uint16_t x) __attribute__((always_inline)) {
+    inline void set_bf(const uint16_t& x) __attribute__((always_inline)) {
         flags |= x;
     }
-    inline void clr_bf(const uint16_t x) __attribute__((always_inline)) {
+    inline void clr_bf(const uint16_t& x) __attribute__((always_inline)) {
         flags &= ~x;
     }
-    inline bool read_bf(const uint16_t x) __attribute__((always_inline)) {
+    inline bool read_bf(const uint16_t& x) __attribute__((always_inline)) {
         return flags & x;
     }
-    inline void write_bf(const uint16_t x, bool v) __attribute__((always_inline)) {
+    inline void write_bf(const uint16_t& x, const bool& v) __attribute__((always_inline)) {
         if (v) set_bf(x);
         else clr_bf(x);
     }
-    inline bool eq_bf(const uint16_t x, const uint16_t y) __attribute__((always_inline)) {
+    inline bool eq_bf(const uint16_t& x, const uint16_t& y) __attribute__((always_inline)) {
         return (flags & x) == y;
     }
 

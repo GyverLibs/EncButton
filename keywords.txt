@@ -24,11 +24,6 @@ EB_HOLD_TIME	KEYWORD1
 EB_STEP_TIME	KEYWORD1
 EB_FAST_TIME	KEYWORD1
 
-EB_NO_GYVER_IO	KEYWORD1
-EB_CUSTOM_READ	KEYWORD1
-EB_CUSTOM_MODE	KEYWORD1
-EB_CUSTOM_UPTIME	KEYWORD1
-
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
