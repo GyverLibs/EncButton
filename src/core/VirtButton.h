@@ -139,9 +139,19 @@ class VirtButton {
         return read_bf(EB_PRS_R);
     }
 
+    // кнопка нажата с предварительными кликами [событие]
+    bool press(const uint8_t& num) {
+        return (clicks == num) && press();
+    }
+
     // кнопка отпущена (в любом случае) [событие]
     bool release() {
         return eq_bf(EB_REL_R | EB_REL, EB_REL_R | EB_REL);
+    }
+
+    // кнопка отпущена (в любом случае) с предварительными кликами [событие]
+    bool release(const uint8_t& num) {
+        return (clicks == num) && release();
     }
 
     // клик по кнопке (отпущена без удержания) [событие]
@@ -149,9 +159,19 @@ class VirtButton {
         return eq_bf(EB_REL_R | EB_REL | EB_HLD, EB_REL_R);
     }
 
+    // клик по кнопке (отпущена без удержания) с предварительными кликами [событие]
+    bool click(const uint8_t& num) {
+        return (clicks == num) && click();
+    }
+
     // кнопка зажата (между press() и release()) [состояние]
     bool pressing() {
         return read_bf(EB_PRS);
+    }
+
+    // кнопка зажата (между press() и release()) с предварительными кликами [состояние]
+    bool pressing(const uint8_t& num) {
+        return (clicks == num) && pressing();
     }
 
     // кнопка была удержана (больше таймаута) [событие]
@@ -161,7 +181,7 @@ class VirtButton {
 
     // кнопка была удержана (больше таймаута) с предварительными кликами [событие]
     bool hold(const uint8_t& num) {
-        return clicks == num && hold();
+        return (clicks == num) && hold();
     }
 
     // кнопка удерживается (больше таймаута) [состояние]
@@ -171,7 +191,7 @@ class VirtButton {
 
     // кнопка удерживается (больше таймаута) с предварительными кликами [состояние]
     bool holding(const uint8_t& num) {
-        return clicks == num && holding();
+        return (clicks == num) && holding();
     }
 
     // импульсное удержание [событие]
@@ -181,7 +201,7 @@ class VirtButton {
 
     // импульсное удержание с предварительными кликами [событие]
     bool step(const uint8_t& num) {
-        return clicks == num && step();
+        return (clicks == num) && step();
     }
 
     // зафиксировано несколько кликов [событие]
@@ -191,7 +211,7 @@ class VirtButton {
 
     // зафиксировано указанное количество кликов [событие]
     bool hasClicks(const uint8_t& num) {
-        return clicks == num && hasClicks();
+        return (clicks == num) && hasClicks();
     }
 
     // получить количество кликов
