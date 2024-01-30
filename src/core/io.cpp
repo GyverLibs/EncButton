@@ -5,7 +5,7 @@ bool __attribute__((weak)) EB_read(uint8_t pin) {
 }
 
 void __attribute__((weak)) EB_mode(uint8_t pin, uint8_t mode) {
-    gio::mode(pin, mode);
+    gio::init(pin, mode);
 }
 
 uint32_t __attribute__((weak)) EB_uptime() {
