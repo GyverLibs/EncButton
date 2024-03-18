@@ -2,8 +2,8 @@ This is an automatic translation, may be incorrect in some places. See sources a
 
 # ENCBUTTON
 
-| ⚠️⚠️ <br> ** New version V3 is incompatible with the previous ones, see [documentation] (#docs), [examples] (# Example) and brief [migration guide] (#migrate) from V2 to V3! **<br> ⚠️⚠️⚠️ |
-|--- |
+|⚠️⚠️⚠️ <br> ** The new version of V3 is incompatible with the previous ones, see [documentation] (#docs), [examples] (# Example) and brief [migration guide] (#migrate) from v2 to v3! ** <*** <BR> ⚠️⚠️⚠️ |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 A light and very functional library for an encoder with a button, encoder or buttons with Arduino
 - Button
@@ -19,7 +19,7 @@ A light and very functional library for an encoder with a button, encoder or but
 - a huge number of opportunities and their combinations for different scenarios for using even one button
 - virtual regime (for example, for working with a pain expander)
 - optimized to work in interruption
-- The fastest reading of pins for AVR (Atmega328/Atmega168, Attiny85/Attiny13)
+- The fastest reading of pins for AVR, ESP8266, ESP32 (used by gyverio)
 - Fast asynchronous algorithms of survey of actions from the button and encoder
 - rigid optimization and low weight in Flash and SRAM memory: 5 bytes SRAM (on an instance) and ~ 350 bytes Flash to process the button
 
@@ -54,6 +54,8 @@ Compatible with all arduino platforms (used arduino functions)
   - [Simultaneous pressing] (# Double)
   - [interruption] (# ISR)
   - [array of buttons/encoders] (# Array)
+  - [custom functions] (# Custom)
+  - [Timer survey] (# Timer)
   - [Mini examples, scenarios] (# Examples-Mini)
 - [migration with v2] (#migrate)
 - [Examples] (# Example)
@@ -62,12 +64,13 @@ Compatible with all arduino platforms (used arduino functions)
 
 <a id="install"> </a>
 ## Installation
-- The library can be found by the name ** encbutton ** and installed through the library manager in:
+- For work, a library is required [gyverio] (https://github.com/gyverlibs/gyverio)
+-Library can be found by the name ** encbutton ** and installed through the library manager in:
     - Arduino ide
     - Arduino ide v2
     - Platformio
 - [download the library] (https://github.com/gyverlibs/encbuton/archive/refs/heads/main.zip) .Zip archive for manual installation:
-    - unpack and put in *C: \ Program Files (X86) \ Arduino \ Libraries* (Windows X64)
+    - unpack and put in * C: \ Program Files (X86) \ Arduino \ Libraries * (Windows X64)
     - unpack and put in * C: \ Program Files \ Arduino \ Libraries * (Windows X32)
     - unpack and put in *documents/arduino/libraries/ *
     - (Arduino id) Automatic installation from. Zip: * sketch/connect the library/add .Zip library ... * and specify downloaded archive
@@ -120,6 +123,7 @@ In diagrams with microcontrollers, the connection of the GND button with a PIN s
 Be up to the library
 
 `` `CPP
+
 // Disable PressFor/Holdfor/StepFor support and Stepov counter (saves 2 bytes of RAM)
 #define eb_no_for
 
@@ -134,13 +138,13 @@ Be up to the library
 
 /*
   Setting up timeouts for all classes
-  - replaces the timauts with constants, changing them from the program (setxxxtimeout ()) will not be
+  - replaces the timauts constants, changeCranberries from the program (setxxxtimeout ()) will not be
   - Setting affects all buttons announced in the program/Encoders
   - saves 1 bytes of RAM for an object for each timeout
   - shows the default values in MS
   - values are not limited to 4000MS, as when installing from the program (SetXXXTimeout ())
 */
-#dEfine eb_deb_time 50 // Timout to darkens the trim button (button)
+#define eb_deb_time 50 // Timesout to extinguish the trim button (button)
 #define eb_click_time 500 // Click Stayout (button)
 #define eb_hold_time 600 // Maintenance Times (button)
 #define eb_step_time 200 // Impulse retention Timesout (button)
@@ -160,7 +164,7 @@ How to work with the documentation: Encbutton starting with version 3.0 is sever
   - `Encoder`,` Encodert` - Encoder class, *inherits virtencoder *
   - `ENCBUTTON`,` ENCBUTTONT` - ENCODER class with a button, *inherits VirtenCbutton, Virtbutton, Virtencoder *
 
-Thus, to study all the available functions of a particular library, you need to watch not only it, but also what it inherits.For example, the button processing using `Button` must be opened below the description of` button` and `virtbutton`.
+Thus, to study all the available functions of a particular library, you need to watch not only it, but also what it inherits.For example, to process the button using `Button`, you need to open below the description of` button` and `virtbutton`.
 
 > * Virtual * - without specifying a PIN of the microcontroller, works directly with the transmitted value, for example, for a survey of the enemies buttons through pain extensors and shift registers.
 
@@ -286,57 +290,49 @@ Bool Tickrad (Bool S);
 // ================== Poll ================================ward
 // Pressure button [event]
 Bool Press ();
+Bool Press (Uint8_T Clicks);
 
-// button released (in any case) [event]
+// button released (in any case) [evente]
 Bool Release ();
+Bool Release (Uint8_T Clicks);
 
 // click on the button (released without holding) [event]
 Bool click ();
+Bool Click (Uint8_T Clicks);
 
 // Squeezed button (between Press () and Release ()) [condition]
 Bool Pressing ();
+Bool Pressing (Uint8_T Clicks);
 
 // The button was withheld (more timeout) [event]
 Bool Hold ();
-
-// The button was kept (more timeout) with preliminary clicks [Event]
-Bool Hold (uint8_t num);
+Bool Hold (Uint8_T Clicks);
 
 // The button is held (more timeout) [condition]
 Bool Holding ();
+Bool Holding (Uint8_T Clicks);
 
-// The button is held (more timeout) with preliminary clicks [condition]
-Bool Holding (Uint8_T Num);
-
-// Impulretention [event]
+// Impulse retention [event]
 Bool Step ();
-
-// Impulse deduction with preliminary clicks [Event]
-Bool Step (Uint8_t Num);
+Bool Step (Uint8_T Clicks);
 
 // Several clicks were recorded [event]
 Bool HasClicks ();
+Bool HasClicks (Uint8_T Clicks);
 
-// recorded the specified number of clicks [event]
-Bool HasClicks (Uint8_T Num);
+// button released after holding [Event]
+Bool ReleaseHold ();
+Bool ReleaseHold (Uint8_T Clicks);
+
+// Button is released after impulse retention [Event]
+Bool ReleaseStep ();
+Bool ReleaseStep (Uint8_T Clicks);
 
 // get the number of clicks
 uint8_t getclicks ();
 
 // Get the number of steps
 uint16_t getsteps ();
-
-// button released after holding [Event]
-Bool ReleaseHold ();
-
-// Button is released after holding with preliminary clicks [Event]
-Bool Releasehold (Uint8_T Num);
-
-// Button is released after impulse retention [Event]
-Bool ReleaseStep ();
-
-// button is released after impulse deduction with preliminary clicks [Event]
-Bool ReleaseStep (Uint8_T Num);
 
 // button awaits repeated clicks (between Click () and HasClicks ()) [condition]
 Bool Waiting ();
@@ -450,7 +446,7 @@ Bool Fast ();
 // Open Turn to the right [event]
 Bool Right ();
 
-// Non -pressed turn to the left [event]
+// Non -pressed turnfrom left [event]
 Bool Left ();
 
 // pressed turn to the right [event]
@@ -459,7 +455,7 @@ Bool Righth ();
 // pressed turn to the left [event]
 Bool Lefth ();
 
-// there was an action from a button or encoder, will return the code withCranberries [event]
+// there was an action from a button or encoder, will return the event code [event]
 Uint16_T Action ();
 
 // ====ward
@@ -604,7 +600,7 @@ Int8_T Readenc ();
 <summary> encbuttont </summary>
 
 - Available functions from `virtbutton`
-- Available functions from `virtencoder`
+- Available functions from `viRencoder`
 - Available functions from `virtencbutton`
 
 `` `CPP
@@ -612,7 +608,7 @@ Int8_T Readenc ();
 ENCBUTTONT <uint8_T ENCA, UINT8_T ENCB, UINT8_T BTN>;
 
 // + Pino operation mode, button level
-Encbuttont <uint8_tENCA, UINT8_T ENCB, UINT8_T BTN> (Uint8_t Modeenc = Input, Uint8_t Modebtn = Input_Pullup, Uint8_T BTNlevel = Low);
+ENCBUTTONT <uINT8_T ENCA, UINT8_T ENCB, UINT8_T BTN> (Uint8_t Modeenc = Input, Uint8_t Modebtn = Input_Pullup, Uint8_T BTNlevel = Low);
 `` `
 `` `CPP
 // Configure Pino operation mode, button level
@@ -712,8 +708,8 @@ The Encbutton - ** asynchronous ** library: it does not wait until the button is
 -beginners: to study the lesson cycle [how to write a sketch] (https://alexgyver.ru/lessns/how-to-sketch/)
   - write asynchronous code in `loop ()`
   - Any synchronous structure on `delay ()` can be made asynchronous using `millis ()` `
-  - if in the program * each * main cycle is executed longer than 50-100ms- in most cases the program is written incorrectly, with the exception of some special cases
-- connect the button to the hardware interruption (see lowerCranberries e)
+  - if in the program * each * Iteration gThe cranberries of the bay cycle are performed longer than 50-100ms-in most cases the program is written incorrectly, with the exception of some special cases
+- connect the button to the hardware interruption (see below)
 - avoid the execution of "heavy" sections of the code while the button is processing, for example, by placing them in the condition `If (! Button.busy ()) {heavy code}`} `
 - If it is impossible to optimize the main cycle - call the ticker in another "stream" and use the processor:
   - in interruption of a timer with a period of ~ 50ms or more often
@@ -792,6 +788,8 @@ The library processes the button as follows:
 - If `Timeout` is expected - Timeout event with the specified period from the current moment
 - processing the button in the interruption informs the library about the fact of pressing, the rest of the processing is performed regularly in `Tick ()` `
 
+> The difference is `Click (n)` `Hasclicks (n)`: `Click (n)` will return `true` in any case when the number of clicks coincides, even if more clicks are made.`HasClicks (n)` will return `true` only inCranberry, if the exactly indicated number of clicks was made and there were no more clicks!
+
 > It is better to see once than read a hundred times.Launch an example of Demo and go on the button, or try [online symulation in Wokwi] (https://wokwi.com/projects/373591584298469377)
 
 ##### Click
@@ -805,7 +803,7 @@ The library processes the button as follows:
 
 Online symulation is available [here] (https://wokwi.com/projects/373591584298469377)
 
-####processing encoder
+#### Encoder Processing
 - "Fast" turn is considered a turn committed less than tuned timaut from the previous turn
 - the turns processed in interruption become active (cause events) after calling `tick ()`
 - Access to the encoder’s counter `Counter` is a public variable of the class, you can do anything with it:
@@ -882,7 +880,7 @@ VOID setup () {
 How it works: the first tick interrogates the button, if the button is pressed - the state of the Busy is immediately activated and the system enters the `While` cycle.Inside it, we continue to tick and get events from the button.When the button is released and all events will work - the Busy flag will drop and the program will automatically leave the cycle.You can rewrite this design to the cycle with a postcryption, more beautiful:
 `` `CPP
 do {
-  btn.tick ();
+  B.tn.tick ();
   if (btn.hold ()) serial.println ("Hold");
   if (btn.step ()) serial.println ("step");
 } While (btn.busy ());
@@ -1018,7 +1016,7 @@ if (btn.busy ()) {
 <a id="callback"> </a>
 
 ### Collback
-You can connect the external feature of the event, it will be caused when any event occurs.This opportunity works in all classes ** with the ** button:
+You can connect the external function-shacklerCranberry, it will be caused when any event occurs.This opportunity works in all classes ** with the ** button:
 - `virtbutton`
 - `Button`
 - `virtencbutton`
@@ -1050,7 +1048,7 @@ VOID loop () {
 
 <a id="duble"> </a>
 
-### Simultaneous onJatius
+### Simultaneous pressing
 The library supports work with two simultaneously pressed buttons as with the third button.For this you need:
 1. To make a virtual button `virtbutton`
 2. Call the processing of real buttons
@@ -1116,7 +1114,7 @@ Note: The use of work in the interruption allows you to correctly process the en
 Notes:
 - The `setencisr` function works only in non - virtual classes.If it is turned on, the main ticker `tick` simply does not interview Encoder's pins, which saves processor time.Processing occurs only in interruption
 - The encoder counter is always relevant and can be ahead of buffering turns in the program with large delays in the main cycle!
-- on different interrupt platforms can work in different ways (for example, on ESPXX - you need to add the functions of the atrica `` IRAM_ATTR`, see documentation on your platform!)
+- on different interrupt platforms, they can work differently (for example, on ESPXX - you need to add the functions of the atrica `` IRAM_ATTR`, see documentation on your platform!)
 - a processor connected to `Attach ()` will be called from `Tick ()`, that is, *not from interruption *!
 
 ### virtual classes
@@ -1142,7 +1140,7 @@ VOID loop () {
 #### Button
 To process the button in the interruption, you need:
 - Connect an interruption on ** press ** buttons taking into account its physical connection and level:
-  - if the button closes `Low` - Interruption` Falling`
+  - If the button is deputy`Low` - Interruption` Falling`
   - if the button closes `high` - interruption` rising`
 - call `Pressisr ()` in the interruption processor
 
@@ -1167,7 +1165,7 @@ VOID loop () {
 }
 `` `
 
-Note: the button is processed mainly `tick ()`, and the function is `Pressisr ()` just informs the library that the button was NAAta outside `Tick ()`.This allows you not to miss the pressing of the button until the program was busy with something else.
+Note: the button is processed mainly `tick ()`, and the function `Pressisr ()` just informs the library that the button was pressed outside `Tick ()`.This allows you not to miss the pressing of the button until the program was busy with something else.
 
 <a id="array"> </a>
 
@@ -1196,6 +1194,111 @@ VOID loop () {
 }
 `` `
 
+<a id="cubom"> </a>
+
+### Caste functions
+The library supports the task of its functions for reading PIN and getting time without editing library files.To do this, you need to implement the corresponding function in your .cpp or.
+- `bool eb_read (uint8_t pin)` - for its pine reading function
+- `void eb_mode (uint8_t pin, uint8_t mode)` - for your analogue Pinmode
+- `uint32_t eb_uptime ()` - for your analogue millis ()
+
+Example:
+
+`` `CPP
+#include <encbutton.h>
+
+Bool eb_read (uint8_t pin) {
+    Return DigitalRead (PIN);
+}
+
+VOID eb_mode (uint8_t pin, uint8_t mode) {
+    Pinmode (PIN, Mode);
+}
+
+uint32_t eb_uptime () {
+    Return Millis ();
+}
+`` `
+
+<a id="timer"> </a>
+
+### Survey by timer
+Sometimes it may be necessary to call `tick ()` not on every iteration, but by the timer.For example, for a virtual button from the Pino Expand, when reading the Pino Expand is a long operation, and it often does not make sense to call it.You can’t do this, events will be active during the timer!
+`` `CPP
+VOID loop () {
+  // Timer for 50 ms
+  Static uint32_t tmr;
+  if (millis () - tmr> = 50) {
+    TMR = Millis ();
+    btn.tick (Readsomepin ());
+  }
+
+  // will be actively within 50 ms !!!
+  if (btn.click ()) foo ();
+}
+`` `
+
+In this situation, you need to do this: tick along the timer, process events there and drop flags at the end:
+`` `CPP
+VOID loop () {
+  // Timer for 50 ms
+  Static uint32_t tmr;
+  if (millis () - tmr> = 50) {
+    TMR = Millis ();
+    // TIK
+    btn.tick (Readsomepin ());
+
+    // analysis of events
+    if (btn.click ()) foo ();
+
+    // Reset of the flags
+    btn.clear ();
+  }
+}
+`` `
+
+Or you can connect the handler and call `clear ()` at the end of the function:
+`` `CPP
+Void callback () {
+  switch (btn.action ()) {
+    // ...
+  }
+
+  // Reset of the flags
+  btn.clear ();
+}
+
+VOID loop () {
+  // Timer for 50 ms
+  Static uint32_t tmr;
+  if (millis () - tmr> = 50) {
+    TMR = Millis ();
+    btn.tick (Readsomepin ());
+  }
+}
+`` `
+
+In the case of calling the timer, the anti -departments will be partially provided by the timer itself and in the library it can be turned off (set the period 0).
+
+For the correct operation of timeouts, conditions and a click counter, you need another approach: buffering the states read according to the timer and transfer them to the TIC in the main cycle.For example:
+`` `CPP
+Bool Readbuf = 0;// buffer Pina
+
+VOID loop () {
+  // Timer for 50 ms
+  Static uint32_t tmr;
+  if (millis () - tmr> = 50) {
+    TMR = Millis ();
+    Readbuf = Readsomepin ();// Reading in the buffer
+  }
+
+  // tick from the buffer
+  BTN.Tick (Readbuf);
+
+  if (btn.click ()) foo ();
+}
+`` `
+
 <a id="EXAMPles-mini"> </a>
 
 ### Mini examples, scripts
@@ -1211,7 +1314,7 @@ if (enc.turn ()) {
   Var += ENC.FAST ()?10: 1;
 
   // Change in step 1 with a normal turn, 10 with pressed
-  Var += ENC.Pressing ()?10: 1;
+  vAR += ENC.Pressing ()?10: 1;
 
   // Change one variable when turning, the other - with a pressed turn
   if (enc.pressing ()) Var0 ++;
@@ -1300,7 +1403,7 @@ Buttont <pin> b;// PIN
 Buttont <pin> b (mode);// + Pin mode buttons (silent. Input_pullup)
 Buttont <pin> b (mode, btnlevel);// + button level (silence)
 
-// eNkoder
+// Encoder
 ENCODER E (ENC0, ENC1);// Pines of Encoder
 ENCODER E (ENC0, ENC1, Mode);// + Pino Pino Encoder Pin (silence. Input)
 // template
@@ -1310,17 +1413,17 @@ Encodert <Enc0, Enc1> E (Mode);// + Pino Pino Encoder Pin (silence. Input)
 
 ### functions
 |v2 |v3 |
-| ----------- | ------------- |
+| ------------- | -------------------------------------
 |`HELD ()` |`Hold ()` |
 |`Hold ()` |`Holding ()` |
 |`state ()` |`Pressing ()` |
-| `setpins ()` |`Init ()` |
+|`setpins ()` |`Init ()` |
 
 - The procedure for indicating Pinov has changed (see DEMPLE above)
 - `Clearflags ()` replaced by `Clear ()` (drop the flags of events) and `reset ()` (drop systemic flags of processing, finish processing)
 
 ### Logic of Work
-In the V3, the functions of an event survey (Click, Turn ...) are not discarded immediately after their call - they are discarded at the next call `Tick ()`, thus retain their meaning in all subsequent challenges on the current iteration of the main cycle of the program.** Therefore, `tick ()` needs to be called only 1 time per cycle, otherwise there will be missions of actions! ** Read about this above.
+In the V3, the functions of an event survey (Click, Turn ...) are not discarded immediately after their call - they are discarded at the next call `Tick ()`, thus retain their meaning in all subsequent challenges on the current iteration of the main cycle of the program.** Therefore, `tick ()` needs to be called only 1 time per cycle, otherwise there will be missions of actions! ** Read about thisabove.
 
 <a id="EXAMPLE"> </a>
 ## Examples
@@ -1417,7 +1520,7 @@ VOID loop () {
 
     // Holding
     if.hold ()) serial.println ("Hold");
-    if.hoLD (3)) serial.println ("Hold 3");
+    if.hold (3)) serial.println ("Hold 3");
 
     // Impulse retention
     if.step ()) serial.println ("step");
@@ -1455,8 +1558,7 @@ Void callback () {
         Case eb_press:
             Serial.println ("Press");
             Break;
-        Case eb_hold:
-            Serial.println ("Hold");
+        Case eb_hold:serial.println ("Hold");
             Break;
         Case eb_step:
             Serial.println ("STEP");
@@ -1531,7 +1633,7 @@ VOID loop () {
 
     // virtbutton
     btnv.tick (! DigitalRead (4));// transmit logical value
-    if (btn.click ()) serial.println ("btnv click");
+    if (btnv.click ()) serial.println ("btnv click");
 }
 `` `
 </details>
@@ -1582,7 +1684,7 @@ VOID loop () {
 - V1.6 - Optimization of work in interruption
 - V1.6.1 - Saching by default Input_pullup
 - V1.7 - a large memory optimization, remade Fastio
-- V1.8 - Individual tuning of the time retention time (was abouton everyone)
+- V1.8 - Individual tuning of the TIMUUT Maintenance of the button (was common at all)
 - v1.8.1 - removed Fastio
 - v1.9 - added a separate development of a pressed turn and a request for direction
 - V1.10 - improved ReleASDE processing, eased the weight in callback and corrected the bugs
@@ -1599,7 +1701,7 @@ VOID loop () {
 - V1.18.2 - Fix Compiler Warnings
 - V1.19 - speed optimization, reduced weight in SRAM
 - v1.19.1 - still a bit increased performance
-- V1.19.2 - Productivity increased a little more, thanks XRY3D
+- v1.19.2 - not yetCranberries increased a lot of performance, thanks xray3d
 - v1.19.3 - made a high level of the default button in virtual mode
 - V1.19.4 - Fix Encbutton2
 - V1.20 - Critical error is fixed in Encbutton2
@@ -1648,6 +1750,16 @@ VOID loop () {
 - V3.4
   - access to the click counter during a pressed turn
   - Added function Detach ()
+- V3.5
+  - added dependence of Gyverio (accelerated Pino survey)
+  - added the opportunity to set your pharmacy and pine reading functions
+- V3.5.2
+  - Optimization
+  - Simplified replacement of custom functions
+  - Fixed a compilation error when using a library in several .cpp files
+- V3.5.3
+  - Added the number of clicks to the Press/Release/Click/Pressing poll
+- V3.5.5 - Collback based on the STD :: Function for ESP
     
 <a id="feedback"> </a>
 ## bugs and feedback
@@ -1659,6 +1771,6 @@ When reporting about bugs or incorrect work of the library, it is necessary to i
 - What is MK used
 - SDK version (for ESP)
 - version of Arduino ide
-- whether the built -in examples work correctly in the catCranberries use the functions and designs leading to a bug in your code
+- whether the built -in examples work correctly, in which the functions and designs are used, leading to a bug in your code
 - what code has been loaded, what work was expected from it and how it works in reality
 - Ideally, attach the minimum code in which the bug is observed.Not a canvas of a thousand lines, but a minimum code
