@@ -28,13 +28,13 @@ class Encoder : public VirtEncoder {
 
     // функция обработки, вызывать в loop
     int8_t tick() {
-        if (read_ef(EB_EISR)) return VirtEncoder::tick();
+        if (ef.read(EB_EISR)) return VirtEncoder::tick();
         else return VirtEncoder::tick(readEnc());
     }
 
     // обработка без сброса события поворота
     int8_t tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncoder::tickRaw();
+        if (ef.read(EB_EISR)) return VirtEncoder::tickRaw();
         else return VirtEncoder::tickRaw(readEnc());
     }
 
@@ -70,13 +70,13 @@ class EncoderT : public VirtEncoder {
 
     // функция обработки, вызывать в loop
     int8_t tick() {
-        if (read_ef(EB_EISR)) return VirtEncoder::tick();
+        if (ef.read(EB_EISR)) return VirtEncoder::tick();
         else return VirtEncoder::tick(readEnc());
     }
 
     // обработка без сброса события поворота
     int8_t tickRaw() {
-        if (read_ef(EB_EISR)) return VirtEncoder::tickRaw();
+        if (ef.read(EB_EISR)) return VirtEncoder::tickRaw();
         else return VirtEncoder::tickRaw(readEnc());
     }
 

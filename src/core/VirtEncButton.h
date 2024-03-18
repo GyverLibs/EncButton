@@ -29,37 +29,37 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     // ====================== GET ======================
     // нажатый поворот энкодера [событие]
     bool turnH() {
-        return turn() && read_bf(EB_EHLD);
+        return turn() && bf.read(EB_EHLD);
     }
 
     // быстрый поворот энкодера [состояние]
     bool fast() {
-        return read_ef(EB_FAST);
+        return ef.read(EB_FAST);
     }
 
     // поворот направо [событие]
     bool right() {
-        return read_ef(EB_DIR) && turn() && !read_bf(EB_EHLD);
+        return ef.read(EB_DIR) && turn() && !bf.read(EB_EHLD);
     }
 
     // поворот налево [событие]
     bool left() {
-        return !read_ef(EB_DIR) && turn() && !read_bf(EB_EHLD);
+        return !ef.read(EB_DIR) && turn() && !bf.read(EB_EHLD);
     }
 
     // нажатый поворот направо [событие]
     bool rightH() {
-        return read_ef(EB_DIR) && turnH();
+        return ef.read(EB_DIR) && turnH();
     }
 
     // нажатый поворот налево [событие]
     bool leftH() {
-        return !read_ef(EB_DIR) && turnH();
+        return !ef.read(EB_DIR) && turnH();
     }
 
     // нажата кнопка энкодера. Аналог pressing() [состояние]
     bool encHolding() {
-        return read_bf(EB_EHLD);
+        return bf.read(EB_EHLD);
     }
 
     // было действие с кнопки или энкодера, вернёт код события [событие]
@@ -80,9 +80,9 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         state = VirtEncoder::pollEnc(state);
         if (state) {
 #ifdef EB_NO_BUFFER
-            set_ef(EB_ISR_F);
-            write_ef(EB_DIR, state > 0);
-            write_ef(EB_FAST, checkFast());
+            ef.set(EB_ISR_F);
+            ef.write(EB_DIR, state > 0);
+            ef.write(EB_FAST, checkFast());
 #else
             for (uint8_t i = 0; i < 15; i += 3) {
                 if (!(ebuffer & (1 << i))) {
@@ -131,28 +131,28 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 
         bool encf = 0;
 #ifdef EB_NO_BUFFER
-        if (read_ef(EB_ISR_F)) {
+        if (ef.read(EB_ISR_F)) {
             clr_ef(EB_ISR_F);
             encf = 1;
         }
 #else
         if (ebuffer) {
-            write_ef(EB_DIR, ebuffer & 0b10);
-            write_ef(EB_FAST, ebuffer & 0b100);
+            ef.write(EB_DIR, ebuffer & 0b10);
+            ef.write(EB_FAST, ebuffer & 0b100);
             ebuffer >>= 3;
             encf = 1;
         }
 #endif
         else if ((state >= 0) && (state = VirtEncoder::pollEnc(state))) {
-            write_ef(EB_DIR, state > 0);
-            write_ef(EB_FAST, checkFast());
+            ef.write(EB_DIR, state > 0);
+            ef.write(EB_FAST, checkFast());
             encf = 1;
         }
         if (encf) {
-            if (read_bf(EB_PRS)) set_bf(EB_EHLD);    // зажать энкодер
+            if (bf.read(EB_PRS)) bf.set(EB_EHLD);    // зажать энкодер
             else clicks = 0;
-            if (!read_bf(EB_TOUT)) set_bf(EB_TOUT);  // таймаут
-            set_ef(EB_ETRN_R);                       // флаг поворота
+            if (!bf.read(EB_TOUT)) bf.set(EB_TOUT);  // таймаут
+            ef.set(EB_ETRN_R);                       // флаг поворота
         }
         return encf | btn;
     }

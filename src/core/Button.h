@@ -20,7 +20,7 @@ class Button : public VirtButton {
 
     // прочитать текущее значение кнопки (без дебаунса)
     bool read() {
-        return EB_read(pin) ^ read_bf(EB_INV);
+        return EB_read(pin) ^ bf.read(EB_INV);
     }
 
     // функция обработки, вызывать в loop
@@ -53,7 +53,7 @@ class ButtonT : public VirtButton {
 
     // прочитать текущее значение кнопки (без дебаунса)
     bool read() {
-        return EB_read(PIN) ^ read_bf(EB_INV);
+        return EB_read(PIN) ^ bf.read(EB_INV);
     }
 
     // функция обработки, вызывать в loop
