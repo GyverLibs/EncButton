@@ -39,8 +39,6 @@
 #define EB_STEP_T (EB_STEP_TIME)
 #endif
 
-#define EB_FOR_SCALE 6
-
 // =================== PACK FLAGS ===================
 #define EB_CLKS_R (1 << 0)
 #define EB_PRS_R (1 << 1)
@@ -64,6 +62,12 @@
 
 // базовый класс кнопки
 class VirtButton {
+#ifdef __AVR__
+    typedef void (*ActionHandler)();
+#else
+    typedef std::function<void()> ActionHandler;
+#endif
+
    public:
     // ====================== SET ======================
     // установить таймаут удержания, умолч. 600 (макс. 4000 мс)
@@ -120,9 +124,9 @@ class VirtButton {
     }
 
     // подключить функцию-обработчик событий (вида void f())
-    void attach(void (*handler)()) {
+    void attach(ActionHandler handler) {
 #ifndef EB_NO_CALLBACK
-        cb = *handler;
+        cb = handler;
 #endif
     }
 
@@ -484,7 +488,7 @@ class VirtButton {
 #endif
 
 #ifndef EB_NO_CALLBACK
-    void (*cb)() = nullptr;
+    ActionHandler cb = nullptr;
 #endif
 
 #ifndef EB_DEB_TIME
