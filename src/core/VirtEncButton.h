@@ -132,7 +132,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         bool encf = 0;
 #ifdef EB_NO_BUFFER
         if (ef.read(EB_ISR_F)) {
-            clr_ef(EB_ISR_F);
+            ef.clear(EB_ISR_F);
             encf = 1;
         }
 #else
