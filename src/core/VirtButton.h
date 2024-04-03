@@ -4,6 +4,10 @@
 #include "flags.h"
 #include "io.h"
 
+#ifndef __AVR__
+#include <functional>
+#endif
+
 // ===================== FLAGS ======================
 #define EB_PRESS (1 << 0)        // нажатие на кнопку
 #define EB_HOLD (1 << 1)         // кнопка удержана
