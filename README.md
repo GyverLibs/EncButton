@@ -208,6 +208,7 @@
 | getSteps        |     ✔      |       ✔       |   ✔    |     ✔     |
 | releaseHold     |     ✔      |       ✔       |   ✔    |     ✔     |
 | releaseStep     |     ✔      |       ✔       |   ✔    |     ✔     |
+| releaseHoldStep |     ✔      |       ✔       |   ✔    |     ✔     |
 | waiting         |     ✔      |       ✔       |   ✔    |     ✔     |
 | busy            |     ✔      |       ✔       |   ✔    |     ✔     |
 | action          |     ✔      |       ✔       |   ✔    |     ✔     |
@@ -333,6 +334,10 @@ bool releaseHold(uint8_t clicks);
 // кнопка отпущена после импульсного удержания [событие]
 bool releaseStep();
 bool releaseStep(uint8_t clicks);
+
+// кнопка отпущена после удержания или импульсного удержания [событие]
+bool releaseHoldStep();
+bool releaseHoldStep(uint8_t clicks);
 
 // получить количество кликов
 uint8_t getClicks();
@@ -1767,6 +1772,7 @@ void loop() {
 - v3.5.3
   - Добавлено количество кликов в опрос press/release/click/pressing
 - v3.5.5 - коллбэк на базе std::function для ESP
+- v3.5.8 - добавлен метод releaseHoldStep()
     
 <a id="feedback"></a>
 ## Баги и обратная связь

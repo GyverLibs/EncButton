@@ -51,6 +51,7 @@ getClicks	KEYWORD2
 getSteps	KEYWORD2
 releaseHold	KEYWORD2
 releaseStep	KEYWORD2
+releaseHoldStep	KEYWORD2
 timeout	KEYWORD2
 waiting	KEYWORD2
 busy	KEYWORD2
