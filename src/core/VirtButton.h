@@ -128,6 +128,11 @@ class VirtButton {
         }
     }
 
+    // игнорировать все события до отпускания кнопки
+    void skipEvents() {
+        bf.set(EB_EHLD);
+    }
+
     // подключить функцию-обработчик событий (вида void f())
     void attach(ActionHandler handler) {
 #ifndef EB_NO_CALLBACK
