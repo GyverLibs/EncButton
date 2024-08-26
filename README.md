@@ -269,8 +269,9 @@ void setDebTimeout(uint8_t tout);
 // умолч. HIGH, то есть true - кнопка нажата
 void setBtnLevel(bool level);
 
-// подключить функцию-обработчик событий (вида void f())
+// подключить функцию-обработчик событий
 void attach(void (*handler)());
+void attach(void (*handler)(void* self));
 
 // отключить функцию-обработчик событий
 void detach();
@@ -1061,26 +1062,50 @@ void loop() {
 }
 ```
 
+С версии 3.6.0 библиотека поддерживает подключение обработчика с отправкой в него указателя на объект:
+```cpp
+EncButton eb(2, 3, 4);
+
+void callback(void* self) {
+  EncButton& enc = *static_cast<EncButton*>(self);
+
+  switch (enc.action()) {
+    case EB_PRESS:
+      // ...
+      break;
+    case EB_HOLD:
+      // ...
+      break;
+    // ...
+  }
+}
+
+void setup() {
+  eb.attach(callback);
+}
+
+void loop() {
+  eb.tick();
+}
+```
+
 <a id="double"></a>
 
 ### Одновременное нажатие
 Библиотека нативно поддерживает работу с двумя одновременно нажатыми кнопками как с третьей кнопкой. Для этого нужно:
-1. Cоздать виртуальную кнопку `VirtButton`
-2. Вызвать обработку реальных кнопок
-3. Передать виртуальной кнопке в обработку эти кнопки (это могут быть объекты классов `VirtButton`, `Button`, `EncButton` + их `T`-версии)
-4. Далее опрашивать события
+1. Cоздать специальную кнопку `MultiButton`
+2. Передать виртуальной кнопке в обработку свои кнопки (это могут быть объекты классов `VirtButton`, `Button`, `EncButton` + их `T`-версии). **Мульти-кнопка сама опросит обе кнопки!**
+3. Опрашивать события или слушать обработчик
 
 ```cpp
 Button b0(4);
 Button b1(5);
-VirtButton b2;  // 1
+MultiButton b2;  // 1
 
 void loop() {
-  b0.tick();  // 2
-  b1.tick();  // 2
-  b2.tick(b0, b1);  // 3
+  b2.tick(b0, b1);  // 2
 
-  // 4
+  // 3
   if (b0.click()) Serial.println("b0 click");
   if (b1.click()) Serial.println("b1 click");
   if (b2.click()) Serial.println("b0+b1 click");
@@ -1792,7 +1817,10 @@ void loop() {
 - v3.5.5 - коллбэк на базе std::function для ESP
 - v3.5.8 - добавлен метод releaseHoldStep()
 - v3.5.11 - добавлен метод skipEvents() для игнорирования событий кнопки в сложных сценариях использования
-    
+- v3.6.0 
+  - Добавлен класс MultiButton для корректного опроса нескольких кнопок с вызовом обработчика
+  - Добавлено подключение обработчика с передачей указателя на объект
+
 <a id="feedback"></a>
 ## Баги и обратная связь
 При нахождении багов создавайте **Issue**, а лучше сразу пишите на почту [alex@alexgyver.ru](mailto:alex@alexgyver.ru)  

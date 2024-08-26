@@ -69,8 +69,10 @@
 class VirtButton {
 #ifdef __AVR__
     typedef void (*ActionHandler)();
+    typedef void (*ActionHandlerThis)(void*);
 #else
     typedef std::function<void()> ActionHandler;
+    typedef std::function<void(void*)> ActionHandlerThis;
 #endif
 
    public:
@@ -140,10 +142,18 @@ class VirtButton {
 #endif
     }
 
+    // подключить функцию-обработчик событий (вида void f(void*))
+    void attach(ActionHandlerThis handler) {
+#ifndef EB_NO_CALLBACK
+        cbt = handler;
+#endif
+    }
+
     // отключить функцию-обработчик событий
     void detach() {
 #ifndef EB_NO_CALLBACK
         cb = nullptr;
+        cbt = nullptr;
 #endif
     }
 
@@ -288,28 +298,19 @@ class VirtButton {
     // было действие с кнопки, вернёт код события [событие]
     uint16_t action() {
         switch (bf.mask(0b111111111)) {
-            case (EB_PRS | EB_PRS_R):
-                return EB_PRESS;
-            case (EB_PRS | EB_HLD | EB_HLD_R):
-                return EB_HOLD;
-            case (EB_PRS | EB_HLD | EB_STP | EB_STP_R):
-                return EB_STEP;
+            case (EB_PRS | EB_PRS_R): return EB_PRESS;
+            case (EB_PRS | EB_HLD | EB_HLD_R): return EB_HOLD;
+            case (EB_PRS | EB_HLD | EB_STP | EB_STP_R): return EB_STEP;
             case (EB_REL | EB_REL_R):
             case (EB_REL | EB_REL_R | EB_HLD):
             case (EB_REL | EB_REL_R | EB_HLD | EB_STP):
                 return EB_RELEASE;
-            case (EB_REL_R):
-                return EB_CLICK;
-            case (EB_CLKS_R):
-                return EB_CLICKS;
-            case (EB_REL_R | EB_HLD):
-                return EB_REL_HOLD;
-            case (EB_CLKS_R | EB_HLD):
-                return EB_REL_HOLD_C;
-            case (EB_REL_R | EB_HLD | EB_STP):
-                return EB_REL_STEP;
-            case (EB_CLKS_R | EB_HLD | EB_STP):
-                return EB_REL_STEP_C;
+            case (EB_REL_R): return EB_CLICK;
+            case (EB_CLKS_R): return EB_CLICKS;
+            case (EB_REL_R | EB_HLD): return EB_REL_HOLD;
+            case (EB_CLKS_R | EB_HLD): return EB_REL_HOLD_C;
+            case (EB_REL_R | EB_HLD | EB_STP): return EB_REL_STEP;
+            case (EB_CLKS_R | EB_HLD | EB_STP): return EB_REL_STEP_C;
         }
         return 0;
     }
@@ -395,15 +396,21 @@ class VirtButton {
     bool tick(bool s) {
         clear();
         s = pollBtn(s);
-#ifndef EB_NO_CALLBACK
-        if (cb && s) cb();
-#endif
+        if (s) call();
         return s;
     }
 
     // обработка кнопки без сброса событий и вызова коллбэка
     bool tickRaw(const bool s) {
         return pollBtn(s);
+    }
+
+    // вызвать обработчик
+    void call() {
+        if (action()) {
+            if (cb) cb();
+            if (cbt) cbt(this);
+        }
     }
 
     uint8_t clicks;
@@ -420,6 +427,7 @@ class VirtButton {
 
 #ifndef EB_NO_CALLBACK
     ActionHandler cb = nullptr;
+    ActionHandlerThis cbt = nullptr;
 #endif
 
    private:

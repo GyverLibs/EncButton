@@ -1,8 +1,8 @@
 #pragma once
 #include <Arduino.h>
 
-#include "io.h"
 #include "flags.h"
+#include "io.h"
 
 // ===================== CONST ======================
 #define EB_STEP4_LOW 0
@@ -139,7 +139,11 @@ class VirtEncoder {
     // опросить энкодер без установки события поворота (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t pollEnc(int8_t state) {
         if (prev != state) {
-            ecount += ((0x49941661 >> ((state | (prev << 2)) << 1)) & 0b11) - 1;
+            ecount += ((0x49941661 >> ((state | (prev << 2)) << 1)) & 0b11) - 1;  // faster
+            // switch (state | (prev << 2)) {
+            //     case 2: case 4: case 11: case 13: ecount++; break;
+            //     case 1: case 7: case 8: case 14: ecount--; break;
+            // }
             prev = state;
             if (!ecount) return 0;
             switch (ef.mask(0b11)) {

@@ -107,10 +107,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     bool tick(const int8_t state, const bool btn) {
         clear();
         bool f = tickRaw(state, btn);
-
-#ifndef EB_NO_CALLBACK
-        if (cb && f) cb();
-#endif
+        if (f) call();
         return f;
     }
 
@@ -149,7 +146,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
             encf = 1;
         }
         if (encf) {
-            if (bf.read(EB_PRS)) bf.set(EB_EHLD);    // зажать энкодер
+            if (bf.read(EB_PRS)) bf.set(EB_EHLD);  // зажать энкодер
             else clicks = 0;
             if (!bf.read(EB_TOUT)) bf.set(EB_TOUT);  // таймаут
             ef.set(EB_ETRN_R);                       // флаг поворота
