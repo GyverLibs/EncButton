@@ -408,8 +408,10 @@ class VirtButton {
     // вызвать обработчик
     void call() {
         if (action()) {
+#ifndef EB_NO_CALLBACK
             if (cb) cb();
             if (cbt) cbt(this);
+#endif
         }
     }
 
