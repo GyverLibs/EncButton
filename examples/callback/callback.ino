@@ -6,6 +6,8 @@
 EncButton eb(2, 3, 4);
 
 void cb() {
+    // здесь EB_self - указатель на сам объект
+
     Serial.print("callback: ");
     switch (eb.action()) {
         case EB_PRESS:

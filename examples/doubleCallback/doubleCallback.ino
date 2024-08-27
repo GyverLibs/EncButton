@@ -44,20 +44,20 @@ void setup() {
     Serial.begin(115200);
 
     // обработчики
-    b0.attach([](void* b) {
-        uint16_t action = static_cast<VirtButton*>(b)->action();
+    b0.attach([]() {
+        uint16_t action = static_cast<VirtButton*>(EB_self)->action();
         if (action != EB_HOLD) Serial.println("b0");
         decode(action);
     });
 
-    b1.attach([](void* b) {
-        uint16_t action = static_cast<VirtButton*>(b)->action();
+    b1.attach([]() {
+        uint16_t action = static_cast<VirtButton*>(EB_self)->action();
         if (action != EB_HOLD) Serial.println("b1");
         decode(action);
     });
 
-    b2.attach([](void* b) {
-        uint16_t action = static_cast<VirtButton*>(b)->action();
+    b2.attach([]() {
+        uint16_t action = static_cast<VirtButton*>(EB_self)->action();
         if (action != EB_HOLD) Serial.println("b2");
         decode(action);
     });

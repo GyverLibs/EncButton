@@ -271,7 +271,6 @@ void setBtnLevel(bool level);
 
 // подключить функцию-обработчик событий
 void attach(void (*handler)());
-void attach(void (*handler)(void* self));
 
 // отключить функцию-обработчик событий
 void detach();
@@ -1038,6 +1037,8 @@ if (btn.busy()) {
 - `VirtEncButton`
 - `EncButton`
 
+> Внутри коллбэка можно получить указатель на текущий объект (который вызвал коллбэк) из переменной `void* EB_self`
+
 ```cpp
 EncButton eb(2, 3, 4);
 
@@ -1051,33 +1052,8 @@ void callback() {
       break;
     // ...
   }
-}
 
-void setup() {
-  eb.attach(callback);
-}
-
-void loop() {
-  eb.tick();
-}
-```
-
-С версии 3.6.0 библиотека поддерживает подключение обработчика с отправкой в него указателя на объект:
-```cpp
-EncButton eb(2, 3, 4);
-
-void callback(void* self) {
-  EncButton& enc = *static_cast<EncButton*>(self);
-
-  switch (enc.action()) {
-    case EB_PRESS:
-      // ...
-      break;
-    case EB_HOLD:
-      // ...
-      break;
-    // ...
-  }
+  // здесь EB_self указатель на eb
 }
 
 void setup() {

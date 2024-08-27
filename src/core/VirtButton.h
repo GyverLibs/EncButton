@@ -3,6 +3,7 @@
 
 #include "flags.h"
 #include "io.h"
+#include "self.h"
 
 #ifndef __AVR__
 #include <functional>
@@ -69,10 +70,8 @@
 class VirtButton {
 #ifdef __AVR__
     typedef void (*ActionHandler)();
-    typedef void (*ActionHandlerThis)(void*);
 #else
     typedef std::function<void()> ActionHandler;
-    typedef std::function<void(void*)> ActionHandlerThis;
 #endif
 
    public:
@@ -142,18 +141,10 @@ class VirtButton {
 #endif
     }
 
-    // подключить функцию-обработчик событий (вида void f(void*))
-    void attach(ActionHandlerThis handler) {
-#ifndef EB_NO_CALLBACK
-        cbt = handler;
-#endif
-    }
-
     // отключить функцию-обработчик событий
     void detach() {
 #ifndef EB_NO_CALLBACK
         cb = nullptr;
-        cbt = nullptr;
 #endif
     }
 
@@ -409,8 +400,11 @@ class VirtButton {
     void call() {
         if (action()) {
 #ifndef EB_NO_CALLBACK
-            if (cb) cb();
-            if (cbt) cbt(this);
+            if (cb) {
+                EB_self = this;
+                cb();
+                EB_self = nullptr;
+            }
 #endif
         }
     }
@@ -429,7 +423,6 @@ class VirtButton {
 
 #ifndef EB_NO_CALLBACK
     ActionHandler cb = nullptr;
-    ActionHandlerThis cbt = nullptr;
 #endif
 
    private:
