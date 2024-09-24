@@ -397,8 +397,8 @@ class VirtButton {
     }
 
     // вызвать обработчик
-    void call() {
-        if (action()) {
+    void call(bool force = false) { // todo force заменить на флаг
+        if (force || action()) {
 #ifndef EB_NO_CALLBACK
             if (cb) {
                 EB_self = this;

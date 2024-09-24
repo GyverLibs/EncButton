@@ -107,7 +107,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     bool tick(const int8_t state, const bool btn) {
         clear();
         bool f = tickRaw(state, btn);
-        if (f) call();
+        if (f) call(true);
         return f;
     }
 
