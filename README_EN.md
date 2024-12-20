@@ -896,8 +896,8 @@ VOID loop () {
 
   // ...
 
-  if.timeout (2000)) {
-    // after interaction with encoder 2 seconds passed
+  if.timeout ()) {
+    // after interaction with encoder 1 second passed
     // eeprom.put (0, settings);
   }
 }
@@ -1516,7 +1516,7 @@ VOID loop () {
     // serial.println (eb.waiting ());
 
     // Timesout
-    if (eb.timeout (1000)) serial.println ("Timeout!");
+    if (eb.timeout ()) serial.println ("Timeout!");
 
     // Holding
     if.hold ()) serial.println ("Hold");

@@ -21,8 +21,8 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     }
 
     // сбросить флаги энкодера и кнопки
-    void clear() {
-        VirtButton::clear();
+    void clear(bool resetTout = false) {
+        VirtButton::clear(resetTout);
         VirtEncoder::clear();
     }
 
@@ -68,6 +68,11 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         else return VirtButton::action();
     }
 
+    // было действие с кнопки или энкодера, вернёт код события [событие]
+    EBAction getAction() {
+        return (EBAction)action();
+    }
+
     // ====================== POLL ======================
     // ISR
     // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
@@ -107,7 +112,9 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     bool tick(const int8_t state, const bool btn) {
         clear();
         bool f = tickRaw(state, btn);
-        if (f) call(true);
+#ifndef EB_NO_CALLBACK
+        if (f || timeoutState()) call(true);
+#endif
         return f;
     }
 

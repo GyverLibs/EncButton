@@ -10,6 +10,7 @@
 // #define EB_HOLD_TIME 600    // таймаут удержания (кнопка)
 // #define EB_STEP_TIME 200    // таймаут импульсного удержания (кнопка)
 // #define EB_FAST_TIME 30     // таймаут быстрого поворота (энкодер)
+// #define EB_TOUT_TIME 1000   // таймаут действия (кнопка и энкодер)
 
 #include <EncButton.h>
 EncButton eb(2, 3, 4);
@@ -25,6 +26,7 @@ void setup() {
     eb.setDebTimeout(50);
     eb.setHoldTimeout(600);
     eb.setStepTimeout(200);
+    eb.setTimeout(1000);
 
     eb.setEncReverse(0);
     eb.setEncType(EB_STEP4_LOW);
@@ -83,7 +85,7 @@ void loop() {
     // Serial.println(eb.waiting());
 
     // таймаут
-    if (eb.timeout(1000)) Serial.println("timeout!");
+    if (eb.timeout()) Serial.println("timeout!");
 
     // удержание
     if (eb.hold()) Serial.println("hold");
