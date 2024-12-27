@@ -458,7 +458,7 @@ class VirtButton {
     }
     
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
-    bool timeout(const uint16_t tout) __attribute__((deprecated)) {
+    bool timeout(const uint16_t tout) /*__attribute__((deprecated))*/ {
         if (timeoutState(tout)) {
             bf.clear(EB_TOUT);
             return 1;
@@ -467,7 +467,7 @@ class VirtButton {
     }
 
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [состояние]
-    bool timeoutState(const uint16_t tout) __attribute__((deprecated)) {
+    bool timeoutState(const uint16_t tout) /*__attribute__((deprecated))*/ {
         return (bf.read(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) > tout);
     }
 
