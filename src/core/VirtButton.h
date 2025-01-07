@@ -142,7 +142,7 @@ class VirtButton {
     // установить время таймаута, умолч. 1000 (макс. 4000 мс)
     void setTimeout(const uint16_t tout) {
 #ifndef EB_TOUT_TIME
-        EB_TOUT_T = tout;
+        EB_TOUT_T = tout >> EB_SHIFT;
 #endif
     }
 
