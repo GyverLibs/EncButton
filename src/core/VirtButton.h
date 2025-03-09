@@ -181,6 +181,8 @@ class VirtButton {
     void attach(ActionHandler handler) {
 #ifndef EB_NO_CALLBACK
         cb = handler;
+#else
+        (void)handler;
 #endif
     }
 
@@ -447,6 +449,8 @@ class VirtButton {
                 timeout();  // todo clear tout
             }
         }
+#else
+        (void)force;
 #endif
     }
 
