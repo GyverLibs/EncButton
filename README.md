@@ -428,21 +428,17 @@ int32_t counter;
 // ==================== ОБРАБОТКА ====================
 // опросить энкодер в прерывании. Вернёт 1 или -1 при вращении, 0 при остановке
 int8_t tickISR(bool e0, bool e1);
-int8_t tickISR(int8_t state);
 
 // опросить энкодер. Вернёт 1 или -1 при вращении, 0 при остановке
 int8_t tick(bool e0, bool e1);
-int8_t tick(int8_t state);
 int8_t tick();  // сама обработка в прерывании
 
 // опросить энкодер без сброса события поворота. Вернёт 1 или -1 при вращении, 0 при остановке
 int8_t tickRaw(bool e0, bool e1);
-int8_t tickRaw(int8_t state);
 int8_t tickRaw();  // сама обработка в прерывании
 
 // опросить энкодер без установки флагов на поворот (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
 int8_t pollEnc(bool e0, bool e1);
-int8_t pollEnc(int8_t state);
 ```
 </details>
 <details>
@@ -488,16 +484,13 @@ EBAction getAction();
 // ==================== ОБРАБОТКА ====================
 // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
 int8_t tickISR(bool e0, bool e1);
-int8_t tickISR(int8_t e01);
 
 // обработка энкодера и кнопки
 bool tick(bool e0, bool e1, bool btn);
-bool tick(int8_t e01, bool btn);
 bool tick(bool btn);  // энкодер в прерывании
 
 // обработка энкодера и кнопки без сброса флагов и вызова коллбэка
 bool tickRaw(bool e0, bool e1, bool btn);
-bool tickRaw(int8_t e01, bool btn);
 bool tickRaw(bool btn);  // энкодер в прерывании
 ```
 </details>

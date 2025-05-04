@@ -20,8 +20,7 @@ struct Flags {
         return flags & x;
     }
     inline void write(const T x, const bool v) __attribute__((always_inline)) {
-        if (v) set(x);
-        else clear(x);
+        v ? set(x) : clear(x);
     }
     inline bool eq(const T x, const T y) __attribute__((always_inline)) {
         return (flags & x) == y;
