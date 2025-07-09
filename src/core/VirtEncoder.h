@@ -50,7 +50,7 @@ class VirtEncoder {
 
     // сбросить флаги событий
     void clear() {
-        if (ef.read(EB_ETRN_R)) ef.clear(EB_ETRN_R);
+        ef.clear(EB_ETRN_R);
     }
 
     // ====================== ОПРОС ======================

@@ -165,12 +165,10 @@ class VirtButton {
 
     // принудительно сбросить флаги событий
     void clear(bool resetTout = false) {
-        if (resetTout && bf.read(EB_TOUT)) bf.clear(EB_TOUT);
+        if (resetTout) bf.clear(EB_TOUT);
         if (bf.read(EB_CLKS_R)) clicks = 0;
-        if (bf.read(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R)) {
             bf.clear(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R);
         }
-    }
 
     // игнорировать все события до отпускания кнопки
     void skipEvents() {
@@ -564,7 +562,7 @@ class VirtButton {
             } else if (clicks) {                                                                // есть клики, ждём EB_CLICK_TIME
                 if (bf.read(EB_HLD | EB_STP) || deb >= EB_GET_CLICK_TIME()) bf.set(EB_CLKS_R);  // флаг clicks
 #ifndef EB_NO_FOR
-                else if (ftmr) ftmr = 0;
+                else ftmr = 0;
 #endif
             } else if (bf.read(EB_BUSY)) {
                 bf.clear(EB_HLD | EB_STP | EB_BUSY);
@@ -574,7 +572,7 @@ class VirtButton {
 #endif
                 tmr = ms;  // test!!
             }
-            if (bf.read(EB_DEB)) bf.clear(EB_DEB);  // сброс ожидания нажатия (дебаунс)
+            bf.clear(EB_DEB);  // сброс ожидания нажатия (дебаунс)
         }
         return bf.read(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R);
     }

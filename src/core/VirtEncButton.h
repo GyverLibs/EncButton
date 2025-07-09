@@ -168,8 +168,8 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         if (encf) {
             if (bf.read(EB_PRS)) bf.set(EB_EHLD);  // зажать энкодер
             else clicks = 0;
-            if (!bf.read(EB_TOUT)) bf.set(EB_TOUT);  // таймаут
-            ef.set(EB_ETRN_R);                       // флаг поворота
+            bf.set(EB_TOUT);    // таймаут
+            ef.set(EB_ETRN_R);  // флаг поворота
         }
         return VirtButton::tickRaw(btn) | encf;
     }
