@@ -82,19 +82,19 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     // обработка в прерывании (только энкодер). Вернёт 0 в покое, 1 или -1 при повороте
     int8_t tickISR(const bool e0, const bool e1) {
         int8_t state = VirtEncoder::pollEnc(e0, e1);
-        if (state) {
+        if (!state) return state;
+
 #ifdef EB_NO_BUFFER
-            ef.set(EB_ISR_F);
-            ef.write(EB_DIR, state > 0);
-            ef.write(EB_FAST, _checkFast());
+        ef.set(EB_ISR_F);
+        ef.write(EB_DIR, state > 0);
+        ef.write(EB_FAST, _checkFast());
 #else
-            for (uint8_t i = 0; i < 15; i += EB_BUF_LEN) {
-                if (ebuffer & (EB_BUF_TURN << i)) continue;
-                ebuffer |= (EB_BUF_TURN | ((state > 0) * EB_BUF_DIR) | (_checkFast() * EB_BUF_FAST)) << i;
-                break;
-            }
-#endif
+        for (uint8_t i = 0; i < 15; i += EB_BUF_LEN) {
+            if (ebuffer & (EB_BUF_TURN << i)) continue;
+            ebuffer |= (EB_BUF_TURN | ((state > 0) * EB_BUF_DIR) | (_checkFast() * EB_BUF_FAST)) << i;
+            break;
         }
+#endif
         return state;
     }
 
