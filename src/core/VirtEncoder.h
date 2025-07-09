@@ -29,12 +29,13 @@ class VirtEncoder {
     // ====================== SET ======================
     // инвертировать направление энкодера
     void setEncReverse(const bool rev) {
-        rev ? ef.set(EB_REV) : ef.clear(EB_REV);
+        ef.write(EB_REV, rev);
     }
 
     // установить тип энкодера (EB_STEP4_LOW, EB_STEP4_HIGH, EB_STEP2, EB_STEP1)
     void setEncType(const uint8_t type) {
-        ef.flags = (ef.flags & 0b11111100) | type;
+        ef.clear(0b11111100);
+        ef.set(type);
     }
 
     // использовать обработку энкодера в прерывании
