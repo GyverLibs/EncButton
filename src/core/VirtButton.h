@@ -86,6 +86,7 @@ enum class EBAction {
 #define EB_HLD_R (1 << 2)
 #define EB_STP_R (1 << 3)
 #define EB_REL_R (1 << 4)
+#define EB_ALL_R (EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R)
 
 #define EB_PRS (1 << 5)
 #define EB_HLD (1 << 6)
@@ -167,8 +168,8 @@ class VirtButton {
     void clear(bool resetTout = false) {
         if (resetTout) bf.clear(EB_TOUT);
         if (bf.read(EB_CLKS_R)) clicks = 0;
-            bf.clear(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R);
-        }
+        bf.clear(EB_ALL_R);
+    }
 
     // игнорировать все события до отпускания кнопки
     void skipEvents() {
@@ -327,7 +328,7 @@ class VirtButton {
 
     // было действие с кнопки, вернёт код события [событие]
     uint16_t action() {
-        switch (bf.mask(0b111111111)) {
+        switch (bf.mask(EB_ALL_R | EB_PRS | EB_HLD | EB_STP | EB_REL)) {
             case (EB_PRS | EB_PRS_R): return EB_PRESS;
             case (EB_PRS | EB_HLD | EB_HLD_R): return EB_HOLD;
             case (EB_PRS | EB_HLD | EB_STP | EB_STP_R): return EB_STEP;
@@ -574,6 +575,6 @@ class VirtButton {
             }
             bf.clear(EB_DEB);  // сброс ожидания нажатия (дебаунс)
         }
-        return bf.read(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R);
+        return bf.read(EB_ALL_R);
     }
 };

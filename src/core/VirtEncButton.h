@@ -9,6 +9,11 @@
 #define EB_FAST_T (EB_FAST_TIME)
 #endif
 
+#define EB_BUF_TURN (1 << 0)
+#define EB_BUF_DIR (1 << 1)
+#define EB_BUF_FAST (1 << 2)
+#define EB_BUF_LEN 3
+
 // базовый клас энкодера с кнопкой
 class VirtEncButton : public VirtButton, public VirtEncoder {
    public:
@@ -83,13 +88,10 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
             ef.write(EB_DIR, state > 0);
             ef.write(EB_FAST, _checkFast());
 #else
-            for (uint8_t i = 0; i < 15; i += 3) {
-                if (!(ebuffer & (1 << i))) {
-                    ebuffer |= (1 << i);                          // turn
-                    if (state > 0) ebuffer |= (1 << (i + 1));     // dir
-                    if (_checkFast()) ebuffer |= (1 << (i + 2));  // fast
-                    break;
-                }
+            for (uint8_t i = 0; i < 15; i += EB_BUF_LEN) {
+                if (ebuffer & (EB_BUF_TURN << i)) continue;
+                ebuffer |= (EB_BUF_TURN | ((state > 0) * EB_BUF_DIR) | (_checkFast() * EB_BUF_FAST)) << i;
+                break;
             }
 #endif
         }
@@ -152,9 +154,9 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         }
 #else
         if (ebuffer) {
-            ef.write(EB_DIR, ebuffer & 0b10);
-            ef.write(EB_FAST, ebuffer & 0b100);
-            ebuffer >>= 3;
+            ef.write(EB_DIR, ebuffer & EB_BUF_DIR);
+            ef.write(EB_FAST, ebuffer & EB_BUF_FAST);
+            ebuffer >>= EB_BUF_LEN;
         }
 #endif
         else if (estate) {

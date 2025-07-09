@@ -11,7 +11,7 @@
 #define EB_STEP1 3
 
 // ===================== FLAGS ======================
-#define EB_TYPE (1 << 0)
+#define EB_TYPE ((1 << 0) | (1 << 1))
 #define EB_REV (1 << 2)
 #define EB_FAST (1 << 3)
 #define EB_DIR (1 << 4)
@@ -34,7 +34,7 @@ class VirtEncoder {
 
     // установить тип энкодера (EB_STEP4_LOW, EB_STEP4_HIGH, EB_STEP2, EB_STEP1)
     void setEncType(const uint8_t type) {
-        ef.clear(0b11111100);
+        ef.clear(~EB_TYPE);
         ef.set(type);
     }
 
