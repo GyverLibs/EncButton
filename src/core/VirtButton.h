@@ -206,7 +206,7 @@ class VirtButton {
 
     // кнопка отпущена (в любом случае) [событие]
     bool release() {
-        return bf.eq(EB_REL_R | EB_REL, EB_REL_R | EB_REL);
+        return bf.all(EB_REL_R | EB_REL);
     }
 
     // кнопка отпущена (в любом случае) с предварительными кликами [событие]
@@ -246,7 +246,7 @@ class VirtButton {
 
     // кнопка удерживается (больше таймаута) [состояние]
     bool holding() {
-        return bf.eq(EB_PRS | EB_HLD, EB_PRS | EB_HLD);
+        return bf.all(EB_PRS | EB_HLD);
     }
 
     // кнопка удерживается (больше таймаута) с предварительными кликами [состояние]
@@ -304,7 +304,7 @@ class VirtButton {
 
     // кнопка отпущена после импульсного удержания с предварительными кликами [событие]
     bool releaseStep(const uint8_t num) {
-        return clicks == num && bf.eq(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP);
+        return clicks == num && bf.all(EB_CLKS_R | EB_STP);
     }
 
     // кнопка отпущена после удержания или импульсного удержания [событие]
