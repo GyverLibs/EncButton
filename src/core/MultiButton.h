@@ -12,18 +12,10 @@ class MultiButton : public VirtButton {
         b0.tickRaw();
         b1.tickRaw();
 
-        if (bf.read(EB_BOTH)) {
-            if (!b0.pressing() && !b1.pressing()) bf.clear(EB_BOTH);
-            if (!b0.pressing()) b0.reset();
-            if (!b1.pressing()) b1.reset();
-            b0.clear();
-            b1.clear();
-            return VirtButton::tick(true);
-        } else {
-            if (b0.pressing() && b1.pressing()) bf.set(EB_BOTH);
+        if (!bf.read(EB_BOTH)) {
             b0.call();
             b1.call();
-            return VirtButton::tick(false);
         }
+        return VirtButton::tick(b0, b1);
     }
 };

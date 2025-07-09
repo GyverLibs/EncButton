@@ -317,7 +317,7 @@ class VirtButton {
 
     // кнопка ожидает повторных кликов [состояние]
     bool waiting() {
-        return clicks && bf.eq(EB_PRS | EB_REL, 0);
+        return clicks && !bf.read(EB_PRS | EB_REL);
     }
 
     // идёт обработка [состояние]

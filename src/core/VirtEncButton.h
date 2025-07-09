@@ -133,7 +133,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
    private:
     bool _checkFast() {
         uint16_t ms = EB_uptime();
-        bool f = ms - tmr < EB_FAST_T;
+        bool f = (ms - tmr) < EB_FAST_T;
         tmr = ms;
         return f;
     }
@@ -146,31 +146,29 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
     }
 
     bool _tickRaw(bool btn, int8_t estate = 0) {
-        bool encf = 0;
 #ifdef EB_NO_BUFFER
         if (ef.read(EB_ISR_F)) {
             ef.clear(EB_ISR_F);
-            encf = 1;
         }
 #else
         if (ebuffer) {
             ef.write(EB_DIR, ebuffer & 0b10);
             ef.write(EB_FAST, ebuffer & 0b100);
             ebuffer >>= 3;
-            encf = 1;
         }
 #endif
         else if (estate) {
             ef.write(EB_DIR, estate > 0);
             ef.write(EB_FAST, _checkFast());
-            encf = 1;
         }
-        if (encf) {
-            if (bf.read(EB_PRS)) bf.set(EB_EHLD);  // зажать энкодер
-            else clicks = 0;
-            bf.set(EB_TOUT);    // таймаут
-            ef.set(EB_ETRN_R);  // флаг поворота
-        }
-        return VirtButton::tickRaw(btn) | encf;
+        else return VirtButton::tickRaw(btn);
+
+        if (bf.read(EB_PRS)) bf.set(EB_EHLD);  // зажать энкодер
+        else clicks = 0;
+        bf.set(EB_TOUT);    // таймаут
+        ef.set(EB_ETRN_R);  // флаг поворота
+
+        VirtButton::tickRaw(btn);
+        return true;
     }
 };

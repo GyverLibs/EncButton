@@ -97,12 +97,7 @@ class VirtEncoder {
         int8_t state = tickRaw();
         if (state) return state;
 
-        state = pollEnc(e0, e1);
-        if (state) {
-            ef.write(EB_DIR, state > 0);
-            ef.set(EB_ETRN_R);
-        }
-        return state;
+        return tickISR(e0, e1);
     }
 
     // опросить энкодер без сброса события поворота (сам опрос в прерывании)
