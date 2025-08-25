@@ -25,6 +25,9 @@ struct Flags {
     inline bool eq(const T x, const T y) __attribute__((always_inline)) {
         return (flags & x) == y;
     }
+    inline bool all(const T x) __attribute__((always_inline)) {
+        return eq(x, x);
+    }
 };
 
 }  // namespace encb
