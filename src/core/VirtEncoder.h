@@ -11,7 +11,7 @@
 #define EB_STEP1 3
 
 // ===================== FLAGS ======================
-#define EB_TYPE (1 << 0)
+#define EB_TYPE ((1 << 0) | (1 << 1))
 #define EB_REV (1 << 2)
 #define EB_FAST (1 << 3)
 #define EB_DIR (1 << 4)
@@ -29,12 +29,13 @@ class VirtEncoder {
     // ====================== SET ======================
     // инвертировать направление энкодера
     void setEncReverse(const bool rev) {
-        rev ? ef.set(EB_REV) : ef.clear(EB_REV);
+        ef.write(EB_REV, rev);
     }
 
     // установить тип энкодера (EB_STEP4_LOW, EB_STEP4_HIGH, EB_STEP2, EB_STEP1)
     void setEncType(const uint8_t type) {
-        ef.flags = (ef.flags & 0b11111100) | type;
+        ef.clear(~EB_TYPE);
+        ef.set(type);
     }
 
     // использовать обработку энкодера в прерывании
@@ -49,7 +50,7 @@ class VirtEncoder {
 
     // сбросить флаги событий
     void clear() {
-        if (ef.read(EB_ETRN_R)) ef.clear(EB_ETRN_R);
+        ef.clear(EB_ETRN_R);
     }
 
     // ====================== ОПРОС ======================
@@ -98,49 +99,47 @@ class VirtEncoder {
 
         state = pollEnc(e0, e1);
         if (state) {
-            ef.write(EB_DIR, state > 0);
             ef.set(EB_ETRN_R);
+            ef.write(EB_DIR, state > 0);
         }
         return state;
     }
 
     // опросить энкодер без сброса события поворота (сам опрос в прерывании)
     int8_t tickRaw() {
-        if (ef.read(EB_ISR_F)) {
-            ef.clear(EB_ISR_F);
-            ef.set(EB_ETRN_R);
-            return dir();
-        }
-        return 0;
+        if (!ef.read(EB_ISR_F)) return 0;
+
+        ef.clear(EB_ISR_F);
+        ef.set(EB_ETRN_R);
+        return dir();
     }
 
     // POLL
     // опросить энкодер без установки события поворота (быстрее). Вернёт 1 или -1 при вращении, 0 при остановке
     int8_t pollEnc(const bool e0, const bool e1) {
-        if (p0 ^ p1 ^ e0 ^ e1) {
-            (p1 ^ e0) ? ++epos : --epos;
-            p0 = e0, p1 = e1;
-            if (!epos) return 0;
+        if (!(p0 ^ p1 ^ e0 ^ e1)) return 0;
 
-            switch (ef.mask(0b11)) {
-                case EB_STEP4_LOW:
-                    if (!(e0 & e1)) return 0;  // skip 01, 10, 00
-                    break;
-                case EB_STEP4_HIGH:
-                    if (e0 | e1) return 0;  // skip 01, 10, 11
-                    break;
-                case EB_STEP2:
-                    if (e0 ^ e1) return 0;  // skip 10 01
-                    break;
-            }
-            int8_t state = ((epos > 0) ^ ef.read(EB_REV)) ? -1 : 1;
-            epos = 0;
-#ifndef EB_NO_COUNTER
-            counter += state;
-#endif
-            return state;
+        (p1 ^ e0) ? ++epos : --epos;
+        p0 = e0, p1 = e1;
+        if (!epos) return 0;
+
+        switch (ef.mask(0b11)) {
+            case EB_STEP4_LOW:
+                if (!(e0 & e1)) return 0;  // skip 01, 10, 00
+                break;
+            case EB_STEP4_HIGH:
+                if (e0 | e1) return 0;  // skip 01, 10, 11
+                break;
+            case EB_STEP2:
+                if (e0 ^ e1) return 0;  // skip 10 01
+                break;
         }
-        return 0;
+        int8_t state = ((epos > 0) ^ ef.read(EB_REV)) ? -1 : 1;
+        epos = 0;
+#ifndef EB_NO_COUNTER
+        counter += state;
+#endif
+        return state;
     }
 
 #ifndef EB_NO_COUNTER

@@ -33,6 +33,11 @@ class Button : public VirtButton {
         return VirtButton::tickRaw(EB_read(pin));
     }
 
+    // получить пин кнопки
+    uint8_t getPin() {
+        return pin;
+    }
+
    private:
     uint8_t pin;
 };

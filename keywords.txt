@@ -89,7 +89,6 @@ tickRaw	KEYWORD2
 tickISR	KEYWORD2
 tick	KEYWORD2
 readBtn	KEYWORD2
-readEnc	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

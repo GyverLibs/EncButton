@@ -216,7 +216,6 @@ Thus, to study all the available functions of a particular library, you need to 
 
 ||Virtencoder |Encoder |Virtencbutton |Encbutton |
 | -------------- |: ----------------------------- |: -------: |: -----------------------------: |: ---------: |
-|Readenc ||||✔ |
 |Initenc |✔ |✔ |✔ |✔ |
 |Setencreverse |✔ |✔ |✔ |✔ |
 |Setenctype |✔ |✔ |✔ |✔ |
@@ -591,9 +590,6 @@ Bool Tick ();
 
 // Read the value of the button taking into account Setbtnlevel
 Bool Readbtn ();
-
-// Read the value of the encoder
-Int8_T Readenc ();
 `` `
 </details>
 <details>
@@ -622,9 +618,6 @@ Bool Tick ();
 
 // Read the button value
 Bool Readbtn ();
-
-// Read the value of the encoder
-Int8_T Readenc ();
 `` `
 </details>
 

@@ -86,6 +86,7 @@ enum class EBAction {
 #define EB_HLD_R (1 << 2)
 #define EB_STP_R (1 << 3)
 #define EB_REL_R (1 << 4)
+#define EB_ALL_R (EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R)
 
 #define EB_PRS (1 << 5)
 #define EB_HLD (1 << 6)
@@ -165,11 +166,9 @@ class VirtButton {
 
     // принудительно сбросить флаги событий
     void clear(bool resetTout = false) {
-        if (resetTout && bf.read(EB_TOUT)) bf.clear(EB_TOUT);
+        if (resetTout) bf.clear(EB_TOUT);
         if (bf.read(EB_CLKS_R)) clicks = 0;
-        if (bf.read(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R)) {
-            bf.clear(EB_CLKS_R | EB_STP_R | EB_PRS_R | EB_HLD_R | EB_REL_R);
-        }
+        bf.clear(EB_ALL_R);
     }
 
     // игнорировать все события до отпускания кнопки
@@ -206,7 +205,7 @@ class VirtButton {
 
     // кнопка отпущена (в любом случае) [событие]
     bool release() {
-        return bf.eq(EB_REL_R | EB_REL, EB_REL_R | EB_REL);
+        return bf.all(EB_REL_R | EB_REL);
     }
 
     // кнопка отпущена (в любом случае) с предварительными кликами [событие]
@@ -246,7 +245,7 @@ class VirtButton {
 
     // кнопка удерживается (больше таймаута) [состояние]
     bool holding() {
-        return bf.eq(EB_PRS | EB_HLD, EB_PRS | EB_HLD);
+        return bf.all(EB_PRS | EB_HLD);
     }
 
     // кнопка удерживается (больше таймаута) с предварительными кликами [состояние]
@@ -304,7 +303,7 @@ class VirtButton {
 
     // кнопка отпущена после импульсного удержания с предварительными кликами [событие]
     bool releaseStep(const uint8_t num) {
-        return clicks == num && bf.eq(EB_CLKS_R | EB_STP, EB_CLKS_R | EB_STP);
+        return clicks == num && bf.all(EB_CLKS_R | EB_STP);
     }
 
     // кнопка отпущена после удержания или импульсного удержания [событие]
@@ -319,7 +318,7 @@ class VirtButton {
 
     // кнопка ожидает повторных кликов [состояние]
     bool waiting() {
-        return clicks && bf.eq(EB_PRS | EB_REL, 0);
+        return clicks && !bf.read(EB_PRS | EB_REL);
     }
 
     // идёт обработка [состояние]
@@ -329,7 +328,7 @@ class VirtButton {
 
     // было действие с кнопки, вернёт код события [событие]
     uint16_t action() {
-        switch (bf.mask(0b111111111)) {
+        switch (bf.mask(EB_ALL_R | EB_PRS | EB_HLD | EB_STP | EB_REL)) {
             case (EB_PRS | EB_PRS_R): return EB_PRESS;
             case (EB_PRS | EB_HLD | EB_HLD_R): return EB_HOLD;
             case (EB_PRS | EB_HLD | EB_STP | EB_STP_R): return EB_STEP;
@@ -416,10 +415,10 @@ class VirtButton {
             if (!b1.pressing()) b1.reset();
             b0.clear();
             b1.clear();
-            return tick(1);
+            return tick(true);
         } else {
             if (b0.pressing() && b1.pressing()) bf.set(EB_BOTH);
-            return tick(0);
+            return tick(false);
         }
     }
 
@@ -456,11 +455,11 @@ class VirtButton {
 
     uint8_t clicks;
 
-    // deprecated
+    // ===================== DEPRECATED =====================
     void setButtonLevel(bool level) __attribute__((deprecated)) {
         bf.write(EB_INV, !level);
     }
-    
+
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [событие]
     bool timeout(const uint16_t tout) /*__attribute__((deprecated))*/ {
         if (timeoutState(tout)) {
@@ -474,6 +473,14 @@ class VirtButton {
     bool timeoutState(const uint16_t tout) /*__attribute__((deprecated))*/ {
         return (bf.read(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) > tout);
     }
+
+    bool isStep() __attribute__((deprecated)) { return step(); }
+    bool isHold() __attribute__((deprecated)) { return holding(); }
+    bool isHolded() __attribute__((deprecated)) { return hold(); }
+    bool isHeld() __attribute__((deprecated)) { return hold(); }
+    bool isClick() __attribute__((deprecated)) { return click(); }
+    bool isRelease() __attribute__((deprecated)) { return release(); }
+    bool isPress() __attribute__((deprecated)) { return press(); }
 
     // ====================== PRIVATE ======================
    protected:
@@ -564,7 +571,7 @@ class VirtButton {
             } else if (clicks) {                                                                // есть клики, ждём EB_CLICK_TIME
                 if (bf.read(EB_HLD | EB_STP) || deb >= EB_GET_CLICK_TIME()) bf.set(EB_CLKS_R);  // флаг clicks
 #ifndef EB_NO_FOR
-                else if (ftmr) ftmr = 0;
+                else ftmr = 0;
 #endif
             } else if (bf.read(EB_BUSY)) {
                 bf.clear(EB_HLD | EB_STP | EB_BUSY);
@@ -576,6 +583,6 @@ class VirtButton {
             }
             if (bf.read(EB_DEB)) bf.clear(EB_DEB);  // сброс ожидания нажатия (дебаунс)
         }
-        return bf.read(EB_CLKS_R | EB_PRS_R | EB_HLD_R | EB_STP_R | EB_REL_R);
+        return bf.read(EB_ALL_R);
     }
 };

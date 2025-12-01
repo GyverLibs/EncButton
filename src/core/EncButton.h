@@ -46,6 +46,21 @@ class EncButton : public VirtEncButton {
         return EB_read(b) ^ bf.read(EB_INV);
     }
 
+    // получить пин кнопки
+    uint8_t getPin() {
+        return b;
+    }
+
+    // получить пин энкодера
+    uint8_t getPinA() {
+        return e0;
+    }
+
+    // получить пин энкодера
+    uint8_t getPinB() {
+        return e1;
+    }
+
     // ===================== PRIVATE =====================
    private:
     uint8_t e0, e1, b;

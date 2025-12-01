@@ -36,6 +36,16 @@ class Encoder : public VirtEncoder {
         return ef.read(EB_EISR) ? VirtEncoder::tickRaw() : VirtEncoder::tickRaw(EB_read(e0), EB_read(e1));
     }
 
+    // получить пин энкодера
+    uint8_t getPinA() {
+        return e0;
+    }
+
+    // получить пин энкодера
+    uint8_t getPinB() {
+        return e1;
+    }
+
    private:
     uint8_t e0, e1;
 };
