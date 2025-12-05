@@ -39,7 +39,7 @@
 - Полноценная навигация по меню при использовании двух кнопок (одновременное удержание для перехода на следующий уровень, одновременное нажатие для возврата на предыдущий)
 - И так далее
 
-|       | EncButton | EncButton opti | https://github.com/GyverLibs/uButton | https://github.com/GyverLibs/GyverButton |
+|       | EncButton | EncButton opti | [uButton](https://github.com/GyverLibs/uButton) | [GyverButton](https://github.com/GyverLibs/GyverButton) |
 |-------|-----------|----------------|---------|-------------|
 | RAM   | 15        | 6              | 6       | 23          |
 | Flash | 960       | 562            | 744     | 1094        |
