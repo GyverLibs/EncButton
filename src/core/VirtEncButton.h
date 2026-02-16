@@ -44,22 +44,22 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 
     // поворот направо [событие]
     bool right() {
-        return ef.read(EB_DIR) && turn() && !bf.read(EB_EHLD);
+        return ef.eq(EB_ETRN_R | EB_DIR, EB_ETRN_R | EB_DIR) && !bf.read(EB_EHLD);
     }
 
     // поворот налево [событие]
     bool left() {
-        return !ef.read(EB_DIR) && turn() && !bf.read(EB_EHLD);
+        return ef.eq(EB_ETRN_R | EB_DIR, EB_ETRN_R) && !bf.read(EB_EHLD);
     }
 
     // нажатый поворот направо [событие]
     bool rightH() {
-        return ef.read(EB_DIR) && turnH();
+        return ef.eq(EB_ETRN_R | EB_DIR, EB_ETRN_R | EB_DIR) && bf.read(EB_EHLD);
     }
 
     // нажатый поворот налево [событие]
     bool leftH() {
-        return !ef.read(EB_DIR) && turnH();
+        return ef.eq(EB_ETRN_R | EB_DIR, EB_ETRN_R) && bf.read(EB_EHLD);
     }
 
     // нажата кнопка энкодера. Аналог pressing() [состояние]

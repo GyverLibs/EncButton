@@ -41,10 +41,11 @@
 
 Вес в Байтах по сравнению с другими библиотеками (опрос пяти событий кнопки):
 
-|       | EncButton | EncButton opti | [uButton](https://github.com/GyverLibs/uButton) | [GyverButton](https://github.com/GyverLibs/GyverButton) |
-|-------|-----------|----------------|---------|-------------|
-| RAM   | 15        | 6              | 6       | 23          |
-| Flash | 960       | 562            | 744     | 1094        |
+|              | [uButton](https://github.com/GyverLibs/uButton) | [EncButton](https://github.com/GyverLibs/EncButton) | [EncButton opti](https://github.com/GyverLibs/EncButton) | [GyverButton](https://github.com/GyverLibs/GyverButton) | [OneButton](https://github.com/mathertel/OneButton) | [OneButtonTiny](https://github.com/mathertel/OneButton) | [JC_Button](https://github.com/JChristensen/JC_Button) |
+|--------------|-------------------------------------------------|-----------------------------------------------------|----------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------|
+| Flash        | 776                                             | 1006                                                | 610                                                      | 1054                                                    | 1838                                                | 1152                                                    | 650                                                    |
+| SRAM         | 6                                               | 15                                                  | 6                                                        | 23                                                      | 83                                                  | 36                                                      | 24                                                     |
+| Возможностей | Очень много (20+)                               | Очень много (20+)                                   | Очень много (20+)                                        | Много (13)                                              | Средне (8)                                          | Мало (4)                                                | Крайне мало (6)                                        |
 
 ### Совместимость
 Совместима со всеми Arduino платформами (используются Arduino-функции)
