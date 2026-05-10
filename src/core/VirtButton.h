@@ -441,12 +441,10 @@ class VirtButton {
     void call(bool force = false) {  // todo force заменить на флаг
 #ifndef EB_NO_CALLBACK
         if (cb && (force || action())) {
-            if (cb) {
-                EB_self = this;
-                cb();
-                EB_self = nullptr;
-                timeout();  // todo clear tout
-            }
+            EB_self = this;
+            cb();
+            EB_self = nullptr;
+            timeout();  // todo clear tout
         }
 #else
         (void)force;
