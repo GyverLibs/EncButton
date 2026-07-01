@@ -5,7 +5,7 @@ namespace encb {
 
 template <typename T>
 struct Flags {
-    T flags = 0;
+    volatile T flags = 0;
 
     inline T mask(const T x) __attribute__((always_inline)) {
         return flags & x;

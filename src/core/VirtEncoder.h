@@ -64,6 +64,41 @@ class VirtEncoder {
         return ef.read(EB_DIR) ? 1 : -1;
     }
 
+#ifndef EB_NO_COUNTER
+    // атомарно получить счётчик при опросе энкодера в прерывании
+    int32_t getCounter() const {
+#ifdef __AVR__
+        uint8_t sreg = SREG;
+        noInterrupts();
+#else
+        noInterrupts();
+#endif
+        int32_t value = counter;
+#ifdef __AVR__
+        SREG = sreg;
+#else
+        interrupts();
+#endif
+        return value;
+    }
+
+    // атомарно установить счётчик при опросе энкодера в прерывании
+    void setCounter(int32_t value) {
+#ifdef __AVR__
+        uint8_t sreg = SREG;
+        noInterrupts();
+#else
+        noInterrupts();
+#endif
+        counter = value;
+#ifdef __AVR__
+        SREG = sreg;
+#else
+        interrupts();
+#endif
+    }
+#endif
+
     // ====================== POLL ======================
     // ISR
     // опросить энкодер в прерывании. Вернёт 1 или -1 при вращении, 0 при остановке
@@ -143,7 +178,7 @@ class VirtEncoder {
     }
 
 #ifndef EB_NO_COUNTER
-    int32_t counter = 0;
+    volatile int32_t counter = 0;
 #endif
 
     // ===================== PRIVATE =====================

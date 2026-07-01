@@ -854,6 +854,9 @@ eb.counter += 1234;         // change
 eb.counter = 0;             // zero down
 ```
 
+When polling the encoder in an interrupt, use `getCounter()` and
+`setCounter(value)` for atomic access to the 32-bit counter on AVR.
+
 #### Processing the encoder with a button
 - Rotating the encoder with a pressed button removes and blocks all subsequent events and clicks, except for the event.`release`. The state of the pressed button does not change.
 - Rotating the encoder also affects the system timeout (function)`timeout()`) - will work within the specified time after turning the encoder

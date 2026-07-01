@@ -138,7 +138,7 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
 #endif
 
 #ifndef EB_NO_BUFFER
-    uint16_t ebuffer = 0;
+    volatile uint16_t ebuffer = 0;
 #endif
 
    private:
@@ -162,10 +162,10 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
             ef.clear(EB_ISR_F);
         }
 #else
-        if (ebuffer) {
-            ef.write(EB_DIR, ebuffer & EB_BUF_DIR);
-            ef.write(EB_FAST, ebuffer & EB_BUF_FAST);
-            ebuffer >>= EB_BUF_LEN;
+        uint8_t event = _readBuffer();
+        if (event) {
+            ef.write(EB_DIR, event & EB_BUF_DIR);
+            ef.write(EB_FAST, event & EB_BUF_FAST);
         }
 #endif
         else if (estate) {
@@ -183,4 +183,23 @@ class VirtEncButton : public VirtButton, public VirtEncoder {
         VirtButton::tickRaw(btn);
         return true;
     }
+
+#ifndef EB_NO_BUFFER
+    uint8_t _readBuffer() {
+#ifdef __AVR__
+        uint8_t sreg = SREG;
+        noInterrupts();
+#else
+        noInterrupts();
+#endif
+        uint8_t event = ebuffer & ((1 << EB_BUF_LEN) - 1);
+        ebuffer >>= EB_BUF_LEN;
+#ifdef __AVR__
+        SREG = sreg;
+#else
+        interrupts();
+#endif
+        return event;
+    }
+#endif
 };

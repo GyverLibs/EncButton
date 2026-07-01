@@ -122,7 +122,7 @@ class VirtButton {
     // установить таймаут импульсного удержания, умолч. 200 (макс. 4000 мс)
     void setStepTimeout(const uint16_t tout) {
 #ifndef EB_STEP_TIME
-        EB_STEP_T = tout >> EB_SHIFT;
+        EB_STEP_T = (tout >> EB_SHIFT) ? (tout >> EB_SHIFT) : 1;
 #endif
     }
 
@@ -281,7 +281,8 @@ class VirtButton {
     // получить количество степов
     uint16_t getSteps() {
 #ifndef EB_NO_FOR
-        return ftmr ? ((stepFor() + EB_GET_STEP_TIME() - 1) / EB_GET_STEP_TIME()) : 0;  // (x + y - 1) / y
+        uint16_t step = EB_GET_STEP_TIME();
+        return (ftmr && step) ? ((stepFor() + step - 1) / step) : 0;  // (x + y - 1) / y
 #endif
         return 0;
     }
@@ -441,9 +442,10 @@ class VirtButton {
     void call(bool force = false) {  // todo force заменить на флаг
 #ifndef EB_NO_CALLBACK
         if (cb && (force || action())) {
+            void* prev = EB_self;
             EB_self = this;
             cb();
-            EB_self = nullptr;
+            EB_self = prev;
             timeout();  // todo clear tout
         }
 #else
@@ -451,7 +453,7 @@ class VirtButton {
 #endif
     }
 
-    uint8_t clicks;
+    uint8_t clicks = 0;
 
     // ===================== DEPRECATED =====================
     void setButtonLevel(bool level) __attribute__((deprecated)) {
@@ -469,7 +471,7 @@ class VirtButton {
 
     // после взаимодействия с кнопкой (или энкодером EncButton) прошло указанное время, мс [состояние]
     bool timeoutState(const uint16_t tout) /*__attribute__((deprecated))*/ {
-        return (bf.read(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) > tout);
+        return (bf.read(EB_TOUT) && (uint16_t)((uint16_t)EB_uptime() - tmr) >= tout);
     }
 
     bool isStep() __attribute__((deprecated)) { return step(); }
@@ -555,7 +557,7 @@ class VirtButton {
         } else {                                       // кнопка не нажата
             if (bf.read(EB_PRS)) {                     // но была нажата
                 if (deb >= EB_DEB_T) {                 // ждём EB_DEB_TIME
-                    if (!bf.read(EB_HLD)) clicks++;    // не удерживали - это клик
+                    if (!bf.read(EB_HLD) && clicks != UINT8_MAX) clicks++;  // не удерживали - это клик
                     if (bf.read(EB_EHLD)) clicks = 0;  //
                     bf.set(EB_REL | EB_REL_R);         // флаг release
                     bf.clear(EB_PRS);                  // кнопка отпущена
