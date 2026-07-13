@@ -5,8 +5,9 @@
 #include "io.h"
 #include "self.h"
 
-#ifndef __AVR__
+#if !defined(EB_NO_CALLBACK) && (defined(ESP8266) || defined(ESP32))
 #include <functional>
+#define EB_HAS_STD_FUNCTION_CALLBACK
 #endif
 
 // ===================== FLAGS ======================
@@ -104,10 +105,10 @@ enum class EBAction {
 
 // базовый класс кнопки
 class VirtButton {
-#ifdef __AVR__
-    typedef void (*ActionHandler)();
-#else
+#ifdef EB_HAS_STD_FUNCTION_CALLBACK
     typedef std::function<void()> ActionHandler;
+#else
+    typedef void (*ActionHandler)();
 #endif
 
    public:
@@ -554,13 +555,13 @@ class VirtButton {
                     }
                 }
             }
-        } else {                                       // кнопка не нажата
-            if (bf.read(EB_PRS)) {                     // но была нажата
-                if (deb >= EB_DEB_T) {                 // ждём EB_DEB_TIME
+        } else {                                                            // кнопка не нажата
+            if (bf.read(EB_PRS)) {                                          // но была нажата
+                if (deb >= EB_DEB_T) {                                      // ждём EB_DEB_TIME
                     if (!bf.read(EB_HLD) && clicks != UINT8_MAX) clicks++;  // не удерживали - это клик
-                    if (bf.read(EB_EHLD)) clicks = 0;  //
-                    bf.set(EB_REL | EB_REL_R);         // флаг release
-                    bf.clear(EB_PRS);                  // кнопка отпущена
+                    if (bf.read(EB_EHLD)) clicks = 0;                       //
+                    bf.set(EB_REL | EB_REL_R);                              // флаг release
+                    bf.clear(EB_PRS);                                       // кнопка отпущена
                 }
             } else if (bf.read(EB_REL)) {
                 if (!bf.read(EB_EHLD)) {
